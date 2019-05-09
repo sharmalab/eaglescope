@@ -1,0 +1,26 @@
+{
+  "name": "datascope",
+  "version": "1.0.0",
+  "description": "Data Cohort Visualization ",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run-script build",
+    "build": "parcel build source/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/sharmalab/datascope.git"
+  },
+  "keywords": [
+    "data",
+    "datascope",
+    "visualization",
+    "cohort"
+  ],
+  "author": "birm",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "parcel-bundler": "^1.12.3",
+    "react": "^16.8.6"
+  }
+}
