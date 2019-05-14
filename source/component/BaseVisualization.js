@@ -17,8 +17,9 @@ class BaseVisualization extends React.Component {
     this.state.baseData = [];
     // filteredData is data with all active filters
     this.state.filteredData = [];
-    // does the visualization support
+    // does the visualization support...
     this.supportsContext = true;
+    this.supportsInteraction = true
     // bind methods
     this.filterIn = this.filterIn.bind(this)
     this.filterOut = this.filterOut.bind(this)
@@ -27,21 +28,23 @@ class BaseVisualization extends React.Component {
     // TODO
   }
   // to be fired when a filter is selected in the component
-  filterIn(f){
-    this.setState(prevState=>{prevState.filter = f})
+  filterIn(f) {
+    this.setState(prevState => {
+      prevState.filter = f
+    })
   }
   // to be fired when data
-  filterOut(d){
+  filterOut(d) {
     // we got new data
   }
-  initData(d){
+  initData(d) {
     this.state.baseData = d;
     this.state.filteredData = d;
   }
   // TODO include other react lifecycle methods
   render() {
     console.warn("Not meant to render BaseVis itself...")
-    return <p>BaseVisualization</p>;
+    return <p> BaseVisualization </p>;
   }
 }
 
