@@ -1,4 +1,4 @@
-import React
+import React from 'react';
 
 class BaseVisualization extends React.Component {
   constructor(props, ctx) {

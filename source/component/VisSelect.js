@@ -1,5 +1,5 @@
-import React
-import VisTypes from ./VisTypes.js
+import React from 'react';
+import VisTypes from './VisTypes.js'
 
 // if we want a user to select their visualization
 
