@@ -1,5 +1,5 @@
-import React
-import BaseVisualization from. / BaseVisualization.js
+import React from 'react';
+import BaseVisualization from './BaseVisualization.js'
 
 // should only have to worry about rendering
 class SampleVisualization extends BaseVisualization {
@@ -7,7 +7,7 @@ class SampleVisualization extends BaseVisualization {
     super(props, ctx);
   }
   render() {
-    <p> Sample Vis </p>
+    return <p> Sample Vis </p>
   }
 }
 
