@@ -5,6 +5,7 @@ class BaseVisualization extends React.Component {
     super(props, ctx);
     this.props = props;
     this.ctx = ctx;
+    this.id = props.id || '_' + Math.random().toString(36).substr(2, 9);
     // h and w, grid units(?)
     this.height = this.props.h || this.props.height || 1
     this.width = this.props.w || this.props.width || 1
@@ -24,22 +25,31 @@ class BaseVisualization extends React.Component {
     this.filterIn = this.filterIn.bind(this)
     this.filterOut = this.filterOut.bind(this)
     this.initData = this.initData.bind(this)
-    // REGISTER itself
-    // TODO
+    // REGISTER self to filter event
+    window.addEventListner("filterOut", this.filterOut, false)
+    window.addEventListner("initData", this.initData, false)
   }
   // to be fired when a filter is selected in the component
   filterIn(f) {
     this.setState(prevState => {
       prevState.filter = f
     })
+    let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
+    window.dispatchEvent(ev)
   }
   // to be fired when data
-  filterOut(d) {
-    // we got new data
+  filterOut(e) {
+    d = e.detail.data
+    this.setState(prevState => {
+      prevState.filteredData = d
+    })
   }
-  initData(d) {
-    this.state.baseData = d;
-    this.state.filteredData = d;
+  initData(e) {
+    d = e.detail.data
+    this.setState(prevState => {
+      prevState.baseData = d;
+      prevState.filteredData = d
+    })
   }
   // TODO include other react lifecycle methods
   render() {
