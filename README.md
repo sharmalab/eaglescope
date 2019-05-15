@@ -3,6 +3,6 @@ Cohort Visualization and Selection
 
 ## Development
 Install dependencies -- `npm install`
-Build app -- `parcel build source/index.html`
+Build app -- `npm run-script build`
 
 See 'Visualizations.md' for how to create visualizations.

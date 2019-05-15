@@ -7,7 +7,7 @@ class SampleVisualization extends BaseVisualization {
     super(props, ctx);
   }
   render() {
-    <p> Sample Vis </p>
+    return <p> Sample Vis </p>
   }
 }
 

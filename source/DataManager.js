@@ -1,10 +1,11 @@
-// handle data events
+import Events from './Events.js'
+// handle data Events
 class DataManager{
   constructor(){
     this.dataSource = null;
     this.filter = {}
-    window.addEventListner("filterIn", this.filter, false)
-    window.addEventListner("dataSourceReady", this.initialize, false)
+    window.addEventListener("filterIn", this.filter, false)
+    window.addEventListener("dataSourceReady", this.initialize, false)
   }
   filter(e){
     filter = e.detail.filter
@@ -14,7 +15,7 @@ class DataManager{
     var data = this.dataSource.data(this.filter)
     // send event with new data
     let ev = new CustomEvent("filterOut", {detail:{data:data}})
-    window.dispatchEvent(ev)
+    Events.dispatchEvent(ev)
   }
   initialize(ds){
     ds = this.detail.dataSource
@@ -22,7 +23,7 @@ class DataManager{
     var data = this.dataSource.data({})
     // send init event with data
     let ev = new CustomEvent("initData", {detail:{data:data}})
-    window.dispatchEvent(ev)
+    Events.dispatchEvent(ev)
   }
 
 }

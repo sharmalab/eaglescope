@@ -1,4 +1,5 @@
 import React from 'react';
+import Events from '../Events.js'
 
 class BaseVisualization extends React.Component {
   constructor(props, ctx) {
@@ -26,8 +27,8 @@ class BaseVisualization extends React.Component {
     this.filterOut = this.filterOut.bind(this)
     this.initData = this.initData.bind(this)
     // REGISTER self to filter event
-    window.addEventListner("filterOut", this.filterOut, false)
-    window.addEventListner("initData", this.initData, false)
+    window.addEventListener("filterOut", this.filterOut, false)
+    window.addEventListener("initData", this.initData, false)
   }
   // to be fired when a filter is selected in the component
   filterIn(f) {
@@ -35,7 +36,7 @@ class BaseVisualization extends React.Component {
       prevState.filter = f
     })
     let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
-    window.dispatchEvent(ev)
+    Events.dispatchEvent(ev)
   }
   // to be fired when data
   filterOut(e) {
