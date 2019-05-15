@@ -1,5 +1,4 @@
 import React from 'react';
-import Events from '../Events.js'
 
 class BaseVisualization extends React.Component {
   constructor(props, ctx) {
