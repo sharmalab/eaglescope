@@ -15,6 +15,7 @@ class DataManager{
       // send event with new data
       let ev = new CustomEvent("filterOut", {detail:{data:data}})
       window.dispatchEvent(ev)
+      console.info("filterOut event: ", ev)
     })
 
   }
@@ -25,6 +26,7 @@ class DataManager{
       // send init event with data
       let ev = new CustomEvent("initData", {detail:{data:data}})
       window.dispatchEvent(ev)
+      console.info("init event: ", ev)
     })
 
   }

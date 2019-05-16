@@ -36,6 +36,7 @@ class BaseVisualization extends React.Component {
     })
     let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
     Events.dispatchEvent(ev)
+    console.info("filterIn event: ", ev)
   }
   // to be fired when data
   filterOut(e) {
