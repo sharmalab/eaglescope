@@ -31,7 +31,7 @@ class BaseVisualization extends React.Component {
   }
   // to be fired when a filter is selected in the component
   filterIn(f) {
-    this.setState(prevState => {
+    this.setState((prevState, props) => {
       prevState.filter = f
     })
     let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
@@ -40,17 +40,20 @@ class BaseVisualization extends React.Component {
   }
   // to be fired when data
   filterOut(e) {
-    d = e.detail.data
-    this.setState(prevState => {
+    let d = e.detail.data
+      this.setState((prevState, props) => {
       prevState.filteredData = d
     })
+    this.forceUpdate(console.log)
   }
   initData(e) {
-    d = e.detail.data
-    this.setState(prevState => {
+    let d = e.detail.data
+    this.setState((prevState, props) => {
       prevState.baseData = d;
       prevState.filteredData = d
+      prevState.ready = true;
     })
+    this.forceUpdate(console.log)
   }
   // TODO include other react lifecycle methods
   render() {

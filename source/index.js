@@ -6,7 +6,7 @@ import RestDataSource from "./RestDataSource.js"
 import VisTypes from "./component/VisTypes.js"
 import { render } from "react-dom";
 
-const data_url = ""
+const data_url = "https://jsonplaceholder.typicode.com/todos/"
 
 var __DM = new DataManager()
 var __DS = new RestDataSource(data_url)
