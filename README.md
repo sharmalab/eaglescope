@@ -2,7 +2,8 @@
 Cohort Visualization and Selection
 
 ## Development
-Install dependencies -- `npm install`
-Build app -- `npm run-script build`
+Install dependencies using `npm install`
+
+Build app using `npm run-script build`
 
 See 'Visualizations.md' for how to create visualizations.

@@ -11,18 +11,24 @@ class DataManager{
     // TODO -- combine filters, unless filter is reset all
     this.filter = filter;
     // get filtered data
-    var data = this.dataSource.data(this.filter)
-    // send event with new data
-    let ev = new CustomEvent("filterOut", {detail:{data:data}})
-    window.dispatchEvent(ev)
+    this.dataSource.data(this.filter).then(data=>{
+      // send event with new data
+      let ev = new CustomEvent("filterOut", {detail:{data:data}})
+      window.dispatchEvent(ev)
+    })
+
   }
   initialize(ds){
     ds = this.detail.dataSource
     this.dataSource = ds;
-    var data = this.dataSource.data({})
-    // send init event with data
-    let ev = new CustomEvent("initData", {detail:{data:data}})
-    window.dispatchEvent(ev)
+    this.dataSource.data({}).then(data=>{
+      // send init event with data
+      let ev = new CustomEvent("initData", {detail:{data:data}})
+      window.dispatchEvent(ev)
+    })
+
   }
 
 }
+
+export default DataManager
