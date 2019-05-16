@@ -31,4 +31,11 @@ function filterData(data, rules){
   })
 }
 
-export default filterData
+function filterMerge(filter, additions){
+  return filter
+}
+
+
+var filterTools = {filterData:filterData, filterMerge, filterMerge}
+
+export default filterTools
