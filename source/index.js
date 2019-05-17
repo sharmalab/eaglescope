@@ -12,6 +12,8 @@ var __DM = new DataManager()
 var __DS = new RestDataSource(data_url)
 
 var dotPlotSpec = JSON.stringify({
+  "width": 400,
+  "height": 200,
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   "mark": "tick",
   "encoding": {
@@ -23,10 +25,6 @@ const App = () => {
   return(
     <div>
       <h1>Built</h1>
-      <VisTypes.Sample/>
-      <VisTypes.Histogram x="userId"/>
-      <VisTypes.BarChart x="userId" y="id"/>
-      <VisTypes.ScatterPlot x="userId" y="id" z="completed"/>
       <VisTypes.VegaLitePlot spec={dotPlotSpec}/>
     </div>
   )
