@@ -24,10 +24,10 @@ const App = () => {
     <div>
       <h1>Built</h1>
       <VisTypes.Sample/>
-      <VisTypes.Histogram x="userId"/>
-      <VisTypes.BarChart x="userId" y="id"/>
-      <VisTypes.ScatterPlot x="userId" y="id" z="completed"/>
-      <VisTypes.VegaLitePlot spec={dotPlotSpec}/>
+      <VisTypes.Histogram x="userId" h="2" w="2"/>
+      <VisTypes.BarChart x="userId" y="id" h="2" w="2"/>
+      <VisTypes.ScatterPlot x="userId" y="id" z="completed" h="2" w="2"/>
+      <VisTypes.VegaLitePlot spec={dotPlotSpec} h="2" w="2"/>
     </div>
   )
 }

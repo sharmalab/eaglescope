@@ -25,8 +25,8 @@ class Histogram extends BaseVisualization {
         }
       }
     }
-    vlspec.height = this.props.h || 100
-    vlspec.width = this.props.w || 100
+    vlspec.height = this.props.h*100 || 100
+    vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
@@ -50,8 +50,8 @@ class Histogram extends BaseVisualization {
         }
       }
     }
-    vlspec.height = this.props.h || 100
-    vlspec.width = this.props.w || 100
+    vlspec.height = this.props.h*100 || 100
+    vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")

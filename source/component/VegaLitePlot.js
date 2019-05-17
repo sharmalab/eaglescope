@@ -12,26 +12,28 @@ class VegaLitePlot extends BaseVisualization {
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       spec.data = {"values": this.state.filteredData}
-      spec.height = this.props.h || 100
-      spec.width = this.props.w || 100
+      spec.height = this.props.h*100 || 100
+      spec.width = this.props.w*100 || 100
       let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
       vl_view.initialize(document.querySelector("#" + this.id))
       vl_view.renderer("svg")
       vl_view.hover()
       vl_view.run();
+      console.log(vl_view)
     }
   }
   componentDidUpdate(){
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       spec.data = {"values": this.state.filteredData}
-      spec.height = this.props.h || 100
-      spec.width = this.props.w || 100
+      spec.height = this.props.h*100 || 100
+      spec.width = this.props.w*100 || 100
       let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
       vl_view.initialize(document.querySelector("#" + this.id))
       vl_view.renderer("svg")
       vl_view.hover()
       vl_view.run();
+      console.log(vl_view)
     }
   }
   render() {
