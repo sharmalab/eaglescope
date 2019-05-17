@@ -7,7 +7,6 @@ class SampleVisualization extends BaseVisualization {
     super(props, ctx);
   }
   render() {
-    console.log(this)
     if(this.state.ready){
       return <p> Records: {this.state.filteredData.length} of {this.state.baseData.length} </p>
     } else {

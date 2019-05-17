@@ -16,6 +16,7 @@ const App = () => {
     <div>
       <h1>Built</h1>
       <VisTypes.Sample/>
+      <VisTypes.Histogram x="userId"/>
     </div>
   )
 }

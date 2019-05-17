@@ -22,6 +22,9 @@
   "dependencies": {
     "parcel-bundler": "^1.12.3",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "vega": "^5.4.0",
+    "vega-embed": "^4.2.0",
+    "vega-lite": "^3.2.1"
   }
 }
