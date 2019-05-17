@@ -1,6 +1,7 @@
 import React from 'react';
 import BaseVisualization from './BaseVisualization.js'
-import vegaEmbed from 'vega-embed'
+import {View as vegaView, parse as vegaParse} from 'vega'
+import { compile as vlCompile } from 'vega-lite'
 
 // should only have to worry about rendering
 class BarChart extends BaseVisualization {
@@ -24,7 +25,13 @@ class BarChart extends BaseVisualization {
         }
       }
     }
-    vegaEmbed('#'+this.id, vlspec);
+    vlspec.height = this.props.h || 100
+    vlspec.width = this.props.w || 100
+    let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {}).spec))
+    vl_view.initialize(document.querySelector("#" + this.id))
+    //vl_view.renderer("svg")
+    vl_view.hover();
+    vl_view.run();
   }
   componentDidUpdate(){
     let vlspec = {
@@ -43,7 +50,13 @@ class BarChart extends BaseVisualization {
         }
       }
     }
-    vegaEmbed('#'+this.id, vlspec);
+    vlspec.height = this.props.h || 100
+    vlspec.width = this.props.w || 100
+    let vl_view = new vegaView(vegaParse(vlCompile(vlspec).spec))
+    vl_view.initialize(document.querySelector("#" + this.id))
+    //vl_view.renderer("svg")
+    vl_view.hover()
+    vl_view.run();
   }
   render() {
     if(this.state.ready){

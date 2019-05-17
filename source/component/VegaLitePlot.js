@@ -12,43 +12,26 @@ class VegaLitePlot extends BaseVisualization {
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       spec.data = {"values": this.state.filteredData}
-      let spec2 = vlCompile(spec, {logger: console}).spec
-      spec2.signals = [
-        {
-          "name": "filter",
-          "value": {"x": 0, "y": 0},
-          "on": [
-            {"events": "rect:mouseover", "update": "datum"},
-            {"events": "rect:mouseout", "update": "{x:0, y:0}"}
-          ]
-        }
-      ]
-      var x = new vegaView(vegaParse(spec2))
-      x.initialize(document.querySelector("#" + this.id))
-      x.hover()
-      x.run();
-      x.addSignalListener("filter", console.info)
+      spec.height = this.props.h || 100
+      spec.width = this.props.w || 100
+      let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
+      vl_view.initialize(document.querySelector("#" + this.id))
+      vl_view.renderer("svg")
+      vl_view.hover()
+      vl_view.run();
     }
   }
   componentDidUpdate(){
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       spec.data = {"values": this.state.filteredData}
-      let spec2 = vlCompile(spec, {logger: console}).spec
-      spec2.signals = [
-        {
-          "name": "filter",
-          "value": {},
-          "on": [
-            {"events": "rect:mouseover", "update": "datum"}
-          ]
-        }
-      ]
-      var x = new vegaView(vegaParse(spec2))
-      x.initialize(document.querySelector("#" + this.id))
-      x.hover()
-      x.run();
-      x.addSignalListener("filter", console.info)
+      spec.height = this.props.h || 100
+      spec.width = this.props.w || 100
+      let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
+      vl_view.initialize(document.querySelector("#" + this.id))
+      vl_view.renderer("svg")
+      vl_view.hover()
+      vl_view.run();
     }
   }
   render() {
