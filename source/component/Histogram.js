@@ -13,6 +13,12 @@ class Histogram extends BaseVisualization {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
+      "selection":{
+        "brush": {
+          "encodings": ['x'],
+          "type": "interval"
+        }
+      },
       "encoding": {
         "x": {
           "bin": true,
@@ -25,12 +31,18 @@ class Histogram extends BaseVisualization {
         }
       }
     }
+    // set up pre-existing filter state
     vlspec.height = this.props.h*100 || 100
     vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
-    vl_view.hover()
+    vl_view.hover();
+    vl_view.addDataListener('brush_store', function (t,e)=> {
+      console.log(e)
+      console.log("{FIELD}", e[0].fields[0].field)
+      console.log("{RANGE}", e[0].values[0])
+    })
     vl_view.run();
   }
   componentDidUpdate(){
@@ -38,6 +50,12 @@ class Histogram extends BaseVisualization {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
+      "selection":{
+        "brush": {
+          "encodings": ['x'],
+          "type": "interval"
+        }
+      },
       "encoding": {
         "x": {
           "bin": true,
@@ -56,6 +74,11 @@ class Histogram extends BaseVisualization {
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
     vl_view.hover()
+    vl_view.addDataListener('brush_store', (t,e)=> {
+        console.log(e)
+        console.log("{FIELD}", e[0].fields[0].field)
+        console.log("{RANGE}", e[0].values[0])
+    })
     vl_view.run();
   }
   render() {
