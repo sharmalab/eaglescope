@@ -28,35 +28,26 @@ function filterData(data, rules){
 
 function filterMerge(filter, additions, mergeMethod){
   filter = filter || {}
+  var outFilter = {}
   for (let rule in additions){
-    if (!filter[rule]){
-      filter[rule] = {}
+    if (!outFilter[rule]){
+      outFilter[rule] = {}
     }
     let oprs = Object.keys(additions[rule]);
-    console.log(filter)
     if (oprs.includes("match")){
-      filter[rule].match = additions[rule].match
+      outFilter[rule].match = additions[rule].match
     }
     if (oprs.includes("regex")){
-      filter[rule].regex = additions[rule].regex
+      outFilter[rule].regex = additions[rule].regex
     }
     if (oprs.includes("less")){
-      if (filter[rule].less){
-        filter[rule].less = Math.min(additions[rule].less, filter[rule].less)
-      } else {
-        filter[rule].less = additions[rule].less
-      }
+      outFilter[rule].less = additions[rule].less
     }
     if (oprs.includes("greater")){
-      if (filter[rule].greater){
-        filter[rule].greater = Math.max(additions[rule].greater, filter[rule].greater)
-      } else {
-        filter[rule].greater = additions[rule].greater
-      }
+      outFilter[rule].greater = additions[rule].greater
     }
   }
-  console.log(filter)
-  return filter
+  return outFilter
 }
 
 var filterTools = {filterData:filterData, filterMerge: filterMerge}
