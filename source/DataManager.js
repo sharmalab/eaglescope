@@ -1,3 +1,5 @@
+import filterTools from './filterTools.js'
+
 // handle data Events
 class DataManager{
   constructor(){
@@ -7,13 +9,12 @@ class DataManager{
     window.addEventListener("dataSourceReady", this.initialize, false)
   }
   filterData(e){
-    let filter = e.detail.filter
+    let filter = filterTools.filterMerge(this.filter, e.detail.filter)
     // do we need to fire a new event?
     if (JSON.stringify(filter) == JSON.stringify(this.filter)){
       console.info("no change")
     } else {
-      // TODO -- combine filters, unless filter is reset all
-      this.filter = filter;
+      this.filter = filter
       // get filtered data
       this.dataSource.data(this.filter).then(data=>{
         // send event with new data
