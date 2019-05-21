@@ -25,6 +25,12 @@ class ScatterPlot extends BaseVisualization {
         "y": {"field": this.props.y, "type": "quantitative"}
         }
     }
+    // IF filter state for this comopnent, set it to selection.brush.init
+    if (this.state.filter[this.props.x] && this.state.filter[this.props.x].less && this.state.filter[this.props.x].greater){
+      if (this.state.filter[this.props.y] && this.state.filter[this.props.y].less && this.state.filter[this.props.y].greater){
+        vlspec.selection.brush.init = {"x": [this.state.filter[this.props.x].greater,this.state.filter[this.props.x].less], "y":[this.state.filter[this.props.y].greater,this.state.filter[this.props.y].less]}
+      }
+    }
     if (this.props.z){
       vlspec.encoding.color = {"field": this.props.z, "type": "nominal"}
       vlspec.encoding.shape = {"field": this.props.z, "type": "nominal"}
@@ -33,13 +39,13 @@ class ScatterPlot extends BaseVisualization {
     vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
-    vl_view.renderer("svg")
     vl_view.addDataListener('brush_store', (t,e)=> {
-      if (e.length >0 && e[0].fields.length >1){
-        vl_view.addEventListener("mouseup", v=>{
+      if (e.length >0 && e[0].fields.length > 1){
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
           console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
           console.log("VALUE", e[0].values[0], e[0].values[1])
-        })
+        },500)
       }
     })
     vl_view.hover()
@@ -62,6 +68,12 @@ class ScatterPlot extends BaseVisualization {
         "y": {"field": this.props.y, "type": "quantitative"}
         }
     }
+    // IF filter state for this comopnent, set it to selection.brush.init
+    if (this.state.filter[this.props.x] && this.state.filter[this.props.x].less && this.state.filter[this.props.x].greater){
+      if (this.state.filter[this.props.y] && this.state.filter[this.props.y].less && this.state.filter[this.props.y].greater){
+        vlspec.selection.brush.init = {"x": [this.state.filter[this.props.x].greater,this.state.filter[this.props.x].less], "y":[this.state.filter[this.props.y].greater,this.state.filter[this.props.y].less]}
+      }
+    }
     if (this.props.z){
       vlspec.encoding.color = {"field": this.props.z, "type": "nominal"}
       vlspec.encoding.shape = {"field": this.props.z, "type": "nominal"}
@@ -70,11 +82,13 @@ class ScatterPlot extends BaseVisualization {
     vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
-    vl_view.renderer("svg")
     vl_view.addDataListener('brush_store', (t,e)=> {
-      if (e.length >0 && e[0].fields.length >1){
-        console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
-        console.log("VALUE", e[0].values[0], e[0].values[1])
+      if (e.length >0 && e[0].fields.length > 1){
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
+          console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
+          console.log("VALUE", e[0].values[0], e[0].values[1])
+        },500)
       }
     })
     vl_view.hover()

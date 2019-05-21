@@ -13,6 +13,12 @@ class BarChart extends BaseVisualization {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
+      "selection":{
+        "brush": {
+          "encodings": ['x','y'],
+          "type": "interval"
+        }
+      },
       "encoding": {
         "y": {
           "field": this.props.x,
@@ -30,7 +36,16 @@ class BarChart extends BaseVisualization {
     let spec = vlCompile(vlspec, {}).spec
     let vl_view = new vegaView(vegaParse(spec))
     vl_view.initialize(document.querySelector("#" + this.id))
-    //vl_view.renderer("svg")
+    vl_view.addDataListener('brush_store', (t,e)=> {
+      if (e.length >0 && e[0].fields.length > 0){
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
+          console.log(e)
+          console.log("{FIELD}", e[0].fields[0].field)
+          console.log("{RANGE}", e[0].values[0])
+        },this.bufferTime)
+      }
+    })
     vl_view.hover();
     vl_view.run();
   }
@@ -39,6 +54,12 @@ class BarChart extends BaseVisualization {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
+      "selection":{
+        "brush": {
+          "encodings": ['x','y'],
+          "type": "interval"
+        }
+      },
       "encoding": {
         "y": {
           "field": this.props.x,
@@ -57,7 +78,16 @@ class BarChart extends BaseVisualization {
     console.log(spec)
     let vl_view = new vegaView(vegaParse(spec))
     vl_view.initialize(document.querySelector("#" + this.id))
-    //vl_view.renderer("svg")
+    vl_view.addDataListener('brush_store', (t,e)=> {
+      if (e.length >0 && e[0].fields.length > 0){
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
+          console.log(e)
+          console.log("{FIELD}", e[0].fields[0].field)
+          console.log("{RANGE}", e[0].values[0])
+        },this.bufferTime)
+      }
+    })
     vl_view.hover()
     vl_view.run();
   }

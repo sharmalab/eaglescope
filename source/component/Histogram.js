@@ -40,8 +40,11 @@ class Histogram extends BaseVisualization {
     vl_view.hover();
     vl_view.addDataListener('brush_store', (t,e)=> {
       if (e.length >0 && e[0].fields.length > 0){
-        console.log("{FIELD}", e[0].fields[0].field)
-        console.log("{RANGE}", e[0].values[0])
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
+          console.log("{FIELD}", e[0].fields[0].field)
+          console.log("{RANGE}", e[0].values[0])
+        },this.bufferTime)
       }
     })
     vl_view.run();
@@ -70,6 +73,10 @@ class Histogram extends BaseVisualization {
         }
       }
     }
+    // IF filter state for this comopnent, set it to selection.brush.init
+    if (this.state.filter[this.props.x] && this.state.filter[this.props.x].less && this.state.filter[this.props.x].greater){
+      vlspec.selection.brush.init = {"x": [this.state.filter[this.props.x].greater,this.state.filter[this.props.x].less]}
+    }
     vlspec.height = this.props.h*100 || 100
     vlspec.width = this.props.w*100 || 100
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
@@ -77,11 +84,15 @@ class Histogram extends BaseVisualization {
     vl_view.renderer("svg")
     vl_view.hover()
     vl_view.addDataListener('brush_store', (t,e)=> {
-        console.log(e)
-        if (e.length >0 && e[0].fields.length >0){
+      if (e.length >0 && e[0].fields.length > 0){
+        window.clearTimeout(this.lastEvent)
+        this.lastEvent = window.setTimeout(x=>{
           console.log("{FIELD}", e[0].fields[0].field)
           console.log("{RANGE}", e[0].values[0])
-        }
+          let new_filter = {}
+          this.filterIn(new_filter)
+        },this.bufferTime)
+      }
     })
     vl_view.run();
   }

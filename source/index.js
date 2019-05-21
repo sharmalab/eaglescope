@@ -14,6 +14,12 @@ var __DS = new RestDataSource(data_url)
 var dotPlotSpec = JSON.stringify({
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   "mark": "tick",
+  "selection":{
+    "brush": {
+      "encodings": ['x'],
+      "type": "interval"
+    }
+  },
   "encoding": {
     "x": {"field": "userId", "type": "quantitative"}
   }
