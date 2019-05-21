@@ -10,6 +10,8 @@ class BaseVisualization extends React.Component {
     this.height = this.props.h || this.props.height || 1
     this.width = this.props.w || this.props.width || 1
     this.state = {};
+    // buffer time between event and draw, for debounce
+    this.bufferTime = 500;
     // initial empty filter
     this.state.filter = {};
     //not ready until initialized
@@ -32,11 +34,12 @@ class BaseVisualization extends React.Component {
   // to be fired when a filter is selected in the component
   filterIn(f) {
     this.setState((prevState, props) => {
+      console.log(prevState)
       prevState.filter = f
+      let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
+      window.dispatchEvent(ev)
+      console.info("filterIn event: ", ev)
     })
-    let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
-    Events.dispatchEvent(ev)
-    console.info("filterIn event: ", ev)
   }
   // to be fired when data
   filterOut(e) {
