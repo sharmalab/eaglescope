@@ -13,6 +13,12 @@ class ScatterPlot extends BaseVisualization {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
+      "selection": {
+        "brush": {
+          "encodings": ["x","y"],
+          "type": "interval"
+        }
+      },
       "mark": "point",
       "encoding": {
         "x": {"field": this.props.x, "type": "quantitative"},
@@ -28,6 +34,14 @@ class ScatterPlot extends BaseVisualization {
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
+    vl_view.addDataListener('brush_store', (t,e)=> {
+      if (e.length >0 && e[0].fields.length >1){
+        vl_view.addEventListener("mouseup", v=>{
+          console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
+          console.log("VALUE", e[0].values[0], e[0].values[1])
+        })
+      }
+    })
     vl_view.hover()
     vl_view.run();
   }
@@ -35,6 +49,12 @@ class ScatterPlot extends BaseVisualization {
     let vlspec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
+      "selection": {
+        "brush": {
+          "encodings": ["x","y"],
+          "type": "interval"
+        }
+      },
       "mark": "bar",
       "mark": "point",
       "encoding": {
@@ -51,6 +71,12 @@ class ScatterPlot extends BaseVisualization {
     let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {logger: console}).spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
+    vl_view.addDataListener('brush_store', (t,e)=> {
+      if (e.length >0 && e[0].fields.length >1){
+        console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
+        console.log("VALUE", e[0].values[0], e[0].values[1])
+      }
+    })
     vl_view.hover()
     vl_view.run();
   }

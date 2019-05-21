@@ -38,13 +38,15 @@ class Histogram extends BaseVisualization {
     vl_view.initialize(document.querySelector("#" + this.id))
     vl_view.renderer("svg")
     vl_view.hover();
-    vl_view.addDataListener('brush_store', function (t,e)=> {
-      console.log(e)
-      console.log("{FIELD}", e[0].fields[0].field)
-      console.log("{RANGE}", e[0].values[0])
+    vl_view.addDataListener('brush_store', (t,e)=> {
+      if (e.length >0 && e[0].fields.length > 0){
+        console.log("{FIELD}", e[0].fields[0].field)
+        console.log("{RANGE}", e[0].values[0])
+      }
     })
     vl_view.run();
   }
+
   componentDidUpdate(){
     let vlspec = {
       "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
@@ -76,8 +78,10 @@ class Histogram extends BaseVisualization {
     vl_view.hover()
     vl_view.addDataListener('brush_store', (t,e)=> {
         console.log(e)
-        console.log("{FIELD}", e[0].fields[0].field)
-        console.log("{RANGE}", e[0].values[0])
+        if (e.length >0 && e[0].fields.length >0){
+          console.log("{FIELD}", e[0].fields[0].field)
+          console.log("{RANGE}", e[0].values[0])
+        }
     })
     vl_view.run();
   }

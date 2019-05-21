@@ -10,7 +10,7 @@ class BarChart extends BaseVisualization {
   }
   componentDidMount(){
     let vlspec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+      "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
       "encoding": {
@@ -27,7 +27,8 @@ class BarChart extends BaseVisualization {
     }
     vlspec.height = this.props.h*100 || 100
     vlspec.width = this.props.w*100 || 100
-    let vl_view = new vegaView(vegaParse(vlCompile(vlspec, {}).spec))
+    let spec = vlCompile(vlspec, {}).spec
+    let vl_view = new vegaView(vegaParse(spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     //vl_view.renderer("svg")
     vl_view.hover();
@@ -35,7 +36,7 @@ class BarChart extends BaseVisualization {
   }
   componentDidUpdate(){
     let vlspec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+      "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
       "data": {"values": this.state.filteredData},
       "mark": "bar",
       "encoding": {
@@ -52,7 +53,9 @@ class BarChart extends BaseVisualization {
     }
     vlspec.height = this.props.h*100 || 100
     vlspec.width = this.props.w*100 || 100
-    let vl_view = new vegaView(vegaParse(vlCompile(vlspec).spec))
+    let spec = vlCompile(vlspec, {}).spec
+    console.log(spec)
+    let vl_view = new vegaView(vegaParse(spec))
     vl_view.initialize(document.querySelector("#" + this.id))
     //vl_view.renderer("svg")
     vl_view.hover()
