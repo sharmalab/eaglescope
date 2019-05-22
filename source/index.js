@@ -22,6 +22,7 @@ const App = () => {
       <VisTypes.VegaLitePlot spec={vegaSpecs.barChartSpec} h="2" w="2"/>
       <VisTypes.VegaLitePlot spec={vegaSpecs.scatterSpec} h="2" w="2"/>
       <VisTypes.VegaLitePlot spec={vegaSpecs.dotPlotSpec} h="2" w="2" allData/>
+      <VisTypes.VegaLitePlot spec={vegaSpecs.parallelCoordSpec} h="2" w="4"/>
     </div>
   )
 }
