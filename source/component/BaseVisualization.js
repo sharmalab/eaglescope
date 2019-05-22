@@ -33,13 +33,17 @@ class BaseVisualization extends React.Component {
   }
   // to be fired when a filter is selected in the component
   filterIn(f) {
-    this.setState((prevState, props) => {
-      console.log(prevState)
-      prevState.filter = f
-      let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
-      window.dispatchEvent(ev)
-      console.info("filterIn event: ", ev)
-    })
+    if ((JSON.stringify(f)==JSON.stringify(this.state.filter))){
+      console.log("no change")
+    } else {
+      this.setState((prevState, props) => {
+        console.log(prevState)
+        prevState.filter = f
+        let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:f}})
+        window.dispatchEvent(ev)
+        console.info("filterIn event: ", ev)
+      })
+    }
   }
   // to be fired when data
   filterOut(e) {

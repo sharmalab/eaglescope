@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run-script build",
-    "build": "rm -rf dist; parcel build source/index.html"
+    "build": "rm -rf dist/*; parcel build source/index.html --no-minify"
   },
   "repository": {
     "type": "git",
