@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm run-script build",
-    "build": "rm -rf dist/*; parcel build source/index.html",
-    "dev": "rm -rf dist/*; parcel watch source/index.html --no-minify; python -m SimpleHTTPServer"
+    "build": "rm -rf dist/*; parcel build source/index.html --no-minify"
   },
   "repository": {
     "type": "git",

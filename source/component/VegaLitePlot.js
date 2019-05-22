@@ -11,7 +11,11 @@ class VegaLitePlot extends BaseVisualization {
   componentDidMount(){
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
-      spec.data = {"values": this.state.baseData}
+      if (this.props.allData){
+        spec.data = {"values": this.state.baseData}
+      } else {
+        spec.data = {"values": this.state.filteredData}
+      }
       spec.height = this.props.h*100 || 100
       spec.width = this.props.w*100 || 100
       // try to guess quant filter setup
@@ -35,19 +39,23 @@ class VegaLitePlot extends BaseVisualization {
       let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
       vl_view.initialize(document.querySelector("#" + this.id))
       vl_view.hover()
-      vl_view.addDataListener('brush_store', (t,e)=> {
-        if (e.length > 0 && e[0].fields.length > 0){
-          window.clearTimeout(this.lastEvent)
-          this.lastEvent = window.setTimeout(x=>{
-            var next_filter = {}
-            for (var j=0; j<e[0].fields.length; j++){
-              next_filter[e[0].fields[j].field] = {greater:e[0].values[j][0], less:e[0].values[j][1]}
-            }
-            console.log(next_filter)
-            this.filterIn(next_filter)
-          },this.bufferTime)
-        }
-      })
+      if (spec.selection && spec.selection.brush){
+        vl_view.addDataListener('brush_store', (t,e)=> {
+          if (e.length > 0 && e[0].fields.length > 0){
+            window.clearTimeout(this.lastEvent)
+            this.lastEvent = window.setTimeout(x=>{
+              var next_filter = {}
+              for (var j=0; j<e[0].fields.length; j++){
+                let g_val = Math.min(...e[0].values[j])
+                let l_val = Math.max(...e[0].values[j])
+                next_filter[e[0].fields[j].field] = {greater:g_val, less:l_val}
+              }
+              console.log(next_filter)
+              this.filterIn(next_filter)
+            },this.bufferTime)
+          }
+        })
+      }
       vl_view.run();
       console.log(vl_view)
     }
@@ -55,7 +63,11 @@ class VegaLitePlot extends BaseVisualization {
   componentDidUpdate(){
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
-      spec.data = {"values": this.state.baseData}
+      if (this.props.allData){
+        spec.data = {"values": this.state.baseData}
+      } else {
+        spec.data = {"values": this.state.filteredData}
+      }
       spec.height = this.props.h*100 || 100
       spec.width = this.props.w*100 || 100
       // try to guess quant filter setup
@@ -76,22 +88,27 @@ class VegaLitePlot extends BaseVisualization {
           spec.selection.brush.init = candidate_state
         }
       }
+      console.log(spec)
       let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
       vl_view.initialize(document.querySelector("#" + this.id))
       vl_view.hover();
-      vl_view.addDataListener('brush_store', (t,e)=> {
-        if (e.length > 0 && e[0].fields.length > 0){
-          window.clearTimeout(this.lastEvent)
-          this.lastEvent = window.setTimeout(x=>{
-            var next_filter = {}
-            for (var j=0; j<e[0].fields.length; j++){
-              next_filter[e[0].fields[j].field] = {greater:e[0].values[j][0], less:e[0].values[j][1]}
-            }
-            console.log(next_filter)
-            this.filterIn(next_filter)
-          },this.bufferTime)
-        }
-      })
+      if (spec.selection && spec.selection.brush){
+        vl_view.addDataListener('brush_store', (t,e)=> {
+          if (e.length > 0 && e[0].fields.length > 0){
+            window.clearTimeout(this.lastEvent)
+            this.lastEvent = window.setTimeout(x=>{
+              var next_filter = {}
+              for (var j=0; j<e[0].fields.length; j++){
+                let g_val = Math.min(...e[0].values[j])
+                let l_val = Math.max(...e[0].values[j])
+                next_filter[e[0].fields[j].field] = {greater:g_val, less:l_val}
+              }
+              console.log(next_filter)
+              this.filterIn(next_filter)
+            },this.bufferTime)
+          }
+        })
+      }
       vl_view.run();
       console.log(vl_view)
     }
