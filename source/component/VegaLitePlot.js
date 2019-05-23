@@ -77,8 +77,8 @@ class VegaLitePlot extends BaseVisualization {
         var can_render_filter = true;
         for (var i=0; i<spec.selection.brush.encodings.length; i++){
           let new_field = spec.encoding[spec.selection.brush.encodings[i]].field;
-          if (this.state.filter[new_field] && this.state.filter[new_field].less && this.state.filter[new_field].greater){
-            candidate_state[spec.selection.brush.encodings[i]] = [this.state.filter[new_field].greater,this.state.filter[new_field].less]
+          if (this.state.globalFilter[new_field] && this.state.globalFilter[new_field].less && this.state.globalFilter[new_field].greater){
+            candidate_state[spec.selection.brush.encodings[i]] = [this.state.globalFilter[new_field].greater,this.state.globalFilter[new_field].less]
           } else {
             can_render_filter = false;
           }
