@@ -18,6 +18,7 @@ const App = () => {
     <div>
       <h1>Built</h1>
       <VisTypes.Sample/>
+      <VisTypes.SearchBar h="2" w="2"/>
       <VisTypes.VegaLitePlot spec={vegaSpecs.histSpec} h="2" w="2"/>
       <VisTypes.VegaLitePlot spec={vegaSpecs.barChartSpec} h="2" w="2"/>
       <VisTypes.VegaLitePlot spec={vegaSpecs.scatterSpec} h="2" w="2"/>
