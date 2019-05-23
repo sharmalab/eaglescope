@@ -18,7 +18,7 @@ class DataManager{
       // get filtered data
       this.dataSource.data(this.filter).then(data=>{
         // send event with new data
-        let ev = new CustomEvent("filterOut", {detail:{data:data}})
+        let ev = new CustomEvent("filterOut", {detail:{data:data, filter:filter}})
         window.dispatchEvent(ev)
         console.info("filterOut event: ", ev)
       })
