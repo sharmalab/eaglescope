@@ -43,7 +43,7 @@ class ImageGrid extends BaseVisualization {
     }
 
     var pageBtns = []
-    for (let j=0; j<=this.state.filteredData.length/this.state.perPage; j++){
+    for (let j=0; j<this.state.filteredData.length/this.state.perPage; j++){
       if(j==this.state.page){
             pageBtns.push(<span key={this.id+"-pg-"+j} id={this.id+"-pg-"+j} value={j} onClick={this.onPageButton}><b> {j} </b></span> )
       }else{
