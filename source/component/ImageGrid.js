@@ -16,8 +16,10 @@ class ImageGrid extends BaseVisualization {
 
   render() {
     var images = []
-    for (const[i,v] of this.state.filteredData.slice(this.state.page*this.state.perPage,(this.state.page+1)*this.state.perPage)){
-      let im_url = v[this.props.urlField] || ""
+    let thispage = this.state.filteredData.slice(this.state.page*this.state.perPage,(this.state.page+1)*this.state.perPage)
+    for (let i in thispage){
+      let v= thispage[i]
+      let im_url = v[this.props.urlField] || "https://ppaas.herokuapp.com/partyparrot"
       let im_label = v[this.props.labelField] || ""
       if(im_url){
         images.push(<ImageGridItem url={im_url} label={im_label} id={this.id+"-im-"+i}/>)

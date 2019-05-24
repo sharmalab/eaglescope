@@ -3,7 +3,7 @@ import React from 'react';
 // should only have to worry about rendering
 class ImageGridItem extends React.Component {
   constructor(props, ctx) {
-    this.props = props
+    super(props,ctx)
     this.width = this.props.w * 10 || 10
     this.height = this.props.h * 10 || 10
     this.style = {width: this.width, height: this.height}
