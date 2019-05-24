@@ -7,6 +7,9 @@ import { compile as vlCompile } from 'vega-lite'
 class VegaLitePlot extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
+    this.width = this.props.w * 100 || 100
+    this.height = this.props.h * 100 || 100
+    this.style = {width: this.width, height: this.height}
   }
   componentDidMount(){
     if (this.state.ready){
@@ -118,7 +121,7 @@ class VegaLitePlot extends BaseVisualization {
     if(this.state.ready){
       return <div id={this.id}></div>
     } else {
-      return <p> waiting...</p>
+      return <div id={this.id} style={this.style}><p>waiting...</p></div>
     }
 
   }
