@@ -23,18 +23,22 @@ const App = () => {
   return(
     <div>
       <h1>Built</h1>
-      <div className="container sml-container">
-        <VisTypes.Sample/>
-        <VisTypes.SearchBar h="2" w="2"/>
-        <VisTypes.VegaLitePlot spec={vegaSpecs.histSpec} h="2" w="2"/>
-        <VisTypes.VegaLitePlot spec={vegaSpecs.barChartSpec} h="2" w="2"/>
-        <VisTypes.VegaLitePlot spec={vegaSpecs.scatterSpec} h="2" w="2" allData/>
-        <VisTypes.VegaLitePlot spec={vegaSpecs.dotPlotSpec} h="2" w="2" allData/>
-        <VisTypes.VegaLitePlot spec={vegaSpecs.parallelCoordSpec} h="2" w="4"/>
-      </div>
-      <div className="container lg-container">
-        <VisTypes.DataTable columns={["s0","t0","t1","f0","i0"]}/>
-        <VisTypes.ImageGrid urlField="u0" labelField="s1"/>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col col-lg-3">
+            <VisTypes.Sample/>
+            <VisTypes.SearchBar h="1" w="2"/>
+            <VisTypes.VegaLitePlot spec={vegaSpecs.histSpec} h="2" w="2"/>
+            <VisTypes.VegaLitePlot spec={vegaSpecs.barChartSpec} h="2" w="2"/>
+            <VisTypes.VegaLitePlot spec={vegaSpecs.scatterSpec} h="2" w="2" allData/>
+            <VisTypes.VegaLitePlot spec={vegaSpecs.dotPlotSpec} h="2" w="2" allData/>
+            <VisTypes.VegaLitePlot spec={vegaSpecs.parallelCoordSpec} h="2" w="4"/>
+          </div>
+          <div className="col col-sm-12 col-lg-9">
+            <VisTypes.DataTable columns={["s0","t0","t1","f0","i0"]}/>
+            <VisTypes.ImageGrid urlField="u0" labelField="s1"/>
+          </div>
+        </div>
       </div>
 
     </div>
