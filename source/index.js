@@ -23,10 +23,12 @@ var __DS = new RestDataSource(data_url)
 const App = () => {
   return(
     <div>
-      <h1>Built</h1>
+    <nav className="navbar navbar-light bg-light">
+      <span className="navbar-brand mb-0 h1">DataScope the Second</span>
+    </nav>
       <div className="container-fluid">
         <div className="row">
-          <div className="col col-lg-3">
+          <div className="col col-lg-3 viscol">
             <VisTypes.Sample/>
             <VisTypes.SearchBar h="1" w="2"/>
             <VisTypes.VegaLitePlot spec={vegaSpecs.histSpec} h="2" w="2"/>
@@ -35,7 +37,7 @@ const App = () => {
             <VisTypes.VegaLitePlot spec={vegaSpecs.dotPlotSpec} h="2" w="2" allData/>
             <VisTypes.VegaLitePlot spec={vegaSpecs.parallelCoordSpec} h="2" w="4"/>
           </div>
-          <div className="col col-sm-12 col-lg-9">
+          <div className="col col-sm-12 col-lg-9 viscol">
             <VisTypes.DataTable columns={["s0","t0","t1","f0","i0"]}/>
             <VisTypes.ImageGrid urlField="u0" labelField="s1"/>
           </div>
