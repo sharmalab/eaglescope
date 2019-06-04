@@ -9,7 +9,7 @@ vegaSpecs.dotPlotSpec = JSON.stringify({
     }
   },
   "encoding": {
-    "x": {"field": "userId", "type": "quantitative"}
+    "x": {"field": "i0", "type": "quantitative"}
   }
 })
 
@@ -18,12 +18,12 @@ vegaSpecs.barChartSpec = JSON.stringify({
     "mark": "bar",
     "encoding": {
       "y": {
-        "field": "userId",
+        "field": "i0",
         "type": "ordinal"
       },
       "x": {
         "aggregate": "sum",
-        "field": "id",
+        "field": "i1",
         "type": "quantitative"
       }
     }
@@ -41,7 +41,7 @@ vegaSpecs.histSpec = JSON.stringify({
   "encoding": {
     "x": {
       "bin": true,
-      "field": "userId",
+      "field": "i0",
       "type": "quantitative"
     },
     "y": {
@@ -62,20 +62,20 @@ vegaSpecs.scatterSpec = JSON.stringify({
   },
   "mark": "point",
   "encoding": {
-    "x": {"field": "userId", "type": "quantitative"},
-    "y": {"field": "id", "type": "quantitative"},
-    "color": {"field": "completed", "type": "nominal"},
-    "shape": {"field": "completed", "type": "nominal"}
+    "x": {"field": "i0", "type": "quantitative"},
+    "y": {"field": "i1", "type": "quantitative"},
+    "color": {"field": "f0", "type": "nominal"},
+    "shape": {"field": "f0", "type": "nominal"}
     }
 })
 
 vegaSpecs.parallelCoordSpec = JSON.stringify({
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "width": 600,
+  "wi1th": 600,
   "height": 300,
   "transform": [
     {"window": [{"op": "count", "as": "index"}]},
-    {"fold": ["id", "userId"]},
+    {"fold": ["i1", "i0"]},
     {
       "joinaggregate": [
         {"op": "min", "field": "value", "as": "min"},
@@ -89,7 +89,7 @@ vegaSpecs.parallelCoordSpec = JSON.stringify({
     },
     {
       "calculate": "(datum.min + datum.max) / 2",
-      "as": "mid"
+      "as": "mi1"
     }
   ],
   "layer": [{
@@ -101,15 +101,15 @@ vegaSpecs.parallelCoordSpec = JSON.stringify({
   }, {
     "mark": "line",
     "encoding": {
-      "color": {"type": "nominal", "field": "completed"},
+      "color": {"type": "nominal", "field": "f0"},
       "detail": {"type": "nominal", "field": "index"},
       "opacity": {"value": 0.3},
       "x": {"type": "nominal", "field": "key"},
       "y": {"type": "quantitative", "field": "norm_val", "axis": null},
       "tooltip": [{
-        "field": "id"
+        "field": "i1"
       }, {
-        "field": "userId"
+        "field": "i0"
       }]
     }
   },{
@@ -134,7 +134,7 @@ vegaSpecs.parallelCoordSpec = JSON.stringify({
     "layer": [{
       "mark": {"type": "text", "style": "label"},
       "encoding": {
-        "text": {"aggregate": "min", "field": "mid", "type": "quantitative"}
+        "text": {"aggregate": "min", "field": "mi1", "type": "quantitative"}
       }
     }, {
       "mark": {"type": "tick", "style": "tick", "size": 8, "color": "#ccc"}
@@ -157,7 +157,7 @@ vegaSpecs.parallelCoordSpec = JSON.stringify({
     "axisX": {"domain": false, "labelAngle": 0, "tickColor": "#ccc", "title": null},
     "view": {"stroke": null},
     "style": {
-      "label": {"baseline": "middle", "align": "right", "dx": -5, "tooltip": null},
+      "label": {"baseline": "mi1dle", "align": "right", "dx": -5, "tooltip": null},
       "tick": {"orient": "horizontal", "tooltip": null}
     }
   }
