@@ -14,6 +14,7 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
 const data_url = "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&l=1000"
+// see https://github.com/birm/loadsy/
 
 var __DM = new DataManager()
 var __DS = new RestDataSource(data_url)
