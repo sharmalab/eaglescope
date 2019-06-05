@@ -10,18 +10,18 @@ function filterData(data, rules){
       }
       let broken = false
       let oprs = Object.keys(rules[rule]);
-      if (oprs.includes("match")){
-        broken = broken || test_val != rules[rule]["match"]
-      }
-      if (oprs.includes("regex")){
-        let re = new RegExp(rules[rule]["regex"])
-        broken = broken || !re.test(test_val)
-      }
-      if (oprs.includes("less")){
+      if (!broken && oprs.includes("less")){
         broken = broken || test_val >= rules[rule]["less"]
       }
-      if (oprs.includes("greater")){
+      if (!broken && oprs.includes("greater")){
         broken = broken || test_val <= rules[rule]["greater"]
+      }
+      if (!broken && oprs.includes("match")){
+        broken = broken || test_val != rules[rule]["match"]
+      }
+      if (!broken && oprs.includes("regex")){
+        let re = new RegExp(rules[rule]["regex"])
+        broken = broken || !re.test(test_val)
       }
       if (broken){
         return false

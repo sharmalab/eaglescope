@@ -64,8 +64,8 @@ vegaSpecs.scatterSpec = JSON.stringify({
   "encoding": {
     "x": {"field": "i0", "type": "quantitative"},
     "y": {"field": "i1", "type": "quantitative"},
-    "color": {"field": "f0", "type": "nominal"},
-    "shape": {"field": "f0", "type": "nominal"}
+    "color": {"field": "c0", "type": "nominal"},
+    "shape": {"field": "c1", "type": "nominal"}
     }
 })
 

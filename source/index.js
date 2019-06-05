@@ -13,7 +13,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
-const data_url = "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&l=1000"
+const data_url = "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&l=1000&c=2&co=5"
 // see https://github.com/birm/loadsy/
 
 var __DM = new DataManager()
@@ -38,7 +38,7 @@ const App = () => {
             <VisTypes.VegaLitePlot spec={vegaSpecs.parallelCoordSpec} h="2" w="4"/>
           </div>
           <div className="col col-sm-12 col-lg-9 viscol">
-            <VisTypes.DataTable columns={["s0","t0","t1","f0","i0"]}/>
+            <VisTypes.DataTable/>
             <VisTypes.ImageGrid urlField="u0" labelField="s1"/>
           </div>
         </div>
