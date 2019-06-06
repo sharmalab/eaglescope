@@ -43,16 +43,19 @@ class ImageGrid extends BaseVisualization {
     }
 
     var pageBtns = []
-    for (let j=0; j<this.state.filteredData.length/this.state.perPage; j++){
+    // min page
+    let _minp=Math.max(this.state.page-5,0)
+    let _maxp=Math.min(this.state.page+5,this.state.filteredData.length/this.state.perPage)
+    for (let j=_minp; j<_maxp; j++){
       if(j==this.state.page){
-            pageBtns.push(<span key={this.id+"-pg-"+j} id={this.id+"-pg-"+j} value={j} onClick={this.onPageButton}><b> {j} </b></span> )
+            pageBtns.push(<li className="page-item" key={this.id+"-pg-"+j} id={this.id+"-pg-"+j}> <a className="page-link" value={j} onClick={this.onPageButton}><b>{j}</b></a></li>)
       }else{
-            pageBtns.push(<span key={this.id+"-pg-"+j} id={this.id+"-pg-"+j} value={j} onClick={this.onPageButton}> {j} </span>)
+            pageBtns.push(<li className="page-item" key={this.id+"-pg-"+j} id={this.id+"-pg-"+j}> <a className="page-link" value={j} onClick={this.onPageButton}>{j}</a></li>)
       }
 
     }
     if(this.state.ready){
-      return <div id={this.id} style={this.style}>{images}<div id={this.id+"-pages"}>{pageBtns}</div></div>
+      return <div id={this.id} style={this.style}>{images}<ul className="pagination" id={this.id+"-pages"}>{pageBtns}</ul></div>
     } else {
       return <div id={this.id} style={this.style}><p> waiting...</p></div>
     }

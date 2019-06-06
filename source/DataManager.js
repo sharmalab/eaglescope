@@ -29,7 +29,6 @@ class DataManager{
   initialize(e){
     this.dataSource = e.detail.dataSource;
     this.dataSource.data({}).then(z=>{
-      console.log("z", z)
       // send init event with data
       let ev = new CustomEvent("initData", {"detail":{"data":z}})
       window.dispatchEvent(ev)
