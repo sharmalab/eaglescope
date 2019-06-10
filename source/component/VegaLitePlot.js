@@ -62,7 +62,6 @@ class VegaLitePlot extends BaseVisualization {
     }
   }
   componentDidUpdate(){
-    console.log(this.state)
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       if (this.props.allData){
