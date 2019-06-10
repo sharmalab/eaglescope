@@ -55,9 +55,9 @@ class ImageGrid extends BaseVisualization {
 
     }
     if(this.state.ready){
-      return <div id={this.id} style={this.style}>{images}<ul className="pagination" id={this.id+"-pages"}>{pageBtns}</ul></div>
+      return <div id={this.id} key={this.id} style={this.style}>{images}<ul className="pagination" id={this.id+"-pages"}>{pageBtns}</ul></div>
     } else {
-      return <div id={this.id} style={this.style}><p> waiting...</p></div>
+      return <div id={this.id} key={this.id} className="vis-loading" style={this.style}><p> waiting...</p></div>
     }
 
   }

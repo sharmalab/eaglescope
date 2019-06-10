@@ -20,7 +20,7 @@ class DataTable extends BaseVisualization {
       this.table_data.rows = this.state.filteredData
       return(<MDBDataTable striped   bordered hover data={this.table_data}/>)
     } else {
-      return <p> waiting...</p>
+      return <div id={this.id} key={this.id} style={this.style} className="vis-loading"><p>waiting...</p></div>
     }
 
   }

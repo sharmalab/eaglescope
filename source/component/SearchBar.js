@@ -35,11 +35,11 @@ class SearchBar extends BaseVisualization {
 
   render() {
     if(this.state.ready){
-      return(<div style={this.style}>
+      return(<div id={this.id} key={this.id} style={this.style}>
         <span>{this.field_text}:</span> <input type="text" value={this.state.value} id={this.id} onChange={this.handleSearch}></input>
         </div>)
     } else {
-      return <p> waiting...</p>
+      return <div id={this.id} key={this.id} className="vis-loading"><p> waiting...</p></div>
     }
 
   }

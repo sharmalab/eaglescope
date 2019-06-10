@@ -53,17 +53,16 @@ class VegaLitePlot extends BaseVisualization {
                 let l_val = Math.max(...e[0].values[j])
                 next_filter[e[0].fields[j].field] = {greater:g_val, less:l_val}
               }
-              console.log(next_filter)
               this.filterIn(next_filter)
             },this.bufferTime)
           }
         })
       }
       vl_view.run();
-      console.log(vl_view)
     }
   }
   componentDidUpdate(){
+    console.log(this.state)
     if (this.state.ready){
       let spec = JSON.parse(this.props.spec)
       if (this.props.allData){
@@ -91,7 +90,6 @@ class VegaLitePlot extends BaseVisualization {
           spec.selection.brush.init = candidate_state
         }
       }
-      console.log(spec)
       let vl_view = new vegaView(vegaParse(vlCompile(spec).spec))
       vl_view.initialize(document.querySelector("#" + this.id))
       vl_view.hover();
@@ -106,22 +104,19 @@ class VegaLitePlot extends BaseVisualization {
                 let l_val = Math.max(...e[0].values[j])
                 next_filter[e[0].fields[j].field] = {greater:g_val, less:l_val}
               }
-              console.log(next_filter)
               this.filterIn(next_filter)
             },this.bufferTime)
           }
         })
       }
       vl_view.run();
-      console.log(vl_view)
     }
   }
   render() {
-    console.log(this)
     if(this.state.ready){
       return <div id={this.id} className="vis vega-vis" style={this.style}></div>
     } else {
-      return <div id={this.id} style={this.style}><p>waiting...</p></div>
+      return <div id={this.id} style={this.style} className="vis-loading"><p>waiting...</p></div>
     }
 
   }
