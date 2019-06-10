@@ -71,7 +71,6 @@ vegaSpecs.scatterSpec = JSON.stringify({
 
 vegaSpecs.parallelCoordSpec = JSON.stringify({
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "wi1th": 600,
   "height": 300,
   "transform": [
     {"window": [{"op": "count", "as": "index"}]},

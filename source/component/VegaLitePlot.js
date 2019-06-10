@@ -7,7 +7,7 @@ import { compile as vlCompile } from 'vega-lite'
 class VegaLitePlot extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
-    this.width = this.props.w * 150 || 150
+    //this.width = this.props.w * 150 || 150
     this.height = this.props.h * 150 || 150
     this.style = {width: this.width, height: this.height}
   }
@@ -19,8 +19,9 @@ class VegaLitePlot extends BaseVisualization {
       } else {
         spec.data = {"values": this.state.filteredData}
       }
-      spec.height = this.props.h*90 || 90
-      spec.width = this.props.w*90 || 90
+      spec.height = this.props.h*150 || 150
+      //spec.width = this.props.w*90 || 90
+      spec.autosize= {"type": "fit", "contains": "padding"}
       // try to guess quant filter setup
       if (spec.selection && spec.selection.brush && spec.selection.brush.encodings && spec.selection.brush.encodings.length){
         var fields = []
@@ -69,8 +70,9 @@ class VegaLitePlot extends BaseVisualization {
       } else {
         spec.data = {"values": this.state.filteredData}
       }
-      spec.height = this.props.h*100 || 100
-      spec.width = this.props.w*100 || 100
+      spec.height = this.props.h*90 || 90
+      //spec.width = this.props.w*90 || 90
+      spec.autosize= {"type": "fit", "contains": "padding"}
       // try to guess quant filter setup
       if (spec.selection && spec.selection.brush && spec.selection.brush.encodings && spec.selection.brush.encodings.length){
         var fields = []
