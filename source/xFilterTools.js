@@ -17,11 +17,13 @@ function filterData(dataObj, rules){
           dataObj.dims[rule].filter([rules[rule]["greater"], rules[rule]["less"]])
         }
         else if (oprs.includes("regex")){
-          dataObj.dims[test_val].filter(y=>{
+          dataObj.dims[rule].filter(y=>{
             let re = new RegExp(rules[rule]["regex"])
-            return !re.test(test_val)
+            return !re.test(y)
           })
         }
+      } else {
+        console.warn("no dimension matching " + dataObj.dims[rule])
       }
     }
     return dataObj.xf.allFiltered()
@@ -29,12 +31,7 @@ function filterData(dataObj, rules){
 }
 
 function filterMerge(filter, additions, mergeMethod){
-  filter = filter || {}
-  var outFilter = JSON.parse(JSON.stringify(filter))
-  for (let rule in additions){
-    outFilter[rule] = additions[rule]
-  }
-  return outFilter
+  return additions
 }
 
 var filterTools = {filterData:filterData, filterMerge: filterMerge}
