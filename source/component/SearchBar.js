@@ -28,7 +28,7 @@ class SearchBar extends BaseVisualization {
     } else {
       this.setState(x=>{x.value = ""})
       let new_filter = {}
-      new_filter[this.field] = {"regex":""}
+      new_filter[this.field] = {"clear":""}
       this.filterIn(new_filter)
     }
   }

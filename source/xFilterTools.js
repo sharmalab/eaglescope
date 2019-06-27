@@ -17,16 +17,16 @@ function filterData(dataObj, rules){
           dataObj.dims[rule].filter([rules[rule]["greater"], rules[rule]["less"]])
         }
         else if (oprs.includes("regex")){
-          dataObj.dims[rule].filter(y=>{
+          dataObj.dims[rule].filterFunction(y=>{
             let re = new RegExp(rules[rule]["regex"])
             return !re.test(y)
           })
         }
       } else {
-        console.warn("no dimension matching " + dataObj.dims[rule])
+        console.warn("no dimension matching " + rule)
       }
     }
-    return dataObj.xf.allFiltered()
+    return dataObj.xf.allFiltered() || []
   }
 }
 

@@ -10,7 +10,7 @@ class RestDataSource{
         var k =Object.keys(x[0])[i]
         dims[k] = xf.dimension(d=>d[k])
       }
-      dims['_ALL'] = xf.dimension(d=>JSON.stringify(d))
+      dims['__ALL'] = xf.dimension(d=>JSON.stringify(d))
       return {xf: xf, raw: x, dims: dims}
     })
     let ev = new CustomEvent("dataSourceReady", {detail:{dataSource:this}})
