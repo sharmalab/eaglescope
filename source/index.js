@@ -2,7 +2,7 @@ import React from "react";
 import VisSelect from "./component/VisSelect.js"
 //import SampleVisualization from "./component/SampleVisualization.js"
 import DataManager from "./DataManager.js"
-import RestDataSource from "./RestDataSource.js"
+import RestDataSource from "./xfRestDataSource.js"
 import VisTypes from "./component/VisTypes.js"
 import vegaSpecs from "./vegaSpecs.js"
 import { render } from "react-dom";
