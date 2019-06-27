@@ -19,7 +19,7 @@ function filterData(dataObj, rules){
         else if (oprs.includes("regex")){
           dataObj.dims[rule].filterFunction(y=>{
             let re = new RegExp(rules[rule]["regex"])
-            return !re.test(y)
+            return re.test(y)
           })
         }
       } else {
