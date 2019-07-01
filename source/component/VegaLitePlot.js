@@ -73,6 +73,7 @@ class VegaLitePlot extends BaseVisualization {
         }
         let changeset = ChangeSet().remove(() => true).insert(d);
         this.vl_view.change('source_0', changeset).run()
+        console.log(changeset)
       }else{
         let spec = JSON.parse(this.props.spec)
         if (this.props.allData){
