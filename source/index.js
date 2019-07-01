@@ -13,7 +13,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 
-const data_url = "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&c=2&co=5&l=1000"
+const data_url = "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&c=2&co=5&l=20000"
 // see https://github.com/birm/loadsy/
 
 var __DM = new DataManager()
