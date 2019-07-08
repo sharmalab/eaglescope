@@ -14,6 +14,7 @@ class BaseVisualization extends React.Component {
     this.bufferTime = 500;
     // initial empty filter
     this.state.filter = {};
+    this.state.globalFilter = {};
     //not ready until initialized
     this.state.ready = false;
     // base data is data without any filters
@@ -50,8 +51,9 @@ class BaseVisualization extends React.Component {
     let d = e.detail.data
       this.setState((prevState, props) => {
       prevState.filteredData = d
+      prevState.globalFilter = e.detail.filter
     })
-    this.forceUpdate(console.log)
+    this.forceUpdate()
   }
   initData(e) {
     let d = e.detail.data
@@ -60,7 +62,7 @@ class BaseVisualization extends React.Component {
       prevState.filteredData = d
       prevState.ready = true;
     })
-    this.forceUpdate(console.log)
+    this.forceUpdate()
   }
   // TODO include other react lifecycle methods
   render() {

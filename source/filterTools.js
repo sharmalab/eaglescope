@@ -1,20 +1,27 @@
 function filterData(data, rules){
   return data.filter(y=>{
     for (let rule in rules){
+      var test_val;
+      if(rule === "__all" || rule === "__ALL"){
+        // we only care about VALUES, not keys
+        test_val = JSON.stringify(Object.values(y))
+      } else {
+        test_val = y[rule]
+      }
       let broken = false
       let oprs = Object.keys(rules[rule]);
-      if (oprs.includes("match")){
-        broken = broken || y[rule] != rules[rule]["match"]
+      if (!broken && oprs.includes("less")){
+        broken = broken || test_val >= rules[rule]["less"]
       }
-      if (oprs.includes("regex")){
+      if (!broken && oprs.includes("greater")){
+        broken = broken || test_val <= rules[rule]["greater"]
+      }
+      if (!broken && oprs.includes("match")){
+        broken = broken || test_val != rules[rule]["match"]
+      }
+      if (!broken && oprs.includes("regex")){
         let re = new RegExp(rules[rule]["regex"])
-        broken = broken || !re.test(y[rule])
-      }
-      if (oprs.includes("less")){
-        broken = broken || y[rule] >= rules[rule]["less"]
-      }
-      if (oprs.includes("greater")){
-        broken = broken || y[rule] <= rules[rule]["greater"]
+        broken = broken || !re.test(test_val)
       }
       if (broken){
         return false
@@ -28,24 +35,9 @@ function filterData(data, rules){
 
 function filterMerge(filter, additions, mergeMethod){
   filter = filter || {}
-  var outFilter = {}
+  var outFilter = JSON.parse(JSON.stringify(filter))
   for (let rule in additions){
-    if (!outFilter[rule]){
-      outFilter[rule] = {}
-    }
-    let oprs = Object.keys(additions[rule]);
-    if (oprs.includes("match")){
-      outFilter[rule].match = additions[rule].match
-    }
-    if (oprs.includes("regex")){
-      outFilter[rule].regex = additions[rule].regex
-    }
-    if (oprs.includes("less")){
-      outFilter[rule].less = additions[rule].less
-    }
-    if (oprs.includes("greater")){
-      outFilter[rule].greater = additions[rule].greater
-    }
+    outFilter[rule] = additions[rule]
   }
   return outFilter
 }
