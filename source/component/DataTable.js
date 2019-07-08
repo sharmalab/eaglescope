@@ -13,7 +13,10 @@ class DataTable extends BaseVisualization {
     if(this.state.ready){
       this.table_data = {}
       this.table_data.columns = []
-      let columns = this.props.columns || Object.keys(this.state.filteredData[0]) || []
+      var columns = this.props.columns || []
+      if (this.state.filteredData[0]){
+        columns = Object.keys(this.state.filteredData[0])
+      }
       for (let i = 0; i<columns.length; i++){
         this.table_data.columns.push({label: columns[i], field: columns[i]})
       }

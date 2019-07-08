@@ -48,7 +48,6 @@ class BaseVisualization extends React.Component {
   }
   // to be fired when data
   filterOut(e) {
-    console.log(e.detail)
     let d = e.detail.data
       this.setState((prevState, props) => {
       prevState.filteredData = d
