@@ -25,10 +25,25 @@ var default_config = {
     {"id":"v2", "type":"ImageGrid", "urlField":"u0", "labelField":"s1"}
   ]
 }
+var lung_config = {
+  data_url: "http://localhost:31338/Lung_Data.json",
+  bar:
+  [
+    {"id":"b1", "type":"Sample"},
+    {"id":"b2", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungScatterSpec},
+    {"id":"b3", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungHistSpec},
+    {"id":"b4", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungHistSpec2}
+  ],
+  body:
+  [
+    {"id":"v1", "type":"DataTable"}
+  ]
+}
 // see https://github.com/birm/loadsy/
 // REMEMBER TO ADD JSONIFY WHEN SWITCHING FROM DEFAULT
 fetch(config_url).then(config=>{
   config = default_config
+  config = lung_config
   let data_url = config.data_url
   var __DM = new DataManager()
   var __DS = new RestDataSource(data_url)

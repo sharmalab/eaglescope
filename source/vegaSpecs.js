@@ -51,6 +51,51 @@ vegaSpecs.histSpec = JSON.stringify({
   }
 })
 
+vegaSpecs.LungHistSpec = JSON.stringify({
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "mark": "bar",
+  "selection":{
+    "brush": {
+      "encodings": ['x'],
+      "type": "interval"
+    }
+  },
+  "encoding": {
+    "x": {
+      "bin": true,
+      "field": "GDC_Age_at_Diagnosis",
+      "type": "quantitative"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative"
+    }
+  }
+})
+
+vegaSpecs.LungHistSpec2 = JSON.stringify({
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "mark": "bar",
+  "selection":{
+    "brush": {
+      "encodings": ['x'],
+      "type": "interval"
+    }
+  },
+  "encoding": {
+    "x": {
+      "bin": true,
+      "field": "GDC_days_to_birth",
+      "type": "quantitative"
+    },
+    "y": {
+      "aggregate": "count",
+      "type": "quantitative"
+    }
+  }
+})
+
+
 vegaSpecs.scatterSpec = JSON.stringify({
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   "mark": "bar",
@@ -66,6 +111,24 @@ vegaSpecs.scatterSpec = JSON.stringify({
     "y": {"field": "i1", "type": "quantitative"},
     "color": {"field": "c0", "type": "nominal"},
     "shape": {"field": "c1", "type": "nominal"}
+    }
+})
+
+vegaSpecs.LungScatterSpec = JSON.stringify({
+  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
+  "mark": "bar",
+  "selection": {
+    "brush": {
+      "encodings": ["x","y"],
+      "type": "interval"
+    }
+  },
+  "mark": "point",
+  "encoding": {
+    "x": {"field": "GDC_Age_at_Diagnosis", "type": "quantitative"},
+    "y": {"field": "GDC_days_to_birth", "type": "quantitative"},
+    "color": {"field": "GDC_ajcc_clinical_stage", "type": "nominal"},
+    "shape": {"field": "GDC_Vital_Status", "type": "nominal"}
     }
 })
 
