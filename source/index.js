@@ -3,6 +3,7 @@ import DataManager from "./DataManager.js"
 import RestDataSource from "./xfRestDataSource.js"
 import VisTypes from "./component/VisTypes.js"
 import vegaSpecs from "./vegaSpecs.js"
+import lungVegaSpecs from "./lungVegaSpecs.js"
 import { render } from "react-dom";
 
 //style
@@ -25,18 +26,15 @@ var default_config = {
   ]
 }
 var lung_config = {
-  data_url: "http://localhost:31338/Lung_Data.json",
+  data_url: "http://localhost:31338/SimpleLung.json",
   grid:
   [
-    {"id":"g1", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
-    {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
-    {"id":"g3", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2},
-    {"id":"g4", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
-    {"id":"g5", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
-    {"id":"g6", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2},
-    {"id":"g7", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
-    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
-    {"id":"g9", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2}
+    {"id":"g1", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
+    {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
+    {"id":"g4", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
+    {"id":"g5", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
+    {"id":"g7", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
+    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec}
   ],
   body:
   [
