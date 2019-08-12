@@ -9,34 +9,38 @@ import { render } from "react-dom";
 import "./style/main.scss"
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
+
 
 const config_url = ""
 var default_config = {
   data_url: "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&c=2&co=5&l=2000",
-  bar:
+  grid:
   [
-    {"id":"b1", "type":"Sample"},
-    {"id":"b2", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.scatterSpec}
+    {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.scatterSpec}
   ],
-  body:
+  detail:
   [
-    {"id":"v1", "type":"DataTable"},
-    {"id":"v2", "type":"ImageGrid", "urlField":"u0", "labelField":"s1"}
+    {"id":"d1", "type":"DataTable"},
+    {"id":"d2", "type":"ImageGrid", "urlField":"u0", "labelField":"s1"}
   ]
 }
 var lung_config = {
   data_url: "http://localhost:31338/Lung_Data.json",
-  bar:
+  grid:
   [
-    {"id":"b1", "type":"Sample"},
-    {"id":"b2", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungScatterSpec},
-    {"id":"b3", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungHistSpec},
-    {"id":"b4", "type":"VegaLitePlot", "allData": "true", "h":2, "w":2, "spec":vegaSpecs.LungHistSpec2}
+    {"id":"g1", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
+    {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
+    {"id":"g3", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2},
+    {"id":"g4", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
+    {"id":"g5", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
+    {"id":"g6", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2},
+    {"id":"g7", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungScatterSpec},
+    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec},
+    {"id":"g9", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":vegaSpecs.LungHistSpec2}
   ],
   body:
   [
-    {"id":"v1", "type":"DataTable"}
+    {"id":"d1", "type":"DataTable"}
   ]
 }
 // see https://github.com/birm/loadsy/
@@ -47,17 +51,17 @@ fetch(config_url).then(config=>{
   let data_url = config.data_url
   var __DM = new DataManager()
   var __DS = new RestDataSource(data_url)
-  var BarItems = []
-  var BodyItems = []
-  for (let x in config.bar){
-    let y = config.bar[x]
+  var GridItems = []
+  var DetailItems = []
+  for (let x in config.grid){
+    let y = config.grid[x]
     let ThisType = VisTypes[y.type] || VisTypes.Sample
-    BarItems.push(<ThisType {...y}/>)
+    GridItems.push(<ThisType {...y}/>)
   }
-  for (let x in config.body){
-    let y = config.body[x]
+  for (let x in config.detail){
+    let y = config.detail[x]
     let ThisType = VisTypes[y.type] || VisTypes.Sample
-    BodyItems.push(<ThisType {...y}/>)
+    DetailItems.push(<ThisType {...y}/>)
   }
 
 
@@ -66,15 +70,16 @@ fetch(config_url).then(config=>{
       <div>
       <nav className="navbar navbar-light bg-light">
         <span className="navbar-brand mb-0 h1">DataScope the Second</span>
+        <VisTypes.Sample id="count1"/>
       </nav>
         <div className="container-fluid">
-          <div className="row">
-            <div className="col col-lg-3 viscol">
-              {BarItems}
+          <div className="">
+            <div className="grid">
+              {GridItems}
             </div>
-            <div className="col col-sm-12 col-lg-9 viscol">
-              {BodyItems}
-            </div>
+            //<div className="body nodisplay">
+            //  {DetailItems}
+            //</div>
           </div>
         </div>
 

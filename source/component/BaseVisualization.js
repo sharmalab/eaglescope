@@ -6,9 +6,9 @@ class BaseVisualization extends React.Component {
     this.props = props;
     this.ctx = ctx;
     this.id = props.id || '_' + Math.random().toString(36).substr(2, 9);
-    // h and w, grid units(?)
-    this.height = this.props.h || this.props.height || 1
-    this.width = this.props.w || this.props.width || 1
+    // TODO cauculate suitible h and w defaults
+    this.width = 400
+    this.height = this.props.h * 400 || this.props.height * 400 || 400
     this.state = {};
     // buffer time between event and draw, for debounce
     this.bufferTime = 500;

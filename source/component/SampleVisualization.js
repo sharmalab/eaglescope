@@ -8,9 +8,9 @@ class SampleVisualization extends BaseVisualization {
   }
   render() {
     if(this.state.ready){
-      return <p> Records: {this.state.filteredData.length} of {this.state.baseData.length} </p>
+      return <div id={this.id}><p> Records: {this.state.filteredData.length} of {this.state.baseData.length} </p></div>
     } else {
-      return <p> waiting...</p>
+      return <div id={this.id}><p> waiting...</p></div>
     }
 
   }

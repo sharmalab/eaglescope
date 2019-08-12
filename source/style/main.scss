@@ -1,3 +1,6 @@
+body{
+  min-width: 500px;
+}
 h1{
     color:red
 }
@@ -9,4 +12,40 @@ h1{
 .viscol{
   overflow: scroll;
   object-fit: contain;
+}
+
+.nodislpay{
+  display: none;
+}
+
+@media (min-width: 800px) {
+  .grid {
+    column-count: 2;
+    column-gap: 10px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .grid {
+    column-count: 3;
+    column-gap: 10px;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+}
+
+@media (min-width: 1600px) {
+  .grid {
+     column-count: 4;
+     column-gap: 10px;
+  }
+}
+
+@media (min-width: 2000px) {
+  .grid {
+     column-count: 5;
+     column-gap: 10px;
+  }
 }

@@ -8,6 +8,7 @@ import PureVegaLitePlot from './PureVegaLitePlot.js'
 import DataTable from './DataTable.js'
 import SearchBar from './SearchBar.js'
 import ImageGrid from './ImageGrid.js'
+import Placeholder from './Placeholder.js'
 
 var VisTypes = {}
 VisTypes.Sample = SampleVisualization
@@ -19,5 +20,6 @@ VisTypes.PureVegaLitePlot = PureVegaLitePlot
 VisTypes.DataTable = DataTable
 VisTypes.SearchBar = SearchBar
 VisTypes.ImageGrid = ImageGrid
+VisTypes.Placeholder = Placeholder
 
 export default VisTypes
