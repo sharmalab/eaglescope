@@ -1,0 +1,86 @@
+<!-- treemaps.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="keywords" content="camicroscope, quip" />
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+    	<title>Tree Maps</title>
+
+		<!-- add pure-form css -->
+		<link rel='stylesheet' type='text/css' media='all' href='normalize.css'/>
+		<link rel='stylesheet' type='text/css' media='all' href='https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'/>
+		<link rel='stylesheet' type='text/css' media='all' href='facet-terms-aggregation.css'/>
+		<link rel='stylesheet' type='text/css' media='all' href='style.css'/>
+
+
+
+ 		<!--  common js START -->
+		<!-- <script type='text/javascript' src='../../common/util.js'></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.4.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@3.4.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@4.2.1"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+		<style type="text/css">
+			/* css style */
+
+
+
+
+		</style>
+	</head>
+	<body>
+		<!-- nav bar -->
+		<header>
+			<div class='logo'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+
+			<nav >
+				<div></div>
+				<div style='padding-top: 1rem;'>
+						<button id="gogo" class="clear-btn" title="Exploration"><span class="fa fa-search"></span>Clinical Data Exploration</button>
+				</div>
+				<div>&nbsp;&nbsp;</div>
+				<div>&nbsp;&nbsp;</div>
+			</nav>
+
+		</header>
+
+		<div role="main" class="main-content">
+			<div class="content-section">
+				<div class="left-section">
+					<div id='term-list' class='selection'>
+					</div>
+				</div>
+
+				<div class="right-section">
+					<div class="selection filter-panel" style='background:#e4f5f5; border:none;'></div>
+<!-- 					<div class="header-selection selection">
+						<div class="header-selection-item">Tree Map</div>
+						<div class="header-selection-item">Stacked Bar</div>
+					</div> -->
+					<div id="view_stack" class="selection"></div>
+					<div id="view_tree" class="selection"></div>
+				</div>
+			</div>
+
+			<footer class='footer' role="contentinfo">
+				<div>
+					<div>Footer Content Row One</div>
+					<div>Home Page | Policies | Accessibility | Support</div>
+					<div>DataScope Logo & Brand ®</div>
+					<div>Data Release XX.0 - July XX, 20XX</div>
+				</div>
+			</footer>
+		</div>
+	</body>
+	<script src="treemaps.js"></script>
+	<script type="text/javascript">
+		const gogo = () => {
+			window.location.href = `../index.html?filter=SOMETHING`;	
+		}
+		document.querySelector('#gogo').addEventListener('click',gogo);
+
+	</script>
+</html>

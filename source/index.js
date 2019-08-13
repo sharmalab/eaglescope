@@ -26,21 +26,25 @@ var default_config = {
   ]
 }
 var lung_config = {
-  data_url: "http://localhost:31338/SimpleLung.json",
+  data_url: "./data/demo.json",
   grid:
   [
     {"id":"g1", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
     {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
+    {"id":"g3", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec},
     {"id":"g4", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
     {"id":"g5", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
+    {"id":"g6", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec},
     {"id":"g7", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
-    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec}
+    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
+    {"id":"g9", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec}
   ],
   body:
   [
     {"id":"d1", "type":"DataTable"}
   ]
 }
+
 // see https://github.com/birm/loadsy/
 // REMEMBER TO ADD JSONIFY WHEN SWITCHING FROM DEFAULT
 fetch(config_url).then(config=>{
@@ -66,8 +70,9 @@ fetch(config_url).then(config=>{
   const App = () => {
     return(
       <div>
-      <nav className="navbar navbar-light bg-light">
-        <span className="navbar-brand mb-0 h1">DataScope the Second</span>
+      <nav className="navbar blue-bar">
+        <span className="navbar-brand mb-0 h1">TCIA Clinical Data Explorer</span>
+        <button id="gogo" className="clear-btn" title="Exploration" onClick={()=>{window.location.href="./treemap/treemaps.html?referrer=detail"}}><span className="fa fa-long-arrow-alt-left"></span> Back to Search Portal</button>
         <VisTypes.Sample id="count1"/>
       </nav>
         <div className="container-fluid">
@@ -75,9 +80,9 @@ fetch(config_url).then(config=>{
             <div className="grid">
               {GridItems}
             </div>
-            //<div className="body nodisplay">
-            //  {DetailItems}
-            //</div>
+            <div className="body nodisplay">
+              {DetailItems}
+            </div>
           </div>
         </div>
 

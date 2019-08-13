@@ -1,0 +1,2324 @@
+[
+   {
+      "Collection": "QIN-BREAST-02",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "13",
+      "Image Types": [
+         {
+            "MR": 13
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2019-07-10"
+   },
+   {
+      "Collection": "Acrin-FMISO-Brain",
+      "Cancer Type": "Glioblastoma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "45",
+      "Image Types": [
+         {
+            "CT": 36
+         },
+         {
+            "MR": 35
+         },
+         {
+            "PT": 27
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2019-07-02"
+   },
+   {
+      "Collection": "CPTAC-SAR",
+      "Cancer Type": "Sarcomas",
+      "Location": [
+         "Breast",
+         "Calf",
+         "Chest",
+         "Elbow",
+         "Knee",
+         "Leg",
+         "Shoulder",
+         "Thigh"
+      ],
+      "Subject": "75",
+      "Image Types": [
+         {
+            "CT": 52
+         },
+         {
+            "MR": 52
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-GBM",
+      "Cancer Type": "Glioblastoma Multiforme",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "120",
+      "Image Types": [
+         {
+            "CT": 100
+         },
+         {
+            "MR": 93
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-LSCC",
+      "Cancer Type": "Squamous Cell Carcinoma",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "114",
+      "Image Types": [
+         {
+            "CT": 79
+         },
+         {
+            "CR": 90
+         },
+         {
+            "DX": 84
+         },
+         {
+            "PT": 87
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-PDA",
+      "Cancer Type": "Ductal Adenocarcinoma",
+      "Location": [
+         "Pancreas"
+      ],
+      "Subject": "166",
+      "Image Types": [
+         {
+            "CT": 166
+         },
+         {
+            "MR": 127
+         },
+         {
+            "DX": 120
+         },
+         {
+            "CR": 142
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-LUAD",
+      "Cancer Type": "Adenocarcinoma",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "230",
+      "Image Types": [
+         {
+            "CT": 205
+         },
+         {
+            "MR": 211
+         },
+         {
+            "PT": 209
+         },
+         {
+            "CR": 197
+         }
+      ],
+      "Supperting Data": [
+         "Genomics",
+         "Clinical",
+         "Proteomics"
+      ],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-CCRCC",
+      "Cancer Type": "Clear Cell Carcinoma",
+      "Location": [
+         "Kidney"
+      ],
+      "Subject": "222",
+      "Image Types": [
+         {
+            "CT": 170
+         },
+         {
+            "MR": 167
+         }
+      ],
+      "Supperting Data": [
+         "Proteomics",
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-HNSCC",
+      "Cancer Type": "Head and Neck Cancer",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "111",
+      "Image Types": [
+         {
+            "CT": 90
+         },
+         {
+            "SC": 70
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-CM",
+      "Cancer Type": "Cutaneous Melanoma",
+      "Location": [
+         "Skin"
+      ],
+      "Subject": "73",
+      "Image Types": [
+         {
+            "MR": 41
+         },
+         {
+            "CT": 54
+         },
+         {
+            "CR": 58
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-AML",
+      "Cancer Type": "Acute Myeloid Leukemia",
+      "Location": [
+         "Marrow",
+         "Blood"
+      ],
+      "Subject": "49",
+      "Image Types": [
+         {
+            "PR": 49
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "CPTAC-UCEC",
+      "Cancer Type": "Corpus Endometrial Carcinoma",
+      "Location": [
+         "Uterus"
+      ],
+      "Subject": "246",
+      "Image Types": [
+         {
+            "CT": 236
+         },
+         {
+            "MR": 223
+         },
+         {
+            "PT": 149
+         },
+         {
+            "CR": 189
+         }
+      ],
+      "Supperting Data": [
+         "Proteomics",
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-06-30"
+   },
+   {
+      "Collection": "NSCLC-Radiomics-Interobserver1",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "22",
+      "Image Types": [
+         {
+            "CT": 21
+         },
+         {
+            "RTSTRUCT": 12
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-06-02"
+   },
+   {
+      "Collection": "C-NMC 2019",
+      "Cancer Type": "Leukemia",
+      "Location": [
+         "Blood",
+         "Bone"
+      ],
+      "Subject": "118",
+      "Image Types": [
+         {
+            "PR": 118
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-05-28"
+   },
+   {
+      "Collection": "MiMM_SBILab",
+      "Cancer Type": "Multiple Myeloma",
+      "Location": [
+         "Bone"
+      ],
+      "Subject": "5",
+      "Image Types": [
+         {
+            "PR": 5
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-05-28"
+   },
+   {
+      "Collection": "SN-AM",
+      "Cancer Type": "Leukemia|Multiple Myeloma",
+      "Location": [
+         "Blood",
+         "Bone"
+      ],
+      "Subject": "60",
+      "Image Types": [
+         {
+            "PR": 60
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-05-28"
+   },
+   {
+      "Collection": "AAPM RT-MAC Grand Challenge 2019",
+      "Cancer Type": "Head and Neck Cancer",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "43",
+      "Image Types": [
+         {
+            "MR": 33
+         },
+         {
+            "RTSTRUCT": 39
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2019-05-19"
+   },
+   {
+      "Collection": "QIN-PROSTATE-Repeatability",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "15",
+      "Image Types": [
+         {
+            "MR": 9
+         },
+         {
+            "SEG": 15
+         },
+         {
+            "SR": 14
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2019-05-10"
+   },
+   {
+      "Collection": "LCTSC",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "60",
+      "Image Types": [
+         {
+            "CT": 59
+         },
+         {
+            "RTSTRUCT": 38
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-05-08"
+   },
+   {
+      "Collection": "Anti-PD-1 Lung",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "46",
+      "Image Types": [
+         {
+            "CT": 42
+         },
+         {
+            "PT": 41
+         },
+         {
+            "SC": 33
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-04-19"
+   },
+   {
+      "Collection": "NSCLC-Cetuximab",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "490",
+      "Image Types": [
+         {
+            "CT": 472
+         },
+         {
+            "RTSTRUCT": 449
+         },
+         {
+            "RTDOSE": 350
+         },
+         {
+            "RTPLAN": 461
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2019-04-15"
+   },
+   {
+      "Collection": "Osteosarcoma Tumor Assessment",
+      "Cancer Type": "Osteosarcoma ",
+      "Location": [
+         "Bone"
+      ],
+      "Subject": "4",
+      "Image Types": [
+         {
+            "PR": 4
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-03-26"
+   },
+   {
+      "Collection": "VICTRE",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "1094",
+      "Image Types": [
+         {
+            "MG": 1094
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-03-08"
+   },
+   {
+      "Collection": "CC-Radiomics-Phantom-2",
+      "Cancer Type": "Lung Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "251",
+      "Image Types": [
+         {
+            "CT": 251
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-02-28"
+   },
+   {
+      "Collection": "ACRIN-NSCLC-FDG-PET",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "193",
+      "Image Types": [
+         {
+            "PT": 154
+         },
+         {
+            "CT": 182
+         },
+         {
+            "MR": 142
+         },
+         {
+            "CR": 180
+         },
+         {
+            "DX": 170
+         },
+         {
+            "SC": 105
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2019-02-06"
+   },
+   {
+      "Collection": "Brain-Tumor-Progression",
+      "Cancer Type": "Brain Cancer",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "20",
+      "Image Types": [
+         {
+            "MR": 20
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-02-05"
+   },
+   {
+      "Collection": "Acrin-FLT-Breast",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "83",
+      "Image Types": [
+         {
+            "PET": 53
+         },
+         {
+            "CT": 42
+         },
+         {
+            "OT": 57
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2019-01-22"
+   },
+   {
+      "Collection": "TCGA-UCEC",
+      "Cancer Type": "Uterine Corpus Endometrial Carcinoma",
+      "Location": [
+         "Uterus"
+      ],
+      "Subject": "65",
+      "Image Types": [
+         {
+            "CT": 39
+         },
+         {
+            "CR": 63
+         },
+         {
+            "MR": 63
+         },
+         {
+            "PT": 56
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-10-26"
+   },
+   {
+      "Collection": "TCGA-HNSC",
+      "Cancer Type": "Head and Neck Squamous Cell Carcinoma",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "227",
+      "Image Types": [
+         {
+            "CT": 121
+         },
+         {
+            "MR": 201
+         },
+         {
+            "PT": 127
+         },
+         {
+            "RTSTRUCT": 223
+         },
+         {
+            "RTPLAN": 209
+         },
+         {
+            "RTDOSE": 209
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-08-30"
+   },
+   {
+      "Collection": "HNSCC-3DCT-RT",
+      "Cancer Type": "Head and Neck Squamous Cell Carcinoma",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "31",
+      "Image Types": [
+         {
+            "CT": 17
+         },
+         {
+            "RTSTRUCT": 23
+         },
+         {
+            "RTDOSE": 18
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-08-30"
+   },
+   {
+      "Collection": "Anti-PD-1_MELANOMA",
+      "Cancer Type": "Melanoma",
+      "Location": [
+         "Skin"
+      ],
+      "Subject": "47",
+      "Image Types": [
+         {
+            "CT": 42
+         },
+         {
+            "MR": 24
+         },
+         {
+            "PT": 35
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-07-31"
+   },
+   {
+      "Collection": "MRI-DIR",
+      "Cancer Type": "Squamous Cell Carcinoma",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "9",
+      "Image Types": [
+         {
+            "MR": 4
+         },
+         {
+            "CT": 7
+         },
+         {
+            "RTSTRUCT": 8
+         }
+      ],
+      "Supperting Data": [
+         "Image Registrations"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-06-30"
+   },
+   {
+      "Collection": "Head-Neck-PET-CT",
+      "Cancer Type": "Head and Neck Cancer",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "298",
+      "Image Types": [
+         {
+            "PT": 177
+         },
+         {
+            "CT": 254
+         },
+         {
+            "RTSTRUCT": 280
+         },
+         {
+            "RTPLAN": 211
+         },
+         {
+            "RTDOSE": 215
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses",
+         "Software/Source Code"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-06-07"
+   },
+   {
+      "Collection": "APOLLO",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "7",
+      "Image Types": [
+         {
+            "CT": 3
+         },
+         {
+            "PT": 6
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2018-03-08"
+   },
+   {
+      "Collection": "NSCLC-Radiogenomics",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Chest"
+      ],
+      "Subject": "211",
+      "Image Types": [
+         {
+            "PT": 115
+         },
+         {
+            "CT": 160
+         },
+         {
+            "SEG": 164
+         },
+         {
+            "SR": 105
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-12-04"
+   },
+   {
+      "Collection": "HNSCC",
+      "Cancer Type": "Head and Neck Squamous Cell Carcinoma",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "215",
+      "Image Types": [
+         {
+            "CT": 167
+         },
+         {
+            "PT": 119
+         },
+         {
+            "MR": 170
+         },
+         {
+            "RTSTRUCT": 111
+         },
+         {
+            "RTPLAN": 147
+         },
+         {
+            "RTDOSE": 120
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-10-31"
+   },
+   {
+      "Collection": "TCGA-BLCA",
+      "Cancer Type": "Bladder Endothelial Carcinoma",
+      "Location": [
+         "Bladder"
+      ],
+      "Subject": "106",
+      "Image Types": [
+         {
+            "CT": 85
+         },
+         {
+            "CR": 95
+         },
+         {
+            "MR": 90
+         },
+         {
+            "PT": 91
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2017-10-30"
+   },
+   {
+      "Collection": "LGG-1p19qDeletion",
+      "Cancer Type": "Low Grade Glioma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "159",
+      "Image Types": [
+         {
+            "MR": 159
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-09-30"
+   },
+   {
+      "Collection": "CBIS-DDSM",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "1971",
+      "Image Types": [
+         {
+            "MG": 1971
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-09-27"
+   },
+   {
+      "Collection": "Phantom FDA",
+      "Cancer Type": "Lung Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "7",
+      "Image Types": [
+         {
+            "CT": 7
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-08-30"
+   },
+   {
+      "Collection": "QIN LUNG CT",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "47",
+      "Image Types": [
+         {
+            "CT": 47
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-07-31"
+   },
+   {
+      "Collection": "CC-Radiomics-Phantom",
+      "Cancer Type": "Lung Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "17",
+      "Image Types": [
+         {
+            "CT": 10
+         },
+         {
+            "RTSTRUCT": 11
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-07-29"
+   },
+   {
+      "Collection": "Mouse-Astrocytoma",
+      "Cancer Type": "Glioblastoma Multiforme",
+      "Location": [
+         "Head"
+      ],
+      "Subject": "48",
+      "Image Types": [
+         {
+            "MR": 48
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-03-30"
+   },
+   {
+      "Collection": "PROSTATEx",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "346",
+      "Image Types": [
+         {
+            "MR": 346
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-03-30"
+   },
+   {
+      "Collection": "TCGA-LUSC",
+      "Cancer Type": "Lung Squamous Cell Carcinoma",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "37",
+      "Image Types": [
+         {
+            "CT": 18
+         },
+         {
+            "NM": 35
+         },
+         {
+            "PT": 26
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-01-30"
+   },
+   {
+      "Collection": "TCGA-LUAD",
+      "Cancer Type": "Lung Adenocarcinoma",
+      "Location": [
+         "Chest"
+      ],
+      "Subject": "69",
+      "Image Types": [
+         {
+            "CT": 69
+         },
+         {
+            "PT": 62
+         },
+         {
+            "NM": 69
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-01-30"
+   },
+   {
+      "Collection": "TCGA-KIRP",
+      "Cancer Type": "Kidney Renal Papillary Cell Carcinoma",
+      "Location": [
+         "Renal"
+      ],
+      "Subject": "33",
+      "Image Types": [
+         {
+            "CT": 30
+         },
+         {
+            "MR": 30
+         },
+         {
+            "PT": 22
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-01-30"
+   },
+   {
+      "Collection": "TCGA-LIHC",
+      "Cancer Type": "Liver Hepatocellular Carcinoma",
+      "Location": [
+         "Liver"
+      ],
+      "Subject": "97",
+      "Image Types": [
+         {
+            "MR": 60
+         },
+         {
+            "CT": 51
+         },
+         {
+            "PT": 82
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2017-01-30"
+   },
+   {
+      "Collection": "IvyGAP",
+      "Cancer Type": "Glioblastoma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "39",
+      "Image Types": [
+         {
+            "MR": 27
+         },
+         {
+            "CT": 37
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-12-30"
+   },
+   {
+      "Collection": "Prostate Fused-MRI-Pathology",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "28",
+      "Image Types": [
+         {
+            "MR": 16
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-11-30"
+   },
+   {
+      "Collection": "ISPY1",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "222",
+      "Image Types": [
+         {
+            "MR": 221
+         },
+         {
+            "SEG": 168
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-08-31"
+   },
+   {
+      "Collection": "TCGA-PRAD",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "14",
+      "Image Types": [
+         {
+            "CT": 10
+         },
+         {
+            "PT": 7
+         },
+         {
+            "MR": 10
+         }
+      ],
+      "Supperting Data": [
+         "Clinical Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-08-29"
+   },
+   {
+      "Collection": "NSCLC-Radiomics",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "422",
+      "Image Types": [
+         {
+            "CT": 294
+         },
+         {
+            "RTSTRUCT": 388
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Ongoing",
+      "Updated": "2016-05-20"
+   },
+   {
+      "Collection": "Pancreas-CT",
+      "Cancer Type": "Healthy Controls",
+      "Location": [
+         "Pancreas"
+      ],
+      "Subject": "82",
+      "Image Types": [
+         {
+            "CT": 82
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-03-22"
+   },
+   {
+      "Collection": "Breast-MRI-NACT-Pilot",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "64",
+      "Image Types": [
+         {
+            "MR": 38
+         },
+         {
+            "SEG": 57
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-01-26"
+   },
+   {
+      "Collection": "4D-Lung",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "20",
+      "Image Types": [
+         {
+            "CT": 17
+         },
+         {
+            "RTSTRUCT": 12
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2016-01-07"
+   },
+   {
+      "Collection": "NRG-1308",
+      "Cancer Type": "Non-small Cell Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "12",
+      "Image Types": [
+         {
+            "CT": 8
+         },
+         {
+            "RTSTRUCT": 6
+         },
+         {
+            "RTPLAN": 7
+         },
+         {
+            "RTDOSE": 9
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2015-09-14"
+   },
+   {
+      "Collection": "RIDER Neuro MRI",
+      "Cancer Type": "Brain Cancer",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "19",
+      "Image Types": [
+         {
+            "MR": 19
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2015-09-07"
+   },
+   {
+      "Collection": "QIN-Breast",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "67",
+      "Image Types": [
+         {
+            "MR": 52
+         },
+         {
+            "PT": 55
+         },
+         {
+            "CT": 58
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2015-09-04"
+   },
+   {
+      "Collection": "QIN-BRAIN-DSC-MRI",
+      "Cancer Type": "Low & High Grade Glioma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "49",
+      "Image Types": [
+         {
+            "MR": 49
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2015-08-28"
+   },
+   {
+      "Collection": "QIN GBM Treatment Response",
+      "Cancer Type": "Glioblastoma Multiforme",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "54",
+      "Image Types": [
+         {
+            "MR": 54
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2015-08-12"
+   },
+   {
+      "Collection": "Soft-tissue-Sarcoma",
+      "Cancer Type": "Soft-tissue Sarcoma",
+      "Location": [
+         "Extremities"
+      ],
+      "Subject": "51",
+      "Image Types": [
+         {
+            "FDG": 46
+         },
+         {
+            "PET": 46
+         },
+         {
+            "CT": 49
+         },
+         {
+            "MR": 29
+         },
+         {
+            "RTSTRUCT": 32
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses",
+         "Software/Source Code"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2015-06-01"
+   },
+   {
+      "Collection": "Mouse-Mammary",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Abdomen"
+      ],
+      "Subject": "32",
+      "Image Types": [
+         {
+            "MR": 32
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2015-03-30"
+   },
+   {
+      "Collection": "CT Lymph Nodes",
+      "Cancer Type": "Lymphadenopathy",
+      "Location": [
+         "Abdomen",
+         "Mediastinum"
+      ],
+      "Subject": "176",
+      "Image Types": [
+         {
+            "CT": 176
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2015-03-16"
+   },
+   {
+      "Collection": "TCGA-THCA",
+      "Cancer Type": "Thyroid Cancer",
+      "Location": [
+         "Thyroid"
+      ],
+      "Subject": "6",
+      "Image Types": [
+         {
+            "CT": 5
+         },
+         {
+            "PT": 3
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-31"
+   },
+   {
+      "Collection": "TCGA-SARC",
+      "Cancer Type": "Sarcomas",
+      "Location": [
+         "Chest",
+         "Abdomen",
+         "Pelvis",
+         "Leg",
+         "TSpine"
+      ],
+      "Subject": "5",
+      "Image Types": [
+         {
+            "CT": 3
+         },
+         {
+            "MR": 5
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-30"
+   },
+   {
+      "Collection": "TCGA-BRCA",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "139",
+      "Image Types": [
+         {
+            "MR": 80
+         },
+         {
+            "MG": 114
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-30"
+   },
+   {
+      "Collection": "LungCT-Diagnosis",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "61",
+      "Image Types": [
+         {
+            "CT": 61
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-30"
+   },
+   {
+      "Collection": "TCGA-ESCA",
+      "Cancer Type": "Esophageal Carcinoma",
+      "Location": [
+         "Esophagus"
+      ],
+      "Subject": "16",
+      "Image Types": [
+         {
+            "CT": 16
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-09"
+   },
+   {
+      "Collection": "TCGA-CESC",
+      "Cancer Type": "Cervical Squamous Cell Carcinoma and Endocervical Adenocarcinoma",
+      "Location": [
+         "Cervix"
+      ],
+      "Subject": "54",
+      "Image Types": [
+         {
+            "MR": 54
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-09"
+   },
+   {
+      "Collection": "TCGA-STAD",
+      "Cancer Type": "Stomach Adenocarcinoma",
+      "Location": [
+         "Stomach"
+      ],
+      "Subject": "46",
+      "Image Types": [
+         {
+            "CT": 46
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-12-09"
+   },
+   {
+      "Collection": "TCGA-OV",
+      "Cancer Type": "Ovarian Serous Cystadenocarcinoma",
+      "Location": [
+         "Ovary"
+      ],
+      "Subject": "143",
+      "Image Types": [
+         {
+            "CT": 129
+         },
+         {
+            "MR": 137
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-11-05"
+   },
+   {
+      "Collection": "TCGA-COAD",
+      "Cancer Type": "Colon Adenocarcinoma",
+      "Location": [
+         "Colon"
+      ],
+      "Subject": "25",
+      "Image Types": [
+         {
+            "CT": 25
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-10-14"
+   },
+   {
+      "Collection": "TCGA-KIRC",
+      "Cancer Type": "Kidney Renal Clear Cell Carcinoma",
+      "Location": [
+         "Renal"
+      ],
+      "Subject": "267",
+      "Image Types": [
+         {
+            "CT": 236
+         },
+         {
+            "MR": 266
+         },
+         {
+            "CR": 176
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-10-09"
+   },
+   {
+      "Collection": "QIN-SARCOMA",
+      "Cancer Type": "Sarcomas",
+      "Location": [
+         "Breast",
+         "Calf",
+         "Chest",
+         "Elbow",
+         "Knee",
+         "Leg",
+         "Shoulder",
+         "Thigh"
+      ],
+      "Subject": "15",
+      "Image Types": [
+         {
+            "MR": 15
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2014-09-05"
+   },
+   {
+      "Collection": "TCGA-LGG",
+      "Cancer Type": "Low Grade Glioma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "199",
+      "Image Types": [
+         {
+            "MR": 180
+         },
+         {
+            "CT": 190
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-09-04"
+   },
+   {
+      "Collection": "QIN PET Phantom",
+      "Cancer Type": "PET Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "2",
+      "Image Types": [
+         {
+            "PT": 2
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-09-04"
+   },
+   {
+      "Collection": "QIN-HeadNeck",
+      "Cancer Type": "Head and Neck Carcinomas",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "156",
+      "Image Types": [
+         {
+            "PT": 115
+         },
+         {
+            "CT": 143
+         },
+         {
+            "SR": 109
+         },
+         {
+            "SEG": 94
+         },
+         {
+            "RWV": 141
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-08-26"
+   },
+   {
+      "Collection": "QIN Breast DCE-MRI",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "10",
+      "Image Types": [
+         {
+            "MR": 6
+         },
+         {
+            "KO": 5
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-07-31"
+   },
+   {
+      "Collection": "QIN Prostate",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "22",
+      "Image Types": [
+         {
+            "MR": 22
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2014-07-02"
+   },
+   {
+      "Collection": "NSCLC-Radiomics-Genomics",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "89",
+      "Image Types": [
+         {
+            "CT": 89
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-07-02"
+   },
+   {
+      "Collection": "Lung Phantom",
+      "Cancer Type": "Lung Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "1",
+      "Image Types": [
+         {
+            "CT": 1
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-06-19"
+   },
+   {
+      "Collection": "TCGA-KICH",
+      "Cancer Type": "Kidney Chromophobe",
+      "Location": [
+         "Kidney"
+      ],
+      "Subject": "15",
+      "Image Types": [
+         {
+            "CT": 8
+         },
+         {
+            "MR": 14
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-05-21"
+   },
+   {
+      "Collection": "TCGA-READ",
+      "Cancer Type": "Rectum Adenocarcinoma",
+      "Location": [
+         "Rectum"
+      ],
+      "Subject": "3",
+      "Image Types": [
+         {
+            "CT": 3
+         },
+         {
+            "MR": 3
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-05-21"
+   },
+   {
+      "Collection": "TCGA-GBM",
+      "Cancer Type": "Glioblastoma Multiforme",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "262",
+      "Image Types": [
+         {
+            "MR": 251
+         },
+         {
+            "CT": 237
+         },
+         {
+            "DX": 148
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-05-08"
+   },
+   {
+      "Collection": "SPIE-AAPM Lung CT Challenge",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "70",
+      "Image Types": [
+         {
+            "CT": 70
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2014-01-02"
+   },
+   {
+      "Collection": "Prostate-3T",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "64",
+      "Image Types": [
+         {
+            "MR": 64
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2013-05-31"
+   },
+   {
+      "Collection": "NaF Prostate",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "9",
+      "Image Types": [
+         {
+            "PT": 9
+         },
+         {
+            "CT": 4
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2013-04-23"
+   },
+   {
+      "Collection": "Head-Neck Cetuximab",
+      "Cancer Type": "Head and Neck Carcinomas",
+      "Location": [
+         "Head-Neck"
+      ],
+      "Subject": "111",
+      "Image Types": [
+         {
+            "CT": 62
+         },
+         {
+            "PT": 108
+         },
+         {
+            "RTSTRUCT": 108
+         },
+         {
+            "RTPLAN": 109
+         },
+         {
+            "RTDOSE": 61
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2013-04-17"
+   },
+   {
+      "Collection": "National Lung Screening Trial",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "754",
+      "Image Types": [
+         {
+            "CT": 754
+         }
+      ],
+      "Supperting Data": [
+         "Clinical"
+      ],
+      "Access": "Limited",
+      "Status": "Complete",
+      "Updated": "2013-03-01"
+   },
+   {
+      "Collection": "Prostate-Diagnosis",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "92",
+      "Image Types": [
+         {
+            "MR": 92
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses",
+         "Clinical"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2013-01-30"
+   },
+   {
+      "Collection": "LIDC-IDRI",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "510",
+      "Image Types": [
+         {
+            "CT": 442
+         },
+         {
+            "CR": 490
+         },
+         {
+            "DX": 462
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses",
+         "Clinical"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2012-03-21"
+   },
+   {
+      "Collection": "QIBA CT-1C",
+      "Cancer Type": "Lung Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "1",
+      "Image Types": [
+         {
+            "CT": 1
+         },
+         {
+            "PR": 1
+         },
+         {
+            "SEG": 1
+         },
+         {
+            "SR": 1
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-28"
+   },
+   {
+      "Collection": "RIDER Phantom PET-CT",
+      "Cancer Type": "PET-CT Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "20",
+      "Image Types": [
+         {
+            "PT": 20
+         },
+         {
+            "CT": 15
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-25"
+   },
+   {
+      "Collection": "RIDER Lung CT",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Chest"
+      ],
+      "Subject": "32",
+      "Image Types": [
+         {
+            "CT": 32
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-25"
+   },
+   {
+      "Collection": "RIDER Lung PET-CT",
+      "Cancer Type": "Lung Cancer",
+      "Location": [
+         "Lung"
+      ],
+      "Subject": "244",
+      "Image Types": [
+         {
+            "PT": 229
+         },
+         {
+            "CT": 172
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-25"
+   },
+   {
+      "Collection": "RIDER Phantom MRI",
+      "Cancer Type": "MRI Phantom",
+      "Location": [
+         "Phantom"
+      ],
+      "Subject": "10",
+      "Image Types": [
+         {
+            "MR": 10
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-25"
+   },
+   {
+      "Collection": "Breast Diagnosis",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "88",
+      "Image Types": [
+         {
+            "MR": 48
+         },
+         {
+            "PT": 63
+         },
+         {
+            "CT": 79
+         },
+         {
+            "MG": 54
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-09"
+   },
+   {
+      "Collection": "RIDER Breast MRI",
+      "Cancer Type": "Breast Cancer",
+      "Location": [
+         "Breast"
+      ],
+      "Subject": "5",
+      "Image Types": [
+         {
+            "MR": 5
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-08"
+   },
+   {
+      "Collection": "REMBRANDT",
+      "Cancer Type": "Low & High Grade Glioma",
+      "Location": [
+         "Brain"
+      ],
+      "Subject": "130",
+      "Image Types": [
+         {
+            "MR": 130
+         }
+      ],
+      "Supperting Data": [
+         "Clinical",
+         "Genomics",
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-11-03"
+   },
+   {
+      "Collection": "CT Colonography",
+      "Cancer Type": "Colon Cancer",
+      "Location": [
+         "Colon"
+      ],
+      "Subject": "825",
+      "Image Types": [
+         {
+            "CT": 825
+         }
+      ],
+      "Supperting Data": [
+         "Image Analyses"
+      ],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-10-31"
+   },
+   {
+      "Collection": "Prostate-MRI",
+      "Cancer Type": "Prostate Cancer",
+      "Location": [
+         "Prostate"
+      ],
+      "Subject": "26",
+      "Image Types": [
+         {
+            "MR": 26
+         }
+      ],
+      "Supperting Data": [],
+      "Access": "Public",
+      "Status": "Complete",
+      "Updated": "2011-06-30"
+   }
+]

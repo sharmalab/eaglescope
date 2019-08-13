@@ -12,7 +12,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.01023119
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -27,7 +28,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 47.25359801
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -42,7 +44,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.1849863
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -57,7 +60,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 38.43248492
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -72,7 +76,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.0433945
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -87,7 +92,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.29608034
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -102,7 +108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.97737766
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -117,7 +124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.12353955
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -132,7 +140,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.92105678
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -147,7 +156,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -162,7 +172,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.16120194
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -177,7 +188,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.31390727
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -192,7 +204,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -207,7 +220,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.081407557
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -222,7 +236,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.3498349
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -237,7 +252,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 17.86084327
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -252,7 +268,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.20120623
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -267,7 +284,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.34890221
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -282,7 +300,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 44.06650945
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -297,7 +316,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.25068224
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -312,7 +332,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.17265013
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -327,7 +348,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.64736244
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -342,7 +364,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.824534497
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -357,7 +380,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.966039579
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -372,7 +396,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.19843533
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -387,7 +412,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 5.595197366
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -402,7 +428,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -417,7 +444,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.69088292
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -432,7 +460,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 38.38059953
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -447,7 +476,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.53673957
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -462,7 +492,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 31.94554479
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -477,7 +508,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -492,7 +524,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.28047274
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -507,7 +540,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.23135608
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -522,7 +556,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.111259549
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -537,7 +572,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.57723401
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -552,7 +588,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.54957716
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -567,7 +604,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.93795062
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -582,7 +620,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.40075494
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -597,7 +636,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.01426588
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -612,7 +652,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.07626777
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -627,7 +668,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.841775576
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -642,7 +684,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.539158142
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -657,7 +700,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.10252036
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -672,7 +716,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.37504661
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -687,7 +732,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 1.600034043
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -702,7 +748,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -717,7 +764,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -732,7 +780,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 46.35019799
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -747,7 +796,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.1384484
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -762,7 +812,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 39.72452307
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -777,7 +828,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.79217444
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -792,7 +844,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 2.378343455
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -807,7 +860,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.222988787
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -822,7 +876,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 35.23105857
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -837,7 +892,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -852,7 +908,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 40.43091088
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -867,7 +924,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.62830675
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -882,7 +940,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 2.904979484
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -897,7 +956,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 1.408013837
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -912,7 +972,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -927,7 +988,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 48.38166852
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -942,7 +1004,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -957,7 +1020,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 41.51728743
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -972,7 +1036,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.6882027
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -987,7 +1052,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.281865969
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1002,7 +1068,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1017,7 +1084,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.41931968
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1032,7 +1100,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.03902008
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1047,7 +1116,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.1868749817
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1062,7 +1132,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1077,7 +1148,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 18.64148353
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1092,7 +1164,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 7.317765797
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1107,7 +1180,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.88361463
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1122,7 +1196,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.1237702537
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1137,7 +1212,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1152,7 +1228,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 39.64138589
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1167,7 +1244,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1182,7 +1260,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.63133959
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1197,7 +1276,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1212,7 +1292,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1227,7 +1308,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 35.45724754
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1242,7 +1324,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.102529439
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1257,7 +1340,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.02251806
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1272,7 +1356,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.51014802
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1287,7 +1372,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 38.09008537
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1302,7 +1388,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1317,7 +1404,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 1.054395844
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1332,7 +1420,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1347,7 +1436,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.22710341
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1362,7 +1452,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 40.01983449
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1377,7 +1468,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 20.97330133
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1392,7 +1484,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.90393896
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1407,7 +1500,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.30793595
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1422,7 +1516,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.42889829
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1437,7 +1532,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.50084286
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1452,7 +1548,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.66772415
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1467,7 +1564,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.21572037
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1482,7 +1580,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.96226751
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1497,7 +1596,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1512,7 +1612,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.60331611
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1527,7 +1628,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1542,7 +1644,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 17.34001677
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1557,7 +1660,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.09511853
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1572,7 +1676,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.47543408
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1587,7 +1692,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.45545287
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1602,7 +1708,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 24.21737717
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1617,7 +1724,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1632,7 +1740,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 40.73527376
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1647,7 +1756,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1662,7 +1772,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.16456423
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1677,7 +1788,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 30.95783363
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1692,7 +1804,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.59198112
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1707,7 +1820,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 24.50707143
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1722,7 +1836,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.46540701
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1737,7 +1852,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1752,7 +1868,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.63346357
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1767,7 +1884,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1782,7 +1900,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1797,7 +1916,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1812,7 +1932,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.96327936
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1827,7 +1948,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1842,7 +1964,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.21429414
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1857,7 +1980,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.11714724
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1872,7 +1996,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 48.75134875
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1887,7 +2012,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 18.2320943
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1902,7 +2028,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.48848881
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1917,7 +2044,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1932,7 +2060,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1947,7 +2076,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1962,7 +2092,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.24043178
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1977,7 +2108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -1992,7 +2124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2007,7 +2140,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.438707519
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2022,7 +2156,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2037,7 +2172,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.84007095
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2052,7 +2188,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 47.02481332
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2067,7 +2204,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 24.95687329
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2082,7 +2220,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2097,7 +2236,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 22.43256236
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2112,7 +2252,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 31.10845901
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2127,7 +2268,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2142,7 +2284,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2157,7 +2300,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 1.034335506
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2172,7 +2316,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.51245112
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2187,7 +2332,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.86208333
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2202,7 +2348,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 31.63770129
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2217,7 +2364,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.5593961126
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2232,7 +2380,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.56957515
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2247,7 +2396,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2262,7 +2412,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 39.50321203
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2277,7 +2428,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 35.58575244
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2292,7 +2444,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 34.86308619
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2307,7 +2460,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2322,7 +2476,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 2.946184604
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2337,7 +2492,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2352,7 +2508,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2367,7 +2524,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.76054966
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2382,7 +2540,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.61715149
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2397,7 +2556,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2412,7 +2572,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.58745206
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2427,7 +2588,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.04180419
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2442,7 +2604,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.51816112
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2457,7 +2620,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 17.63109143
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2472,7 +2636,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2487,7 +2652,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2502,7 +2668,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2517,7 +2684,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 24.09674834
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2532,7 +2700,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.93215081
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2547,7 +2716,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.81056311
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2562,7 +2732,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 20.46149836
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2577,7 +2748,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.83254739
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2592,7 +2764,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.156359354
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2607,7 +2780,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.0961277
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2622,7 +2796,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.08474847
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2637,7 +2812,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.383645401
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2652,7 +2828,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.16302345
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2667,7 +2844,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.73833796
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2682,7 +2860,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.09172796
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2697,7 +2876,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2712,7 +2892,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.10052102
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2727,7 +2908,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.70776271
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2742,7 +2924,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2757,7 +2940,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2772,7 +2956,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.53877438
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2787,7 +2972,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2802,7 +2988,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.84927404
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2817,7 +3004,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.45718225
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2832,7 +3020,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 26.28646809
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2847,7 +3036,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 41.11885206
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2862,7 +3052,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2877,7 +3068,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.60647383
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2892,7 +3084,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2907,7 +3100,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.98348143
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2922,7 +3116,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2937,7 +3132,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.07128422
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2952,7 +3148,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 47.56123103
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2967,7 +3164,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.397879626
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2982,7 +3180,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -2997,7 +3196,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 48.23221738
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3012,7 +3212,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3027,7 +3228,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.21910959
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3042,7 +3244,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3057,7 +3260,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.90574489
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3072,7 +3276,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.15992612
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3087,7 +3292,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.61958782
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3102,7 +3308,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 28.4731946
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3117,7 +3324,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.79379209
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3132,7 +3340,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.39731599
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3147,7 +3356,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 7.110702516
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3162,7 +3372,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3177,7 +3388,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3192,7 +3404,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3207,7 +3420,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 41.33233774
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3222,7 +3436,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 33.1063756
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3237,7 +3452,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.843484333
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3252,7 +3468,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 20.532152
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3267,7 +3484,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3282,7 +3500,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3297,7 +3516,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 44.22322455
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3312,7 +3532,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 22.56603937
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3327,7 +3548,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3342,7 +3564,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3357,7 +3580,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.22440952
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3372,7 +3596,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 9.875244394
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3387,7 +3612,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.539164024
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3402,7 +3628,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.04910379
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3417,7 +3644,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3432,7 +3660,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 1.250280321
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3447,7 +3676,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3462,7 +3692,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3477,7 +3708,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3492,7 +3724,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.23160131
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3507,7 +3740,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3522,7 +3756,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 17.85887278
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3537,7 +3772,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.57598116
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3552,7 +3788,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3567,7 +3804,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3582,7 +3820,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3597,7 +3836,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3612,7 +3852,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.9907658003
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3627,7 +3868,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 49.60364278
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3642,7 +3884,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3657,7 +3900,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 47.44232388
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3672,7 +3916,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.38211107
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3687,7 +3932,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3702,7 +3948,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3717,7 +3964,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.18823456
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3732,7 +3980,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.12858794
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3747,7 +3996,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3762,7 +4012,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3777,7 +4028,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.73443399
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3792,7 +4044,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.57019162
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3807,7 +4060,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3822,7 +4076,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.97467568
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3837,7 +4092,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 20.51211752
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3852,7 +4108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3867,7 +4124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3882,7 +4140,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3897,7 +4156,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 28.35559959
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3912,7 +4172,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3927,7 +4188,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.74516781
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3942,7 +4204,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3957,7 +4220,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.91518892
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3972,7 +4236,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -3987,7 +4252,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 9.602795657
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4002,7 +4268,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4017,7 +4284,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.23806222
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4032,7 +4300,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.25318104
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4047,7 +4316,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 41.04832217
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4062,7 +4332,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4077,7 +4348,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.74037622
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4092,7 +4364,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.81084192
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4107,7 +4380,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 38.13825954
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4122,7 +4396,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 32.42134694
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4137,7 +4412,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4152,7 +4428,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4167,7 +4444,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.07360275
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4182,7 +4460,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4197,7 +4476,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4212,7 +4492,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4227,7 +4508,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4242,7 +4524,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4257,7 +4540,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.5129605
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4272,7 +4556,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.81663243
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4287,7 +4572,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 24.0261875
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4302,7 +4588,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 44.08520504
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4317,7 +4604,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.23950766
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4332,7 +4620,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4347,7 +4636,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.980956159
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4362,7 +4652,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4377,7 +4668,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.960645944
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4392,7 +4684,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4407,7 +4700,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4422,7 +4716,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 9.9025967
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4437,7 +4732,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 5.587663676
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4452,7 +4748,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4467,7 +4764,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4482,7 +4780,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4497,7 +4796,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4512,7 +4812,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 34.53301631
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4527,7 +4828,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4542,7 +4844,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.803345901
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4557,7 +4860,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4572,7 +4876,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.81305903
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4587,7 +4892,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4602,7 +4908,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 33.88718308
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4617,7 +4924,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.94209594
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4632,7 +4940,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.778662473
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4647,7 +4956,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.5087953132
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4662,7 +4972,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4677,7 +4988,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.28957299
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4692,7 +5004,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4707,7 +5020,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4722,7 +5036,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4737,7 +5052,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4752,7 +5068,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4767,7 +5084,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.78892534
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4782,7 +5100,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4797,7 +5116,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4812,7 +5132,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 23.62064585
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4827,7 +5148,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4842,7 +5164,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 35.95116859
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4857,7 +5180,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4872,7 +5196,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4887,7 +5212,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.07015321
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4902,7 +5228,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.55108097
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4917,7 +5244,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4932,7 +5260,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.63141527
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4947,7 +5276,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4962,7 +5292,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4977,7 +5308,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -4992,7 +5324,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5007,7 +5340,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5022,7 +5356,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5037,7 +5372,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.6606674
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5052,7 +5388,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5067,7 +5404,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.479661573
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5082,7 +5420,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 8.966905453
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5097,7 +5436,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5112,7 +5452,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5127,7 +5468,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 42.86151124
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5142,7 +5484,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5157,7 +5500,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5172,7 +5516,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5187,7 +5532,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5202,7 +5548,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5217,7 +5564,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5232,7 +5580,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.80527972
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5247,7 +5596,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5262,7 +5612,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5277,7 +5628,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5292,7 +5644,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.1872304
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5307,7 +5660,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.35734403
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5322,7 +5676,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5337,7 +5692,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.149919728
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5352,7 +5708,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5367,7 +5724,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 15.50644534
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5382,7 +5740,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.57957729
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5397,7 +5756,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5412,7 +5772,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 36.56495331
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5427,7 +5788,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5442,7 +5804,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 38.22212054
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5457,7 +5820,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5472,7 +5836,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 22.17535109
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5487,7 +5852,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 28.97187513
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5502,7 +5868,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5517,7 +5884,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5532,7 +5900,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5547,7 +5916,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5562,7 +5932,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5577,7 +5948,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5592,7 +5964,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5607,7 +5980,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 21.97079703
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5622,7 +5996,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.46395133
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5637,7 +6012,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 39.25652993
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5652,7 +6028,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5667,7 +6044,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5682,7 +6060,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5697,7 +6076,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5712,7 +6092,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 26.78117782
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5727,7 +6108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5742,7 +6124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5757,7 +6140,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5772,7 +6156,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5787,7 +6172,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.04394783
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5802,7 +6188,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 41.40996388
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5817,7 +6204,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5832,7 +6220,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5847,7 +6236,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5862,7 +6252,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 46.77633925
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5877,7 +6268,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5892,7 +6284,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5907,7 +6300,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5922,7 +6316,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 10.9127752
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5937,7 +6332,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5952,7 +6348,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.09095836
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5967,7 +6364,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5982,7 +6380,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -5997,7 +6396,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6012,7 +6412,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.31432602
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6027,7 +6428,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6042,7 +6444,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6057,7 +6460,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 34.41290056
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6072,7 +6476,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6087,7 +6492,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6102,7 +6508,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6117,7 +6524,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 30.23082058
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6132,7 +6540,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6147,7 +6556,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6162,7 +6572,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6177,7 +6588,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.849943289
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6192,7 +6604,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.03281733
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6207,7 +6620,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6222,7 +6636,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6237,7 +6652,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6252,7 +6668,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6267,7 +6684,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6282,7 +6700,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6297,7 +6716,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6312,7 +6732,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-Radiomics-Lung1",
@@ -6327,7 +6748,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6342,7 +6764,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6357,7 +6780,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6372,7 +6796,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6387,7 +6812,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6402,7 +6828,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6417,7 +6844,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6432,7 +6860,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6447,7 +6876,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6462,7 +6892,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6477,7 +6908,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6492,7 +6924,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6507,7 +6940,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6522,7 +6956,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6537,7 +6972,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6552,7 +6988,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6567,7 +7004,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6582,7 +7020,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6597,7 +7036,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6612,7 +7052,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6627,7 +7068,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6642,7 +7084,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6657,7 +7100,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6672,7 +7116,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6687,7 +7132,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6702,7 +7148,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6717,7 +7164,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6732,7 +7180,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6747,7 +7196,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6762,7 +7212,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6777,7 +7228,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6792,7 +7244,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6807,7 +7260,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6822,7 +7276,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6837,7 +7292,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6852,7 +7308,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6867,7 +7324,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6882,7 +7340,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6897,7 +7356,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6912,7 +7372,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6927,7 +7388,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6942,7 +7404,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6957,7 +7420,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6972,7 +7436,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -6987,7 +7452,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7002,7 +7468,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7017,7 +7484,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7032,7 +7500,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7047,7 +7516,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7062,7 +7532,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7077,7 +7548,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7092,7 +7564,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7107,7 +7580,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7122,7 +7596,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7137,7 +7612,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7152,7 +7628,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7167,7 +7644,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7182,7 +7660,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7197,7 +7676,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7212,7 +7692,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7227,7 +7708,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7242,7 +7724,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7257,7 +7740,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7272,7 +7756,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7287,7 +7772,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7302,7 +7788,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7317,7 +7804,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7332,7 +7820,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7347,7 +7836,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7362,7 +7852,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7377,7 +7868,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7392,7 +7884,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7407,7 +7900,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7422,7 +7916,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7437,7 +7932,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7452,7 +7948,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7467,7 +7964,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7482,7 +7980,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7497,7 +7996,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7512,7 +8012,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7527,7 +8028,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7542,7 +8044,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7557,7 +8060,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7572,7 +8076,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7587,7 +8092,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7602,7 +8108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7617,7 +8124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7632,7 +8140,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "NSCLC-RadioGenomics",
@@ -7647,7 +8156,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7662,7 +8172,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7677,7 +8188,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7692,7 +8204,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7707,7 +8220,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7722,7 +8236,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 47.20206368
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7737,7 +8252,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 33.29017083
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7752,7 +8268,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 29.81017932
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7767,7 +8284,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 19.65075613
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7782,7 +8300,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 48.20724491
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7797,7 +8316,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7812,7 +8332,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 40.99722922
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7827,7 +8348,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7842,7 +8364,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 12.75332243
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7857,7 +8380,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7872,7 +8396,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7887,7 +8412,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7902,7 +8428,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 31.3844657
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7917,7 +8444,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 35.10110917
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7932,7 +8460,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 44.23339689
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7947,7 +8476,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7962,7 +8492,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7977,7 +8508,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -7992,7 +8524,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8007,7 +8540,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 45.20802108
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8022,7 +8556,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8037,7 +8572,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 46.47293596
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8052,7 +8588,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8067,7 +8604,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8082,7 +8620,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 22.52251066
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8097,7 +8636,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8112,7 +8652,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 30.14609748
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8127,7 +8668,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 0.1887902154
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8142,7 +8684,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8157,7 +8700,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8172,7 +8716,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8187,7 +8732,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 16.80756924
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8202,7 +8748,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8217,7 +8764,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8232,7 +8780,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 43.47387015
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8247,7 +8796,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8262,7 +8812,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.2177267
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8277,7 +8828,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8292,7 +8844,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 33.79804512
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8307,7 +8860,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8322,7 +8876,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8337,7 +8892,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 20.85387054
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8352,7 +8908,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 48.91269389
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8367,7 +8924,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8382,7 +8940,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8397,7 +8956,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8412,7 +8972,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 26.68983671
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8427,7 +8988,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8442,7 +9004,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8457,7 +9020,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8472,7 +9036,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 13.49856122
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8487,7 +9052,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8502,7 +9068,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8517,7 +9084,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 37.02068812
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8532,7 +9100,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8547,7 +9116,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8562,7 +9132,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "LungCT-Diagnosis",
@@ -8577,7 +9148,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8592,7 +9164,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 47.64152899
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8607,7 +9180,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 13.33115072
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8622,7 +9196,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8637,7 +9212,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8652,7 +9228,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8667,7 +9244,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 16.79791652
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8682,7 +9260,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8697,7 +9276,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8712,7 +9292,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8727,7 +9308,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8742,7 +9324,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 11.31291877
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8757,7 +9340,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8772,7 +9356,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 25.49935519
   },
   {
     "Collection": "TCGA-LUSC",
@@ -8787,7 +9372,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8802,7 +9388,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8817,7 +9404,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8832,7 +9420,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 11.91013764
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8847,7 +9436,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 4.742371343
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8862,7 +9452,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8877,7 +9468,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8892,7 +9484,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 2.521814471
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8907,7 +9500,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 18.53232892
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8922,7 +9516,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8937,7 +9532,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8952,7 +9548,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8967,7 +9564,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8982,7 +9580,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -8997,7 +9596,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 14.57398766
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9012,7 +9612,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9027,7 +9628,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9042,7 +9644,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9057,7 +9660,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 26.96732425
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9072,7 +9676,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 3.531126386
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9087,7 +9692,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 6.164173595
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9102,7 +9708,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 5.092525494
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9117,7 +9724,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 27.37913707
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9132,7 +9740,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 33.20826417
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9147,7 +9756,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": 25.81684065
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9162,7 +9772,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUAD",
@@ -9177,7 +9788,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "No",
     "Has_PT": "No",
-    "Has_Pathology": "No"
+    "Has_Pathology": "No",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9192,7 +9804,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 24.1069088
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9207,7 +9820,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 38.45165114
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9222,7 +9836,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 3.718691741
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9237,7 +9852,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9252,7 +9868,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 19.03877729
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9267,7 +9884,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9282,7 +9900,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9297,7 +9916,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 41.60406996
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9312,7 +9932,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 28.65400141
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9327,7 +9948,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9342,7 +9964,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9357,7 +9980,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9372,7 +9996,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9387,7 +10012,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9402,7 +10028,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9417,7 +10044,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9432,7 +10060,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": 47.9405764
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9447,7 +10076,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9462,7 +10092,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9477,7 +10108,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9492,7 +10124,8 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   },
   {
     "Collection": "TCGA-LUSC",
@@ -9507,6 +10140,7 @@
     "Has_RTSTRUCT": "No",
     "Has_NM": "Yes",
     "Has_PT": "Yes",
-    "Has_Pathology": "Yes"
+    "Has_Pathology": "Yes",
+    "Survival_Time": -1
   }
 ]
