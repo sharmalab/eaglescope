@@ -34,8 +34,8 @@ vegaSpecs.ScatterSpec = JSON.stringify({
   "encoding": {
     "x": {"field": "Age", "type": "quantitative"},
     "y": {"field": "Survival_Time", "type": "quantitative"},
-    "color": {"field": "Vital_Status", "type": "nominal"},
-    "shape": {"field": "GDC_primary_diagnosis", "type": "nominal"}
+    "shape": {"field": "Vital_Status", "type": "nominal"},
+    "color": {"field": "GDC_primary_diagnosis", "type": "nominal"}
     }
 })
 
