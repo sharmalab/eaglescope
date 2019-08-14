@@ -1,67 +1,59 @@
 {
 	"data_url": "./data/demo.json",
-	"grid": [{
-			"id": "g1",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"point\",\"selection\":{\"brush\":{\"encodings\":[\"x\",\"y\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"shape\":{\"field\":\"Vital_Status\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\"}}}"
-		},
+	"grid": [
 		{
 			"id": "g2",
 			"type": "VegaLitePlot",
 			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
 		},
 		{
 			"id": "g3",
 			"type": "VegaLitePlot",
 			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
 		},
 		{
-			"id": "g4",
+			"id": "g3b",
 			"type": "VegaLitePlot",
 			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"Age\",\"type\":\"ordinal\",\"axis\":null,\"sort\":\"descending\"},\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Number of Patients\",\"format\":\"s\"}},\"color\":{\"field\":\"Vital_Status\",\"type\":\"nominal\",\"legend\":{\"orient\":\"top\",\"title\":null}}},\"config\":{\"axis\":{\"grid\":false}}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"TNM-Stage\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+		},
+		{
+			"id": "g2a",
+			"type": "VegaLitePlot",
+
+			"h": 1,
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+		},
+		{
+			"id": "g4a",
+			"type": "VegaLitePlot",
+			"allData": "true",
+			"h": 1,
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+		},
+
+		{
+			"id": "g4",
+			"type": "VegaLitePlot",
+			"h": 1,
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
 		},
 		{
 			"id": "g5",
 			"type": "VegaLitePlot",
-			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\"}}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\",\"legend\":{\"orient\":\"bottom\"}}}}"
 		},
 		{
-			"id": "g6",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Has_RTSTRUCT\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
-		},
-		{
-			"id": "g7",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Has_NM\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
-		},
-		{
-			"id": "g8",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Has_PT\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
-		},
-		{
-			"id": "g9",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Has_Pathology\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}"
+				"id": "g1",
+				"type": "VegaLitePlot",
+				"h": 1,
+				"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"point\",\"selection\":{\"brush\":{\"encodings\":[\"x\",\"y\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"shape\":{\"field\":\"Vital_Status\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\"}}}"
 		}
 	],
 	"detail": [{
