@@ -2,5 +2,6 @@
 *
 # Except this file
 !.gitignore
-# Also except the demo data
+# Also except the demo data and config
 !demo.json
+!config.json

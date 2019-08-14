@@ -12,7 +12,7 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 
 
-const config_url = ""
+const config_url = "./data/config.json"
 var default_config = {
   data_url: "http://localhost:8181/?t=5&s=2&u=3&i=10&f=3&c=2&co=5&l=2000",
   grid:
@@ -25,31 +25,9 @@ var default_config = {
     {"id":"d2", "type":"ImageGrid", "urlField":"u0", "labelField":"s1"}
   ]
 }
-var lung_config = {
-  data_url: "./data/demo.json",
-  grid:
-  [
-    {"id":"g1", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
-    {"id":"g2", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
-    {"id":"g3", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec},
-    {"id":"g4", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
-    {"id":"g5", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
-    {"id":"g6", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec},
-    {"id":"g7", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.ScatterSpec},
-    {"id":"g8", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.HistSpec},
-    {"id":"g9", "type":"VegaLitePlot", "allData": "true", "h":1, "spec":lungVegaSpecs.BarSpec}
-  ],
-  body:
-  [
-    {"id":"d1", "type":"DataTable"}
-  ]
-}
 
-// see https://github.com/birm/loadsy/
-// REMEMBER TO ADD JSONIFY WHEN SWITCHING FROM DEFAULT
-fetch(config_url).then(config=>{
-  config = default_config
-  config = lung_config
+fetch(config_url).then(x=>x.json()).then(config=>{
+  //config = default_config
   let data_url = config.data_url
   var __DM = new DataManager()
   var __DS = new RestDataSource(data_url)
