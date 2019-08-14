@@ -40,7 +40,7 @@ function createHeader(opt, search = true, reset = false) {
 		</span>
 		<div>
 			<i class="fa fa-search ${hidden}" ></i>
-			
+
 			<a style="display: none;">
 				<i class="fa fa-undo"></i>
 			</a>
@@ -485,7 +485,7 @@ const request = async () => {
 
     addItems(+item["Subject"], item["Image Types"], mod);
 
-    addItems(+item["Subject"], item["Supperting Data"], sup_data);
+    addItems(+item["Subject"], item["Supporting Data"], sup_data);
   })
 
   const createTermList = (obj_term, name) => {
@@ -571,7 +571,7 @@ function render(data) {
 
 
   vegaEmbed('#view_stack', stack_spec).then(p => {
-    //console.log(spec, view);  
+    //console.log(spec, view);
     view_stack = p.view
     // click event when click on stacked bar
     view_stack.addEventListener('click', (e, item) => {
@@ -597,7 +597,7 @@ const stack_spec = {
   "width": 750,
   "height": 600,
   // "padding": 2.5,
-  // "autosize": "none",  
+  // "autosize": "none",
   "data": { "values": stacked_data },
   "mark": "bar",
   "encoding": {

@@ -2,58 +2,41 @@
 	"data_url": "./data/demo.json",
 	"grid": [
 		{
+			"id": "g0",
+			"type": "VegaLitePlot",
+			"h": 1,
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Survival_Time\",\"type\":\"quantitative\",\"axis\": {\"title\": \"Survival Time (months)\"}},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"condition\":{\"test\":\"datum.y<10\",\"value\":\"red\"}}},\"config\":{\"countTitle\":\"Number of Patients\", \"fieldTitle\":\"plain\"}}"
+		},
+		{
+			"id": "g1",
+			"type": "VegaLitePlot",
+			"h": 1,
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"TNM-Stage\",\"type\":\"ordinal\"},\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
+		},
+		{
 			"id": "g2",
 			"type": "VegaLitePlot",
-			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Age\",\"type\":\"quantitative\",\"axis\": {\"title\": \"Age (years)\"}},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\", \"fieldTitle\":\"plain\"}}"
 		},
 		{
 			"id": "g3",
 			"type": "VegaLitePlot",
-			"allData": "true",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\",\"legend\":{\"orient\":\"bottom\"}}},\"config\":{\"countTitle\":\"Number of Patients\", \"fieldTitle\":\"plain\"}}"
 		},
-		{
-			"id": "g3b",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"TNM-Stage\",\"type\":\"nominal\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
-		},
-		{
-			"id": "g2a",
-			"type": "VegaLitePlot",
-
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
-		},
-		{
-			"id": "g4a",
-			"type": "VegaLitePlot",
-			"allData": "true",
-			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
-		},
-
 		{
 			"id": "g4",
 			"type": "VegaLitePlot",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"selection\":{\"brush\":{\"encodings\":[\"x\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"bin\":true,\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"point\",\"selection\":{\"brush\":{\"encodings\":[\"x\",\"y\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"shape\":{\"field\":\"Vital_Status\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\"}},\"config\":{\"countTitle\":\"Number of Patients\", \"fieldTitle\":\"plain\"}}"
 		},
+
 		{
 			"id": "g5",
 			"type": "VegaLitePlot",
 			"h": 1,
-			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Collection\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\",\"legend\":{\"orient\":\"bottom\"}}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
-		},
-		{
-				"id": "g1",
-				"type": "VegaLitePlot",
-				"h": 1,
-				"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"point\",\"selection\":{\"brush\":{\"encodings\":[\"x\",\"y\"],\"type\":\"interval\"}},\"encoding\":{\"x\":{\"field\":\"Age\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Survival_Time\",\"type\":\"quantitative\"},\"shape\":{\"field\":\"Vital_Status\",\"type\":\"nominal\"},\"color\":{\"field\":\"GDC_primary_diagnosis\",\"type\":\"nominal\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
+			"spec": "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v3.json\",\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"Modality\",\"type\":\"ordinal\"},\"x\":{\"aggregate\":\"count\",\"field\":\"Patient_ID\",\"type\":\"quantitative\"}},\"config\":{\"countTitle\":\"Number of Patients\"}}"
 		}
 	],
 	"detail": [{

@@ -1,7 +1,8 @@
 // in this mode greater and less should always be used together.
 function filterData(dataObj, rules){
   console.log(dataObj)
-  if (rules == {}) {
+  if (JSON.stringify(rules) == "{}" ) {
+    console.log("ALLDATA")
     return dataObj.xf.all()
   } else {
     for (let rule in rules){
@@ -31,8 +32,19 @@ function filterData(dataObj, rules){
 }
 
 function filterMerge(filter, additions, mergeMethod){
-  return additions
+  filter = filter || {}
+  additions = additions || {}
+  if (additions.hasOwnProperty("__RESET") || filter.hasOwnProperty("__RESET")){
+    return {"__RESET":"true"}
+  } else {
+    var outFilter = JSON.parse(JSON.stringify(filter))
+    for (let rule in additions){
+      outFilter[rule] = additions[rule]
+    }
+    return outFilter
+  }
 }
+
 
 var filterTools = {filterData:filterData, filterMerge: filterMerge}
 

@@ -3,7 +3,7 @@ import DataManager from "./DataManager.js"
 import RestDataSource from "./xfRestDataSource.js"
 import VisTypes from "./component/VisTypes.js"
 import vegaSpecs from "./vegaSpecs.js"
-import lungVegaSpecs from "./lungVegaSpecs.js"
+import ResetButton from "./component/ResetButton.js"
 import { render } from "react-dom";
 
 //style
@@ -49,8 +49,9 @@ fetch(config_url).then(x=>x.json()).then(config=>{
     return(
       <div>
       <nav className="navbar blue-bar">
-        <span className="navbar-brand mb-0 h1">TCIA Clinical Data Explorer</span>
+        <span className="navbar-brand mb-0 h1 whitetext">TCIA Clinical Data Explorer</span>
         <button id="gogo" className="clear-btn" title="Exploration" onClick={()=>{window.location.href="./treemap/treemaps.html?referrer=detail"}}><span className="fa fa-long-arrow-alt-left"></span> Back to Search Portal</button>
+        <ResetButton id="rb1"/>
         <VisTypes.Sample id="count1"/>
       </nav>
         <div className="container-fluid">
