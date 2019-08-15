@@ -7,7 +7,7 @@ const selections = {
   "location": [],
   "cancer_type": [],
   "image_types": [],
-  "supperting_data": [],
+  "supporting_data": [],
   "status": [],
   "access": []
 }
@@ -456,6 +456,9 @@ const addItems = (sub, items, set) => {
 
     return;
   }
+  if (!items){
+	  return;
+  }
 
   items.forEach(i => {
     const prop_name = typeof i !== "object" ? i : Object.keys(i)[0];
@@ -519,7 +522,7 @@ const request = async () => {
   terms.push(createTermList(loc, 'Location'));
   terms.push(createTermList(mod, 'Image Types'));
   terms.push(createTermList(cancers, 'Cancer Type'));
-  terms.push(createTermList(sup_data, 'Supperting Data'));
+  terms.push(createTermList(sup_data, 'Supporting Data'));
 
 
   terms.push({
