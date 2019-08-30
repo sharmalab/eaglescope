@@ -1,5 +1,11 @@
+body{
+  min-width: 500px;
+}
 h1{
     color:red
+}
+.whitetext{
+  color:white !important;
 }
 .vis{
   overflow: scroll;
@@ -9,4 +15,22 @@ h1{
 .viscol{
   overflow: scroll;
   object-fit: contain;
+}
+
+.nodisplay{
+  display: none;
+}
+
+.grid {
+  column-count: auto;
+  column-width: 400px;
+  column-gap: 10px;
+}
+
+.blue-bar {
+  background-color: #2e86de;
+}
+
+#count1{
+  margin-bottom: 0;
 }

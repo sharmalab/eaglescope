@@ -35,11 +35,16 @@ function filterData(data, rules){
 
 function filterMerge(filter, additions, mergeMethod){
   filter = filter || {}
-  var outFilter = JSON.parse(JSON.stringify(filter))
-  for (let rule in additions){
-    outFilter[rule] = additions[rule]
+  additions = additions || {}
+  if (additions.hasOwnProperty("__RESET") || filter.hasOwnProperty("__RESET")){
+    return {"__RESET":"true"}
+  } else {
+    var outFilter = JSON.parse(JSON.stringify(filter))
+    for (let rule in additions){
+      outFilter[rule] = additions[rule]
+    }
+    return outFilter
   }
-  return outFilter
 }
 
 var filterTools = {filterData:filterData, filterMerge: filterMerge}

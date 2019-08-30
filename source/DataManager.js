@@ -1,4 +1,4 @@
-import filterTools from './filterTools.js'
+import filterTools from './xFilterTools.js'
 
 // handle data Events
 class DataManager{
@@ -11,7 +11,16 @@ class DataManager{
   filterData(e){
     let filter = filterTools.filterMerge(this.filter, e.detail.filter)
     // do we need to fire a new event?
-    if (JSON.stringify(filter) == JSON.stringify(this.filter)){
+    if (filter.hasOwnProperty("__RESET")){
+      this.dataSource.data({}).then(data=>{
+        // send event with new data
+        window.__data = data
+        let ev = new CustomEvent("filterOut", {detail:{"data":data, filter:{}}})
+        window.dispatchEvent(ev)
+        console.info("filterOut event: ", ev)
+      })
+    }
+    else if (JSON.stringify(filter) == JSON.stringify(this.filter)){
       console.info("no change")
     } else {
       this.filter = filter

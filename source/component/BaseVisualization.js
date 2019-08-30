@@ -6,9 +6,9 @@ class BaseVisualization extends React.Component {
     this.props = props;
     this.ctx = ctx;
     this.id = props.id || '_' + Math.random().toString(36).substr(2, 9);
-    // h and w, grid units(?)
-    this.height = this.props.h || this.props.height || 1
-    this.width = this.props.w || this.props.width || 1
+    // TODO cauculate suitible h and w defaults
+    this.width = 400
+    this.height = this.props.h * 400 || this.props.height * 400 || 400
     this.state = {};
     // buffer time between event and draw, for debounce
     this.bufferTime = 500;
@@ -25,12 +25,22 @@ class BaseVisualization extends React.Component {
     this.supportsContext = true;
     this.supportsInteraction = true
     // bind methods
+    this.filterReset = this.filterReset.bind(this)
     this.filterIn = this.filterIn.bind(this)
     this.filterOut = this.filterOut.bind(this)
     this.initData = this.initData.bind(this)
     // REGISTER self to filter event
     window.addEventListener("filterOut", this.filterOut, false)
     window.addEventListener("initData", this.initData, false)
+  }
+  filterReset(){
+    this.setState((prevState, props) => {
+      console.log(prevState)
+      prevState.filter = {}
+      let ev = new CustomEvent("filterIn", {detail:{id:this.id, filter:{"__RESET":"true"}}})
+      window.dispatchEvent(ev)
+      console.info("filterReset event: ", ev)
+    })
   }
   // to be fired when a filter is selected in the component
   filterIn(f) {
@@ -52,6 +62,9 @@ class BaseVisualization extends React.Component {
       this.setState((prevState, props) => {
       prevState.filteredData = d
       prevState.globalFilter = e.detail.filter
+      if (e.detail.filter == {}){
+        prevState.filter = {}
+      }
     })
     this.forceUpdate()
   }

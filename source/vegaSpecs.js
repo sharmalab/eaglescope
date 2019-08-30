@@ -51,6 +51,7 @@ vegaSpecs.histSpec = JSON.stringify({
   }
 })
 
+
 vegaSpecs.scatterSpec = JSON.stringify({
   "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
   "mark": "bar",
