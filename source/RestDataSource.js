@@ -2,7 +2,7 @@ import filterTools from './filterTools.js'
 
 class RestDataSource{
   constructor(url){
-    this._records = fetch(url, {mode:"cors"}).then(x=>x.json())
+    this._records = fetch(url, {mode:"no-cors"}).then(x=>x.json())
     let ev = new CustomEvent("dataSourceReady", {detail:{dataSource:this}})
     window.dispatchEvent(ev)
     console.info("dataSourceReady event: ", ev)
