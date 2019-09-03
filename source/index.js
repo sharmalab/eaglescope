@@ -26,7 +26,7 @@ var default_config = {
   ]
 }
 
-fetch(config_url).then(x=>x.json()).then(config=>{
+fetch(config_url, {mode:"cors"}).then(x=>x.json()).then(config=>{
   //config = default_config
   let data_url = config.data_url
   var __DM = new DataManager()
