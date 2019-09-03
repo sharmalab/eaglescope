@@ -3,7 +3,7 @@ import crossfilter from 'crossfilter2'
 
 class RestDataSource{
   constructor(url){
-    this._records = fetch(url).then(x=>x.json()).then(x=>{
+    this._records = fetch(url, {mode:"cors"}).then(x=>x.json()).then(x=>{
       var xf = crossfilter(x)
       var dims = {}
       for (let i in Object.keys(x[0])){
