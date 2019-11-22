@@ -13,7 +13,6 @@ const OperationPanel = (props) => {
   // fa-sort-numeric-down
   // <i className='fa fa-sort-down'></i>
   const changedHandler = e => {
-    //console.log(e.currentTarget.value);
     props.sortChanged(e.currentTarget.value);
   };
 

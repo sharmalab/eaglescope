@@ -3,18 +3,9 @@ import React from "react";
 import { Responsive, WidthProvider, GridItem } from "react-grid-layout";
 
 // import GridLayout from 'react-grid-layout';
-const ResponsiveGridLayout = WidthProvider(Responsive);
 
-class MyFirstGrid extends React.Component {
-  getLayoutsFromSomewhere() {
-    return [
-      { i: "a", x: 0, y: 0, w: 3, h: 2, },
-      { i: "b", x: 3, y: 0, w: 3, h: 2, },
-      { i: "c", x: 6, y: 0, w: 3, h: 2, },
-      { i: "d", x: 0, y: 2, w: 3, h: 2, },
-      { i: "e", x: 3, y: 2, w: 3, h: 2, }
-    ];
-  }
+class ChartGridView extends React.Component {
+  
   render() {
     // {lg: layout1, md: layout2, ...}
     var layouts = { lg: this.getLayoutsFromSomewhere() };
@@ -68,4 +59,4 @@ class MyFirstGrid extends React.Component {
   }
 }
 
-export default MyFirstGrid;
+export default ChartGridView;

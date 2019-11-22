@@ -17,8 +17,7 @@ class ImageGrid extends BaseVisualization {
   }
 
   onPageButton(e){
-    console.log(e.target, e.target.value, e.target.innerText)
-    console.log(this.state.page)
+    
     if(e.target && e.target.innerText){
       var next_page = parseInt(e.target.innerText)
       this.setState((prevState, props) => {

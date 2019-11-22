@@ -8,7 +8,6 @@ class PureVegaLitePlot extends BaseVisualization {
     super(props, ctx);
   }
   componentDidMount(){
-    console.log(this)
     let spec = JSON.parse(this.props.spec)
     spec.data = {"values": this.state.filteredData}
     vegaEmbed('#'+this.id, spec);
@@ -19,7 +18,6 @@ class PureVegaLitePlot extends BaseVisualization {
     vegaEmbed('#'+this.id, spec);
   }
   render() {
-    console.log(this)
     if(this.state.ready){
       return <div id={this.id}></div>
     } else {

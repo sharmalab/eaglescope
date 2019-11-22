@@ -1,0 +1,7 @@
+{
+    "HEIGHT_OF_VIS_HEADER": 30,
+    "MARGIN_OF_VIS": [10, 10],
+
+    "UNIT_OF_GRID_VIEW": [200,200],
+    "MARGIN_OF_GRID_VIEW": [10, 10]
+}

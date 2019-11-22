@@ -1,0 +1,26 @@
+.vis-grid-item-header {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  position: "relative";
+  height: "25px";
+  background: #0984e3;
+  color: #fff;
+  /* border-radius: 4px 4px 0 0; */
+  /* border-bottom: #0984e3 solid 1px; */
+}
+/* .vis-grid-item-header:hover {
+  background: #0984e3;
+} */
+.name-header {
+  flex-grow: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center !important;
+  font-weight: bold;
+}
+
+.draggable {
+  cursor: move;
+}

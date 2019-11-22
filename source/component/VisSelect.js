@@ -11,17 +11,17 @@ class VisSelect extends React.Component {
     this.state = {selected: null};
     this.selectVis = this.selectVis.bind(this);
   }
+  
   selectVis(selection){
     if (VisTypes.hasOwnProperty(selection)){
       this.setState(x=>{x.selection=selection});
       this.vis = VisTypes[this.state.selection]
     } else {
       alert ("that vis does not seem to exist.")
-      console.error(selection + " not found in VisTypes.js")
+      console.error(selection + "not found in VisTypes.js")
     }
-
-
   }
+
   render() {
     if (this.state.selection){
       const SelectedVis = this.vis
