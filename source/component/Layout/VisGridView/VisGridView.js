@@ -137,8 +137,7 @@ class VisGridView extends Component {
    */
   updateViewSize() {
     const rect = this.self.current.getBoundingClientRect();
-
-    const cols = parseInt((rect.width - this.state.config.margins[0]) / (this.state.config.grid[0]+this.state.config.margins[0]));
+    const cols = parseInt((rect.width - this.state.config.margins[0] ) / (this.state.config.grid[0]+this.state.config.margins[0]));
     if(cols===this.state.cols) return;
     const gridLayoutWidth =
       cols * this.state.config.grid[0] +
