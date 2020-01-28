@@ -1,12 +1,16 @@
-var db = new Dexie("cptac_repo_view");
-db.version(1).stores({repo: "project,modality,site"})
 
-async function setupData(targetVersion){
+
+function setupData(targetVersion){
+  var db = new Dexie("cptac_repo_view");
+  db.version(1).stores({repo: "project,modality,site"})
   if (window.localStorage.getItem("cptac_repo_version") < targetVersion){
     // add new data
-    data = await fetch("data.json").then(x=>x.json())
-    db.repo.bulkPut(data)
-    // set version to target
-    window.localStorage.put("cptac_repo_version", targetVersion)
+    data = fetch("data.json").then(x=>x.json())
+    data.then(x=>{
+      db.repo.bulkPut(x)
+      // set version to target
+      window.localStorage.put("cptac_repo_version", targetVersion)
+    })
   }
+  return db
 }
