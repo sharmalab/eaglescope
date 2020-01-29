@@ -8,8 +8,7 @@
 </script>
 <script>
 const SUPPORTED_TYPES = {
-  'any': "anyOf",
-  'anyi': "anyOfIgnoreCase"
+  'any': "anyOf"
 }
 // not used for now... also wrong format
 const SUPPORTED_FIELDS = [
@@ -29,7 +28,7 @@ const SUPPORTED_FIELDS = [
     fields = JSON.parse(fields.replace("~","+"))
     let type = decodeURIComponent(searchParams.get('type'))
     let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-    db.repo.where(fields).anyOf(query).toArray(makeTable).catch(x=>{console.log(x)})
+    db.repo.where(fields)[SUPPORTED_TYPES[type]](query).toArray(makeTable).catch(x=>{console.log(x)})
   } else {
     db.repo.toArray(makeTable)
   }
