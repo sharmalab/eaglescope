@@ -6,7 +6,16 @@
 <script>
 function makeTable(data){
   let table = document.createElement("table")
-  let tb = document.createElement("tbody")
+  let tbody = document.createElement("tbody")
+  let thead = document.createElement("thead")
+  let htr = document.createElement("tr")
+  Object.keys(data[0]).forEach(h=>{
+    let cell = document.createElement("th")
+    cell.appendChild(document.createTextNode(h))
+    htr.appendChild(cell)
+  })
+  thead.appendChild(htr)
+  table.appendChild(thead)
   data.forEach(x=>{
     let row = document.createElement("tr")
     Object.keys(x).forEach(yy=>{
@@ -15,16 +24,24 @@ function makeTable(data){
       cell.appendChild(document.createTextNode(y))
       row.appendChild(cell)
     })
-    tb.appendChild(row)
+    tbody.appendChild(row)
   })
-  table.appendChild(tb)
+  table.appendChild(tbody)
   document.body.appendChild(table)
 }
 </script>
 <script>
   var db = setupData(2)
   db.repo.toArray(console.log)
-  db.repo.toArray(makeTable)
+  let searchParams = new URLSearchParams(window.location.search)
+  if(searchParams.has("query")){
+    let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
+    db.repo.where(query).toArray(makeTable)
+  } else {
+    db.repo.toArray(makeTable)
+  }
+
+
   // see querying at https://dexie.org/docs/Table/Table.where()
 </script>
 <body>
