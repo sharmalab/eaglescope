@@ -2,11 +2,29 @@
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="setup.js"></script>
 <body>
-  <div id="table"></div>
 </body>
 <script>
-  var db = setupData(1)
+function makeTable(data){
+  let table = document.createElement("table")
+  let tb = document.createElement("tbody")
+  data.forEach(x=>{
+    let row = document.createElement("tr")
+    Object.keys(x).forEach(yy=>{
+      let y = x[yy]
+      let cell = document.createElement("td")
+      cell.appendChild(document.createTextNode(y))
+      row.appendChild(cell)
+    })
+    tb.appendChild(row)
+  })
+  table.appendChild(tb)
+  document.body.appendChild(table)
+}
+</script>
+<script>
+  var db = setupData(2)
   db.repo.toArray(console.log)
+  db.repo.toArray(makeTable)
   // see querying at https://dexie.org/docs/Table/Table.where()
 </script>
 <body>
