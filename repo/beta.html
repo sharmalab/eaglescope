@@ -2,10 +2,14 @@
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="setup.js"></script>
 <script src="makeTable.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <body>
+  <div id="vis">
+        <canvas id="barVis" width="400" height="400"></canvas>
+  </div>
+  <div id="table">
+  </div>
 </body>
-<script>
-</script>
 <script>
 const SUPPORTED_TYPES = {
   'any': "anyOf"
@@ -20,19 +24,51 @@ const SUPPORTED_FIELDS = [
   "project,modality,site"
 ]
   var db = setupData(2)
+  // base data
   db.repo.toArray(console.log)
+  // query;  ex http://localhost:8000/repo/beta.html?fields=[%22project~modality%22]&type=any&query=[[%22APOLLO%22,%22CT%22],[%224D-Lung%22,%22RTSTRUCT%22]]
+  var s = db.repo
   let searchParams = new URLSearchParams(window.location.search)
-  // TODO check all
   if(searchParams.has("fields")){
     let fields = decodeURIComponent(searchParams.get('fields'))
     fields = JSON.parse(fields.replace("~","+"))
     let type = decodeURIComponent(searchParams.get('type'))
     let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-    db.repo.where(fields)[SUPPORTED_TYPES[type]](query).toArray(makeTable).catch(x=>{console.log(x)})
-  } else {
-    db.repo.toArray(makeTable)
+    s = s.where(fields)[SUPPORTED_TYPES[type]](query)
   }
-  // see querying at https://dexie.org/docs/Table/Table.where()
+  // make the table
+  s.toArray(makeTable)
+  // make the bar chart for sites
+  s.toArray(x=>{
+    // convert to sums by site
+    let siteCounts={}
+    for (let j=0; j<x.length; j++){
+      if  (siteCounts.hasOwnProperty(x[j].site)){
+        siteCounts[x[j].site] = siteCounts[x[j].site] + x[j].imageCount
+      } else {
+        siteCounts[x[j].site] = x[j].imageCount
+      }
+    }
+    console.log(siteCounts)
+    var barChart = new Chart(document.getElementById("barVis"),{
+    type:"bar",
+
+    options: {
+      responsive: false
+    },
+    data: {
+      labels:Object.keys(siteCounts),
+      datasets: [
+        {
+          label: "Site Counts",
+          data: Object.values(siteCounts),
+          borderWidth: 1
+        }
+      ]
+    }
+    }
+)
+})
 </script>
 <body>
 </body>
