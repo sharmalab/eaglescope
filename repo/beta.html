@@ -7,17 +7,22 @@
 <script>
 </script>
 <script>
+const SUPPORTED_TYPES = {
+  'any': "anyOf",
+  'anyi': "anyOfIgnoreCase"
+}
   var db = setupData(2)
   db.repo.toArray(console.log)
   let searchParams = new URLSearchParams(window.location.search)
-  if(searchParams.has("query")){
+  // TODO check all
+  if(searchParams.has("field")){
+    let field = decodeURIComponent(searchParams.get('field'))
+    let type = decodeURIComponent(searchParams.get('type'))
     let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-    db.repo.where(query).toArray(makeTable)
+    db.repo.where(field)[SUPPORTED_TYPES[type]](query).toArray(makeTable)
   } else {
     db.repo.toArray(makeTable)
   }
-
-
   // see querying at https://dexie.org/docs/Table/Table.where()
 </script>
 <body>
