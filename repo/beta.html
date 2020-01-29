@@ -11,15 +11,25 @@ const SUPPORTED_TYPES = {
   'any': "anyOf",
   'anyi': "anyOfIgnoreCase"
 }
+// not used for now... also wrong format
+const SUPPORTED_FIELDS = [
+  "id",
+  "project",
+  "modality",
+  "site",
+  "project,modality",
+  "project,modality,site"
+]
   var db = setupData(2)
   db.repo.toArray(console.log)
   let searchParams = new URLSearchParams(window.location.search)
   // TODO check all
-  if(searchParams.has("field")){
-    let field = decodeURIComponent(searchParams.get('field'))
+  if(searchParams.has("fields")){
+    let fields = decodeURIComponent(searchParams.get('fields'))
+    fields = JSON.parse(fields.replace("~","+"))
     let type = decodeURIComponent(searchParams.get('type'))
     let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-    db.repo.where(field)[SUPPORTED_TYPES[type]](query).toArray(makeTable)
+    db.repo.where(fields).anyOf(query).toArray(makeTable).catch(x=>{console.log(x)})
   } else {
     db.repo.toArray(makeTable)
   }

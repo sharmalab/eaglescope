@@ -1,6 +1,6 @@
 function setupData(targetVersion){
   var db = new Dexie("cptac_repo_view");
-  db.version(1).stores({repo: "id++,project,modality,site"})
+  db.version(1).stores({repo: "id++,project,modality,site,[project+modality],[project+modality+site]"})
   if (window.localStorage.getItem("cptac_repo_version") < targetVersion){
     // clear old data
     db.repo.clear().then(x=>{
