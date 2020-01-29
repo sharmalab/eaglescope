@@ -1,9 +1,12 @@
 <html>
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="setup.js"></script>
-<script src="query.js"></script>
+<body>
+  <div id="table"></div>
+</body>
 <script>
   var db = setupData(1)
+  db.repo.toArray(console.log)
   // see querying at https://dexie.org/docs/Table/Table.where()
 </script>
 <body>
