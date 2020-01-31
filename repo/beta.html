@@ -2,10 +2,13 @@
 <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
 <script src="setup.js"></script>
 <script src="makeTable.js"></script>
+<script src="colors.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 <body>
   <div id="vis">
         <canvas id="barVis" width="400" height="400"></canvas>
+        <canvas id="pieVis" width="400" height="400"></canvas>
+        <canvas id="scatterVis" width="400" height="400"></canvas>
   </div>
   <div id="table">
   </div>
@@ -23,51 +26,91 @@ const SUPPORTED_FIELDS = [
   "project,modality",
   "project,modality,site"
 ]
-  var db = setupData(2)
-  // base data
-  db.repo.toArray(console.log)
-  // query;  ex http://localhost:8000/repo/beta.html?fields=[%22project~modality%22]&type=any&query=[[%22APOLLO%22,%22CT%22],[%224D-Lung%22,%22RTSTRUCT%22]]
-  var s = db.repo
-  let searchParams = new URLSearchParams(window.location.search)
-  if(searchParams.has("fields")){
-    let fields = decodeURIComponent(searchParams.get('fields'))
-    fields = JSON.parse(fields.replace("~","+"))
-    let type = decodeURIComponent(searchParams.get('type'))
-    let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-    s = s.where(fields)[SUPPORTED_TYPES[type]](query)
-  }
-  // make the table
-  s.toArray(makeTable)
-  // make the bar chart for sites
-  s.toArray(x=>{
-    // convert to sums by site
-    let siteCounts={}
-    for (let j=0; j<x.length; j++){
-      if  (siteCounts.hasOwnProperty(x[j].site)){
-        siteCounts[x[j].site] = siteCounts[x[j].site] + x[j].imageCount
-      } else {
-        siteCounts[x[j].site] = x[j].imageCount
-      }
+var db = setupData(1)
+// base data
+db.repo.toArray(console.log)
+// query;  ex http://localhost:8000/repo/beta.html?fields=[%22project~modality%22]&type=any&query=[[%22APOLLO%22,%22CT%22],[%224D-Lung%22,%22RTSTRUCT%22]]
+var s = db.repo
+let searchParams = new URLSearchParams(window.location.search)
+if (searchParams.has("fields")) {
+  let fields = decodeURIComponent(searchParams.get('fields'))
+  fields = JSON.parse(fields.replace("~", "+"))
+  let type = decodeURIComponent(searchParams.get('type'))
+  let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
+  s = s.where(fields)[SUPPORTED_TYPES[type]](query)
+}
+// make the table
+s.toArray(makeTable)
+// make the bar chart for sites
+s.toArray(x => {
+  // convert to sums by site
+  let siteCounts = {}
+  let modeCounts = {}
+  let scatters = []
+  for (let j = 0; j < x.length; j++) {
+    if (siteCounts.hasOwnProperty(x[j].site)) {
+      siteCounts[x[j].site] = siteCounts[x[j].site] + x[j].imageCount
+    } else {
+      siteCounts[x[j].site] = x[j].imageCount
     }
-    console.log(siteCounts)
-    var barChart = new Chart(document.getElementById("barVis"),{
-    type:"bar",
+    if (modeCounts.hasOwnProperty(x[j].modality)) {
+      modeCounts[x[j].modality] = modeCounts[x[j].modality] + x[j].imageCount
+    } else {
+      modeCounts[x[j].modality] = x[j].imageCount
+    }
+    scatters.push({
+      x: x[j].subjectCount,
+      y: x[j].studyCount
+    })
+  }
+  console.log(siteCounts)
+  console.log(modeCounts)
+  var barChart = new Chart(document.getElementById("barVis"), {
+    type: "bar",
 
     options: {
       responsive: false
     },
     data: {
-      labels:Object.keys(siteCounts),
-      datasets: [
-        {
-          label: "Site Counts",
-          data: Object.values(siteCounts),
-          borderWidth: 1
-        }
-      ]
+      labels: Object.keys(siteCounts),
+      datasets: [{
+        label: "Site Counts",
+        data: Object.values(siteCounts),
+        backgroundColor: binColors(Object.values(siteCounts).length),
+        borderWidth: 0
+      }]
     }
+  })
+  var pieChart = new Chart(document.getElementById("pieVis"), {
+    type: "doughnut",
+
+    options: {
+      responsive: false
+    },
+    data: {
+      labels: Object.keys(modeCounts),
+      datasets: [{
+        label: "Modality Counts",
+        data: Object.values(modeCounts),
+        backgroundColor: binColors(Object.values(modeCounts).length),
+        borderWidth: 0
+      }]
     }
-)
+  })
+  var scatterChart = new Chart(document.getElementById("scatterVis"), {
+    type: "scatter",
+
+    options: {
+      responsive: false
+    },
+    data: {
+      labels: Object.keys(modeCounts),
+      datasets: [{
+        label: "Subject // Study",
+        data: scatters
+      }]
+    }
+  })
 })
 </script>
 <body>

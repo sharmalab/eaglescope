@@ -20,7 +20,7 @@
   {
     "project": "AAPM-RT-MAC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 55,
     "studyCount": 55,
     "seriesCount": 55,
@@ -902,7 +902,7 @@
   {
     "project": "CPTAC-HNSCC",
     "modality": "CT",
-    "site": "Head-Neck",
+    "site": "HEAD",
     "subjectCount": 1,
     "studyCount": 1,
     "seriesCount": 4,
@@ -1262,7 +1262,7 @@
   {
     "project": "CPTAC-SAR",
     "modality": "MR",
-    "site": "Pelvis",
+    "site": "PELVIS",
     "subjectCount": 1,
     "studyCount": 1,
     "seriesCount": 5,
@@ -1530,52 +1530,52 @@
     "imageCount": 47157
   },
   {
-    "project": "Head-Neck Cetuximab",
+    "project": "HEAD Cetuximab",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 108,
     "studyCount": 349,
     "seriesCount": 579,
     "imageCount": 83923
   },
   {
-    "project": "Head-Neck Cetuximab",
+    "project": "HEAD Cetuximab",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 105,
     "studyCount": 248,
     "seriesCount": 585,
     "imageCount": 118133
   },
   {
-    "project": "Head-Neck Cetuximab",
+    "project": "HEAD Cetuximab",
     "modality": "RTDOSE",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 96,
     "studyCount": 96,
     "seriesCount": 211,
     "imageCount": 211
   },
   {
-    "project": "Head-Neck Cetuximab",
+    "project": "HEAD Cetuximab",
     "modality": "RTPLAN",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 96,
     "studyCount": 96,
     "seriesCount": 211,
     "imageCount": 211
   },
   {
-    "project": "Head-Neck Cetuximab",
+    "project": "HEAD Cetuximab",
     "modality": "RTSTRUCT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 96,
     "studyCount": 96,
     "seriesCount": 96,
     "imageCount": 96
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "CT",
     "site": "Unspecified",
     "subjectCount": 298,
@@ -1584,7 +1584,7 @@
     "imageCount": 75569
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "PT",
     "site": "Unspecified",
     "subjectCount": 298,
@@ -1593,7 +1593,7 @@
     "imageCount": 45839
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "REG",
     "site": "Unspecified",
     "subjectCount": 206,
@@ -1602,7 +1602,7 @@
     "imageCount": 206
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "RTDOSE",
     "site": "Unspecified",
     "subjectCount": 237,
@@ -1611,7 +1611,7 @@
     "imageCount": 497
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "RTPLAN",
     "site": "Unspecified",
     "subjectCount": 237,
@@ -1620,7 +1620,7 @@
     "imageCount": 329
   },
   {
-    "project": "Head-Neck-PET-CT",
+    "project": "HEAD-PET-CT",
     "modality": "RTSTRUCT",
     "site": "Unspecified",
     "subjectCount": 298,
@@ -1658,7 +1658,7 @@
   {
     "project": "HEAD-NECK-RADIOMICS-HN1",
     "modality": "SEG",
-    "site": "HEADANDNECK",
+    "site": "HEAD",
     "subjectCount": 137,
     "studyCount": 137,
     "seriesCount": 137,
@@ -1667,7 +1667,7 @@
   {
     "project": "HNSCC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 215,
     "studyCount": 673,
     "seriesCount": 885,
@@ -1676,7 +1676,7 @@
   {
     "project": "HNSCC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 4,
     "studyCount": 5,
     "seriesCount": 22,
@@ -1685,7 +1685,7 @@
   {
     "project": "HNSCC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 215,
     "studyCount": 485,
     "seriesCount": 1707,
@@ -1694,7 +1694,7 @@
   {
     "project": "HNSCC",
     "modality": "RTDOSE",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 201,
     "studyCount": 202,
     "seriesCount": 203,
@@ -1703,7 +1703,7 @@
   {
     "project": "HNSCC",
     "modality": "RTPLAN",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 201,
     "studyCount": 202,
     "seriesCount": 203,
@@ -1712,7 +1712,7 @@
   {
     "project": "HNSCC",
     "modality": "RTSTRUCT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 202,
     "studyCount": 203,
     "seriesCount": 205,
@@ -1865,7 +1865,7 @@
   {
     "project": "Lung-Fused-CT-Pathology",
     "modality": "CT",
-    "site": "CT CHEST WO CE",
+    "site": "CHEST",
     "subjectCount": 6,
     "studyCount": 6,
     "seriesCount": 22,
@@ -2592,7 +2592,7 @@
     "imageCount": 31790
   },
   {
-    "project": "QIN-HEADNECK",
+    "project": "QIN-HEAD",
     "modality": "CT",
     "site": "CHEST",
     "subjectCount": 155,
@@ -2601,34 +2601,34 @@
     "imageCount": 179027
   },
   {
-    "project": "QIN-HEADNECK",
+    "project": "QIN-HEAD",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 156,
     "studyCount": 480,
     "seriesCount": 484,
     "imageCount": 172365
   },
   {
-    "project": "QIN-HEADNECK",
+    "project": "QIN-HEAD",
     "modality": "RWV",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 59,
     "studyCount": 60,
     "seriesCount": 60,
     "imageCount": 60
   },
   {
-    "project": "QIN-HEADNECK",
+    "project": "QIN-HEAD",
     "modality": "SEG",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 59,
     "studyCount": 60,
     "seriesCount": 900,
     "imageCount": 900
   },
   {
-    "project": "QIN-HEADNECK",
+    "project": "QIN-HEAD",
     "modality": "SR",
     "site": "Unspecified",
     "subjectCount": 156,
@@ -3323,7 +3323,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 16,
     "studyCount": 16,
     "seriesCount": 89,
@@ -3332,7 +3332,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 14,
     "studyCount": 56,
     "seriesCount": 269,
@@ -3341,7 +3341,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 3,
     "studyCount": 11,
     "seriesCount": 125,
@@ -3350,7 +3350,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "OT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 1,
     "studyCount": 1,
     "seriesCount": 4,
@@ -3359,7 +3359,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 5,
     "studyCount": 26,
     "seriesCount": 54,
@@ -3368,7 +3368,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 78,
     "studyCount": 220,
     "seriesCount": 901,
@@ -3377,7 +3377,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 6,
     "studyCount": 9,
     "seriesCount": 74,
@@ -3386,7 +3386,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 6,
     "studyCount": 6,
     "seriesCount": 21,
@@ -3395,7 +3395,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "RTDOSE",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 16,
     "studyCount": 16,
     "seriesCount": 20,
@@ -3404,7 +3404,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "RTPLAN",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 13,
     "studyCount": 13,
     "seriesCount": 13,
@@ -3413,7 +3413,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "RTSTRUCT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 16,
     "studyCount": 16,
     "seriesCount": 20,
@@ -3422,7 +3422,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 5,
     "studyCount": 6,
     "seriesCount": 39,
@@ -3449,7 +3449,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 20,
     "studyCount": 23,
     "seriesCount": 117,
@@ -3458,7 +3458,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CTPT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 1,
     "studyCount": 1,
     "seriesCount": 1,
@@ -3467,7 +3467,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 2,
     "studyCount": 2,
     "seriesCount": 24,
@@ -3476,7 +3476,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 2,
     "studyCount": 2,
     "seriesCount": 10,
@@ -3485,7 +3485,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 5,
     "studyCount": 5,
     "seriesCount": 21,
@@ -3494,7 +3494,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 5,
     "studyCount": 5,
     "seriesCount": 10,
@@ -3503,7 +3503,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "CT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 50,
     "studyCount": 89,
     "seriesCount": 289,
@@ -3512,7 +3512,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "MR",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 5,
     "studyCount": 5,
     "seriesCount": 39,
@@ -3521,7 +3521,7 @@
   {
     "project": "TCGA-HNSC",
     "modality": "PT",
-    "site": "HEADNECK",
+    "site": "HEAD",
     "subjectCount": 15,
     "studyCount": 15,
     "seriesCount": 52,
@@ -3584,7 +3584,7 @@
   {
     "project": "TCGA-KIRC",
     "modality": "CR",
-    "site": "Kidney",
+    "site": "KIDNEY",
     "subjectCount": 1,
     "studyCount": 2,
     "seriesCount": 4,
@@ -3593,7 +3593,7 @@
   {
     "project": "TCGA-KIRC",
     "modality": "CT",
-    "site": "Kidney",
+    "site": "KIDNEY",
     "subjectCount": 15,
     "studyCount": 94,
     "seriesCount": 394,
@@ -3602,7 +3602,7 @@
   {
     "project": "TCGA-KIRC",
     "modality": "MR",
-    "site": "Kidney",
+    "site": "KIDNEY",
     "subjectCount": 8,
     "studyCount": 14,
     "seriesCount": 161,
@@ -4268,7 +4268,7 @@
   {
     "project": "TCGA-SARC",
     "modality": "CT",
-    "site": "CHESTABDPELVIS",
+    "site": "CHEST",
     "subjectCount": 4,
     "studyCount": 4,
     "seriesCount": 13,
