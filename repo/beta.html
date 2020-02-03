@@ -8,7 +8,7 @@
   <div id="vis">
         <canvas id="barVis" width="400" height="400"></canvas>
         <canvas id="pieVis" width="400" height="400"></canvas>
-        <canvas id="scatterVis" width="400" height="400"></canvas>
+        <canvas id="bubbleVis" width="400" height="400"></canvas>
   </div>
   <div id="table">
   </div>
@@ -46,7 +46,7 @@ s.toArray(x => {
   // convert to sums by site
   let siteCounts = {}
   let modeCounts = {}
-  let scatters = []
+  let bubbles = []
   for (let j = 0; j < x.length; j++) {
     if (siteCounts.hasOwnProperty(x[j].site)) {
       siteCounts[x[j].site] = siteCounts[x[j].site] + x[j].imageCount
@@ -58,9 +58,10 @@ s.toArray(x => {
     } else {
       modeCounts[x[j].modality] = x[j].imageCount
     }
-    scatters.push({
+    bubbles.push({
       x: x[j].subjectCount,
-      y: x[j].studyCount
+      y: x[j].studyCount,
+      r: Math.log(x[j].imageCount)
     })
   }
   console.log(siteCounts)
@@ -97,8 +98,8 @@ s.toArray(x => {
       }]
     }
   })
-  var scatterChart = new Chart(document.getElementById("scatterVis"), {
-    type: "scatter",
+  var bubbleChart = new Chart(document.getElementById("bubbleVis"), {
+    type: "bubble",
 
     options: {
       responsive: false
@@ -106,8 +107,8 @@ s.toArray(x => {
     data: {
       labels: Object.keys(modeCounts),
       datasets: [{
-        label: "Subject // Study",
-        data: scatters
+        label: "Subject // Study // Image",
+        data: bubbles
       }]
     }
   })
