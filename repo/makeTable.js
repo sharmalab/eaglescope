@@ -21,5 +21,6 @@ function makeTable(data){
     tbody.appendChild(row)
   })
   table.appendChild(tbody)
+  document.getElementById("table").innerHTML = ""
   document.getElementById("table").appendChild(table)
 }
