@@ -13,10 +13,6 @@ function supportClick(chart, type) {
     }
   }
 }
-// TODO make this update "s" dynamically
-document.addEventListener('visClick', x => {
-  console.log(x.detail)
-})
 
 function draw_vis(db_object) {
   // make the table
@@ -136,5 +132,25 @@ function redraw_vis(db_object) {
     replaceChartData(CHARTS.bubbleChart, bubbles, [])
     replaceChartData(CHARTS.pieChart, Object.values(modeCounts), Object.keys(modeCounts))
     replaceChartData(CHARTS.barChart, Object.values(siteCounts), Object.keys(siteCounts))
+  })
+}
+
+function register_events(base_db){
+  document.addEventListener('visClick', x => {
+    console.log(x.detail)
+    // what is the current state (use url)
+    let searchParams = new URLSearchParams(window.location.search)
+    if (searchParams.has("fields")) {
+      let fields = decodeURIComponent(searchParams.get('fields'))
+      fields = JSON.parse(fields.replace("~", "+"))
+      fields = fields[0].split("+")
+      let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
+    }
+    // determine new state
+    // is type in fields? if so, add it to list
+    // what key is this using now?
+    // put query together in correct order
+    // push to url
+    // update db
   })
 }

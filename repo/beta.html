@@ -15,18 +15,6 @@
   </div>
 </body>
 <script>
-const SUPPORTED_TYPES = {
-  'any': "anyOf"
-}
-// not used for now... also wrong format
-const SUPPORTED_FIELDS = [
-  "id",
-  "project",
-  "modality",
-  "site",
-  "project,modality",
-  "project,modality,site"
-]
 var CHARTS = {}
 var db = setupData(1)
 // base data
@@ -38,11 +26,11 @@ let searchParams = new URLSearchParams(window.location.search)
 if (searchParams.has("fields")) {
   let fields = decodeURIComponent(searchParams.get('fields'))
   fields = JSON.parse(fields.replace("~", "+"))
-  let type = decodeURIComponent(searchParams.get('type'))
   let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
-  s = s.where(fields)[SUPPORTED_TYPES[type]](query)
+  s = s.where(fields).anyOf(query)
   redraw_vis(s)
 }
+register_events(db.repo)
 </script>
 <body>
 </body>
