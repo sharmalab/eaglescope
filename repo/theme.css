@@ -6,8 +6,13 @@
 }
 
 #buttons{
+  display: flex;
+  flex-direction: column;
   height: 99%;
   width: 30px;
+}
+.btn{
+  flex-grow: 1;
 }
 #filter{
   display: inline-block;
@@ -21,6 +26,7 @@
 }
 #selector{
   height: 30px;
+  display: flex;
 }
 #applybtn{
   height: 30px;
@@ -33,6 +39,7 @@
 }
 #linkbox{
   height: 30px;
+  display: flex;
 }
 #summary{
   height: 30px;
