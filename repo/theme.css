@@ -18,11 +18,13 @@
   display: inline-block;
   flex-grow: 1;
   display: flex;
+  min-width: 0;
   flex-direction: column;
 }
 #result{
   flex-direction: column;
   display: flex;
+  min-width: 0;
 }
 #selector{
   height: 30px;
@@ -35,7 +37,9 @@
   flex-grow: 1
 }
 #mainVis{
-  flex-grow: 1
+  align-items: center;
+  flex-grow: 1;
+  min-width: 0;
 }
 #linkbox{
   height: 30px;
