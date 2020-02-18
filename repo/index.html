@@ -2,6 +2,12 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="theme.css">
+  <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+  <script src="setup.js"></script>
+  <script src="makeTable.js"></script>
+  <script src="visLifecycle.js"></script>
+  <script src="colors.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="frame">
@@ -16,7 +22,7 @@
               <div class="btn">Vis</div>
               <div class="btn">List</div>
             </div>
-            <div id="interact">INTERACT VIS</div>
+            <div id="interact"><canvas id="barVis" width="400" height="400"></canvas></div>
             <div id="applybtn">APPLY</div>
           </div>
         </div>
@@ -24,7 +30,9 @@
           <div id="summary">
             TITLE, NUMBER OF PATIENTS OR WHATEVER
           </div>
-          <div id="mainVis">MAIN VIS</div>
+          <div id="mainVis">
+            <canvas id="pieVis" width="400" height="400"></canvas>
+          </div>
           <div id="linkbox">
             <div class="btn">Link 1</div>
             <div class="btn">Link 2</div>
@@ -32,5 +40,24 @@
         </div>
       </div>
     </div>
+    <div id="table">
 </body>
+<script>
+var CHARTS = {}
+var db = setupData(1)
+// base data
+db.repo.toArray(console.log)
+// query;  ex http://localhost:8000/repo/beta.html?fields=[%22project~modality%22]&type=any&query=[[%22APOLLO%22,%22CT%22],[%224D-Lung%22,%22RTSTRUCT%22]]
+var s = db.repo
+draw_vis(s)
+let searchParams = new URLSearchParams(window.location.search)
+if (searchParams.has("fields")) {
+  let fields = decodeURIComponent(searchParams.get('fields'))
+  fields = JSON.parse(fields.replace("~", "+"))
+  let query = JSON.parse(decodeURIComponent(searchParams.get('query')))
+  s = s.where(fields).anyOf(query)
+  redraw_vis(s)
+}
+register_events(db.repo)
+</script>
 </html>

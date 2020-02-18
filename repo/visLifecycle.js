@@ -45,7 +45,8 @@ function draw_vis(db_object) {
       type: "bar",
 
       options: {
-        responsive: false
+        responsive: true,
+        maintainAspectRatio: false
       },
       data: {
         labels: Object.keys(siteCounts),
@@ -61,7 +62,8 @@ function draw_vis(db_object) {
       type: "doughnut",
 
       options: {
-        responsive: false
+        responsive: true,
+        maintainAspectRatio: false
       },
       data: {
         labels: Object.keys(modeCounts),
@@ -77,7 +79,8 @@ function draw_vis(db_object) {
       type: "bubble",
 
       options: {
-        responsive: false
+        responsive: true,
+        maintainAspectRatio: false
       },
       data: {
         labels: Object.keys(modeCounts),
