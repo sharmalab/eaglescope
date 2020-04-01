@@ -7,7 +7,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
-    	<title>Tree Maps</title>
+    	<title>TCIA REPOSITORY DATA PORT</title>
 
 		<!-- add pure-form css -->
 		<link rel='stylesheet' type='text/css' media='all' href='normalize.css'/>
@@ -19,11 +19,10 @@
 
 
  		<!--  common js START -->
-		<!-- <script type='text/javascript' src='../../common/util.js'></script> -->
-		<script src="https://cdn.jsdelivr.net/npm/vega@5.4.0"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vega-lite@3.4.0"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vega-embed@4.2.1"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vega-tooltip"></script>
+
+
+		<script src="https://d3js.org/d3.v4.min.js"></script>
+		
 
 		<style type="text/css">
 			/* css style */
@@ -64,12 +63,10 @@
         font-weight: bold;
         color: #337ab7;
         background-color: #f9f9f9;
-        /* border: red 1px solid; */
         -webkit-box-pack: center;
         -webkit-box-align: center;
         justify-content: center;
         align-items: center;
-        /* padding: 1rem; */
         margin:1.6rem;
         flex: 1 1 0%;
         line-height: 1.5;
@@ -82,27 +79,102 @@
       .md-icon {
         font-size: 3.2rem;
       }
+      .term.flex-container.item-card {
+      	border: solid 2px #fff;
+      	cursor: pointer;
+      }
+      .term.flex-container.item-card.active {
+      	border: solid 2px #6fa7e6;
+      	background: #ededed;
+      }
+
+      .term.flex-container.item-card:hover {
+      	border: solid 2px #337ab7;
+      	background: #cdcdcd;
+      }
+	.toolTip {
+	        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	        position: absolute;
+	        display: none;
+	        width: auto;
+	        height: auto;
+	        background: none repeat scroll 0 0 white;
+	        border: 0 none;
+	        border-radius: 8px 8px 8px 8px;
+	        box-shadow: -3px 3px 15px #888888;
+	        color: #676767;
+	        font: 14px sans-serif;
+	        padding: 5px;
+	        /*text-align: center;*/
+	    }
+	.toolTip label {
+		/*color:#000;*/
+		font-weight: bold;
+	}
+
+
+.suggestions {
+	position: absolute;
+    right: 0px;
+    top: calc(100% - 10px);
+    background-color: rgb(255, 255, 255);
+    list-style-type: none;
+    padding: 0px;
+    box-shadow: rgba(0, 0, 0, 0.157) 0px 2px 5px 0px, rgba(0, 0, 0, 0.118) 0px 2px 10px 0px;
+    z-index: 90;
+    max-height: 300px;
+    overflow-y: auto;
+    width: 100%;
+    left: 0px;  
+}
+.suggestions li {
+
+	font-weight: bold;
+	font-size: 15px;
+ background: #fff;
+ 
+  list-style: none;
+  border-bottom: 1px solid #D8D8D8;
+  
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-transform: capitalize;
+padding: 0.5rem 1rem; 
+transition: all 0.1s ease 0s; 
+display: flex; 
+flex-direction: row; 
+align-items: stretch;
+
+ }
+.suggestions li:hover {
+	cursor: pointer;
+	background: #d3d3d3;
+}
+span.number {
+	font-weight: normal;
+  color:#676767;
+}
+
+/*.hl {
+  background: #ffc600;
+}*/
+/*.suggestions li:nth-child(even) {
+  transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
+  background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+}
+
+.suggestions li:nth-child(odd) {
+  transform: perspective(100px) rotateX(-3deg) translateY(3px);
+  background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+}*/
 
 
 
 		</style>
 	</head>
 	<body>
-		<!-- nav bar -->
-		<!-- <header>
-			<div class='logo'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
-			
-			<nav >
-				<div></div>
-				<div style='padding-top: 1rem;'>
-						<button id="gogo" class="clear-btn" title="Exploration"><span class="fa fa-search"></span>Clinical Data Exploration</button>
-				</div>
-				<div>&nbsp;&nbsp;</div>
-				<div>&nbsp;&nbsp;</div>
-			</nav>
-
-		</header> -->
-
 		<div role="main" class="main-content">
 			<div class="content-section">
 				<div class="left-section">
@@ -124,7 +196,20 @@
 							
 							<div style='width:50%; margin:.5rem 0;position: relative;'>
 								<i class='fas fa-search' style='font-size:2rem; position: absolute;top:1.2rem;left:.6rem;color:#337ab7;'></i>
-								<input type='text' class='search-input' placeholder='e.g. Lung, Breast, CPTAC-LSCC, CPTAC-GBM'/>
+								<input id='searcher' type='text' class='search-input' placeholder='e.g. Lung, Breast, CPTAC-LSCC, CPTAC-GBM'/>
+								<ul class='suggestions'>
+									
+<!-- 									<li><span class="name">Los Angeles, Cali<span class="hl">f</span>ornia</span><span class="number">3,884,307</span>
+      </li>
+      <li>
+        <span class="name">Los Angeles, Cali<span class="hl">f</span>ornia</span>
+        <span class="number">3,884,307</span>
+      </li>
+      <li>
+        <span class="name">Los Angeles, Cali<span class="hl">f</span>ornia</span>
+        <span class="number">3,884,307</span>
+      </li> -->
+								</ul>
 						  	</div>
 						</div>
 						<div class='flex-container column' style='font-size:1.6rem;border: #6fa7e6 2px solid;margin:.8rem 0;'>
@@ -132,20 +217,8 @@
 							repository dataset profile
 						  </div>
 						  <div class='flex-container'>
-							<div class='flex-container item-card'>
-							  <div style='margin:0 1rem;'>
-								<i class='fas fa-user md-icon' style='font-size: 4rem;'></i>
-							  </div>
-							  <div class='flex-container column' style='justify-content: center;height: 100%;'>
-								<div style='margin-top: .5rem;'>
-								  <span style='color:#337ab7;'>subjects</span>
-								</div>
-								<div>
-								  <span id='subjects' style='color:#676767;font-size: 2rem;'>105</span>
-								</div>
-							  </div>
-							</div>
-							<div class='flex-container item-card'>
+	
+							<div id='imageCount' class='images term flex-container item-card'>
 							  <div style='margin:0 1rem;'>
 								<i class='fas fa-layer-group md-icon' style='font-size: 4rem;'></i>
 							  </div>
@@ -158,7 +231,7 @@
 								</div>
 							  </div>
 							</div>            
-							<div class='flex-container item-card'>
+							<div id = 'studyCount' class='studies term flex-container item-card'>
 							  <div style='margin:0 1rem;'>
 								<i class='fas fa-book-medical md-icon' style='font-size: 4rem;'></i>
 							  </div>
@@ -171,7 +244,7 @@
 								</div>
 							  </div>
 							</div>
-							<div class='flex-container item-card'>
+							<div id='seriesCount' class='series term flex-container item-card'>
 							  <div style='margin:0 1rem;'>
 								<i class='fas fa-list-alt md-icon' style='font-size: 4rem;'></i>
 							  </div>
@@ -184,6 +257,21 @@
 								</div>
 							  </div>
 							</div>
+							<div id='subjectCount' class='subjects term flex-container item-card active'>
+							  <div style='margin:0 1rem;'>
+								<i class='fas fa-user md-icon' style='font-size: 4rem;'></i>
+							  </div>
+							  <div class='flex-container column' style='justify-content: center;height: 100%;'>
+								<div style='margin-top: .5rem;'>
+								  <!-- <span style='color:#337ab7;'>subjects</span> -->
+								  <span style='color:#337ab7;'>patients	</span>
+								</div>
+								<div>
+								  <span id='subjects' style='color:#676767;font-size: 2rem;'>105</span>
+								</div>
+							  </div>
+							</div>
+													
 						  </div>
 						</div>
 						<!-- <div class='flex-container' >
@@ -203,7 +291,9 @@
 				
 						<div class="filter-panel"></div>
 
-						<div id="view_stack" ></div>
+						<div id="view_stack" >
+							<!-- <svg width='900' height='600'></svg> -->
+						</div>
 						<div id="view_tree" style='display: none;'></div>
 					  </div>
 					
@@ -224,6 +314,7 @@
 		</div>
 	</body>
 	<script src="repository.js"></script>
+	<script src="d3-stacked-bar.js"></script>
 	<script type="text/javascript">
 		// const gogo = () => {
 		// 	window.location.href = `../test.html`;	

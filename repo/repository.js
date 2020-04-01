@@ -1,4 +1,8 @@
+// let data;
+const __data = [];
 
+// for term list
+const __threshold = 10;
 
 const terms = [];
 let fieldz = [
@@ -20,15 +24,14 @@ const sumz = {
 
 const selections = {
   "site": [],
-  "modality": []//,
-  // "image_types": [],
-  // "supperting_data": [],
-  // "status": [],
-  // "access": []
+  "modality": []
 }
+
+let quantityField = 'subjectCount'; // studyCount, seriesCount, iamgeCount
 // treemaps.js
 // inference ingestion
 const stacked_data = [];
+
 
 
 function createFlexBox(tagName, direction = 'row') {
@@ -46,7 +49,7 @@ function createHeader(opt, search = true, reset = false) {
   const title = opt.name;
   const items = opt.items;
   let hidden = '';
-  if (opt.items < 4) hidden = 'hidden'
+  if (opt.items < __threshold) hidden = 'hidden'
   const div = createFlexBox('div');
   div.classList.add('facet-header');
   const htmlText = `<span style="cursor: pointer;">
@@ -66,7 +69,7 @@ function createHeader(opt, search = true, reset = false) {
 function createFooter(items) {
   const div = document.createElement('div');
   div.classList.add('facet-footer');
-  const htmlText = `<a> ${items.length - 4}&nbsp;More...</a>`
+  const htmlText = `<a> ${items.length - __threshold}&nbsp;More...</a>`
   div.innerHTML = htmlText;
   return div;
 }
@@ -148,7 +151,7 @@ function createAggregations(terms) {
   panel.appendChild(tip);
   terms.forEach((term, idx) => {
     const _elt = createTerm(term)
-    if (idx >= 4) _elt.classList.add('hidden');
+    if (idx >= __threshold) _elt.classList.add('hidden');
     panel.appendChild(_elt);
   });
 
@@ -197,7 +200,7 @@ function displayMatches(e) { // this -> element
 
     if (this.querySelector('.terms-aggregation').dataset['isMore'] == 'true') {
       list.forEach((t, idx) => {
-        if (idx >= 4) t.classList.add('hidden');
+        if (idx >= __threshold) t.classList.add('hidden');
       });
     } else {
       list.forEach((t, idx) => {
@@ -261,7 +264,7 @@ function createTerms(opt) {
 
     if (list.dataset['isMore'] == 'true') {
       children.forEach((t, idx) => {
-        if (idx >= 4) t.classList.add('hidden');
+        if (idx >= __threshold) t.classList.add('hidden');
       });
     } else {
       children.forEach((t, idx) => {
@@ -319,9 +322,9 @@ function createTerms(opt) {
         list.dataset['isMore'] = 'true';
         // collapse
         children.forEach((t, idx) => {
-          if (idx >= 4) t.classList.add('hidden');
+          if (idx >= __threshold) t.classList.add('hidden');
         });
-        a.textContent = `${children.length - 4} More...`;
+        a.textContent = `${children.length - __threshold} More...`;
       }
     })
   }
@@ -389,10 +392,10 @@ const init = () => {
 function __filterData() {
   const filter_conditions = Object.entries(selections).filter(arr => Array.isArray(arr[1]) && arr[1].length > 0)
   // filter
-  const after_filter = table_data.filter(row => {
+  const after_filter = __data.filter(row => {
 
     return filter_conditions.reduce((rs, f_c) => {
-      const field_name = f_c[0]//.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+      const field_name = f_c[0];
       const val = row[field_name];
 
       return rs && isMatch(val, f_c[1]);
@@ -400,28 +403,29 @@ function __filterData() {
 
   })
 
-  console.log(after_filter);
-
-
   let _t;
-  //_t = createTrees1(after_filter);
+  
 
   if (selections['site'].length == 1) { // only one location
-    _t = createTrees2(after_filter);
-    setToolTipText('modality', 'project');
+    //_t = createTrees2(after_filter);
+    //setToolTipText('modality', 'project');
+    _t = transformer(after_filter, 'modality', 'project', quantityField)
+    d3_render(_t,'view_stack','modality','project', quantityField);
   }
   else if (selections['modality'].length == 1) { // only one image type
 
-    _t = createTrees3(after_filter);
-    setToolTipText('site', 'project');
+    //_t = createTrees3(after_filter);
+    //setToolTipText('site', 'project');
+    _t = transformer(after_filter, 'site', 'project', quantityField)
+    d3_render(_t,'view_stack','site','project', quantityField);
   }
   else {
-    _t = createTrees1(after_filter);
-    setToolTipText('site', 'project');
+    _t = transformer(after_filter, 'site', 'modality', quantityField)
+    // _t = createTrees1(after_filter);
+    //setToolTipText('site', 'project');
+    d3_render(_t,'view_stack','site','modality', quantityField);
   }
-  const _d = convertTreeToTableData(_t);
-
-  render(_d);
+  //const _d = convertTreeToTableData(_t);
 }
 
 // read json data
@@ -429,7 +433,9 @@ let values;
 var view_tree;
 var view_stack;
 let og_data;
-let table_data;
+
+
+
 
 let selectedLocations = [];
 let selectedModalities = [];
@@ -492,35 +498,63 @@ const clearSumz = () => {
   sumz['study'] = 0;
   sumz['subject'] = 0;
 }
+
+// loading data
+const getKeyAsString = d => `project:${d['project']},modality:${d['modality']},site:${d['site']}`
+const getKeyAsObject = key => key.split(',').reduce((obj, d) => {
+  const [key, value] = d.split(':');
+  obj[key] = value;
+  return obj;
+}, {})
+
+
 const request = async () => {
 
   const resp1 = await fetch('./data.json')
-  table_data = await resp1.json();
+  const data = await resp1.json();
 
-  //fieldz = Object.keys(table_data[0]).map(name => { return { 'title': name, 'value': name.toLowerCase().split(' ').join('_') } });
-  /*  */
+  const obj_data = {}
+  // const rs = [];
   const loc = {};
   const collection = {};
   const mod = {};
 
+  data.forEach(d => {
+    // for create items
+
+    const key = getKeyAsString(d)
+    if(!obj_data[key]) obj_data[key] = {'subjectCount':0,'studyCount':0,'seriesCount':0,'imageCount':0}
+    obj_data[key]['subjectCount'] += d['subjectCount'];
+    obj_data[key]['studyCount'] += d['studyCount'];
+    obj_data[key]['seriesCount'] += d['seriesCount'];
+    obj_data[key]['imageCount'] += d['imageCount'];
+  })
+
+  for (let [key, values] of Object.entries(obj_data)) {
+    const  categorical_fields = getKeyAsObject(key);
+    const numeric_fields = values;
+    __data.push(Object.assign({}, categorical_fields, numeric_fields));
+  }
+
+  //__data = rs;
+
+
+  //fieldz = Object.keys(table_data[0]).map(name => { return { 'title': name, 'value': name.toLowerCase().split(' ').join('_') } });
+  /*  */
+
+
   clearSumz()
   // const sup_data = {};
-  table_data.forEach(item => {
-
-    // addItems(+item["subjectCount"], item["project"], collection);
-
-    addItems(+item["subjectCount"], item["modality"], mod);
-
-    addItems(+item["subjectCount"], item["site"], loc);
+  __data.forEach(item => {
+    addItems(+item[quantityField], item["modality"], mod);
+    addItems(+item[quantityField], item["site"], loc);
 
     sumz['image'] += +item['imageCount'];
     sumz['series'] += +item['seriesCount'];
     sumz['study'] += +item['studyCount'];
     sumz['subject'] += +item['subjectCount'];
 
-    // addItems(+item["Subject"], item["Supperting Data"], sup_data);
   })
-  // console.log(sumz)
   
   updateProfile(sumz)
 
@@ -554,248 +588,20 @@ const request = async () => {
   }
   terms.push(createTermList(loc, 'site'));
   terms.push(createTermList(mod, 'modality'));
-  // terms.push(createTermList(collection, 'project'));
-  //terms.push(createTermList(sup_data, 'Supperting Data'));
-
-
-  // terms.push({
-  //   'name': 'Status',
-  //   items: ['Complete', 'Ongoing']
-  // });
-
-  // terms.push({
-  //   'name': 'Access',
-  //   items: ['Public', 'Limited']
-  // });
 
   init();
-  const _t = createTrees1(table_data);
-  const _d = convertTreeToTableData(_t);
-  setToolTipText('Location', 'Modality');
-  //tree_spec.data[0].values = values;
-  render(_d);
+
+
+
+  const _t = transformer(__data,'site','modality', quantityField)
+
+  d3_render(_t,'view_stack','site','modality', quantityField);
 
 
 }
+
+
 request();
-
-function createTermsAggregations(options) {
-
-}
-
-
-function render(data) {
-  //const _d = convertTreeToTableData(data);
-
-
-  tree_spec.data[0].values = data[0];
-  stack_spec.data.values = data[1];
-
-  view_tree = new vega.View(vega.parse(tree_spec), {
-    renderer: 'canvas',  // renderer (canvas or svg)
-    container: '#view_tree',   // parent DOM container
-    hover: true,       // enable hover processing
-  })
-    .run();
-
-  vegaTooltip.default(view_tree);
-  // click event when click on tree
-  view_tree.addEventListener('click', (e, item) => {
-    console.log(e);
-    console.log(item);
-  });
-
-
-  vegaEmbed('#view_stack', stack_spec).then(p => {
-    //console.log(spec, view);  
-    view_stack = p.view
-    // click event when click on stacked bar
-    view_stack.addEventListener('click', (e, item) => {
-      console.log(e);
-      console.log(item);
-    });
-
-  });
-
-}
-
-
-
-
-
-
-
-
-
-
-const stack_spec = {
-  "$schema": "https://vega.github.io/schema/vega-lite/v3.json",
-  "width": 650,
-  "height": 600,
-  // "padding": 2.5,
-  // "autosize": "none",  
-  "data": { "values": stacked_data },
-  "mark": "bar",
-  "encoding": {
-    "y": { "title": "Location", "field": "parent", "type": "nominal", "sort": "ascending" },
-    "color": { "title": "Modality", "field": "name", "type": "nominal" },
-    "x": { "title": "Series", "aggregate": "sum", "field": "subject", "type": "quantitative", "sort": "ascending" }
-  }
-}
-
-const tree_spec = {
-  "$schema": "https://vega.github.io/schema/vega/v5.json",
-  "width": 900,
-  "height": 600,
-  // "padding": 2.5,
-  // "autosize": "none",
-  "signals": [
-    {
-      "name": "layout",
-      "description": "This is layout",
-      "value": "squarify",
-      "bind": {
-        "input": "select",
-        "options": [
-          "squarify",
-          "binary"
-        ]
-      }
-    },
-    {
-      "name": "aspectRatio", "value": 1
-      // "bind": {"input": "range", "min": 1, "max": 5, "step": 0.1}
-    }
-  ],
-
-  "data": [
-    {
-      "name": "tree",
-      // "values":values,
-      "transform": [
-        {
-          "type": "stratify",
-          "key": "id",
-          "parentKey": "parent"
-        },
-        {
-          "type": "treemap",
-          "field": "subject",
-          "sort": { "field": "value", "order": "descending" },
-          "round": true,
-          "method": { "signal": "layout" },
-          "ratio": { "signal": "aspectRatio" },
-          "size": [{ "signal": "width" }, { "signal": "height" }]
-        }
-      ]
-    },
-    {
-      "name": "nodes",
-      "source": "tree",
-      "transform": [{ "type": "filter", "expr": "datum.children" }]
-    },
-    {
-      "name": "leaves",
-      "source": "tree",
-      "transform": [{ "type": "filter", "expr": "!datum.children" }]
-    }
-  ],
-
-  "scales": [
-    {
-      "name": "color",
-      "type": "ordinal",
-      "domain": { "data": "nodes", "field": "name" },
-      "range": [
-        "#3182bd", "#6baed6", "#9ecae1", "#c6dbef", "#e6550d",
-        "#fd8d3c", "#fdae6b", "#fdd0a2", "#31a354", "#74c476",
-        "#a1d99b", "#c7e9c0", "#756bb1", "#9e9ac8", "#bcbddc",
-        "#dadaeb", "#636363", "#969696", "#bdbdbd", "#d9d9d9"
-      ]
-    },
-    {
-      "name": "size",
-      "type": "ordinal",
-      "domain": [0, 1, 2, 3],
-      "range": [256, 28, 20, 14]
-    },
-    {
-      "name": "opacity",
-      "type": "ordinal",
-      "domain": [0, 1, 2, 3],
-      "range": [0.15, 0.5, 0.8, 1.0]
-    }
-  ],
-
-  "marks": [
-    {
-      "type": "rect",
-      "from": { "data": "nodes" },
-      "interactive": true,
-      "encode": {
-        "enter": {
-          "fill": { "scale": "color", "field": "name" },
-          "stroke": { "value": "bule" },
-        },
-        "update": {
-          "x": { "field": "x0" },
-          "y": { "field": "y0" },
-          "x2": { "field": "x1" },
-          "y2": { "field": "y1" }
-        },
-        "hover": {
-          "stroke": { "value": "red" },
-        }
-      }
-    },
-    {
-      "type": "rect",
-      "from": { "data": "leaves" },
-      "encode": {
-        "enter": {
-          "stroke": { "value": "#fff" },
-          "tooltip": { "signal": "{'Location':datum.parent,'Modality':datum.name,'Series':datum.subject}" }
-        },
-        "update": {
-          "x": { "field": "x0" },
-          "y": { "field": "y0" },
-          "x2": { "field": "x1" },
-          "y2": { "field": "y1" },
-          "fill": { "value": "transparent" }
-        },
-
-        "hover": {
-          //"stroke": {"value": "#000"},
-          //"fill": {"value": "red"}
-        }
-      }
-    },
-    {
-      "type": "text",
-      "from": { "data": "nodes" },
-      "interactive": false,
-      "encode": {
-        "enter": {
-          "font": { "value": "Helvetica Neue, Arial" },
-          "align": { "value": "center" },
-          "baseline": { "value": "middle" },
-          "fill": { "value": "#000" },
-          "text": { "field": "name" },
-          "fontSize": { "value": 15 },
-          // "fillOpacity": {"scale": "opacity", "field": "depth"}
-        },
-        "update": {
-          "x": { "signal": "0.5 * (datum.x0 + datum.x1)" },
-          "y": { "signal": "0.5 * (datum.y0 + datum.y1)" }
-        },
-        "hover": {
-          "stroke": { "value": "#000" },
-          //"fill": {"value": "red"}
-        }
-      }
-    }
-  ]
-}
 
 const __table_filter = () => {
   const f_list = Object.keys(selections).reduce((rs, key, i) => {
@@ -804,7 +610,7 @@ const __table_filter = () => {
   }, []);
   console.log(f_list);
 
-  table_data.filter(__filter);
+  __data.filter(__filter);
   // selections
 }
 const __filter = (data) => {
@@ -1002,10 +808,8 @@ function convertTreeToTableData(tree, root = { id: 'root', name: '' }) {
 function clean(field = 'all') {
 
   if (field == 'all') {
-    const _t = createTrees1(table_data);
-    const _d = convertTreeToTableData(_t);
-    setToolTipText('Location', 'Modality');
-    render(_d);
+    const _t = transformer(__data,'site','modality', quantityField);
+    d3_render(_t,'view_stack','site','modality', quantityField);
     generateFilterTips();
     return;
   }
@@ -1061,7 +865,6 @@ function generateFilterTips() {
     });
   }
 
-
 }
 function generateCleanBotton() {
   return `<button class="clear-btn" title="Clear Query"><span class="fa fa-close"></span>Clear</button>`
@@ -1074,27 +877,101 @@ function createLabel(text, color = '#fff', fcolor = '#fff') {
   return `<span class='label' style='background-color:${color};color:${fcolor}'>${text}</span>`
 }
 
-// field name -> rgb(105, 105, 105)
-// and -> rgb(0, 138, 224)
-// value -> rgb(64, 145, 64)
+
+function transformer(data, categoricalField, comparingField, quantityField){
+  // 
+  const __ = {}
+  // 
+  let head = [];
+
+  clearSumz()
+  data.forEach(d => {
+    sumz['image'] += +d['imageCount'];
+    sumz['series'] += +d['seriesCount'];
+    sumz['study'] += +d['studyCount'];
+    sumz['subject'] += +d['subjectCount']; 
+
+    const categoricalData = d[categoricalField];
+    
+    if (!__[categoricalData]) __[categoricalData] = {};
+
+    const comparingData = d[comparingField];
+    
+    const val = d[quantityField];
+
+    head.push(comparingData)
+    if (!__[categoricalData]['total']) __[categoricalData]['total'] = 0;
+    if (!__[categoricalData][comparingData]) __[categoricalData][comparingData] = 0;
+    __[categoricalData][comparingData] += val;
+    __[categoricalData]['total'] += val;
+  })
+
+  updateProfile(sumz)
+
+  head = Array.from(new Set(head))
+  const obj_head = Array.from(new Set(head)).sort((a,b)=> a - b).reduce((obj, d) => {
+    obj[d] = 0;
+    return obj;
+  },{})
+
+  const rs = []
+  for(var k in __){
+
+    const record = Object.assign({}, obj_head, __[k])
+    record[categoricalField] = k;
+    rs.push(record)   
+  }
+
+  rs.columns = head
+  return rs;
+}
 
 
+d3.selectAll('.term.flex-container.item-card').on('click',function(d){
+  d3.selectAll('.term.flex-container.item-card').classed("active", false);
+  d3.select(this).classed('active',true)
+  quantityField = this.id;
+  // change and render
+  generateFilterTips();
+  __filterData()
 
-// const horse = {
-//   age: 10
-// }
+})
+const searchInput = document.querySelector('#searcher');
+const suggestions = document.querySelector('.suggestions');
+searchInput.addEventListener('change', displayMatches);
+searchInput.addEventListener('keyup', displayMatches);
+function displayMatches() {
+  if(this.value==''){
+    suggestions.innerHTML = '';
+    return;
+  }
+  const matchedData = findMatches(this.value, __data);
+  console.log(matchedData)
+  matchedData.sort((a,b)=> b[quantityField] - a[quantityField])
+  const html = matchedData.map(d => {
+    //const regex = new RegExp(this.value, 'gi');
 
-// function test(str, age,tt){
-//   console.log(str,age,tt);
-//   const agestr = age > 5 ? 'old': 'young';
-//   return `${str[0]}${agestr} at ${tt} years`;
+    //const cityName = place.city.replace(regex, `<span class="hl">${this.value}</span>`);
+    //const stateName = place.state.replace(regex, `<span class="hl">${this.value}</span>`);
+    return `
+      <li>
+        <span class="name">${d.project}, ${d.modality}, ${d.site}</span>
+        <span class="number">${numberWithCommas(d[quantityField])}</span>
+      </li>
+    `;
+  }).join('');
+  suggestions.innerHTML = html;
+}
 
-// }
+function findMatches(wordToMatch, data) {
+  return data.filter(record => {
+    // here we need to figure out if the city or state matches what was searched
+    const regex = new RegExp(wordToMatch, 'gi');
+    return record.site.match(regex) || record.modality.match(regex) || record.project.match(regex)
+  });
+}
 
-// function return_tr(name){
-//   return `<div> ${name}</div>`
-// }
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
 
-// const bio2 = test`this is ${horse.age}${return_tr('test_name')}`;
-
-// console.log(bio2);
