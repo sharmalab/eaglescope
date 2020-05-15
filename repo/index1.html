@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script defer src="./font-awesome/js/all.js"></script> 
+    <!-- <link rel="stylesheet" type="text/css" href="theme.css"> -->
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="setup.js"></script>
+    <script src="makeTable.js"></script>
+    <script src="visLifecycle.js"></script>
+    <script src="colors.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js" integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>      
+    
+    <!-- Bootstrap CSS -->
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="./font-awesome/css/all.css" rel="stylesheet">
+    <link href="./normalize.css" rel="stylesheet">
+    <style>
+      /* div {
+        box-sizing: border-box;
+        border: 1px solid #5BC6FF;
+      } */
+      input[type=text].search-input {
+        color:#676767;
+        width: 100%;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: none;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #cdcdcd;
+        padding: .5rem 2rem;
+        transition: all .5s ease-out;
+        /* line-height: 24px; */
+      }
+
+      input[type=text].search-input:focus {
+        border-bottom: 2px solid #666666;
+      }
+      
+      .flex-container {
+        display: flex;
+        position: relative;
+        outline: none;
+        /* flex-wrap: wrap; */
+      }
+      
+      .flex-container.row {
+        flex-direction: row;
+      }
+
+      .flex-container.column {
+        flex-direction: column;
+      }
+      .item-card {
+        font-weight: bold;
+        color: #337ab7;
+        background-color: #f9f9f9;
+        /* border: red 1px solid; */
+        -webkit-box-pack: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        align-items: center;
+        /* padding: 1rem; */
+        margin:1rem;
+        flex: 1 1 0%;
+        line-height: 1.5;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .sm-icon {
+        font-size: 1rem;
+      }
+      .md-icon {
+        font-size: 2rem;
+      }
+
+
+    </style>
+    <title>Repository</title>
+  </head>
+  <body>
+    <!-- background-size: cover; background-position:center center;background-image: url(./bk-light.jpg); -->
+    
+      
+    <div class='flex-container' style="min-width: 1024px; flex:1 1 0%; padding:1rem;">
+      <div style='position: relative;'>
+        <div id ='test' style='position: absolute;top:0;left:0;height:100%;width:50%;background:#cdcdcd;z-index:100;overflow: hidden;transition: all .5s;'> test 123123 </div>
+      <div class='flex-container column' style='width:100%;height:100%;color:#337ab7;padding:1rem;flex:2;box-shadow: rgba(0, 0, 0, 0.16) 0px 2px 5px 0px, rgba(0, 0, 0, 0.12) 0px 2px 10px 0px;'>
+        <div style='text-transform: capitalize;font-size: 1.5rem; font-weight: bold;'>
+          TCIA Repository dataset portal
+        </div>
+        <div style='text-transform: capitalize;font-size: .8rem'>
+          an easy way to explore data collections 
+        </div>
+
+        <div class='flex-container column' style='border: #6fa7e6 2px solid;margin:.5rem 0;'>
+          <div class='flex-container item-card' style='margin:.5rem 1rem 0rem 1rem; color:#676767; background-color: #fff;justify-content:center;text-transform: capitalize;'>
+            repository dataset profile
+          </div>
+          <div class='flex-container'>
+            <div class='flex-container item-card'>
+              <div style='margin:0 1rem;'>
+                <i class='fas fa-user md-icon' style='font-size: 2.5rem;'></i>
+              </div>
+              <div class='flex-container column' style='justify-content: center;height: 100%;'>
+                <div style='margin-top: .5rem;'>
+                  <span style='color:#337ab7;'>subjects</span>
+                </div>
+                <div>
+                  <span style='color:#676767;font-size: 1.2rem;'>105</span>
+                </div>
+              </div>
+            </div>
+            <div class='flex-container item-card'>
+              <div style='margin:0 1rem;'>
+                <i class='fas fa-layer-group md-icon' style='font-size: 2.5rem;'></i>
+              </div>
+              <div class='flex-container column' style='justify-content: center;height: 100%;'>
+                <div style='margin-top: .5rem;'>
+                  <span style='color:#337ab7;'>images</span>
+                </div>
+                <div>
+                  <span style='color:#676767;font-size: 1.2rem;'>1431</span>
+                </div>
+              </div>
+            </div>            
+          </div>
+          <div class='flex-container'>
+            <div class='flex-container item-card'>
+              <div style='margin:0 1rem;'>
+                <i class='fas fa-book-medical md-icon' style='font-size: 2.5rem;'></i>
+              </div>
+              <div class='flex-container column' style='justify-content: center;height: 100%;'>
+                <div style='margin-top: .5rem;'>
+                  <span style='color:#337ab7;'>studies</span>
+                </div>
+                <div>
+                  <span style='color:#676767;font-size: 1.2rem;'>35</span>
+                </div>
+              </div>
+            </div>
+            <div class='flex-container item-card'>
+              <div style='margin:0 1rem;'>
+                <i class='fas fa-list-alt md-icon' style='font-size: 2.5rem;'></i>
+              </div>
+              <div class='flex-container column' style='justify-content: center;height: 100%;'>
+                <div style='margin-top: .5rem;'>
+                  <span style='color:#337ab7;'>series</span>
+                </div>
+                <div>
+                  <span style='color:#676767;font-size: 1.2rem;'>374</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style='margin:.5rem 0;position: relative;'>
+          <i class='fas fa-search' style='font-size:1.2rem; position: absolute;top:.8rem;left:.4rem;color:#337ab7;'></i>
+          <input type='text' class='search-input' placeholder='e.g. Lung, Breast, CPTAC-LSCC, CPTAC-GBM'/>
+        </div>
+        <div class='flex-container' >
+          <div class=''>
+            <i class="fas fa-archive" ></i>
+            <span style='margin-left:.5rem;color:#676767;'>Project</span>
+          </div>
+          <div class=''>
+            <i class="fas fa-list-ul"></i>
+            <span style='margin-left:.5rem;color:#676767;'>Modality</span>
+          </div>
+          <div class=''>
+            <i class="fas fa-brain"></i>
+            <span style='margin-left:.5rem;color:#676767;'>Site</span>
+          </div>
+        </div>
+        <div class="tab-content" >
+          <div>p</div>
+          <div>m</div>
+          <div>s</div>
+        </div>
+
+        <div>Should Show Up Some Conditions</div>
+      </div>
+      </div>
+      <div class='flex-container column' style='padding:1rem;flex:3;'>
+        <div style='height:550px;'>
+          <canvas id="barVis" width="400" height="400"></canvas>
+        </div>
+        <div>
+          test
+        </div>
+      </div>
+    </div>
+    <button id='btn'>test</button>
+    
+    <!-- color:#676767 color:#337ab7 hover:#f9f9f9 -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script>
+      var CHARTS = {}
+      var db = setupData(1)
+      // base data
+      db.repo.toArray(console.log)
+      // query;  ex http://localhost:8000/repo/beta.html?fields=[%22project~modality%22]&type=any&query=[[%22APOLLO%22,%22CT%22],[%224D-Lung%22,%22RTSTRUCT%22]]
+      var s = db.repo
+      //console.log('data',s);
+      const siteCounts = {}
+      s.toArray(x => {
+        x.forEach(element => {
+          // console.log(element.site, element.imageCount);
+          if (!siteCounts.hasOwnProperty(element.site)) siteCounts[element.site] = 0;
+          siteCounts[element.site] += element.imageCount
+        });
+        //console.log('test',siteCounts)
+        const result = Object.keys(siteCounts).map(function (key) { 
+          return [key,siteCounts[key]]; 
+        }); 
+        result.sort((a,b)=>b[1]-a[1])
+        
+        const obj = {}
+        result.forEach(e=>{
+          obj[e[0]] = e[1]
+        }) 
+        console.log(result.length);
+        console.log(obj);
+        // draw start
+        CHARTS.barChart = new Chart(document.getElementById("barVis"), {
+          type: "horizontalBar",
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          },
+          data: {
+            labels: Object.keys(obj),
+            datasets: [{
+              label: "Site Counts",
+              data: Object.values(obj),
+              backgroundColor: binColors(24),
+              borderWidth: 0
+            }]
+          }
+        })
+        // draw end    
+      })
+      const btn = document.querySelector('#btn')
+      const panel = document.querySelector('#test')
+
+      btn.addEventListener('click', e => {
+        if(panel.style.width==`0px`){
+          panel.style.width = '50%'
+          panel.style.opacity = 1;
+        }else{
+          panel.style.width = 0
+          panel.style.opacity = 0;
+        }
+      })
+    </script>
+  </body>
+</html>

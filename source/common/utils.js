@@ -20,7 +20,7 @@
 // };
 
 // create a matrix
-function createMatrix(rows, cols = rows) {
+export function createMatrix(rows, cols = rows) {
   var matrix = [];
   for (var i = 0; i < rows; i++) {
     matrix[i] = new Array(cols);
@@ -28,7 +28,7 @@ function createMatrix(rows, cols = rows) {
   return matrix;
 }
 // has Space
-function hasSpace(matrix, pos, size) {
+export function hasSpace(matrix, pos, size) {
   if (matrix.length === 0) return true;
   let has_space = true;
   if ((size[0] > 1 && pos[0] % 2 !== 0) || (size[1] > 1 && pos[1] % 2 !== 1)) {
@@ -52,7 +52,34 @@ function hasSpace(matrix, pos, size) {
   }
   return has_space;
 }
+export function numFixed(num, digits = 2){
+  return Number.isInteger(num)?num:num.toFixed(digits);
+}
+export function isEquivalent(a, b) {
+  // Create arrays of property names
+  var aProps = Object.getOwnPropertyNames(a);
+  var bProps = Object.getOwnPropertyNames(b);
 
+  // If number of properties is different,
+  // objects are not equivalent
+  if (aProps.length != bProps.length) {
+      return false;
+  }
+
+  for (var i = 0; i < aProps.length; i++) {
+      var propName = aProps[i];
+
+      // If values of same property are not equal,
+      // objects are not equivalent
+      if (a[propName] !== b[propName]) {
+          return false;
+      }
+  }
+
+  // If we made it this far, objects
+  // are considered equivalent
+  return true;
+}
 // get the chart position
 function getPosition(matrix, size) {
   let position = undefined;
@@ -74,7 +101,7 @@ function getPosition(matrix, size) {
   }
 }
 
-function fillMatrix(
+export function fillMatrix(
   matrix,
   val,
   pos = [0, 0],

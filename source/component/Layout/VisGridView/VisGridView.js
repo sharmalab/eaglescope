@@ -13,6 +13,7 @@ import _CONFIG_ from "../../../../config/vis-config.json";
 // enumeration for 
 import VisTypeEnum from "../../VisualTools/VisTypeEnum.json";
 
+// import 
 const _config = {
   layout: []
 };
@@ -31,29 +32,94 @@ class VisGridView extends Component {
         margins: [..._CONFIG_.MARGIN_OF_GRID_VIEW],
         visConfig: [
           {
-            id: "pie_01",
-            title: "Pie Chart",
-            description: "Pie Chart",
+            id: "vital_status_pie",
+            title: "Vital Status",
+            description: "Showing the number of patients in vital status",
             chartType: VisTypeEnum.PIE_CHART,
-            fields:["field1","field2"],
-            //dataType: ChartMetaDataTypeEnum.GENOMIC,
+            fields:{x:"Vital_Status"},
             //patientAttribute: false,
             size: [1, 1], // size [width, height]
-            priority: 20 //
-            //renderWhenDataChange: false
+            priority: 20
           },
           {
-            id: "pie_02",
-            title: "Pie Chart",
-            description: "Pie Chart",
-            chartType: VisTypeEnum.PIE_CHART,
-            //dataType: ChartMetaDataTypeEnum.GENOMIC,
-            //patientAttribute: false,
-            fields:["field1"],
-            size: [1, 1], // size [width, height]
-            priority: 20 //
-            //renderWhenDataChange: false
+            id: "tnm_stage_count",
+            title: "TNM Stage Count",
+            description: "Showing the number of patients in TNM Stage",
+            chartType: VisTypeEnum.BAR_CHART,
+            fields:{x:"TNM-Stage"},
+            size: [2, 1], // size [width, height]
+            priority: 30        
           },
+          {
+            id: "gender_pie",
+            title: "Gender",
+            description: "Showing the number of patients in gender",
+            chartType: VisTypeEnum.PIE_CHART,
+            fields:{x:"Gdc_gender"},
+            size: [1, 1], // size [width, height]
+            priority: 30
+          },
+          // {
+          //   id: "neoplasm_a_pie",
+          //   title: "Neoplasm A Subdivision",
+          //   description: "Showing the number of patients in gender",
+          //   chartType: VisTypeEnum.PIE_CHART,
+          //   fields:{x:"Neoplasm_A-1tomic_Subdivision_-1me_"},
+          //   size: [1, 1], // size [width, height]
+          //   priority: 30
+          // },          
+          {
+            id: "diagnosis_count",
+            title: "Primary Diagnosis Count",
+            description: "Showing the number of patients in diagnosis",
+            chartType: VisTypeEnum.BAR_CHART,
+            fields:{x:"GDC_primary_diagnosis"},
+            size: [2, 1], // size [width, height]
+            priority: 70        
+          },
+
+          {
+            id: "age_survial_time_scatter",
+            title: "Age vs Survial Time",
+            description: "Showing the age and survial time in scatter plot",
+            chartType: VisTypeEnum.SCATTER_CHART,
+            fields:{x:'Age',y:'Survival_Time',z:'Survival_Time'},
+            size: [2, 2], // size [width, height]
+            priority: 50
+          },
+          { 
+            id:"clinical_data_table",
+            title: "Clinical Data Table",
+            description: "Showing Clinical Data",
+            chartType: VisTypeEnum.VIS_DATA_TABLE,
+            fields:[
+              {
+                dataKey:'Collection',
+                label:'Collection',
+                width:0.23
+              },
+              {
+                dataKey:'Patient_ID',
+                label:'Patient ID',
+                width:0.13
+              },
+              {
+                dataKey:'Age',
+                label:'Age',
+                width:0.05
+              },{
+                dataKey:'Modality',
+                label:'Modality',
+                width:0.15
+              },{
+                dataKey:'TNM-Stage',
+                label:'TNM Stage',
+                width:0.15
+              }],
+            size: [4, 2],
+            priority: 40
+          }
+          /*,
           {
             id: "stacked_bar_chart",
             title: "Collections",
@@ -125,7 +191,7 @@ class VisGridView extends Component {
             size: [2, 1], // size [width, height]
             priority: 70 //
             //renderWhenDataChange: false
-          }
+          }*/
         ]
       },
       error: null,
@@ -153,6 +219,7 @@ class VisGridView extends Component {
   componentDidMount() {
     // TODO loading config
 
+
     //
     this.updateViewSize();
     // TODO debouce
@@ -163,10 +230,19 @@ class VisGridView extends Component {
   }
   render() {
     if (this.state.config.layout.length > 0) {
+      console.log('view',this.props)
       let __vis = this.state.config.layout.map((item, index) => (
         
         <div key={item.i}>
-          <VisGridItem  {...item} operation={this.state.config.visConfig[index]}/>
+          <VisGridItem 
+            {...item}
+            operation={this.state.config.visConfig[index]}
+            data={this.props.data}
+            filterData={this.props.filterData}
+            filters={this.props.filters}
+            filterAdded = {this.props.filterAdded}
+            filterRemove = {this.props.filterRemove}
+          />
         </div>
       ));
       // <VisGridItem key={item.i} {...item}> {item.i}></VisGridItem>

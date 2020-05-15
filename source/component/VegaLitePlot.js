@@ -11,13 +11,12 @@ import { compile as vlCompile } from "vega-lite";
 class VegaLitePlot extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
-    
     this.style = { width: '100%', height: '100%' };
     this.self = React.createRef();
   }
 
   componentWillMount(){
-    console.log('componentWillMount');
+
   }
 
   componentDidUpdate() {
@@ -33,7 +32,6 @@ class VegaLitePlot extends BaseVisualization {
           .remove(() => true)
           .insert(d);
         this.vl_view.change("source_0", changeset).run();
-        console.log(changeset);
       } else {
         let spec = JSON.parse(this.props.spec);
         if (this.props.allData) {

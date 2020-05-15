@@ -1,0 +1,20 @@
+/* VisDataTable customized style */
+.ReactVirtualized__Table {
+    font-size: .7rem;
+}
+
+.headerRow {
+    border-bottom: 1px solid #d1d1d1;
+    background-color: #ffffff;
+    font-size: .85rem;
+    text-transform: none;
+}
+
+.evenRow {
+    background-color: #ffffff;
+    border-bottom: #d1d1d1 1px dotted;
+}
+.oddRow {
+    background-color: #f9f9f9;
+    border-bottom: #d1d1d1 1px dotted;
+}

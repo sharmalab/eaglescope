@@ -1,0 +1,7 @@
+.vis-grid-item-control {
+  position: absolute;
+  border-radius: 4px;
+  right:0;
+  top:0;
+  /* border-radius: 0 0 4px 4px; */
+}

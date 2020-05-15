@@ -10,13 +10,18 @@ import _CONFIG_ from "../../../../../../config/vis-config.json";
 import VisTypeComponents from "../../../../VisualTools/VisTypeComponents.js";
 
 const PieChart = React.lazy(() =>
-  import("../../../../VisualTools/Chart/BarChart")
-);
-const BarChart = React.lazy(() =>
   import("../../../../VisualTools/Chart/PieChart")
 );
-const Table = React.lazy(() =>
-  import("../../../../VisualTools/Table/Table")
+const BarChart = React.lazy(() =>
+  import("../../../../VisualTools/Chart/BarChart")
+);
+
+const ScatterChart = React.lazy(() =>
+  import("../../../../VisualTools/Chart/ScatterChart")
+);
+
+const VisDataTable = React.lazy(() =>
+  import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
 const VegaLitePlot = React.lazy(() =>
   import("../../../../VegaLitePlot")
@@ -40,29 +45,36 @@ const _style1 = {
 export default class VisGridItemContent extends Component {
   constructor(props) {
     super(props);
-    //console.log("VisGridItemContent", props, VisTypeComponents,this.props.chartType);
   }
   render() {
 
     // switch content
     const TagName = VisTypeComponents[this.props.chartType];
-    console.log(TagName);
     let component;
     switch (TagName) {
       case "PieChart":
-        component = <PieChart {...this.props} />;
+        component = <PieChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+        break;
+      case "ScatterChart":
+
+        component = <ScatterChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       case "BarChart":
-        component = <BarChart {...this.props} />;
-        break;
-      case "Table":
-        component = <Table {...this.props} />;
+        component = <BarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+        break;      
+      case "VisDataTable":
+        component = <VisDataTable {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       case "VegaLitePlot":
-        component = <VegaLitePlot {...this.props} />;
+        component = <VegaLitePlot {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       default:
-        component = <div>No {TagName} Component...</div>;
+        component = <div>I'm Sorry. There Is No {TagName} Component...</div>;
     }
 
     return (

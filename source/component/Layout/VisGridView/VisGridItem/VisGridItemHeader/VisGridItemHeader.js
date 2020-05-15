@@ -12,13 +12,11 @@ export default class VisGridItemHeader extends Component {
   // }
 
   render() {
-      let btnGroup;
-      if(this.props.hover) btnGroup = <div style={{position:"absolute",top:0,right:0,}}>X</div>;
-    return (
-      <div className="vis-grid-item-header">
-        <div className="name-header draggable">
-          <span className="chartTitle">{this.props.title}</span>
-          {btnGroup}
+
+      return (
+      <div className="vis-grid-item-header" title={this.props.description}>
+        <div className="name-header draggable" >
+          <span className="chartTitle" >{this.props.title}</span>
         </div>
       </div>
     );

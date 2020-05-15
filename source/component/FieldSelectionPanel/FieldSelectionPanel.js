@@ -11,7 +11,7 @@ import ContentPanel from "./Content/ContentPanel";
 class FieldeSlectionPanel extends Component {
   constructor(props) {
     super(props);
-    //console.log(props.items);
+    
     // props.items = props.items.map(elt => elt['selected'] = false);
     // set
     this.state = {
