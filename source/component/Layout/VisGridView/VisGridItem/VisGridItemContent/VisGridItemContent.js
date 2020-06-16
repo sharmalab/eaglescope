@@ -15,7 +15,9 @@ const PieChart = React.lazy(() =>
 const BarChart = React.lazy(() =>
   import("../../../../VisualTools/Chart/BarChart")
 );
-
+const HorizontalBarChart = React.lazy(() =>
+  import("../../../../VisualTools/Chart/HorizontalBarChart")
+);
 const ScatterChart = React.lazy(() =>
   import("../../../../VisualTools/Chart/ScatterChart")
 );
@@ -26,6 +28,8 @@ const VisDataTable = React.lazy(() =>
 const VegaLitePlot = React.lazy(() =>
   import("../../../../VegaLitePlot")
 );
+
+
 //import BarChart from '../../../../VisualTools/Chart/BarChart';
 //import PieChart from '../../../../VisualTools/Chart/PieChart';
 //import Table from '../../../../VisualTools/Table/Table';
@@ -57,14 +61,17 @@ export default class VisGridItemContent extends Component {
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       case "ScatterChart":
-
         component = <ScatterChart {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       case "BarChart":
         component = <BarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
-        break;      
+        break;
+        case "HorizontalBarChart":
+          component = <HorizontalBarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+          filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+        break;
       case "VisDataTable":
         component = <VisDataTable {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;

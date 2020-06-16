@@ -27,8 +27,12 @@ circle.non_brushed {
     opacity: .2;
 }
 
-/* VisDataTable customized style */
-.tables-module__headerRow {
-    border-bottom: 1px solid #d1d1d1;
+text.label {
+    font-size:12px;
+}
 
+.tick:not(:first-of-type) line {
+    stroke: #c0c0c0;
+    stroke-dasharray: 1;
+    stroke-opacity: 1;
 }

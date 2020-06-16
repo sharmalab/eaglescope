@@ -32,32 +32,32 @@ class VisGridView extends Component {
         margins: [..._CONFIG_.MARGIN_OF_GRID_VIEW],
         visConfig: [
           {
-            id: "vital_status_pie",
-            title: "Vital Status",
-            description: "Showing the number of patients in vital status",
+            id: "Collection",
+            title: "Collection",
+            description: "Showing the number of patients in Collection",
             chartType: VisTypeEnum.PIE_CHART,
-            fields:{x:"Vital_Status"},
+            fields:{x:"collection"},
             //patientAttribute: false,
             size: [1, 1], // size [width, height]
-            priority: 20
+            priority: 50
           },
           {
             id: "tnm_stage_count",
             title: "TNM Stage Count",
             description: "Showing the number of patients in TNM Stage",
             chartType: VisTypeEnum.BAR_CHART,
-            fields:{x:"TNM-Stage"},
+            fields:{x:"stagelabel"},
             size: [2, 1], // size [width, height]
-            priority: 30        
+            priority: 50        
           },
           {
             id: "gender_pie",
             title: "Gender",
             description: "Showing the number of patients in gender",
             chartType: VisTypeEnum.PIE_CHART,
-            fields:{x:"Gdc_gender"},
+            fields:{x:"sexlabel"},
             size: [1, 1], // size [width, height]
-            priority: 30
+            priority: 50
           },
           // {
           //   id: "neoplasm_a_pie",
@@ -68,24 +68,32 @@ class VisGridView extends Component {
           //   size: [1, 1], // size [width, height]
           //   priority: 30
           // },          
+          // {
+          //   id: "disease_type_count",
+          //   title: "Disease Type Count",
+          //   description: "Showing the number of patients in disease type",
+          //   chartType: VisTypeEnum.BAR_CHART,
+          //   fields:{x:"disease_type"},
+          //   size: [2, 1], // size [width, height]
+          //   priority: 70        
+          // },
           {
-            id: "diagnosis_count",
-            title: "Primary Diagnosis Count",
-            description: "Showing the number of patients in diagnosis",
-            chartType: VisTypeEnum.BAR_CHART,
-            fields:{x:"GDC_primary_diagnosis"},
-            size: [2, 1], // size [width, height]
-            priority: 70        
-          },
-
-          {
-            id: "age_survial_time_scatter",
-            title: "Age vs Survial Time",
-            description: "Showing the age and survial time in scatter plot",
-            chartType: VisTypeEnum.SCATTER_CHART,
-            fields:{x:'Age',y:'Survival_Time',z:'Survival_Time'},
+            id: "disease_type_count",
+            title: "Disease Type Count",
+            description: "Showing the number of patients in disease type",
+            chartType: VisTypeEnum.HORIZONTAL_BAR_CHART,
+            fields:{y:"disease_type"},
             size: [2, 2], // size [width, height]
-            priority: 50
+            priority: 10        
+          },
+          {
+            id: "age_age_scatter",
+            title: "Age vs Age Time",
+            description: "Showing the age and Age in scatter plot",
+            chartType: VisTypeEnum.SCATTER_CHART,
+            fields:{x:'age',y:'age',z:'age'},
+            size: [2, 2], // size [width, height]
+            priority: 10
           },
           { 
             id:"clinical_data_table",
@@ -94,30 +102,40 @@ class VisGridView extends Component {
             chartType: VisTypeEnum.VIS_DATA_TABLE,
             fields:[
               {
-                dataKey:'Collection',
+                dataKey:'collection',
                 label:'Collection',
-                width:0.23
-              },
-              {
-                dataKey:'Patient_ID',
-                label:'Patient ID',
                 width:0.13
               },
               {
-                dataKey:'Age',
+                dataKey:'patient_id',
+                label:'Patient ID',
+                width:0.08
+              },
+              {
+                dataKey:'disease_type',
+                label:'Disease',
+                width:0.22
+              },
+              {
+                dataKey:'location',
+                label:'Location',
+                width:0.18
+              },
+              {
+                dataKey:'age',
                 label:'Age',
                 width:0.05
               },{
-                dataKey:'Modality',
-                label:'Modality',
-                width:0.15
+                dataKey:'stagelabel',
+                label:'Stage',
+                width:0.08
               },{
-                dataKey:'TNM-Stage',
-                label:'TNM Stage',
-                width:0.15
+                dataKey:'sexlabel',
+                label:'Gender',
+                width:0.08
               }],
             size: [4, 2],
-            priority: 40
+            priority: 70
           }
           /*,
           {

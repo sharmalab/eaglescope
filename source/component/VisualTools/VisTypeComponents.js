@@ -9,6 +9,7 @@
 var VisTypeComponents = {}
 VisTypeComponents.PIE_CHART = "PieChart";
 VisTypeComponents.BAR_CHART = "BarChart";
+VisTypeComponents.HORIZONTAL_BAR_CHART ="HorizontalBarChart";
 VisTypeComponents.SCATTER_CHART = "ScatterChart";
 VisTypeComponents.VIS_DATA_TABLE = "VisDataTable";
 VisTypeComponents.VEGA_LITE_PLOT = "VegaLitePlot"

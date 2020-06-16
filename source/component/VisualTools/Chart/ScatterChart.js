@@ -11,7 +11,7 @@ export default class ScatterChart extends Component {
             loading:true,
             error:null
         }
-        this.state.data = this.props.data.filter(d=> d[this.props.fields.x]!='-1'&&d[this.props.fields.y]!='-1'&&d[this.props.fields.z]!='-1' )
+        this.state.data = this.props.data.filter(d=> d[this.props.fields.x]!='N/A'&&d[this.props.fields.y]!='N/A'&&d[this.props.fields.z]!='N/A' )
     }
 
     createXScale(f,width) {
@@ -64,7 +64,17 @@ export default class ScatterChart extends Component {
         this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
 
         this.radiusScale = this.createScaleLiner(this.props.fields.z, [3, 10]);
+
+        viewer.append("g")
+        .attr("transform", "translate(0," + innerHeight + ")")
+        .call(d3.axisBottom(this.xScale).tickSize(-innerWidth));
         
+        // add the y Axis
+        viewer.append("g")
+            .call(d3.axisLeft(this.yScale).tickSize(-innerHeight));        
+
+
+
         this.circles = viewer.selectAll("circle").data(this.state.data)
         .enter().append("circle")
         .attr("r", d => this.radiusScale(d[this.props.fields.z]))
@@ -72,13 +82,7 @@ export default class ScatterChart extends Component {
         .attr("cy", d => this.yScale(d[this.props.fields.y]))
         .attr("class", "brushed");
 
-        viewer.append("g")
-        .attr("transform", "translate(0," + innerHeight + ")")
-        .call(d3.axisBottom(this.xScale));
-        
-        // add the y Axis
-        viewer.append("g")
-            .call(d3.axisLeft(this.yScale));
+
 
         this.brush = d3.brush().extent([[0,0],[innerWidth, innerHeight]])
             //.on("brush", this.brushed.bind(this))
