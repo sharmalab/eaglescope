@@ -3,5 +3,96 @@
     "MARGIN_OF_VIS": [10, 10],
 
     "UNIT_OF_GRID_VIEW": [200,200],
-    "MARGIN_OF_GRID_VIEW": [10, 10]
+    "MARGIN_OF_GRID_VIEW": [10, 10],
+    "DATA_RESOURCE_URL":"http://144.30.2.201/",
+
+    "VISUALIZATION_VIEW_CONFIGURATION": [
+        {
+          "id": "Collection",
+          "title": "Collection",
+          "description": "Showing the number of patients in Collection",
+          "chartType": "PIE_CHART",
+          "fields":{"x":"collection"},
+          "size": [1, 1],
+          "priority": 50
+        },
+        {
+          "id": "tnm_stage_count",
+          "title": "TNM Stage Count",
+          "description": "Showing the number of patients in TNM Stage",
+          "chartType": "BAR_CHART",
+          "fields":{"x":"stagelabel"},
+          "size": [2, 1],
+          "priority": 50        
+        },
+        {
+          "id": "gender_pie",
+          "title": "Gender",
+          "description": "Showing the number of patients in gender",
+          "chartType": "PIE_CHART",
+          "fields":{"x":"sexlabel"},
+          "size": [1, 1],
+          "priority": 50
+        },
+        {
+          "id": "disease_type_count",
+          "title": "Disease Type Count",
+          "description": "Showing the number of patients in disease type",
+          "chartType": "HORIZONTAL_BAR_CHART",
+          "fields":{"y":"disease_type"},
+          "size": [2, 2],
+          "priority": 10        
+        },
+        {
+          "id": "age_age_scatter",
+          "title": "Age vs Age Time",
+          "description": "Showing the age and Age in scatter plot",
+          "chartType": "SCATTER_CHART",
+          "fields":{"x":"age","y":"age","z":"age"},
+          "size": [2, 2],
+          "priority": 10
+        },
+        { 
+          "id":"clinical_data_table",
+          "title": "Clinical Data Table",
+          "description": "Showing Clinical Data",
+          "chartType": "VIS_DATA_TABLE",
+          "fields":[
+            {
+              "dataKey":"collection",
+              "label":"Collection",
+              "width":0.13
+            },
+            {
+              "dataKey":"patient_id",
+              "label":"Patient ID",
+              "width":0.08
+            },
+            {
+              "dataKey":"disease_type",
+              "label":"Disease",
+              "width":0.22
+            },
+            {
+              "dataKey":"location",
+              "label":"Location",
+              "width":0.18
+            },
+            {
+              "dataKey":"age",
+              "label":"Age",
+              "width":0.05
+            },{
+              "dataKey":"stagelabel",
+              "label":"Stage",
+              "width":0.08
+            },{
+              "dataKey":"sexlabel",
+              "label":"Gender",
+              "width":0.08
+            }],
+          "size": [4, 2],
+          "priority": 70
+        }
+      ]
 }

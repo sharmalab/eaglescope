@@ -27,7 +27,8 @@ import "../node_modules/react-resizable/css/styles.css";
 
 import "./style/main.scss";
 import 'react-virtualized/styles.css';
-
+// config for view grid and vis compoments
+import _CONFIG_ from "../config/vis-config.json";
 // var __DM = null; 
 // var __DS = null; 
 
@@ -170,16 +171,18 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://144.30.2.201/",{
+    fetch(_CONFIG_.DATA_RESOURCE_URL,{
       mode: 'cors'
     })
       .then(res=>res.json())
-      .then(data=>{data.forEach(d => {// clear up null value
-        if(d.disease_type == null) d.disease_type = 'NA'
-        if(d.sexlabel == null) d.sexlabel = 'NA'
-        if(d.age == null) d.age = 'NA'
-        if(d.stagelabel == null) d.stagelabel = 'NA'
-      })
+      .then(data=>
+        {
+        // data.forEach(d => {// clear up null value
+        //   if(d.disease_type == null) d.disease_type = 'NA'
+        //   if(d.sexlabel == null) d.sexlabel = 'NA'
+        //   if(d.age == null) d.age = 'NA'
+        //   if(d.stagelabel == null) d.stagelabel = 'NA'
+        // })
       return data;})
       .then((data) => {
           console.log(data)
