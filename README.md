@@ -1,7 +1,7 @@
 # DataScope 2
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
-![](images/features.png)
+![](docs/features.png)
 
 ## Development
 Install dependencies using `npm install`
@@ -36,7 +36,7 @@ Develop mode using `npm run dev`
 * Goto ```http://localhost:1234``` from your favorite browser.
 
 ## Architecture
-![](images/architecture.png)
+![](docs/architecture.png)
 
 [OVERALL](https://docs.google.com/presentation/d/1zvXCeV-a8k4VercXsgFPTHqml7QwmDDu9snz6dhqIC4/edit?usp=sharing)
 
