@@ -18,7 +18,6 @@ export default class PieChart extends Component {
     .rollup(function(v) { return v.length; })
     .entries(props.data)
     data.forEach(d=>{
-      d.key = d.key=='-1'?'N/A':d.key;
       d.selected = false;
     })
     this.state.data = data;
@@ -86,7 +85,7 @@ export default class PieChart extends Component {
           console.log('click')
           d.data.selected = !d.data.selected;
           const values = this.state.data.reduce((values,d)=>{
-            if(d.selected) values.push(d.key=='N/A'?-1:d.key)
+            if(d.selected) values.push(d.key)
             return values;
           },[])
 

@@ -7,30 +7,20 @@ export default class BarChart extends Component {
         super(props);
         this.self = React.createRef();
         this.state = {
-            margin: {top: 5, right: 5, bottom: 25, left: 25},
+            margin: {top: 10, right: 10, bottom: 35, left: 35},
             loading:true,
             error:null,
             fields:{x:'key',y:'value'}
         }
-        // const data = d3.nest()
-	    // .key(function(d) { return d[this.props.fields.x]; }).sortKeys(d3.ascending)
-	    // .rollup(function(v) { return v.length; })
-	    // .entries(this.props.data);
-        // data.forEach(d=>d.key = d.key=='-1'?'N/A':d.key)
-        // console.log('111')
         this.state.data = this.transform(this.props.data, this.props.fields.x);
         this.state.horizontal = true;
     }
     transform(data,field){
-        console.log('test',this.props,data)
         const new_data =  d3.nest()
             .key(function(d) { return d[field]; })
             .sortKeys(d3.ascending)
             .rollup(function(v) { return v.length; })
             .entries(data);
-            console.log('test1')
-        new_data.forEach(d=>d.key = d.key=='-1'?'N/A':d.key)
-         // console.log('test2')
         return new_data;
         
     }
@@ -74,7 +64,6 @@ export default class BarChart extends Component {
     }
 
     drawBar(selection, data, className='og') {
-        console.log( selection, data, className)
         const update_bars = selection.selectAll(`rect.${className}`).data(data,d=> d[this.state.fields.x])
         
         const enter_bars = update_bars.enter().append('rect')
@@ -95,7 +84,7 @@ export default class BarChart extends Component {
                     title:this.props.title,
                     field:this.props.fields.x,
                     operation:'eq',
-                    values:value=='N/A'?-1:value
+                    values:value
                 }
                 this.props.filterAdded([filter])
             })
@@ -132,7 +121,7 @@ export default class BarChart extends Component {
 
         console.log('bar',this.props)
         const rect = this.self.current.getBoundingClientRect();
-        const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
+        this.innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
         this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
         // create svg 
         const svg = d3.select(this.self.current)
@@ -143,8 +132,23 @@ export default class BarChart extends Component {
         this.viewer = svg.append("g")
             .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
         //
-        this.xScale = this.createXScale(this.state.fields.x, innerWidth);
+        this.xScale = this.createXScale(this.state.fields.x, this.innerWidth);
         this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
+
+        this.xAxis = d3.axisBottom(this.xScale)
+        //.tickSize(this.innerWidth)
+        this.viewer.append("g")
+        .attr("class", "x axis")
+        .attr("transform", `translate(0,${this.innerHeight})`)
+        .call(this.xAxis)
+        .selectAll(".tick text")
+        .call(this.wrap, this.xScale.bandwidth());
+  
+        // add the y Axis
+        this.yAxis = d3.axisLeft(this.yScale)
+        .tickSize(-this.innerWidth)
+        this.viewer.append("g")
+            .call(this.yAxis);
 
 
         this.bars = this.drawBar(this.viewer, this.state.data,'og')
@@ -178,14 +182,30 @@ export default class BarChart extends Component {
 
 
 
-        this.viewer.append("g")
-        .attr("transform", "translate(0," + this.innerHeight + ")")
-        .call(d3.axisBottom(this.xScale));
-  
-        // add the y Axis
-        this.viewer.append("g")
-            .call(d3.axisLeft(this.yScale));
         
+    }
+    wrap(text, width) {
+        text.each(function() {
+          var text = d3.select(this),
+              words = text.text().split(/\s+/).reverse(),
+              word,
+              line = [],
+              lineNumber = 0,
+              lineHeight = 1.1, // ems
+              y = text.attr("y"),
+              dy = parseFloat(text.attr("dy")),
+              tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+          while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word];
+              tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+            }
+          }
+        });
     }
     render() {
         return (

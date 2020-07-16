@@ -5,7 +5,7 @@ import VisTypes from "./component/VisTypes.js";
 import vegaSpecs from "./vegaSpecs.js";
 import ResetButton from "./component/ResetButton.js";
 import { render } from "react-dom";
-
+import Spinner from 'react-bootstrap/Spinner'
 import VisGridView from "./component/Layout/VisGridView/VisGridView.js";
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import FilterOperationPanel from './component/FilterOperationPanel/FilterOperationPanel.js'
@@ -27,7 +27,8 @@ import "../node_modules/react-resizable/css/styles.css";
 
 import "./style/main.scss";
 import 'react-virtualized/styles.css';
-
+// config for view grid and vis compoments
+import _CONFIG_ from "../config/vis-config.json";
 // var __DM = null; 
 // var __DS = null; 
 
@@ -170,17 +171,24 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data",{
+    fetch(_CONFIG_.DATA_RESOURCE_URL,{
       mode: 'cors'
     })
-      .then(res => {
-          return res.json()})
-      .then((result) => {
-
-        fetch('http://144.30.2.201/').then(a=>a.json()).then(b=>console.log('~~~~~~~~~',b))
+      .then(res=>res.json())
+      .then(data=>
+        {
+        // data.forEach(d => {// clear up null value
+        //   if(d.disease_type == null) d.disease_type = 'NA'
+        //   if(d.sexlabel == null) d.sexlabel = 'NA'
+        //   if(d.age == null) d.age = 'NA'
+        //   if(d.stagelabel == null) d.stagelabel = 'NA'
+        // })
+      return data;})
+      .then((data) => {
+          console.log(data)
           this.setState({
             isLoaded: true,
-            data: result
+            data: data
           });
         },
         // Note: it's important to handle errors here
@@ -210,7 +218,12 @@ class App extends React.Component {
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return <div style={{height:'100vh',display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <Spinner animation="border" role="status">
+          
+        </Spinner>
+        <span style={{margin:'10px'}} >Loading...</span>
+      </div>;
     } else {
       return (
         <div>
