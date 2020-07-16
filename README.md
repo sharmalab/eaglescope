@@ -1,10 +1,10 @@
 # DataScope 2
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
+![](images/features.png)
+
 ## Development
 Install dependencies using `npm install`
-
-Build app using `npm run build`
 
 Develop mode using `npm run dev`
 
@@ -26,13 +26,18 @@ Develop mode using `npm run dev`
 
 ##### Running
 * Modify the files present in ```./config/vis-config.json``` to fit your needs:
-    * UNIT_OF_GRID_VIEW
-    * MARGIN_OF_GRID_VIEW
-    * DATA_RESOURCE_URL (For data resource)
-    * VISUALIZATION_VIEW_CONFIGURATION (For dashboard settings)
+    * UNIT_OF_GRID_VIEW                   (For basic unit in each viusal component)
+    * MARGIN_OF_GRID_VIEW                 (For setting the margin unit in pixel) 
+    * DATA_RESOURCE_URL                   (For data resource)
+    * VISUALIZATION_VIEW_CONFIGURATION    (For dashboard settings)
 
 
-* Run ```node app.js```
-* Goto ```http://localhost:3000``` from your favorite browser.
+* Run ```npm run dev```
+* Goto ```http://localhost:1234``` from your favorite browser.
 
-Read the [User Guide](https://github.com/sharmalab/Datascope/wiki)  for more details
+## Architecture
+![](images/architecture.png)
+
+[OVERALL](https://docs.google.com/presentation/d/1zvXCeV-a8k4VercXsgFPTHqml7QwmDDu9snz6dhqIC4/edit?usp=sharing)
+
+[DEMO VEDIO](https://youtu.be/8ce1-LKtsKs)
