@@ -1,4 +1,5 @@
-# datascope-refactor (datascope2)
+# eaglescope (datascope2)
+(Working name)
 Cohort Visualization and Selection
 
 ## Development
