@@ -40,4 +40,4 @@ Develop mode using `npm run dev`
 
 [OVERALL](https://docs.google.com/presentation/d/1zvXCeV-a8k4VercXsgFPTHqml7QwmDDu9snz6dhqIC4/edit?usp=sharing)
 
-[DEMO VEDIO](https://youtu.be/8ce1-LKtsKs)
+[DEMO VIDEO](https://youtu.be/8ce1-LKtsKs)
