@@ -42,8 +42,7 @@ class Histogram extends BaseVisualization {
       if (e.length >0 && e[0].fields.length > 0){
         window.clearTimeout(this.lastEvent)
         this.lastEvent = window.setTimeout(x=>{
-          console.log("{FIELD}", e[0].fields[0].field)
-          console.log("{RANGE}", e[0].values[0])
+
         },this.bufferTime)
       }
     })
@@ -87,8 +86,7 @@ class Histogram extends BaseVisualization {
       if (e.length >0 && e[0].fields.length > 0){
         window.clearTimeout(this.lastEvent)
         this.lastEvent = window.setTimeout(x=>{
-          console.log("{FIELD}", e[0].fields[0].field)
-          console.log("{RANGE}", e[0].values[0])
+
           let new_filter = {}
           this.filterIn(new_filter)
         },this.bufferTime)

@@ -578,8 +578,7 @@ function render(data) {
     view_stack = p.view
     // click event when click on stacked bar
     view_stack.addEventListener('click', (e, item) => {
-      console.log(e);
-      console.log(item);
+
     });
 
   });
@@ -769,7 +768,6 @@ const __table_filter = () => {
     const elt = selections[key];
     if (!Array.isEmpty(elt)) rs.push({ key: elt })
   }, []);
-  console.log(f_list);
 
   table_data.filter(__filter);
   // selections
@@ -1030,7 +1028,3 @@ function createLabel(text, color = '#fff', fcolor = '#fff') {
 // function return_tr(name){
 //   return `<div> ${name}</div>`
 // }
-
-// const bio2 = test`this is ${horse.age}${return_tr('test_name')}`;
-
-// console.log(bio2);

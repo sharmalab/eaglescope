@@ -1,0 +1,4403 @@
+[
+  {
+    "project": "4D-Lung",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 20,
+    "studyCount": 589,
+    "seriesCount": 5890,
+    "imageCount": 346530
+  },
+  {
+    "project": "4D-Lung",
+    "modality": "RTSTRUCT",
+    "site": "LUNG",
+    "subjectCount": 20,
+    "studyCount": 80,
+    "seriesCount": 800,
+    "imageCount": 800
+  },
+  {
+    "project": "AAPM-RT-MAC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 55,
+    "studyCount": 55,
+    "seriesCount": 55,
+    "imageCount": 6600
+  },
+  {
+    "project": "AAPM-RT-MAC",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 31,
+    "studyCount": 31,
+    "seriesCount": 31,
+    "imageCount": 31
+  },
+  {
+    "project": "ACRIN-DSC-MR-Brain",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 3,
+    "seriesCount": 5,
+    "imageCount": 70
+  },
+  {
+    "project": "ACRIN-DSC-MR-Brain",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 123,
+    "studyCount": 563,
+    "seriesCount": 7624,
+    "imageCount": 717000
+  },
+  {
+    "project": "ACRIN-FLT-Breast",
+    "modality": "CT",
+    "site": "BREAST",
+    "subjectCount": 79,
+    "studyCount": 315,
+    "seriesCount": 503,
+    "imageCount": 75194
+  },
+  {
+    "project": "ACRIN-FLT-Breast",
+    "modality": "OT",
+    "site": "BREAST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 329
+  },
+  {
+    "project": "ACRIN-FLT-Breast",
+    "modality": "PT",
+    "site": "BREAST",
+    "subjectCount": 83,
+    "studyCount": 346,
+    "seriesCount": 934,
+    "imageCount": 599496
+  },
+  {
+    "project": "ACRIN-FMISO-Brain",
+    "modality": "CT",
+    "site": "BRAIN",
+    "subjectCount": 33,
+    "studyCount": 48,
+    "seriesCount": 84,
+    "imageCount": 3906
+  },
+  {
+    "project": "ACRIN-FMISO-Brain",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 44,
+    "studyCount": 273,
+    "seriesCount": 4457,
+    "imageCount": 655680
+  },
+  {
+    "project": "ACRIN-FMISO-Brain",
+    "modality": "PT",
+    "site": "BRAIN",
+    "subjectCount": 42,
+    "studyCount": 145,
+    "seriesCount": 187,
+    "imageCount": 11242
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 5,
+    "studyCount": 6,
+    "seriesCount": 15,
+    "imageCount": 15
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 193,
+    "studyCount": 742,
+    "seriesCount": 1995,
+    "imageCount": 216940
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 3,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 20
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 6,
+    "seriesCount": 70,
+    "imageCount": 7252
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "NM",
+    "site": "Unspecified",
+    "subjectCount": 3,
+    "studyCount": 4,
+    "seriesCount": 23,
+    "imageCount": 23
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 193,
+    "studyCount": 418,
+    "seriesCount": 869,
+    "imageCount": 211722
+  },
+  {
+    "project": "ACRIN-NSCLC-FDG-PET",
+    "modality": "SC",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 193
+  },
+  {
+    "project": "Anti-PD-1_Lung",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 46,
+    "studyCount": 86,
+    "seriesCount": 571,
+    "imageCount": 106306
+  },
+  {
+    "project": "Anti-PD-1_Lung",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 32,
+    "studyCount": 44,
+    "seriesCount": 103,
+    "imageCount": 27728
+  },
+  {
+    "project": "Anti-PD-1_Lung",
+    "modality": "SC",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 431
+  },
+  {
+    "project": "Anti-PD-1_MELANOMA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 44,
+    "studyCount": 112,
+    "seriesCount": 828,
+    "imageCount": 160602
+  },
+  {
+    "project": "Anti-PD-1_MELANOMA",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 31,
+    "studyCount": 65,
+    "seriesCount": 955,
+    "imageCount": 58181
+  },
+  {
+    "project": "Anti-PD-1_MELANOMA",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 10,
+    "seriesCount": 31,
+    "imageCount": 15330
+  },
+  {
+    "project": "APOLLO",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 7,
+    "studyCount": 36,
+    "seriesCount": 38,
+    "imageCount": 4909
+  },
+  {
+    "project": "APOLLO",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 1294
+  },
+  {
+    "project": "APOLLO-1-Pilot",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 48,
+    "studyCount": 242,
+    "seriesCount": 1214,
+    "imageCount": 149777
+  },
+  {
+    "project": "APOLLO-1-Pilot",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 44,
+    "studyCount": 76,
+    "seriesCount": 229,
+    "imageCount": 41381
+  },
+  {
+    "project": "Apollo2-Ovarian-Pilot",
+    "modality": "CR",
+    "site": "OVARY",
+    "subjectCount": 10,
+    "studyCount": 18,
+    "seriesCount": 41,
+    "imageCount": 42
+  },
+  {
+    "project": "Apollo2-Ovarian-Pilot",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 87,
+    "studyCount": 236,
+    "seriesCount": 1130,
+    "imageCount": 146696
+  },
+  {
+    "project": "Apollo2-Ovarian-Pilot",
+    "modality": "DX",
+    "site": "OVARY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 1
+  },
+  {
+    "project": "Apollo2-Ovarian-Pilot",
+    "modality": "PT",
+    "site": "OVARY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 960
+  },
+  {
+    "project": "Bladder Training",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 20,
+    "imageCount": 1641
+  },
+  {
+    "project": "Bladder Training",
+    "modality": "RG",
+    "site": "BLADDER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 384
+  },
+  {
+    "project": "Bladder Training",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 28,
+    "imageCount": 4119
+  },
+  {
+    "project": "Bladder Training",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 10,
+    "studyCount": 13,
+    "seriesCount": 34,
+    "imageCount": 8436
+  },
+  {
+    "project": "Bladder Training",
+    "modality": "MR",
+    "site": "BLADDER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 17,
+    "imageCount": 208
+  },
+  {
+    "project": "Brain-Tumor-Progression",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 20,
+    "studyCount": 40,
+    "seriesCount": 383,
+    "imageCount": 8798
+  },
+  {
+    "project": "BREAST-DIAGNOSIS",
+    "modality": "CT",
+    "site": "BREAST",
+    "subjectCount": 3,
+    "studyCount": 13,
+    "seriesCount": 18,
+    "imageCount": 2664
+  },
+  {
+    "project": "BREAST-DIAGNOSIS",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 17,
+    "studyCount": 23,
+    "seriesCount": 58,
+    "imageCount": 65
+  },
+  {
+    "project": "BREAST-DIAGNOSIS",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 84,
+    "studyCount": 112,
+    "seriesCount": 345,
+    "imageCount": 101145
+  },
+  {
+    "project": "BREAST-DIAGNOSIS",
+    "modality": "PT",
+    "site": "BREAST",
+    "subjectCount": 3,
+    "studyCount": 8,
+    "seriesCount": 8,
+    "imageCount": 1176
+  },
+  {
+    "project": "Breast-MRI-NACT-Pilot",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 64,
+    "studyCount": 189,
+    "seriesCount": 1846,
+    "imageCount": 98558
+  },
+  {
+    "project": "Breast-MRI-NACT-Pilot",
+    "modality": "SEG",
+    "site": "BREAST",
+    "subjectCount": 64,
+    "studyCount": 189,
+    "seriesCount": 756,
+    "imageCount": 756
+  },
+  {
+    "project": "C4KC-KiTS",
+    "modality": "CT",
+    "site": "ABD PELV",
+    "subjectCount": 210,
+    "studyCount": 210,
+    "seriesCount": 411,
+    "imageCount": 71213
+  },
+  {
+    "project": "C4KC-KiTS",
+    "modality": "SEG",
+    "site": "ABDOMEN",
+    "subjectCount": 210,
+    "studyCount": 210,
+    "seriesCount": 210,
+    "imageCount": 210
+  },
+  {
+    "project": "CBIS-DDSM",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 610,
+    "studyCount": 610,
+    "seriesCount": 610,
+    "imageCount": 936
+  },
+  {
+    "project": "CBIS-DDSM",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 361,
+    "studyCount": 361,
+    "seriesCount": 361,
+    "imageCount": 361
+  },
+  {
+    "project": "CBIS-DDSM",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 378,
+    "studyCount": 389,
+    "seriesCount": 389,
+    "imageCount": 756
+  },
+  {
+    "project": "CBIS-DDSM",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 5322,
+    "studyCount": 5415,
+    "seriesCount": 5415,
+    "imageCount": 8186
+  },
+  {
+    "project": "CC-Radiomics-Phantom",
+    "modality": "CT",
+    "site": "Phantom",
+    "subjectCount": 17,
+    "studyCount": 17,
+    "seriesCount": 17,
+    "imageCount": 2638
+  },
+  {
+    "project": "CC-Radiomics-Phantom",
+    "modality": "RTSTRUCT",
+    "site": "Phantom",
+    "subjectCount": 17,
+    "studyCount": 17,
+    "seriesCount": 34,
+    "imageCount": 34
+  },
+  {
+    "project": "CC-Radiomics-Phantom-2",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 251,
+    "studyCount": 251,
+    "seriesCount": 251,
+    "imageCount": 57839
+  },
+  {
+    "project": "CC-Radiomics-Phantom-3",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 95,
+    "studyCount": 113,
+    "seriesCount": 275,
+    "imageCount": 25337
+  },
+  {
+    "project": "CC-Radiomics-Phantom-3",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 95,
+    "studyCount": 113,
+    "seriesCount": 275,
+    "imageCount": 275
+  },
+  {
+    "project": "CITN-09",
+    "modality": "CT",
+    "site": "NECK",
+    "subjectCount": 1,
+    "studyCount": 14,
+    "seriesCount": 61,
+    "imageCount": 6777
+  },
+  {
+    "project": "CITN-09",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 10,
+    "seriesCount": 50,
+    "imageCount": 4598
+  },
+  {
+    "project": "CITN-09",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 11,
+    "seriesCount": 88,
+    "imageCount": 10869
+  },
+  {
+    "project": "CITN-09",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 16,
+    "imageCount": 776
+  },
+  {
+    "project": "CITN-09",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 6,
+    "studyCount": 46,
+    "seriesCount": 296,
+    "imageCount": 37720
+  },
+  {
+    "project": "CITN-09",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 1,
+    "studyCount": 4,
+    "seriesCount": 60,
+    "imageCount": 4873
+  },
+  {
+    "project": "CITN-09",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 7,
+    "seriesCount": 25,
+    "imageCount": 1722
+  },
+  {
+    "project": "CMMN-mouse",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 3,
+    "seriesCount": 3,
+    "imageCount": 3
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 2,
+    "imageCount": 4
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 9,
+    "studyCount": 13,
+    "seriesCount": 91,
+    "imageCount": 9466
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 2
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 3,
+    "seriesCount": 43,
+    "imageCount": 2751
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 8,
+    "studyCount": 8,
+    "seriesCount": 46,
+    "imageCount": 13510
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 22,
+    "imageCount": 3798
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "MR",
+    "site": "LIVER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 23,
+    "imageCount": 1912
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 256
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 21,
+    "studyCount": 21,
+    "seriesCount": 175,
+    "imageCount": 30378
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 16,
+    "imageCount": 1109
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 1
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 18,
+    "imageCount": 1735
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 15,
+    "studyCount": 23,
+    "seriesCount": 173,
+    "imageCount": 24648
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 53,
+    "imageCount": 4927
+  },
+  {
+    "project": "CPTAC-CCRCC",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 3,
+    "seriesCount": 3,
+    "imageCount": 3
+  },
+  {
+    "project": "CPTAC-CM",
+    "modality": "CT",
+    "site": "CHEST_TO_PELVIS",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 30,
+    "imageCount": 8839
+  },
+  {
+    "project": "CPTAC-CM",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 10,
+    "seriesCount": 10,
+    "imageCount": 12
+  },
+  {
+    "project": "CPTAC-CM",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 7,
+    "imageCount": 1084
+  },
+  {
+    "project": "CPTAC-CM",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 7,
+    "seriesCount": 78,
+    "imageCount": 3924
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 8,
+    "imageCount": 752
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 2,
+    "studyCount": 3,
+    "seriesCount": 38,
+    "imageCount": 2022
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 28
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 10,
+    "studyCount": 10,
+    "seriesCount": 98,
+    "imageCount": 5391
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 19,
+    "imageCount": 984
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 16,
+    "studyCount": 16,
+    "seriesCount": 238,
+    "imageCount": 17110
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 7,
+    "studyCount": 15,
+    "seriesCount": 15,
+    "imageCount": 19
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 7,
+    "seriesCount": 31,
+    "imageCount": 2844
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 23,
+    "studyCount": 73,
+    "seriesCount": 851,
+    "imageCount": 71321
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "SC",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 215
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 179
+  },
+  {
+    "project": "CPTAC-GBM",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 9,
+    "studyCount": 27,
+    "seriesCount": 423,
+    "imageCount": 53611
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "CT",
+    "site": "CHEST_TO_PELVIS",
+    "subjectCount": 7,
+    "studyCount": 8,
+    "seriesCount": 69,
+    "imageCount": 15478
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 82,
+    "imageCount": 4966
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 6,
+    "seriesCount": 38,
+    "imageCount": 4867
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 38,
+    "studyCount": 38,
+    "seriesCount": 235,
+    "imageCount": 48312
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "SC",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 26,
+    "imageCount": 6149
+  },
+  {
+    "project": "CPTAC-HNSCC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 867
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 2,
+    "imageCount": 2
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 7,
+    "imageCount": 823
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 692
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 16,
+    "imageCount": 3882
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 8,
+    "seriesCount": 42,
+    "imageCount": 6052
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 227
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 1988
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 14,
+    "studyCount": 15,
+    "seriesCount": 65,
+    "imageCount": 16783
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 15,
+    "imageCount": 4641
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 3,
+    "studyCount": 15,
+    "seriesCount": 17,
+    "imageCount": 20
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 2,
+    "imageCount": 4
+  },
+  {
+    "project": "CPTAC-LSCC",
+    "modality": "NM",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 5,
+    "imageCount": 27
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 2,
+    "studyCount": 7,
+    "seriesCount": 7,
+    "imageCount": 8
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 7,
+    "studyCount": 8,
+    "seriesCount": 34,
+    "imageCount": 3174
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 796
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 35,
+    "imageCount": 10405
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 3,
+    "studyCount": 13,
+    "seriesCount": 89,
+    "imageCount": 13234
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "MR",
+    "site": "LUMBO-SACRAL SP",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 6,
+    "imageCount": 109
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 3,
+    "imageCount": 793
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 9,
+    "studyCount": 10,
+    "seriesCount": 45,
+    "imageCount": 9900
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 5,
+    "imageCount": 1603
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 9,
+    "studyCount": 34,
+    "seriesCount": 36,
+    "imageCount": 42
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 3,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 10
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 13,
+    "imageCount": 649
+  },
+  {
+    "project": "CPTAC-LUAD",
+    "modality": "NM",
+    "site": "HEART",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 5,
+    "imageCount": 27
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 5,
+    "studyCount": 10,
+    "seriesCount": 67,
+    "imageCount": 6544
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 1124
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 4,
+    "seriesCount": 29,
+    "imageCount": 4560
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 7,
+    "imageCount": 1230
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 15,
+    "studyCount": 15,
+    "seriesCount": 109,
+    "imageCount": 15632
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 72,
+    "imageCount": 3789
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 9,
+    "studyCount": 15,
+    "seriesCount": 17,
+    "imageCount": 20
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 18,
+    "imageCount": 1407
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 3,
+    "imageCount": 6
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "XA",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 8,
+    "imageCount": 10
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 30,
+    "studyCount": 31,
+    "seriesCount": 224,
+    "imageCount": 30147
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "MR",
+    "site": "PANCREAS",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 32,
+    "imageCount": 1919
+  },
+  {
+    "project": "CPTAC-PDA",
+    "modality": "US",
+    "site": "PANCREAS",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 143
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 4,
+    "studyCount": 5,
+    "seriesCount": 25,
+    "imageCount": 7832
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "MR",
+    "site": "PELVIS",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 5,
+    "imageCount": 69
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "PT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 570
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 497
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 49,
+    "imageCount": 2123
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 11,
+    "studyCount": 14,
+    "seriesCount": 83,
+    "imageCount": 11914
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 81,
+    "imageCount": 2429
+  },
+  {
+    "project": "CPTAC-SAR",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 3,
+    "seriesCount": 3,
+    "imageCount": 3
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 8,
+    "studyCount": 8,
+    "seriesCount": 57,
+    "imageCount": 5702
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CT",
+    "site": "CHEST_TO_PELVIS",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 15,
+    "imageCount": 5527
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 3,
+    "studyCount": 8,
+    "seriesCount": 75,
+    "imageCount": 13515
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 21,
+    "studyCount": 23,
+    "seriesCount": 259,
+    "imageCount": 25493
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "MR",
+    "site": "PELVIS",
+    "subjectCount": 22,
+    "studyCount": 23,
+    "seriesCount": 671,
+    "imageCount": 51882
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 792
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 2
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 2
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 11,
+    "studyCount": 14,
+    "seriesCount": 86,
+    "imageCount": 13653
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 84,
+    "imageCount": 3632
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 908
+  },
+  {
+    "project": "CPTAC-UCEC",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 1
+  },
+  {
+    "project": "CT COLONOGRAPHY",
+    "modality": "CT",
+    "site": "COLON",
+    "subjectCount": 825,
+    "studyCount": 836,
+    "seriesCount": 3451,
+    "imageCount": 941771
+  },
+  {
+    "project": "CT Lymph Nodes",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 176,
+    "studyCount": 176,
+    "seriesCount": 176,
+    "imageCount": 110003
+  },
+  {
+    "project": "CTIIP-Preclinical-Animal-Models",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 14,
+    "studyCount": 14,
+    "seriesCount": 14,
+    "imageCount": 137
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "CR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 2
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 69,
+    "studyCount": 265,
+    "seriesCount": 1278,
+    "imageCount": 199221
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 8,
+    "imageCount": 8
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 12,
+    "studyCount": 40,
+    "seriesCount": 440,
+    "imageCount": 26721
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "OT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 509
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 22,
+    "studyCount": 62,
+    "seriesCount": 153,
+    "imageCount": 35304
+  },
+  {
+    "project": "Exceptional-Responders",
+    "modality": "XA",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 8
+  },
+  {
+    "project": "GBM-DSC-MRI-DRO",
+    "modality": "MR",
+    "site": "PHANTOM",
+    "subjectCount": 2,
+    "studyCount": 30,
+    "seriesCount": 360,
+    "imageCount": 47157
+  },
+  {
+    "project": "HEAD Cetuximab",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 108,
+    "studyCount": 349,
+    "seriesCount": 579,
+    "imageCount": 83923
+  },
+  {
+    "project": "HEAD Cetuximab",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 105,
+    "studyCount": 248,
+    "seriesCount": 585,
+    "imageCount": 118133
+  },
+  {
+    "project": "HEAD Cetuximab",
+    "modality": "RTDOSE",
+    "site": "HEAD",
+    "subjectCount": 96,
+    "studyCount": 96,
+    "seriesCount": 211,
+    "imageCount": 211
+  },
+  {
+    "project": "HEAD Cetuximab",
+    "modality": "RTPLAN",
+    "site": "HEAD",
+    "subjectCount": 96,
+    "studyCount": 96,
+    "seriesCount": 211,
+    "imageCount": 211
+  },
+  {
+    "project": "HEAD Cetuximab",
+    "modality": "RTSTRUCT",
+    "site": "HEAD",
+    "subjectCount": 96,
+    "studyCount": 96,
+    "seriesCount": 96,
+    "imageCount": 96
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 298,
+    "studyCount": 496,
+    "seriesCount": 504,
+    "imageCount": 75569
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 298,
+    "studyCount": 298,
+    "seriesCount": 298,
+    "imageCount": 45839
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "REG",
+    "site": "Unspecified",
+    "subjectCount": 206,
+    "studyCount": 206,
+    "seriesCount": 206,
+    "imageCount": 206
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "RTDOSE",
+    "site": "Unspecified",
+    "subjectCount": 237,
+    "studyCount": 397,
+    "seriesCount": 497,
+    "imageCount": 497
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "RTPLAN",
+    "site": "Unspecified",
+    "subjectCount": 237,
+    "studyCount": 237,
+    "seriesCount": 325,
+    "imageCount": 329
+  },
+  {
+    "project": "HEAD-PET-CT",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 298,
+    "studyCount": 497,
+    "seriesCount": 831,
+    "imageCount": 831
+  },
+  {
+    "project": "HEAD-NECK-RADIOMICS-HN1",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 137,
+    "studyCount": 137,
+    "seriesCount": 137,
+    "imageCount": 18600
+  },
+  {
+    "project": "HEAD-NECK-RADIOMICS-HN1",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 75,
+    "studyCount": 75,
+    "seriesCount": 75,
+    "imageCount": 10044
+  },
+  {
+    "project": "HEAD-NECK-RADIOMICS-HN1",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 137,
+    "studyCount": 137,
+    "seriesCount": 137,
+    "imageCount": 137
+  },
+  {
+    "project": "HEAD-NECK-RADIOMICS-HN1",
+    "modality": "SEG",
+    "site": "HEAD",
+    "subjectCount": 137,
+    "studyCount": 137,
+    "seriesCount": 137,
+    "imageCount": 137
+  },
+  {
+    "project": "HNSCC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 215,
+    "studyCount": 673,
+    "seriesCount": 885,
+    "imageCount": 159776
+  },
+  {
+    "project": "HNSCC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 4,
+    "studyCount": 5,
+    "seriesCount": 22,
+    "imageCount": 772
+  },
+  {
+    "project": "HNSCC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 215,
+    "studyCount": 485,
+    "seriesCount": 1707,
+    "imageCount": 272225
+  },
+  {
+    "project": "HNSCC",
+    "modality": "RTDOSE",
+    "site": "HEAD",
+    "subjectCount": 201,
+    "studyCount": 202,
+    "seriesCount": 203,
+    "imageCount": 203
+  },
+  {
+    "project": "HNSCC",
+    "modality": "RTPLAN",
+    "site": "HEAD",
+    "subjectCount": 201,
+    "studyCount": 202,
+    "seriesCount": 203,
+    "imageCount": 203
+  },
+  {
+    "project": "HNSCC",
+    "modality": "RTSTRUCT",
+    "site": "HEAD",
+    "subjectCount": 202,
+    "studyCount": 203,
+    "seriesCount": 205,
+    "imageCount": 205
+  },
+  {
+    "project": "HNSCC-3DCT-RT",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 31,
+    "studyCount": 93,
+    "seriesCount": 93,
+    "imageCount": 18627
+  },
+  {
+    "project": "HNSCC-3DCT-RT",
+    "modality": "RTDOSE",
+    "site": "Unspecified",
+    "subjectCount": 31,
+    "studyCount": 46,
+    "seriesCount": 93,
+    "imageCount": 93
+  },
+  {
+    "project": "HNSCC-3DCT-RT",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 31,
+    "studyCount": 93,
+    "seriesCount": 185,
+    "imageCount": 185
+  },
+  {
+    "project": "ISPY1",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 222,
+    "studyCount": 847,
+    "seriesCount": 6464,
+    "imageCount": 385112
+  },
+  {
+    "project": "ISPY1",
+    "modality": "SEG",
+    "site": "BREAST",
+    "subjectCount": 207,
+    "studyCount": 708,
+    "seriesCount": 2568,
+    "imageCount": 2568
+  },
+  {
+    "project": "IvyGAP",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 39,
+    "studyCount": 390,
+    "seriesCount": 5223,
+    "imageCount": 846743
+  },
+  {
+    "project": "LCTSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 60,
+    "studyCount": 60,
+    "seriesCount": 60,
+    "imageCount": 9533
+  },
+  {
+    "project": "LCTSC",
+    "modality": "RTSTRUCT",
+    "site": "LUNG",
+    "subjectCount": 60,
+    "studyCount": 60,
+    "seriesCount": 60,
+    "imageCount": 60
+  },
+  {
+    "project": "LDCT-and-Projection-data",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 150,
+    "studyCount": 300,
+    "seriesCount": 600,
+    "imageCount": 10094559
+  },
+  {
+    "project": "LGG-1p19qDeletion",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 159,
+    "studyCount": 160,
+    "seriesCount": 319,
+    "imageCount": 17360
+  },
+  {
+    "project": "LIDC-IDRI",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 53,
+    "studyCount": 53,
+    "seriesCount": 53,
+    "imageCount": 56
+  },
+  {
+    "project": "LIDC-IDRI",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 1010,
+    "studyCount": 1018,
+    "seriesCount": 1018,
+    "imageCount": 243958
+  },
+  {
+    "project": "LIDC-IDRI",
+    "modality": "DX",
+    "site": "CHEST",
+    "subjectCount": 237,
+    "studyCount": 237,
+    "seriesCount": 237,
+    "imageCount": 513
+  },
+  {
+    "project": "LIDC-IDRI",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 10,
+    "studyCount": 10,
+    "seriesCount": 90,
+    "imageCount": 90
+  },
+  {
+    "project": "Lung Phantom",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 237
+  },
+  {
+    "project": "Lung Phantom",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 108,
+    "imageCount": 108
+  },
+  {
+    "project": "Lung-Fused-CT-Pathology",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 22,
+    "imageCount": 3200
+  },
+  {
+    "project": "Lung-Fused-CT-Pathology",
+    "modality": "FUSION",
+    "site": "FUSION",
+    "subjectCount": 6,
+    "studyCount": 18,
+    "seriesCount": 18,
+    "imageCount": 4806
+  },
+  {
+    "project": "Lung-Fused-CT-Pathology",
+    "modality": "SEG",
+    "site": "SEG",
+    "subjectCount": 6,
+    "studyCount": 12,
+    "seriesCount": 12,
+    "imageCount": 3204
+  },
+  {
+    "project": "Lung-PET-CT-Dx",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 9,
+    "imageCount": 1142
+  },
+  {
+    "project": "LungCT-Diagnosis",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 61,
+    "studyCount": 61,
+    "seriesCount": 61,
+    "imageCount": 4682
+  },
+  {
+    "project": "Mouse-Astrocytoma",
+    "modality": "MR",
+    "site": "SKULL",
+    "subjectCount": 48,
+    "studyCount": 48,
+    "seriesCount": 286,
+    "imageCount": 37110
+  },
+  {
+    "project": "Mouse-Mammary",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 32,
+    "studyCount": 149,
+    "seriesCount": 205,
+    "imageCount": 23487
+  },
+  {
+    "project": "MRI-DIR",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 1697
+  },
+  {
+    "project": "MRI-DIR",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 9,
+    "studyCount": 20,
+    "seriesCount": 48,
+    "imageCount": 1891
+  },
+  {
+    "project": "MRI-DIR",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 8,
+    "studyCount": 8,
+    "seriesCount": 8,
+    "imageCount": 8
+  },
+  {
+    "project": "NaF PROSTATE",
+    "modality": "CT",
+    "site": "PROSTATE",
+    "subjectCount": 9,
+    "studyCount": 44,
+    "seriesCount": 75,
+    "imageCount": 21437
+  },
+  {
+    "project": "NaF PROSTATE",
+    "modality": "PT",
+    "site": "PROSTATE",
+    "subjectCount": 9,
+    "studyCount": 41,
+    "seriesCount": 139,
+    "imageCount": 43098
+  },
+  {
+    "project": "NRG-1106",
+    "modality": "CT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 4,
+    "seriesCount": 26,
+    "imageCount": 4026
+  },
+  {
+    "project": "NRG-1106",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 2,
+    "imageCount": 498
+  },
+  {
+    "project": "NRG-1308",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 16,
+    "imageCount": 1914
+  },
+  {
+    "project": "NRG-1308",
+    "modality": "RTDOSE",
+    "site": "LUNG",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 24,
+    "imageCount": 24
+  },
+  {
+    "project": "NRG-1308",
+    "modality": "RTPLAN",
+    "site": "LUNG",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 24,
+    "imageCount": 24
+  },
+  {
+    "project": "NRG-1308",
+    "modality": "RTSTRUCT",
+    "site": "LUNG",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 21,
+    "imageCount": 21
+  },
+  {
+    "project": "NSCLC Radiogenomics",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 211,
+    "studyCount": 390,
+    "seriesCount": 724,
+    "imageCount": 170742
+  },
+  {
+    "project": "NSCLC Radiogenomics",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 199,
+    "studyCount": 199,
+    "seriesCount": 477,
+    "imageCount": 114063
+  },
+  {
+    "project": "NSCLC Radiogenomics",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 144,
+    "studyCount": 144,
+    "seriesCount": 144,
+    "imageCount": 144
+  },
+  {
+    "project": "NSCLC-Cetuximab",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 490,
+    "studyCount": 490,
+    "seriesCount": 490,
+    "imageCount": 73437
+  },
+  {
+    "project": "NSCLC-Cetuximab",
+    "modality": "RTDOSE",
+    "site": "Unspecified",
+    "subjectCount": 490,
+    "studyCount": 490,
+    "seriesCount": 568,
+    "imageCount": 568
+  },
+  {
+    "project": "NSCLC-Cetuximab",
+    "modality": "RTPLAN",
+    "site": "Unspecified",
+    "subjectCount": 490,
+    "studyCount": 490,
+    "seriesCount": 568,
+    "imageCount": 568
+  },
+  {
+    "project": "NSCLC-Cetuximab",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 490,
+    "studyCount": 490,
+    "seriesCount": 490,
+    "imageCount": 490
+  },
+  {
+    "project": "NSCLC-Radiomics",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 422,
+    "studyCount": 422,
+    "seriesCount": 422,
+    "imageCount": 51229
+  },
+  {
+    "project": "NSCLC-Radiomics",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 422,
+    "studyCount": 422,
+    "seriesCount": 422,
+    "imageCount": 422
+  },
+  {
+    "project": "NSCLC-Radiomics",
+    "modality": "SEG",
+    "site": "CHEST",
+    "subjectCount": 421,
+    "studyCount": 421,
+    "seriesCount": 421,
+    "imageCount": 421
+  },
+  {
+    "project": "NSCLC-Radiomics-Genomics",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 89,
+    "studyCount": 89,
+    "seriesCount": 89,
+    "imageCount": 13482
+  },
+  {
+    "project": "NSCLC-RADIOMICS-INTEROBSERVER1",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 22,
+    "studyCount": 22,
+    "seriesCount": 22,
+    "imageCount": 3844
+  },
+  {
+    "project": "NSCLC-RADIOMICS-INTEROBSERVER1",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 21,
+    "studyCount": 21,
+    "seriesCount": 21,
+    "imageCount": 21
+  },
+  {
+    "project": "NSCLC-RADIOMICS-INTEROBSERVER1",
+    "modality": "SEG",
+    "site": "LUNG",
+    "subjectCount": 21,
+    "studyCount": 21,
+    "seriesCount": 21,
+    "imageCount": 21
+  },
+  {
+    "project": "OV Training",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 38,
+    "imageCount": 2564
+  },
+  {
+    "project": "Pancreas-CT",
+    "modality": "CT",
+    "site": "PANCREAS",
+    "subjectCount": 82,
+    "studyCount": 82,
+    "seriesCount": 82,
+    "imageCount": 19328
+  },
+  {
+    "project": "PDMR-292921-168-R",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 11,
+    "studyCount": 11,
+    "seriesCount": 22,
+    "imageCount": 407
+  },
+  {
+    "project": "PDMR-292921-168-R",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 1
+  },
+  {
+    "project": "PDMR-BL0293-F563",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 19,
+    "studyCount": 66,
+    "seriesCount": 131,
+    "imageCount": 2222
+  },
+  {
+    "project": "PDX-Pilot",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 23,
+    "seriesCount": 23,
+    "imageCount": 5244
+  },
+  {
+    "project": "PDX-Pilot",
+    "modality": "MR",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 50,
+    "seriesCount": 50,
+    "imageCount": 1800
+  },
+  {
+    "project": "PDX-Pilot",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 23,
+    "seriesCount": 24,
+    "imageCount": 3816
+  },
+  {
+    "project": "Pelvic-Reference-Data",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 58,
+    "studyCount": 116,
+    "seriesCount": 116,
+    "imageCount": 13644
+  },
+  {
+    "project": "Phantom FDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 2,
+    "studyCount": 28,
+    "seriesCount": 1193,
+    "imageCount": 393421
+  },
+  {
+    "project": "Phantom FDA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 48,
+    "seriesCount": 3240,
+    "imageCount": 1075330
+  },
+  {
+    "project": "Prostate Fused-MRI-Pathology",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 28,
+    "studyCount": 28,
+    "seriesCount": 324,
+    "imageCount": 32508
+  },
+  {
+    "project": "Prostate-3T",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 54,
+    "studyCount": 54,
+    "seriesCount": 54,
+    "imageCount": 1064
+  },
+  {
+    "project": "Prostate-3T",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 97
+  },
+  {
+    "project": "Prostate-3T",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 5,
+    "imageCount": 97
+  },
+  {
+    "project": "Prostate-Cancer-MRI",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 30,
+    "studyCount": 30,
+    "seriesCount": 442,
+    "imageCount": 92698
+  },
+  {
+    "project": "PROSTATE-DIAGNOSIS",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 82,
+    "studyCount": 82,
+    "seriesCount": 326,
+    "imageCount": 29021
+  },
+  {
+    "project": "PROSTATE-DIAGNOSIS",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 22,
+    "imageCount": 1882
+  },
+  {
+    "project": "PROSTATE-DIAGNOSIS",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 20,
+    "imageCount": 1634
+  },
+  {
+    "project": "PROSTATE-MRI",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 26,
+    "studyCount": 26,
+    "seriesCount": 182,
+    "imageCount": 22036
+  },
+  {
+    "project": "Prostate-MRI-US-Biopsy",
+    "modality": "MR",
+    "site": "PELVIS",
+    "subjectCount": 1,
+    "studyCount": 3,
+    "seriesCount": 3,
+    "imageCount": 180
+  },
+  {
+    "project": "Prostate-MRI-US-Biopsy",
+    "modality": "US",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 4,
+    "seriesCount": 4,
+    "imageCount": 4
+  },
+  {
+    "project": "PROSTATEx",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 142,
+    "studyCount": 144,
+    "seriesCount": 7384,
+    "imageCount": 123784
+  },
+  {
+    "project": "PROSTATEx",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 204,
+    "studyCount": 205,
+    "seriesCount": 10937,
+    "imageCount": 185467
+  },
+  {
+    "project": "QIBA CT-1C",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 6,
+    "seriesCount": 213,
+    "imageCount": 67872
+  },
+  {
+    "project": "QIBA CT-1C",
+    "modality": "PR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 6,
+    "seriesCount": 462,
+    "imageCount": 462
+  },
+  {
+    "project": "QIBA CT-1C",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 6,
+    "seriesCount": 462,
+    "imageCount": 462
+  },
+  {
+    "project": "QIBA CT-1C",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 462,
+    "seriesCount": 462,
+    "imageCount": 462
+  },
+  {
+    "project": "QIN BRAIN",
+    "modality": "PT",
+    "site": "BRAIN",
+    "subjectCount": 5,
+    "studyCount": 16,
+    "seriesCount": 16,
+    "imageCount": 46368
+  },
+  {
+    "project": "QIN Breast DCE-MRI",
+    "modality": "KO",
+    "site": "Unspecified",
+    "subjectCount": 10,
+    "studyCount": 20,
+    "seriesCount": 40,
+    "imageCount": 40
+  },
+  {
+    "project": "QIN Breast DCE-MRI",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 10,
+    "studyCount": 20,
+    "seriesCount": 632,
+    "imageCount": 76288
+  },
+  {
+    "project": "QIN Breast DCE-MRI",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 12,
+    "studyCount": 42,
+    "seriesCount": 1246,
+    "imageCount": 144177
+  },
+  {
+    "project": "QIN GBM Treatment Response",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 54,
+    "studyCount": 106,
+    "seriesCount": 1942,
+    "imageCount": 589314
+  },
+  {
+    "project": "QIN LUNG CT",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 47,
+    "studyCount": 47,
+    "seriesCount": 47,
+    "imageCount": 3954
+  },
+  {
+    "project": "QIN LUNG CT",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 10,
+    "studyCount": 10,
+    "seriesCount": 90,
+    "imageCount": 90
+  },
+  {
+    "project": "QIN LUNG CT",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 105,
+    "studyCount": 105,
+    "seriesCount": 105,
+    "imageCount": 7969
+  },
+  {
+    "project": "QIN PET Phantom",
+    "modality": "PT",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 22,
+    "imageCount": 1782
+  },
+  {
+    "project": "QIN PET Phantom",
+    "modality": "PT",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 22,
+    "imageCount": 1034
+  },
+  {
+    "project": "QIN PHANTOM",
+    "modality": "CT",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 135
+  },
+  {
+    "project": "QIN PHANTOM",
+    "modality": "MR",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 9
+  },
+  {
+    "project": "QIN PHANTOM",
+    "modality": "CT",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 190
+  },
+  {
+    "project": "QIN PHANTOM",
+    "modality": "PT",
+    "site": "PHANTOM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 141
+  },
+  {
+    "project": "QIN PROSTATE",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 22,
+    "studyCount": 22,
+    "seriesCount": 319,
+    "imageCount": 25981
+  },
+  {
+    "project": "QIN-ADC-Challenge",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 13,
+    "studyCount": 13,
+    "seriesCount": 13,
+    "imageCount": 2536
+  },
+  {
+    "project": "QIN-BRAIN-DSC-MRI",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 49,
+    "studyCount": 52,
+    "seriesCount": 349,
+    "imageCount": 116778
+  },
+  {
+    "project": "QIN-BREAST",
+    "modality": "CT",
+    "site": "BREAST",
+    "subjectCount": 43,
+    "studyCount": 110,
+    "seriesCount": 110,
+    "imageCount": 9130
+  },
+  {
+    "project": "QIN-BREAST",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 41,
+    "studyCount": 106,
+    "seriesCount": 316,
+    "imageCount": 84191
+  },
+  {
+    "project": "QIN-BREAST",
+    "modality": "PT",
+    "site": "BREAST",
+    "subjectCount": 43,
+    "studyCount": 110,
+    "seriesCount": 110,
+    "imageCount": 9130
+  },
+  {
+    "project": "QIN-BREAST-02",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 13,
+    "studyCount": 34,
+    "seriesCount": 235,
+    "imageCount": 31790
+  },
+  {
+    "project": "QIN-HEAD",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 155,
+    "studyCount": 486,
+    "seriesCount": 493,
+    "imageCount": 179027
+  },
+  {
+    "project": "QIN-HEAD",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 156,
+    "studyCount": 480,
+    "seriesCount": 484,
+    "imageCount": 172365
+  },
+  {
+    "project": "QIN-HEAD",
+    "modality": "RWV",
+    "site": "HEAD",
+    "subjectCount": 59,
+    "studyCount": 60,
+    "seriesCount": 60,
+    "imageCount": 60
+  },
+  {
+    "project": "QIN-HEAD",
+    "modality": "SEG",
+    "site": "HEAD",
+    "subjectCount": 59,
+    "studyCount": 60,
+    "seriesCount": 900,
+    "imageCount": 900
+  },
+  {
+    "project": "QIN-HEAD",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 156,
+    "studyCount": 216,
+    "seriesCount": 1056,
+    "imageCount": 1056
+  },
+  {
+    "project": "QIN-PROSTATE-Repeatability",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 15,
+    "studyCount": 30,
+    "seriesCount": 150,
+    "imageCount": 38320
+  },
+  {
+    "project": "QIN-PROSTATE-Repeatability",
+    "modality": "SEG",
+    "site": "PROSTATE",
+    "subjectCount": 15,
+    "studyCount": 30,
+    "seriesCount": 90,
+    "imageCount": 90
+  },
+  {
+    "project": "QIN-PROSTATE-Repeatability",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 15,
+    "studyCount": 30,
+    "seriesCount": 90,
+    "imageCount": 90
+  },
+  {
+    "project": "QIN-SARCOMA",
+    "modality": "MR",
+    "site": "THIGH",
+    "subjectCount": 15,
+    "studyCount": 38,
+    "seriesCount": 2168,
+    "imageCount": 46614
+  },
+  {
+    "project": "RADCOMP_TEST",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 41,
+    "studyCount": 41,
+    "seriesCount": 41,
+    "imageCount": 9019
+  },
+  {
+    "project": "RADCOMP_TEST",
+    "modality": "RTDOSE",
+    "site": "Unspecified",
+    "subjectCount": 41,
+    "studyCount": 41,
+    "seriesCount": 41,
+    "imageCount": 41
+  },
+  {
+    "project": "RADCOMP_TEST",
+    "modality": "RTPLAN",
+    "site": "Unspecified",
+    "subjectCount": 41,
+    "studyCount": 41,
+    "seriesCount": 43,
+    "imageCount": 69
+  },
+  {
+    "project": "RADCOMP_TEST",
+    "modality": "RTSTRUCT",
+    "site": "Unspecified",
+    "subjectCount": 42,
+    "studyCount": 42,
+    "seriesCount": 67,
+    "imageCount": 67
+  },
+  {
+    "project": "RADCOMP_TEST",
+    "modality": "SR",
+    "site": "Unspecified",
+    "subjectCount": 41,
+    "studyCount": 41,
+    "seriesCount": 41,
+    "imageCount": 41
+  },
+  {
+    "project": "REMBRANDT",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 97,
+    "studyCount": 107,
+    "seriesCount": 888,
+    "imageCount": 88323
+  },
+  {
+    "project": "REMBRANDT",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 33,
+    "studyCount": 67,
+    "seriesCount": 595,
+    "imageCount": 21697
+  },
+  {
+    "project": "Renal Training",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 16,
+    "imageCount": 1565
+  },
+  {
+    "project": "Renal Training",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 32,
+    "imageCount": 2340
+  },
+  {
+    "project": "Renal Training",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 13,
+    "imageCount": 1999
+  },
+  {
+    "project": "Renal Training",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 36,
+    "imageCount": 1664
+  },
+  {
+    "project": "RIDER Breast MRI",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 5,
+    "studyCount": 10,
+    "seriesCount": 40,
+    "imageCount": 2400
+  },
+  {
+    "project": "RIDER Lung CT",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 32,
+    "studyCount": 46,
+    "seriesCount": 63,
+    "imageCount": 15419
+  },
+  {
+    "project": "RIDER Lung CT",
+    "modality": "SEG",
+    "site": "Unspecified",
+    "subjectCount": 10,
+    "studyCount": 10,
+    "seriesCount": 90,
+    "imageCount": 90
+  },
+  {
+    "project": "RIDER Lung PET-CT",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 220,
+    "studyCount": 240,
+    "seriesCount": 815,
+    "imageCount": 147632
+  },
+  {
+    "project": "RIDER Lung PET-CT",
+    "modality": "PT",
+    "site": "CHEST",
+    "subjectCount": 116,
+    "studyCount": 140,
+    "seriesCount": 513,
+    "imageCount": 118648
+  },
+  {
+    "project": "RIDER NEURO MRI",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 19,
+    "studyCount": 108,
+    "seriesCount": 368,
+    "imageCount": 70220
+  },
+  {
+    "project": "RIDER PHANTOM MRI",
+    "modality": "MR",
+    "site": "PHANTOM",
+    "subjectCount": 10,
+    "studyCount": 13,
+    "seriesCount": 45,
+    "imageCount": 7061
+  },
+  {
+    "project": "RIDER PHANTOM PET-CT",
+    "modality": "CT",
+    "site": "PHANTOM",
+    "subjectCount": 20,
+    "studyCount": 20,
+    "seriesCount": 40,
+    "imageCount": 1291
+  },
+  {
+    "project": "RIDER PHANTOM PET-CT",
+    "modality": "PT",
+    "site": "PHANTOM",
+    "subjectCount": 20,
+    "studyCount": 20,
+    "seriesCount": 20,
+    "imageCount": 940
+  },
+  {
+    "project": "RSNA",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 40
+  },
+  {
+    "project": "Soft-tissue-Sarcoma",
+    "modality": "CT",
+    "site": "EXTREMITY",
+    "subjectCount": 51,
+    "studyCount": 51,
+    "seriesCount": 51,
+    "imageCount": 13607
+  },
+  {
+    "project": "Soft-tissue-Sarcoma",
+    "modality": "MR",
+    "site": "EXTREMITY",
+    "subjectCount": 51,
+    "studyCount": 102,
+    "seriesCount": 204,
+    "imageCount": 10753
+  },
+  {
+    "project": "Soft-tissue-Sarcoma",
+    "modality": "PT",
+    "site": "EXTREMITY",
+    "subjectCount": 51,
+    "studyCount": 51,
+    "seriesCount": 51,
+    "imageCount": 13617
+  },
+  {
+    "project": "Soft-tissue-Sarcoma",
+    "modality": "RTSTRUCT",
+    "site": "EXTREMITY",
+    "subjectCount": 51,
+    "studyCount": 102,
+    "seriesCount": 306,
+    "imageCount": 306
+  },
+  {
+    "project": "SPIE-AAPM Lung CT Challenge",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 10,
+    "studyCount": 10,
+    "seriesCount": 10,
+    "imageCount": 3405
+  },
+  {
+    "project": "SPIE-AAPM Lung CT Challenge",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 60,
+    "studyCount": 60,
+    "seriesCount": 60,
+    "imageCount": 19084
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 11,
+    "studyCount": 13,
+    "seriesCount": 88,
+    "imageCount": 14556
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "MR",
+    "site": "BLADDER",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 14,
+    "imageCount": 560
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 21,
+    "studyCount": 21,
+    "seriesCount": 174,
+    "imageCount": 15751
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 32,
+    "imageCount": 3659
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "PT",
+    "site": "BLADDER",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 12,
+    "imageCount": 3468
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CR",
+    "site": "CHEST",
+    "subjectCount": 5,
+    "studyCount": 12,
+    "seriesCount": 12,
+    "imageCount": 12
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 14,
+    "studyCount": 32,
+    "seriesCount": 173,
+    "imageCount": 31532
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "DX",
+    "site": "Unspecified",
+    "subjectCount": 7,
+    "studyCount": 10,
+    "seriesCount": 18,
+    "imageCount": 74
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 19,
+    "imageCount": 1017
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "PT",
+    "site": "ABDOMEN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 717
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 19,
+    "studyCount": 19,
+    "seriesCount": 99,
+    "imageCount": 9191
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "MR",
+    "site": "BLADDER",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 58,
+    "imageCount": 3530
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 21,
+    "studyCount": 29,
+    "seriesCount": 63,
+    "imageCount": 12969
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "MR",
+    "site": "BLADDER",
+    "subjectCount": 14,
+    "studyCount": 16,
+    "seriesCount": 196,
+    "imageCount": 3296
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CR",
+    "site": "BLADDER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 2
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 6,
+    "studyCount": 13,
+    "seriesCount": 44,
+    "imageCount": 2499
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CR",
+    "site": "BLADDER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 2
+  },
+  {
+    "project": "TCGA-BLCA",
+    "modality": "CT",
+    "site": "BLADDER",
+    "subjectCount": 9,
+    "studyCount": 11,
+    "seriesCount": 44,
+    "imageCount": 8946
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 17,
+    "studyCount": 20,
+    "seriesCount": 215,
+    "imageCount": 76720
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 10,
+    "studyCount": 17,
+    "seriesCount": 183,
+    "imageCount": 15364
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 9,
+    "imageCount": 9
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 13,
+    "studyCount": 13,
+    "seriesCount": 312,
+    "imageCount": 22241
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 3,
+    "studyCount": 5,
+    "seriesCount": 10,
+    "imageCount": 24
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 13,
+    "studyCount": 15,
+    "seriesCount": 254,
+    "imageCount": 12804
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 37,
+    "studyCount": 37,
+    "seriesCount": 268,
+    "imageCount": 31620
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 9,
+    "imageCount": 342
+  },
+  {
+    "project": "TCGA-BRCA",
+    "modality": "MR",
+    "site": "BREAST",
+    "subjectCount": 46,
+    "studyCount": 54,
+    "seriesCount": 617,
+    "imageCount": 71043
+  },
+  {
+    "project": "TCGA-CESC",
+    "modality": "MR",
+    "site": "CERVIX",
+    "subjectCount": 54,
+    "studyCount": 57,
+    "seriesCount": 488,
+    "imageCount": 19135
+  },
+  {
+    "project": "TCGA-COAD",
+    "modality": "CT",
+    "site": "COLON",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 16,
+    "imageCount": 1401
+  },
+  {
+    "project": "TCGA-COAD",
+    "modality": "CT",
+    "site": "COLON",
+    "subjectCount": 15,
+    "studyCount": 17,
+    "seriesCount": 53,
+    "imageCount": 5975
+  },
+  {
+    "project": "TCGA-COAD",
+    "modality": "OT",
+    "site": "COLON",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 6
+  },
+  {
+    "project": "TCGA-COAD",
+    "modality": "CT",
+    "site": "COLON",
+    "subjectCount": 5,
+    "studyCount": 10,
+    "seriesCount": 23,
+    "imageCount": 1005
+  },
+  {
+    "project": "TCGA-ESCA",
+    "modality": "CT",
+    "site": "ESOPHAGUS",
+    "subjectCount": 16,
+    "studyCount": 17,
+    "seriesCount": 126,
+    "imageCount": 20593
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 16,
+    "studyCount": 16,
+    "seriesCount": 74,
+    "imageCount": 4103
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "CT",
+    "site": "BRAIN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 127
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 37,
+    "studyCount": 42,
+    "seriesCount": 465,
+    "imageCount": 34122
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 24,
+    "studyCount": 35,
+    "seriesCount": 222,
+    "imageCount": 11361
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "CT",
+    "site": "BRAIN",
+    "subjectCount": 11,
+    "studyCount": 41,
+    "seriesCount": 127,
+    "imageCount": 4636
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "DX",
+    "site": "BRAIN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 1
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 30,
+    "studyCount": 166,
+    "seriesCount": 1382,
+    "imageCount": 50797
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "CT",
+    "site": "BRAIN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 826
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 73,
+    "studyCount": 190,
+    "seriesCount": 2178,
+    "imageCount": 301618
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 25,
+    "studyCount": 25,
+    "seriesCount": 329,
+    "imageCount": 31965
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 22,
+    "studyCount": 23,
+    "seriesCount": 315,
+    "imageCount": 15378
+  },
+  {
+    "project": "TCGA-GBM",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 32,
+    "studyCount": 34,
+    "seriesCount": 312,
+    "imageCount": 26224
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 16,
+    "studyCount": 16,
+    "seriesCount": 89,
+    "imageCount": 10847
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 14,
+    "studyCount": 56,
+    "seriesCount": 269,
+    "imageCount": 33907
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 3,
+    "studyCount": 11,
+    "seriesCount": 125,
+    "imageCount": 7874
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "OT",
+    "site": "HEAD",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 80
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 5,
+    "studyCount": 26,
+    "seriesCount": 54,
+    "imageCount": 8505
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 78,
+    "studyCount": 220,
+    "seriesCount": 901,
+    "imageCount": 118025
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 6,
+    "studyCount": 9,
+    "seriesCount": 74,
+    "imageCount": 2318
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 21,
+    "imageCount": 3942
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "RTDOSE",
+    "site": "HEAD",
+    "subjectCount": 16,
+    "studyCount": 16,
+    "seriesCount": 20,
+    "imageCount": 20
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "RTPLAN",
+    "site": "HEAD",
+    "subjectCount": 13,
+    "studyCount": 13,
+    "seriesCount": 13,
+    "imageCount": 13
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "RTSTRUCT",
+    "site": "HEAD",
+    "subjectCount": 16,
+    "studyCount": 16,
+    "seriesCount": 20,
+    "imageCount": 20
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 5,
+    "studyCount": 6,
+    "seriesCount": 39,
+    "imageCount": 3799
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 23,
+    "studyCount": 23,
+    "seriesCount": 216,
+    "imageCount": 17479
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 12,
+    "studyCount": 12,
+    "seriesCount": 153,
+    "imageCount": 5499
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 20,
+    "studyCount": 23,
+    "seriesCount": 117,
+    "imageCount": 7159
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CTPT",
+    "site": "HEAD",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 226
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 24,
+    "imageCount": 1471
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 10,
+    "imageCount": 1168
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 21,
+    "imageCount": 3172
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 10,
+    "imageCount": 2318
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "CT",
+    "site": "HEAD",
+    "subjectCount": 50,
+    "studyCount": 89,
+    "seriesCount": 289,
+    "imageCount": 33257
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "MR",
+    "site": "HEAD",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 39,
+    "imageCount": 1049
+  },
+  {
+    "project": "TCGA-HNSC",
+    "modality": "PT",
+    "site": "HEAD",
+    "subjectCount": 15,
+    "studyCount": 15,
+    "seriesCount": 52,
+    "imageCount": 8228
+  },
+  {
+    "project": "TCGA-KICH",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 16,
+    "imageCount": 1077
+  },
+  {
+    "project": "TCGA-KICH",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 11,
+    "imageCount": 1318
+  },
+  {
+    "project": "TCGA-KICH",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 53,
+    "imageCount": 5227
+  },
+  {
+    "project": "TCGA-KICH",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 29,
+    "imageCount": 1599
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 15,
+    "studyCount": 15,
+    "seriesCount": 68,
+    "imageCount": 3757
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 9,
+    "studyCount": 9,
+    "seriesCount": 137,
+    "imageCount": 11240
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CR",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 4
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 15,
+    "studyCount": 94,
+    "seriesCount": 394,
+    "imageCount": 30624
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 8,
+    "studyCount": 14,
+    "seriesCount": 161,
+    "imageCount": 9832
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 51,
+    "studyCount": 61,
+    "seriesCount": 420,
+    "imageCount": 43461
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 17,
+    "imageCount": 1314
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 88,
+    "studyCount": 88,
+    "seriesCount": 423,
+    "imageCount": 32196
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 25,
+    "studyCount": 25,
+    "seriesCount": 314,
+    "imageCount": 16585
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 9,
+    "studyCount": 10,
+    "seriesCount": 65,
+    "imageCount": 7471
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 23,
+    "imageCount": 1187
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 20,
+    "imageCount": 1514
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 25,
+    "studyCount": 47,
+    "seriesCount": 168,
+    "imageCount": 7665
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 10,
+    "studyCount": 12,
+    "seriesCount": 167,
+    "imageCount": 7759
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 31,
+    "studyCount": 48,
+    "seriesCount": 178,
+    "imageCount": 14293
+  },
+  {
+    "project": "TCGA-KIRC",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 7,
+    "studyCount": 8,
+    "seriesCount": 95,
+    "imageCount": 3679
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 5,
+    "imageCount": 735
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 16,
+    "imageCount": 1595
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 21,
+    "imageCount": 2372
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 6,
+    "studyCount": 6,
+    "seriesCount": 70,
+    "imageCount": 4606
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 11,
+    "studyCount": 12,
+    "seriesCount": 45,
+    "imageCount": 3359
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "MR",
+    "site": "KIDNEY",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 79,
+    "imageCount": 5587
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "PT",
+    "site": "KIDNEY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 622
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "CT",
+    "site": "KIDNEY",
+    "subjectCount": 7,
+    "studyCount": 10,
+    "seriesCount": 39,
+    "imageCount": 2154
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 5,
+    "studyCount": 8,
+    "seriesCount": 95,
+    "imageCount": 4791
+  },
+  {
+    "project": "TCGA-KIRP",
+    "modality": "PT",
+    "site": "Unspecified",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 846
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 22,
+    "studyCount": 22,
+    "seriesCount": 201,
+    "imageCount": 24301
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 57,
+    "studyCount": 68,
+    "seriesCount": 841,
+    "imageCount": 150015
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 98,
+    "studyCount": 101,
+    "seriesCount": 876,
+    "imageCount": 50329
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "CT",
+    "site": "BRAIN",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 4,
+    "imageCount": 818
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 20,
+    "studyCount": 20,
+    "seriesCount": 271,
+    "imageCount": 11659
+  },
+  {
+    "project": "TCGA-LGG",
+    "modality": "MR",
+    "site": "BRAIN",
+    "subjectCount": 2,
+    "studyCount": 7,
+    "seriesCount": 82,
+    "imageCount": 4061
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "CT",
+    "site": "LIVER",
+    "subjectCount": 21,
+    "studyCount": 22,
+    "seriesCount": 151,
+    "imageCount": 17330
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "MR",
+    "site": "LIVER",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 144,
+    "imageCount": 10677
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "CT",
+    "site": "LIVER",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 13,
+    "imageCount": 1021
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "MR",
+    "site": "LIVER",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 29,
+    "imageCount": 2735
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "CT",
+    "site": "LIVER",
+    "subjectCount": 46,
+    "studyCount": 132,
+    "seriesCount": 581,
+    "imageCount": 47291
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "MR",
+    "site": "LIVER",
+    "subjectCount": 21,
+    "studyCount": 45,
+    "seriesCount": 519,
+    "imageCount": 35410
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "PT",
+    "site": "LIVER",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 215
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "CT",
+    "site": "LIVER",
+    "subjectCount": 6,
+    "studyCount": 8,
+    "seriesCount": 32,
+    "imageCount": 1889
+  },
+  {
+    "project": "TCGA-LIHC",
+    "modality": "MR",
+    "site": "LIVER",
+    "subjectCount": 10,
+    "studyCount": 19,
+    "seriesCount": 218,
+    "imageCount": 8829
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 12,
+    "imageCount": 1446
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "NM",
+    "site": "LUNG",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 2
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 4,
+    "imageCount": 1068
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 6,
+    "studyCount": 17,
+    "seriesCount": 50,
+    "imageCount": 2954
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 8,
+    "imageCount": 1098
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 19,
+    "studyCount": 35,
+    "seriesCount": 152,
+    "imageCount": 19046
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "NM",
+    "site": "LUNG",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 5,
+    "imageCount": 5
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 13,
+    "studyCount": 16,
+    "seriesCount": 31,
+    "imageCount": 6904
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 38,
+    "studyCount": 88,
+    "seriesCount": 337,
+    "imageCount": 12292
+  },
+  {
+    "project": "TCGA-LUAD",
+    "modality": "PT",
+    "site": "CHEST",
+    "subjectCount": 6,
+    "studyCount": 8,
+    "seriesCount": 23,
+    "imageCount": 4116
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 6,
+    "imageCount": 840
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 14,
+    "studyCount": 22,
+    "seriesCount": 51,
+    "imageCount": 5351
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 11,
+    "studyCount": 11,
+    "seriesCount": 12,
+    "imageCount": 3326
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 3,
+    "studyCount": 8,
+    "seriesCount": 22,
+    "imageCount": 1753
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 7,
+    "imageCount": 1184
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 14,
+    "studyCount": 27,
+    "seriesCount": 110,
+    "imageCount": 13882
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "NM",
+    "site": "LUNG",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 10
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 15,
+    "imageCount": 3630
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "CT",
+    "site": "LUNG",
+    "subjectCount": 5,
+    "studyCount": 12,
+    "seriesCount": 46,
+    "imageCount": 5430
+  },
+  {
+    "project": "TCGA-LUSC",
+    "modality": "PT",
+    "site": "LUNG",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 6,
+    "imageCount": 1112
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 1,
+    "studyCount": 2,
+    "seriesCount": 6,
+    "imageCount": 239
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 32,
+    "studyCount": 175,
+    "seriesCount": 310,
+    "imageCount": 24732
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 8,
+    "studyCount": 8,
+    "seriesCount": 28,
+    "imageCount": 1937
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 42,
+    "studyCount": 42,
+    "seriesCount": 143,
+    "imageCount": 8886
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 18,
+    "studyCount": 18,
+    "seriesCount": 65,
+    "imageCount": 4091
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "OT",
+    "site": "OVARY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 1,
+    "imageCount": 21
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 2,
+    "studyCount": 6,
+    "seriesCount": 19,
+    "imageCount": 946
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 26,
+    "studyCount": 40,
+    "seriesCount": 150,
+    "imageCount": 7234
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "CT",
+    "site": "OVARY",
+    "subjectCount": 14,
+    "studyCount": 30,
+    "seriesCount": 99,
+    "imageCount": 4853
+  },
+  {
+    "project": "TCGA-OV",
+    "modality": "MR",
+    "site": "OVARY",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 23,
+    "imageCount": 723
+  },
+  {
+    "project": "TCGA-PRAD",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 140,
+    "imageCount": 11565
+  },
+  {
+    "project": "TCGA-PRAD",
+    "modality": "MR",
+    "site": "PROSTATE",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 34,
+    "imageCount": 1088
+  },
+  {
+    "project": "TCGA-PRAD",
+    "modality": "CT",
+    "site": "PROSTATE",
+    "subjectCount": 4,
+    "studyCount": 9,
+    "seriesCount": 25,
+    "imageCount": 2649
+  },
+  {
+    "project": "TCGA-PRAD",
+    "modality": "PT",
+    "site": "PROSTATE",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 8,
+    "imageCount": 1488
+  },
+  {
+    "project": "TCGA-READ",
+    "modality": "CT",
+    "site": "RECTUM",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 5,
+    "imageCount": 248
+  },
+  {
+    "project": "TCGA-READ",
+    "modality": "CT",
+    "site": "RECTUM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 2,
+    "imageCount": 108
+  },
+  {
+    "project": "TCGA-READ",
+    "modality": "MR",
+    "site": "RECTUM",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 27,
+    "imageCount": 1440
+  },
+  {
+    "project": "TCGA-SARC",
+    "modality": "CT",
+    "site": "CHEST",
+    "subjectCount": 4,
+    "studyCount": 4,
+    "seriesCount": 13,
+    "imageCount": 5053
+  },
+  {
+    "project": "TCGA-SARC",
+    "modality": "MR",
+    "site": "TSPINE",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 20,
+    "imageCount": 600
+  },
+  {
+    "project": "TCGA-STAD",
+    "modality": "CT",
+    "site": "STOMACH",
+    "subjectCount": 46,
+    "studyCount": 46,
+    "seriesCount": 308,
+    "imageCount": 43908
+  },
+  {
+    "project": "TCGA-THCA",
+    "modality": "CT",
+    "site": "THYROID",
+    "subjectCount": 2,
+    "studyCount": 2,
+    "seriesCount": 4,
+    "imageCount": 251
+  },
+  {
+    "project": "TCGA-THCA",
+    "modality": "CT",
+    "site": "THYROID",
+    "subjectCount": 4,
+    "studyCount": 5,
+    "seriesCount": 16,
+    "imageCount": 1759
+  },
+  {
+    "project": "TCGA-THCA",
+    "modality": "PT",
+    "site": "THYROID",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 8,
+    "imageCount": 770
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "CR",
+    "site": "UTERUS",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 3
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "CT",
+    "site": "UTERUS",
+    "subjectCount": 49,
+    "studyCount": 187,
+    "seriesCount": 670,
+    "imageCount": 55299
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "MR",
+    "site": "UTERUS",
+    "subjectCount": 5,
+    "studyCount": 5,
+    "seriesCount": 65,
+    "imageCount": 3951
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "PT",
+    "site": "UTERUS",
+    "subjectCount": 4,
+    "studyCount": 10,
+    "seriesCount": 34,
+    "imageCount": 6877
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "CT",
+    "site": "Unspecified",
+    "subjectCount": 7,
+    "studyCount": 7,
+    "seriesCount": 33,
+    "imageCount": 2983
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "MR",
+    "site": "Unspecified",
+    "subjectCount": 3,
+    "studyCount": 3,
+    "seriesCount": 43,
+    "imageCount": 2557
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "CT",
+    "site": "UTERUS",
+    "subjectCount": 9,
+    "studyCount": 23,
+    "seriesCount": 61,
+    "imageCount": 5026
+  },
+  {
+    "project": "TCGA-UCEC",
+    "modality": "PT",
+    "site": "UTERUS",
+    "subjectCount": 1,
+    "studyCount": 1,
+    "seriesCount": 3,
+    "imageCount": 518
+  },
+  {
+    "project": "VICTRE",
+    "modality": "MG",
+    "site": "BREAST",
+    "subjectCount": 2994,
+    "studyCount": 8749,
+    "seriesCount": 8749,
+    "imageCount": 217913
+  }
+]

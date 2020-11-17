@@ -1,0 +1,88 @@
+#frame {
+  height: 600px;
+  width: 100%;
+  margin: -5px;
+  padding: 5px;
+}
+
+#buttons{
+  display: flex;
+  flex-direction: column;
+  height: 99%;
+  width: 30px;
+}
+.btn{
+  flex-grow: 1;
+}
+#filter{
+  display: inline-block;
+  flex-grow: 1;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+#result{
+  flex-direction: column;
+  display: flex;
+  min-width: 0;
+}
+#selector{
+  height: 30px;
+  display: flex;
+}
+#applybtn{
+  height: 30px;
+}
+#interact{
+  flex-grow: 1
+}
+#mainVis{
+  align-items: center;
+  flex-grow: 1;
+  min-width: 0;
+}
+#linkbox{
+  height: 30px;
+  display: flex;
+}
+#summary{
+  height: 30px;
+}
+
+#repo{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 99%;
+  width: 100%;
+  overflow: auto;
+}
+
+#filters {
+  display: flex;
+  flex-grow: 1;
+  min-width: 400px;
+  width: 39%;
+  height: 99%
+}
+
+@media (max-width: 800px) {
+  .filters {
+    width: 100%;
+  }
+}
+
+#result {
+  width: 60%;
+  flex-grow: 1;
+  min-width: 400px;
+  height: 99%;
+}
+
+body{
+  min-width: 450px;
+}
+
+div {
+  border-style: solid;
+}

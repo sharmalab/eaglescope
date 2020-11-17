@@ -43,8 +43,6 @@ class ScatterPlot extends BaseVisualization {
       if (e.length >0 && e[0].fields.length > 1){
         window.clearTimeout(this.lastEvent)
         this.lastEvent = window.setTimeout(x=>{
-          console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
-          console.log("VALUE", e[0].values[0], e[0].values[1])
         },500)
       }
     })
@@ -86,8 +84,6 @@ class ScatterPlot extends BaseVisualization {
       if (e.length >0 && e[0].fields.length > 1){
         window.clearTimeout(this.lastEvent)
         this.lastEvent = window.setTimeout(x=>{
-          console.log("FIELD", e[0].fields[0].field, e[0].fields[1].field)
-          console.log("VALUE", e[0].values[0], e[0].values[1])
         },500)
       }
     })

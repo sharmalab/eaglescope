@@ -1,0 +1,20 @@
+.filterOperationPanel {   
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: .5rem;
+    padding: .5rem;
+    background-color: #ececec;
+    border-radius: .25rem;
+    border: #ddd 1px solid;
+}
+
+.filterOperationPanel > .badge {
+    margin: .25rem !important;
+    padding: 0 0 0 .25rem !important;
+}
+
+.filterOperationPanel > .btn {
+    margin: .25rem !important;
+    padding: 0 .25rem !important;
+}

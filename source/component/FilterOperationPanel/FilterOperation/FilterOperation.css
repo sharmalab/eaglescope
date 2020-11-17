@@ -1,0 +1,23 @@
+.title {
+    color:#000000;
+    font-weight: bold;
+
+}
+.separator {
+    color:#FAF0E6;
+}
+.opr {
+    color:#FAF0E6;
+}
+.value {
+    color:#0000CD;
+}
+.field {
+    color:#FFA500;
+}
+.error {
+    color:#8B0000;
+}
+.warning {
+    color:#FF8C00;
+}

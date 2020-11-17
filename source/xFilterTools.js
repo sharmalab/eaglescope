@@ -1,8 +1,6 @@
 // in this mode greater and less should always be used together.
 function filterData(dataObj, rules){
-  console.log(dataObj)
   if (JSON.stringify(rules) == "{}" ) {
-    console.log("ALLDATA")
     return dataObj.xf.all()
   } else {
     for (let rule in rules){
