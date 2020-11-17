@@ -11,7 +11,8 @@ VisTypeComponents.PIE_CHART = "PieChart";
 VisTypeComponents.BAR_CHART = "BarChart";
 VisTypeComponents.HORIZONTAL_BAR_CHART ="HorizontalBarChart";
 VisTypeComponents.SCATTER_CHART = "ScatterChart";
+VisTypeComponents.KM_CURVE = "KMCurve";
 VisTypeComponents.VIS_DATA_TABLE = "VisDataTable";
-VisTypeComponents.VEGA_LITE_PLOT = "VegaLitePlot"
+VisTypeComponents.VEGA_LITE_PLOT = "VegaLitePlot";
 
 export default VisTypeComponents

@@ -24,13 +24,6 @@ export default class BarChart extends Component {
         return new_data;
         
     }
-    createXAixs(svg) {
-
-    }
-
-    createYAixs(svg) {
-
-    }
 
     createXScale(f,width) {
         // set the ranges
@@ -214,30 +207,6 @@ export default class BarChart extends Component {
               ref={this.self}
               style={{ width: "100%", height: "100%" }}
             ></div>
-        );
-        return (
-        <div >
-          <svg width={this.props.width} height={this.props.height}>
-            {this.state.bars.map((d, i) => (
-              <rect
-                key={i}
-                x={d.x}
-                y={d.y}
-                width="2"
-                height={d.height}
-                fill={d.fill}
-              />
-            ))}
-            <g>
-              <g
-                ref="xAxis"
-                transform={`translate(0, ${height - margin.bottom})`}
-              />
-              <g ref="yAxis" transform={`translate(${margin.left}, 0)`} />
-              <g ref="brush" />
-            </g>
-          </svg>
-          </div>
         );
       }
 }

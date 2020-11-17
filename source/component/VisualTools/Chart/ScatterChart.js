@@ -67,11 +67,11 @@ export default class ScatterChart extends Component {
 
         viewer.append("g")
         .attr("transform", "translate(0," + innerHeight + ")")
-        .call(d3.axisBottom(this.xScale).tickSize(-innerWidth));
+        .call(d3.axisBottom(this.xScale).tickSize(-innerHeight));
         
         // add the y Axis
         viewer.append("g")
-            .call(d3.axisLeft(this.yScale).tickSize(-innerHeight));        
+            .call(d3.axisLeft(this.yScale).tickSize(-innerWidth));
 
 
 

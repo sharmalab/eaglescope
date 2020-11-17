@@ -29,6 +29,16 @@ export default class VisDataTable extends Component {
                   key={id} dataKey={f.dataKey}
                   label={f.label}
                   width={width*f.width}
+                  cellRenderer = {(d)=>{
+                    
+                    if(f.link) {
+                      const URL = `${f.link.url+d.rowData[f.link.field]}`
+                      return <a href={URL}>{d.cellData}</a>;
+                    } else {
+                      return d.cellData;
+                    }
+                    
+                  }}
                 />)}
               </Table>
             )}

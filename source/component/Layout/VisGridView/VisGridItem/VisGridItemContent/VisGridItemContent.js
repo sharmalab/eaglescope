@@ -15,6 +15,9 @@ const PieChart = React.lazy(() =>
 const BarChart = React.lazy(() =>
   import("../../../../VisualTools/Chart/BarChart")
 );
+const KMCurve = React.lazy(() =>
+  import("../../../../VisualTools/Chart/KMCurve")
+);
 const HorizontalBarChart = React.lazy(() =>
   import("../../../../VisualTools/Chart/HorizontalBarChart")
 );
@@ -68,9 +71,13 @@ export default class VisGridItemContent extends Component {
         component = <BarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
-        case "HorizontalBarChart":
-          component = <HorizontalBarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+      case "KMCurve":
+          component = <KMCurve {...this.props} data={this.props.data} filterData={this.props.filterData}
           filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+          break;
+      case "HorizontalBarChart":
+        component = <HorizontalBarChart {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
       case "VisDataTable":
         component = <VisDataTable {...this.props} data={this.props.data} filterData={this.props.filterData}

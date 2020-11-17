@@ -45,7 +45,6 @@ export default class PieChart extends Component {
   componentDidMount() {
     
     const rect = this.self.current.getBoundingClientRect();
-
     const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
     const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
     const radius = Math.min(innerWidth, innerHeight)/2
