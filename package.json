@@ -29,7 +29,7 @@
     "bootstrap": "^4.4.1",
     "crossfilter2": "^1.5.2",
     "d3": "^5.16.0",
-    "jquery": "^3.5.1",
+    "jquery": "^3.5.0",
     "mdbreact": "^4.26.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
