@@ -161,7 +161,7 @@ class App extends React.Component {
   componentDidMount() {
     if (_CONFIG_.DATA_FORMAT === 'csv') {
       d3.csv(_CONFIG_.DATA_RESOURCE_URL,d=>covertRaw(d)).then(data=>{
-        console.log('data',data)
+        console.log('csv')
         this.setState({
           isLoaded: true,
           data: data
@@ -172,6 +172,7 @@ class App extends React.Component {
       fetch(_CONFIG_.DATA_RESOURCE_URL, {
         mode: 'cors'
       }).then(res => res.json()).then(data => {
+        console.log('json')
         // TODO need a replace method to replace null, undefined etc.
         data.forEach(d => {// clear up null value
           if (d.disease_type == null) d.disease_type = 'NA'
@@ -182,7 +183,6 @@ class App extends React.Component {
         return data;
       })
         .then((data) => {
-          console.log(data)
           this.setState({
             isLoaded: true,
             data: data

@@ -25,16 +25,6 @@ export default class KMCurve extends Component {
         }else{
             this.state.data = this.transform(this.props.data, this.props.fields);
         }
-        
-
-        console.log(this.state.data)
-        console.log(this.maxTime)
-        // this.state.data = {
-        //     l1:generateData(),
-        //     l2:generateData()
-        // }
-        // console.log("KM Data",this.state.data);
-        // //this.state.horizontal = true;
     }
     transform(data,field){
         const event_value = field.eventValue;
@@ -88,7 +78,6 @@ export default class KMCurve extends Component {
     }    
     shouldComponentUpdate ( nextProps, nextState ) {
         // TODO LIST
-        console.log('KMCurve shouldComponentUpdate')
         //console.log(nextProps.filters, this.props.filters)
         // const flag = isEquivalent(nextProps.filters, this.props.filters);
         // console.log(flag)
@@ -138,10 +127,9 @@ export default class KMCurve extends Component {
     }
 
     componentDidUpdate() {
-        console.log('componentDidUpdate')
+
     }
     componentDidMount() {
-        console.log('KM Curve')
         const rect = this.self.current.getBoundingClientRect();
         const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
         const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;

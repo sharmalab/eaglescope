@@ -68,7 +68,6 @@ class VisGridView extends Component {
   }
   render() {
     if (this.state.config.layout.length > 0) {
-      console.log('view',this.props)
       let __vis = this.state.config.layout.map((item, index) => (
         
         <div key={item.i}>
