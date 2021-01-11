@@ -4,6 +4,7 @@ import RestDataSource from "./xfRestDataSource.js";
 import VisTypes from "./component/VisTypes.js";
 import vegaSpecs from "./vegaSpecs.js";
 import ResetButton from "./component/ResetButton.js";
+import HomeButton from "./component/HomeButton.js";
 import { render } from "react-dom";
 import Spinner from 'react-bootstrap/Spinner'
 import VisGridView from "./component/Layout/VisGridView/VisGridView.js";
@@ -31,9 +32,9 @@ import 'react-virtualized/styles.css';
 // config for view grid and vis compoments
 import _CONFIG_ from "../config/vis-config.json";
 
-// var __DM = null; 
+// var __DM = null;
 function isNumeric(str) {
-  if (typeof str != "string") return false // we only process strings!  
+  if (typeof str != "string") return false // we only process strings!
   return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
          !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
 }
@@ -105,9 +106,9 @@ class App extends React.Component {
 
   }
   // {
-  //    id: 
-  //    field:xxx, 
-  //    operation:, eq,  gt, gte, in, lt, lte, ne, nin, 
+  //    id:
+  //    field:xxx,
+  //    operation:, eq,  gt, gte, in, lt, lte, ne, nin,
   //    value: value, value, value, list, value, value, value, list, []
   // }
   addFiltersHandler(filters) {
@@ -115,7 +116,7 @@ class App extends React.Component {
     const old_filters = [...this.state.filters];
 
 
-    // remove first 
+    // remove first
     let new_filters = old_filters.filter(of => filters.some(nf => !(of.id == nf.id)))
 
 
@@ -165,7 +166,7 @@ class App extends React.Component {
         this.setState({
           isLoaded: true,
           data: data
-        });        
+        });
       })
 
     } else if (_CONFIG_.DATA_FORMAT === 'json') {
