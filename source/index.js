@@ -231,6 +231,7 @@ class App extends React.Component {
             <span className="navbar-brand mb-0 h1 whitetext" >
               TCIA Clinical Data Explorer
           </span>
+          <HomeButton/>
             <div style={{ width: '450px' }}>
               <ProgressBar
                 min={0}

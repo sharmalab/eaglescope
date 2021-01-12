@@ -6,10 +6,13 @@ class HomeButton extends BaseVisualization {
     super(props, ctx);
   }
   goHome(){
-    alert("this will go to a home link")
+    const query = new URLSearchParams(window.location.search);
+    const homeUrl = query.get("homeurl") || "../"
+    console.log(homeUrl)
+    window.location.href = homeUrl;
   }
   render() {
-    return <div id={this.id} onClick={()=>{this.goHome()}>HOME</div>
+    return <button id={this.id} onClick={()=>{this.goHome()}}>HOME</button>
 
   }
 }
