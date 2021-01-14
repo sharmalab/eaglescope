@@ -12,6 +12,7 @@ import _CONFIG_ from "../../../../config/vis-config.json";
 
 // enumeration for 
 import VisTypeEnum from "../../VisualTools/VisTypeEnum.json";
+import { config } from "@fortawesome/fontawesome-svg-core";
 
 // import 
 const _config = {
@@ -22,6 +23,8 @@ class VisGridView extends Component {
   constructor(props) {
     super(props);
     this.self = React.createRef();
+    this.navHeight = 56;
+    this.filterHeight = 65;
     this.state = {
       draggableHandle: ".draggable",
       width: 0, // -> cols
@@ -33,16 +36,26 @@ class VisGridView extends Component {
         visConfig: [..._CONFIG_.VISUALIZATION_VIEW_CONFIGURATION]
       },
       error: null,
-      isLoad: false
+      isLoad: false,
     };
+
+    //
   }
   /**
    * Calculate & Update state of new dimensions
    */
   updateViewSize() {
     const rect = this.self.current.getBoundingClientRect();
+    console.log(rect, window.innerWidth, window.innerHeight)
     const cols = parseInt((rect.width - this.state.config.margins[0] ) / (this.state.config.grid[0]+this.state.config.margins[0]));
+    
     if(cols===this.state.cols) return;
+    
+    // if(this.state.config.visConfig.find(config=>config.fullScreened)){
+    //   console.log('FUll')
+    // }else{
+    //   console.log('No FUll')
+    // }
     const gridLayoutWidth =
       cols * this.state.config.grid[0] +
       (cols + 1) * this.state.config.margins[0];
@@ -53,24 +66,46 @@ class VisGridView extends Component {
     updatedState.config.layout = [...updatedLayout.layout];
     // calculate width and height
     this.setState(updatedState);
+
+    this.fullScreenHandler = this.fullScreenHandler.bind(this);
+
   }
+
+  // onRemoveItem(id) {
+  //   console.log("removing", id);
+  //   //this.state.config.layout
+  //   //this.setState({ items: _.reject(this.state.items, { i: i }) });
+  // }
+  fullScreenHandler(id, fullScreened) {
+    const newVisConfig = [...this.state.config.visConfig].map(config=>{
+      config.fullScreened = config.id==id?fullScreened: false;
+      return config;
+    })
+    const updatedState = { ...this.state };
+    updatedState.config.visConfig = newVisConfig;
+    this.setState(updatedState);
+  }
+
   componentDidMount() {
     // TODO loading config
-
-
     //
+    console.log('componentDidMount')
     this.updateViewSize();
     // TODO debouce
     window.addEventListener("resize", this.updateViewSize.bind(this));
   }
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateViewSize.bind(this));
+
+  componentDidUpdate() {
+
   }
+
+
   render() {
+    console.log(this.state)
     if (this.state.config.layout.length > 0) {
       let __vis = this.state.config.layout.map((item, index) => (
         
-        <div key={item.i}>
+        <div key={item.i} className="border border-primary">
           <VisGridItem 
             {...item}
             operation={this.state.config.visConfig[index]}
@@ -79,6 +114,7 @@ class VisGridView extends Component {
             filters={this.props.filters}
             filterAdded = {this.props.filterAdded}
             filterRemove = {this.props.filterRemove}
+            toggleFullScreen={this.fullScreenHandler}
           />
         </div>
       ));

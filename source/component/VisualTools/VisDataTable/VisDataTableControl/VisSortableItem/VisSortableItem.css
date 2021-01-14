@@ -1,0 +1,39 @@
+.vis-sortable-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 .3rem;
+    margin: .2rem;
+    background-color: var(--light);
+    font-size: 0.8rem;
+    text-transform: none;
+    border: solid 1px #c2c2c2;
+    z-index: 1100;
+    color: var(--gray-dark);
+}
+.vis-sortable-item .drag-handle {
+    cursor: grab;
+}
+.vis-sortable-item:focus .drag-handle,
+.vis-sortable-item:active .drag-handle {
+    cursor: grabbing;
+}
+.vis-sortable-item .input-box {
+    display: flex;
+    align-items: center;
+}
+.vis-sortable-item .truncated-text {
+    cursor: default;
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding: 0 .5rem;
+    font-weight: bolder;
+    
+}
+
+/* .vis-sortable-item input[type="checkbox"] {
+
+} */

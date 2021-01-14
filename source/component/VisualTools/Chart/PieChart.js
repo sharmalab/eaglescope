@@ -26,7 +26,7 @@ export default class PieChart extends Component {
   }
 
   componentDidUpdate() {
-    console.log('pie did update')
+    // console.log('pie did update')
     const filters = this.props.filters.filter(f=>f.id==this.props.id)
     if(filters.length > 0){ // has filters
       this.pies

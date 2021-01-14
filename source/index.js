@@ -1,9 +1,4 @@
 import React from "react";
-import DataManager from "./DataManager.js";
-import RestDataSource from "./xfRestDataSource.js";
-import VisTypes from "./component/VisTypes.js";
-import vegaSpecs from "./vegaSpecs.js";
-import ResetButton from "./component/ResetButton.js";
 import HomeButton from "./component/HomeButton.js";
 import { render } from "react-dom";
 import Spinner from 'react-bootstrap/Spinner'
@@ -162,7 +157,6 @@ class App extends React.Component {
   componentDidMount() {
     if (_CONFIG_.DATA_FORMAT === 'csv') {
       d3.csv(_CONFIG_.DATA_RESOURCE_URL,d=>covertRaw(d)).then(data=>{
-        console.log('csv')
         this.setState({
           isLoaded: true,
           data: data
@@ -173,7 +167,6 @@ class App extends React.Component {
       fetch(_CONFIG_.DATA_RESOURCE_URL, {
         mode: 'cors'
       }).then(res => res.json()).then(data => {
-        console.log('json')
         // TODO need a replace method to replace null, undefined etc.
         data.forEach(d => {// clear up null value
           if (d.disease_type == null) d.disease_type = 'NA'
@@ -232,24 +225,12 @@ class App extends React.Component {
               TCIA Clinical Data Explorer
           </span>
           <HomeButton/>
-            <div style={{ width: '450px' }}>
-              <ProgressBar
-                min={0}
-                max={data.length}
-                now={progressAttrs.now}
-                label={progressAttrs.label} />
-            </div>
-            {/* <button
-            id="gogo"
-            className="clear-btn"
-            title="Exploration"
-            onClick={() => this.removeFiltersHandler('ALL')}
-          >
-            <span className="fa fa-long-arrow-alt-left">{data.length} </span> Back to Search
-            Portal
-          </button>
-          <ResetButton id="rb1" />
-          <VisTypes.Sample id="count1" /> */}
+          <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
+            min={0}
+            variant="success"
+            max={data.length}
+            now={progressAttrs.now}
+            label={progressAttrs.label} />
           </nav>
           <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
           <VisGridView

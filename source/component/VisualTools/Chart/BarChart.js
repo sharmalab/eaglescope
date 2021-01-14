@@ -49,7 +49,7 @@ export default class BarChart extends Component {
     }
     shouldComponentUpdate ( nextProps, nextState ) {
         // TODO LIST
-        console.log('bar shouldComponentUpdate')
+        // console.log('bar shouldComponentUpdate')
         //console.log(nextProps.filters, this.props.filters)
         // const flag = isEquivalent(nextProps.filters, this.props.filters);
         // console.log(flag)
@@ -101,7 +101,7 @@ export default class BarChart extends Component {
     }
 
     componentDidUpdate() {
-        console.log('bar update',this.props)
+        // console.log('bar update',this.props)
         let data = [];
         if(this.props.filters.length > 0){
             data = this.transform(this.props.filterData, this.props.fields.x)
@@ -111,8 +111,6 @@ export default class BarChart extends Component {
         this.filterbars= this.drawBar(this.viewer,data,'ft');
     }
     componentDidMount() {
-
-        console.log('bar',this.props)
         const rect = this.self.current.getBoundingClientRect();
         this.innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
         this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;

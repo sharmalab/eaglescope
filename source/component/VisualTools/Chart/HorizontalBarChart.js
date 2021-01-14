@@ -48,8 +48,8 @@ export default class HorizontalBarChart extends Component {
         return xScale;
     }
     shouldComponentUpdate ( nextProps, nextState ) {
-        // TODO LIST
-        console.log('bar shouldComponentUpdate')
+        // // TODO LIST
+        // console.log('bar shouldComponentUpdate')
         //console.log(nextProps.filters, this.props.filters)
         // const flag = isEquivalent(nextProps.filters, this.props.filters);
         // console.log(flag)
@@ -98,7 +98,7 @@ export default class HorizontalBarChart extends Component {
     }
 
     componentDidUpdate() {
-        console.log('bar update',this.props)
+        // console.log('bar update',this.props)
         let data = [];
         if(this.props.filters.length > 0){
             data = this.transform(this.props.filterData, this.props.fields.y)
@@ -110,7 +110,6 @@ export default class HorizontalBarChart extends Component {
     }
     componentDidMount() {
 
-        console.log('bar',this.props)
         const rect = this.self.current.getBoundingClientRect();
         const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
         this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;

@@ -28,14 +28,7 @@ const ScatterChart = React.lazy(() =>
 const VisDataTable = React.lazy(() =>
   import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
-const VegaLitePlot = React.lazy(() =>
-  import("../../../../VegaLitePlot")
-);
 
-
-//import BarChart from '../../../../VisualTools/Chart/BarChart';
-//import PieChart from '../../../../VisualTools/Chart/PieChart';
-//import Table from '../../../../VisualTools/Table/Table';
 
 const _style = {
   display: "flex",
