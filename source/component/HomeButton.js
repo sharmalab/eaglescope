@@ -1,6 +1,8 @@
 import React from 'react';
 import BaseVisualization from './BaseVisualization.js'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHome } from '@fortawesome/free-solid-svg-icons'
+import Button from 'react-bootstrap/Button'
 class HomeButton extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
@@ -12,8 +14,7 @@ class HomeButton extends BaseVisualization {
     window.location.href = homeUrl;
   }
   render() {
-    return <button id={this.id} onClick={()=>{this.goHome()}}>HOME</button>
-
+    return <Button size="lg" id={this.id} onClick={()=>{this.goHome()}}><FontAwesomeIcon icon={faHome}/></Button>
   }
 }
 

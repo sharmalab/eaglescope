@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import VisGridItemContent from "./VisGridItemContent/VisGridItemContent";
 import VisGridItemHeader from "./VisGridItemHeader/VisGridItemHeader";
 
 // css class
 import "./VisGridItem.css";
 
-export default class VisGridItem extends Component {
+export default class VisGridItem extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { hover: false };

@@ -21,11 +21,13 @@
   background-color: var(--light);
   font-size: 0.8rem;
   text-transform: none;
+  outline: none;
 }
 
 .ReactVirtualized__Table__headerRow {
     border-bottom: 1px solid #d1d1d1;
 }
+
 .ReactVirtualized__Table__rowColumn {
   flex-direction: row;
   display: flex;

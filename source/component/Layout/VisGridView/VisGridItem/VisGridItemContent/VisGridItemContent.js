@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from "react";
+import React, { PureComponent, Suspense } from "react";
 // import PropTypes from "prop-types";
 
 // css class
@@ -42,7 +42,7 @@ const _style1 = {
   visibility: "visible"
 };
 
-export default class VisGridItemContent extends Component {
+export default class VisGridItemContent extends PureComponent {
   constructor(props) {
     super(props);
   }

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {numFixed} from '../../../common/utils.js'; 
 import * as d3 from "d3";
 import "./style.css";
-export default class ScatterChart extends Component {
+export default class ScatterChart extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -39,7 +39,6 @@ export default class ScatterChart extends Component {
     }
 
     componentDidUpdate(){
-        console.log('componentDidUpdate')
         if(this.props.filters.length > 0){
             this.circles.attr('class', d=> this.props.filterData.includes(d)?'brushed':'non_brushed')
         }else{

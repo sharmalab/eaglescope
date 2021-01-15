@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import PropTypes from "prop-types";
 import VisGridItemControl from "../VisGridItemControl/VisGridItemControl";
 // css class
@@ -6,7 +6,7 @@ import "./VisGridItemHeader.css";
 const style = {
 
 };
-export default class VisGridItemHeader extends Component {
+export default class VisGridItemHeader extends PureComponent {
   constructor(props) {
     super(props);
     

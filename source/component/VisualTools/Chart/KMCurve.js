@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {isEquivalent} from '../../../common/utils.js'
 import * as d3 from "d3";
 
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive 
-}
 function isUndefined(d){
     return d==undefined||d==null||(typeof d === 'string' && d.toLowerCase()==`na`)
 }
-export default class KMCurve extends Component {
+export default class KMCurve extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -75,14 +70,8 @@ export default class KMCurve extends Component {
         
         return rs;
         
-    }    
-    shouldComponentUpdate ( nextProps, nextState ) {
-        // TODO LIST
-        //console.log(nextProps.filters, this.props.filters)
-        // const flag = isEquivalent(nextProps.filters, this.props.filters);
-        // console.log(flag)
-        return true;
     }
+    
     drawLine(viewer, points, color){
         const line = d3.line()
         .curve(d3.curveStepAfter)

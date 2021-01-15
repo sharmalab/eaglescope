@@ -1,6 +1,4 @@
-import React, {Component} from "react";
-import { Responsive, WidthProvider, GridItem } from "react-grid-layout";
-
+import React, {PureComponent} from "react";
 import GridLayout from "react-grid-layout";
 import VisGridItem from "./VisGridItem/VisGridItem";
 import { getLayoutConfig } from "../../../common/utils";
@@ -11,15 +9,8 @@ import "./VisGridView.css";
 import _CONFIG_ from "../../../../config/vis-config.json";
 
 // enumeration for 
-import VisTypeEnum from "../../VisualTools/VisTypeEnum.json";
-import { config } from "@fortawesome/fontawesome-svg-core";
 
-// import 
-const _config = {
-  layout: []
-};
-
-class VisGridView extends Component {
+class VisGridView extends PureComponent {
   constructor(props) {
     super(props);
     this.self = React.createRef();
@@ -87,9 +78,6 @@ class VisGridView extends Component {
   }
 
   componentDidMount() {
-    // TODO loading config
-    //
-    console.log('componentDidMount')
     this.updateViewSize();
     // TODO debouce
     window.addEventListener("resize", this.updateViewSize.bind(this));
@@ -101,7 +89,6 @@ class VisGridView extends Component {
 
 
   render() {
-    console.log(this.state)
     if (this.state.config.layout.length > 0) {
       let __vis = this.state.config.layout.map((item, index) => (
         

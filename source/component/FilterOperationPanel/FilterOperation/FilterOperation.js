@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import Badge from 'react-bootstrap/Badge'
 import Button from 'react-bootstrap/Button'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/fontawesome-free-solid'
 import './FilterOperation.css';
-export default class FilterOperation extends Component {
+export default class FilterOperation extends PureComponent {
     formatValues(values){
         if(Array.isArray(values)){
 

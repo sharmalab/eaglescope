@@ -123,7 +123,7 @@ class App extends React.Component {
     // do filter
     const dataset_afterFilter = filterData(this.state.data, new_filters);
 
-    this.setState({ filterData: dataset_afterFilter, filters: new_filters })
+    this.setState({ filterData: [...dataset_afterFilter], filters: [...new_filters] })
 
   }
 
@@ -137,21 +137,18 @@ class App extends React.Component {
       return;
     }
     const old_filters = [...this.state.filters];
-    console.log('old', old_filters)
     let new_filters = [];
     if (isIndex) {
       new_filters = old_filters.filter((f, idx) => idx != id)
     } else {
       new_filters = old_filters.filter(of => of.id !== id)
     }
-
-    console.log('new', new_filters)
     if (new_filters.length <= 0) {
       this.setState({ filterData: [], filters: [] });
       return;
     }
     const dataset_afterFilter = filterData(this.state.data, new_filters);
-    this.setState({ filterData: dataset_afterFilter, filters: new_filters })
+    this.setState({ filterData: [...dataset_afterFilter], filters: [...new_filters] })
   }
 
   componentDidMount() {
@@ -220,17 +217,17 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <nav className="navbar blue-bar">
-            <span className="navbar-brand mb-0 h1 whitetext" >
-              TCIA Clinical Data Explorer
-          </span>
-          <HomeButton/>
-          <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
-            min={0}
-            variant="success"
-            max={data.length}
-            now={progressAttrs.now}
-            label={progressAttrs.label} />
+          <nav className="navbar blue-bar pl-0">
+            <div>
+            <HomeButton/>
+            <span className="navbar-brand px-2 mb-0 h1 whitetext" >TCIA Clinical Data Explorer</span>
+            </div>
+            <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
+              min={0}
+              variant="success"
+              max={data.length}
+              now={progressAttrs.now}
+              label={progressAttrs.label} />
           </nav>
           <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
           <VisGridView

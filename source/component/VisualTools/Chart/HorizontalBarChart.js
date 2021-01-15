@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {isEquivalent} from '../../../common/utils.js'
 import * as d3 from "d3";
 
-export default class HorizontalBarChart extends Component {
+export default class HorizontalBarChart extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -46,14 +46,6 @@ export default class HorizontalBarChart extends Component {
         .domain([0, d3.max(this.state.data, function(d) { return d[f]; })])
         .range([0, width]);
         return xScale;
-    }
-    shouldComponentUpdate ( nextProps, nextState ) {
-        // // TODO LIST
-        // console.log('bar shouldComponentUpdate')
-        //console.log(nextProps.filters, this.props.filters)
-        // const flag = isEquivalent(nextProps.filters, this.props.filters);
-        // console.log(flag)
-        return true;
     }
 
     drawBar(selection, data, className='og') {

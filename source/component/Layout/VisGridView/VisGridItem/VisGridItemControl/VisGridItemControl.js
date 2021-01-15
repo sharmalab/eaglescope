@@ -1,4 +1,4 @@
-import React, { Component, Suspense } from "react";
+import React, { PureComponent, Suspense } from "react";
 import Button from 'react-bootstrap/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -9,7 +9,7 @@ import { faCompressArrowsAlt, faExpandArrowsAlt } from '@fortawesome/free-solid-
 // css class
 import "./VisGridItemControl.css";
 
-export default class VisGridItemControl extends Component {
+export default class VisGridItemControl extends PureComponent {
   constructor(props) {
     super(props);
   }

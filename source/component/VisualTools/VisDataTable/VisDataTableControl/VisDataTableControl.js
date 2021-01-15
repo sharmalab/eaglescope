@@ -11,23 +11,28 @@ import { faCog, faCheckSquare, faArrowsAltV } from '@fortawesome/free-solid-svg-
 import Button from 'react-bootstrap/Button';
 
 import './VisDataTableControl.css';
+import { PureComponent } from 'react';
 const SortableContainer = sortableContainer(({ children }) => {
     return <div>{children}</div>;
 });
 
-export class VisDataTableControl extends Component {
+export class VisDataTableControl extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
             show: false
         }
         this.onClickHandler = this.onClickHandler.bind(this);
+        this.onMouseOutHandler = this.onMouseOutHandler.bind(this);
         this.renderPopOver = this.renderPopOver.bind(this);
     }
     onClickHandler() {
         this.setState({ show: !this.state.show })
     }
-
+    onMouseOutHandler(){
+        console.log('out')
+        this.setState({ show: !this.state.show })
+    }
     renderPopOver(props) {
         return (<Popover {...props}>
             <Popover.Title as="div" >
@@ -54,7 +59,7 @@ export class VisDataTableControl extends Component {
         const style = { position: 'absolute', right: 0, color:'var(--gray)' }
         return (
             <OverlayTrigger trigger="click" placement="bottom-end" overlay={this.renderPopOver}>
-                <Button variant="light" style={style} className="py-0 px-1 border-gray" onClick={this.onClickHandler} active={this.state.show}>
+                <Button variant="light" style={style} className="py-0 px-1 border-gray" onMouseOut={this.onMouseOutHandler} onClick={this.onClickHandler} active={this.state.show}>
                     <FontAwesomeIcon icon={faCog} />
                 </Button>
             </OverlayTrigger>

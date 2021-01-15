@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import FilterOperation from './FilterOperation/FilterOperation.js'
 import Button from 'react-bootstrap/Button'
 import './FilterOperationPanel.css'
 
-export default class FilterOperationPanel extends Component {
+export default class FilterOperationPanel extends PureComponent {
 
     
     render() {
