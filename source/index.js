@@ -1,10 +1,12 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import HomeButton from "./component/HomeButton.js";
 import { render } from "react-dom";
 import Spinner from 'react-bootstrap/Spinner'
 import VisGridView from "./component/Layout/VisGridView/VisGridView.js";
+import VisFullScreenView from "./component/Layout/VisFullScreenView/VisFullScreenView.js"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import FilterOperationPanel from './component/FilterOperationPanel/FilterOperationPanel.js'
+import { debounce } from "lodash";
 import * as d3 from "d3";
 import {
   Responsive,
@@ -31,15 +33,15 @@ import _CONFIG_ from "../config/vis-config.json";
 function isNumeric(str) {
   if (typeof str != "string") return false // we only process strings!
   return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
-         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+    !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
 }
-function covertRaw(elt){
-  for(let key in elt){
+function covertRaw(elt) {
+  for (let key in elt) {
     const raw = elt[key];
-    if(isNumeric(raw)){
+    if (isNumeric(raw)) {
       elt[key] = +raw;
-    } else if(raw == 'true'||raw == 'false' ){
-      elt[key] = raw=='true' ? true : false;
+    } else if (raw == 'true' || raw == 'false') {
+      elt[key] = raw == 'true' ? true : false;
     }
   }
   return elt;
@@ -87,18 +89,35 @@ function filterData(data, filters) {
   })
 }
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
+    console.log('config', _CONFIG_)
     this.state = {
       error: null,
       isLoaded: false,
       data: [],
       filterData: [],
       filterOperators: "AND", // "OR"
-      filters: []
-    };
+      filters: [],
+      isFullScreen: false,
+      fullScreenVis: null,
 
+
+    };
+    this.view = React.createRef();
+    this.resizeHandler = this.resizeHandler.bind(this);
+    this.debounceResizeHandler = debounce(this.resizeHandler, 500, { "maxWait": 1000 })
+    this.fullScreenHandler = this.fullScreenHandler.bind(this)
+
+  }
+  fullScreenHandler(id, fullScreened){
+    console.log(id, fullScreened)
+    this.setState({
+      isFullScreen: fullScreened,
+      fullScreenVis: id
+    })
+    //console.log(this.state)
   }
   // {
   //    id:
@@ -153,7 +172,7 @@ class App extends React.Component {
 
   componentDidMount() {
     if (_CONFIG_.DATA_FORMAT === 'csv') {
-      d3.csv(_CONFIG_.DATA_RESOURCE_URL,d=>covertRaw(d)).then(data=>{
+      d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
         this.setState({
           isLoaded: true,
           data: data
@@ -192,6 +211,25 @@ class App extends React.Component {
         )
     }
 
+
+    if (this.state.isFullScreen) {
+      // debounce();
+      this.resizeHandler();
+    }
+
+
+    // TODO debouce
+    window.addEventListener("resize", this.debounceResizeHandler);
+
+  }
+  resizeHandler() {
+    
+    console.log(`resized to: ${this.state.isFullScreen}`, window.innerWidth, 'x', window.innerHeight)
+  }
+
+  componentWillUnmount() {
+    console.log('index componentWillUnmount')
+    window.removeEventListener("resize", this.debounceResizeHandler);
   }
 
   render() {
@@ -216,11 +254,11 @@ class App extends React.Component {
       </div>;
     } else {
       return (
-        <div>
+        <div ref={this.view}>
           <nav className="navbar blue-bar pl-0">
             <div>
-            <HomeButton/>
-            <span className="navbar-brand px-2 mb-0 h1 whitetext" >TCIA Clinical Data Explorer</span>
+              <HomeButton />
+              <span className="navbar-brand px-2 mb-0 h1 whitetext" >TCIA Clinical Data Explorer</span>
             </div>
             <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
               min={0}
@@ -230,13 +268,20 @@ class App extends React.Component {
               label={progressAttrs.label} />
           </nav>
           <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
+          {this.state.isFullScreen?<VisFullScreenView operation={_CONFIG_.VISUALIZATION_VIEW_CONFIGURATION.find(opt=>opt.id==this.state.fullScreenVis)}             data={data}
+            filterData={filterData}
+            filters={filters}
+            filterAdded={this.addFiltersHandler.bind(this)}
+            filterRemove={this.removeFiltersHandler.bind(this)}
+            toggleFullScreen={this.fullScreenHandler}/>:
           <VisGridView
             data={data}
             filterData={filterData}
             filters={filters}
             filterAdded={this.addFiltersHandler.bind(this)}
             filterRemove={this.removeFiltersHandler.bind(this)}
-          />
+            fullVisScreenHandler={this.fullScreenHandler}
+          />}
         </div>
       );
     }

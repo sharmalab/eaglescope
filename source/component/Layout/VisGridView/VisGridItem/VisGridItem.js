@@ -25,9 +25,10 @@ export default class VisGridItem extends PureComponent {
 
 
   render() {
+    
     return (
       <div
-        className="vis-grid-item bg-light"
+        className={`vis-grid-item bg-light`}
         onMouseEnter={this.onMouseEnterHandle}
         onMouseLeave={this.onMouseLeaveHeadle}
       >

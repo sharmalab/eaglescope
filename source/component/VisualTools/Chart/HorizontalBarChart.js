@@ -100,30 +100,35 @@ export default class HorizontalBarChart extends PureComponent {
         this.filterbars= this.drawBar(this.viewer,data,'ft');
         this.createTextLabel();
     }
+
     componentDidMount() {
+        setTimeout(()=>{
+            const rect = this.self.current.getBoundingClientRect();
+            const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
+            this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+            // create svg 
+            const svg = d3.select(this.self.current)
+            .append("svg")
+                .attr("width", rect.width)
+                .attr("height", rect.height)
+            // create viewer
+            this.viewer = svg.append("g")
+                .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
+            //
+            this.xScale = this.createXScale(this.state.fields.x, innerWidth);
+            this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
+    
+            this.viewer.append("g")
+            .attr("transform", `translate(0,${this.innerHeight})`)
+            .call(d3.axisBottom(this.xScale).tickSize(-this.innerHeight))
+    
+            this.bars = this.drawBar(this.viewer, this.state.data,'og')
+            this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
+            this.createTextLabel();
+            
+            this.componentDidUpdate()
+        }, 500); 
 
-        const rect = this.self.current.getBoundingClientRect();
-        const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
-        this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-        // create svg 
-        const svg = d3.select(this.self.current)
-        .append("svg")
-            .attr("width", rect.width)
-            .attr("height", rect.height)
-        // create viewer
-        this.viewer = svg.append("g")
-            .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
-        //
-        this.xScale = this.createXScale(this.state.fields.x, innerWidth);
-        this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
-
-        this.viewer.append("g")
-        .attr("transform", `translate(0,${this.innerHeight})`)
-        .call(d3.axisBottom(this.xScale).tickSize(-this.innerHeight))
-
-        this.bars = this.drawBar(this.viewer, this.state.data,'og')
-        this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
-        this.createTextLabel();
 
 
   

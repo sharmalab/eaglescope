@@ -37,7 +37,7 @@ class VisGridView extends PureComponent {
    */
   updateViewSize() {
     const rect = this.self.current.getBoundingClientRect();
-    console.log(rect, window.innerWidth, window.innerHeight)
+    // console.log(rect, window.innerWidth, window.innerHeight)
     const cols = parseInt((rect.width - this.state.config.margins[0] ) / (this.state.config.grid[0]+this.state.config.margins[0]));
     
     if(cols===this.state.cols) return;
@@ -59,7 +59,7 @@ class VisGridView extends PureComponent {
     this.setState(updatedState);
 
     this.fullScreenHandler = this.fullScreenHandler.bind(this);
-
+    this.updateViewSize = this.updateViewSize.bind(this)
   }
 
   // onRemoveItem(id) {
@@ -75,18 +75,27 @@ class VisGridView extends PureComponent {
     const updatedState = { ...this.state };
     updatedState.config.visConfig = newVisConfig;
     this.setState(updatedState);
+    this.props.fullVisScreenHandler(id, fullScreened);
   }
 
   componentDidMount() {
     this.updateViewSize();
+
     // TODO debouce
-    window.addEventListener("resize", this.updateViewSize.bind(this));
+    window.addEventListener("resize", this.updateViewSize);
   }
 
   componentDidUpdate() {
 
   }
 
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateViewSize);
+  }
+  
+  layoutChangeHandler(layout){
+    console.log('layout', layout)
+  }
 
   render() {
     if (this.state.config.layout.length > 0) {
@@ -116,6 +125,7 @@ class VisGridView extends PureComponent {
             margin={this.state.config.margins}
             layout= {this.state.config.layout}
             draggableHandle={this.state.draggableHandle}
+            onLayoutChange={this.layoutChangeHandler}
           >
             {__vis}
           </GridLayout>

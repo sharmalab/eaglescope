@@ -17,6 +17,7 @@ export default class VisDataTable extends PureComponent {
       sortBy :null,
       sortDirection: null
     }
+
     this.autoSizer = React.createRef();
     this.headerRenderer = this.headerRenderer.bind(this)
     this.cellRenderer = this.cellRenderer.bind(this)
