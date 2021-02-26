@@ -25,7 +25,7 @@ export default class VisGridItem extends PureComponent {
 
 
   render() {
-    
+
     return (
       <div
         className={`vis-grid-item bg-light`}
@@ -41,7 +41,7 @@ export default class VisGridItem extends PureComponent {
           hover={this.state.hover}
           filters={this.props.filters}
           filterRemove={this.props.filterRemove} />
-        
+
         <VisGridItemContent
           {...this.props.operation}
           data={this.props.data}
@@ -49,6 +49,7 @@ export default class VisGridItem extends PureComponent {
           filters={this.props.filters}
           filterAdded={this.props.filterAdded}
           filterRemove={this.props.filterRemove}
+          config={this.config}
         />
       </div>
     );

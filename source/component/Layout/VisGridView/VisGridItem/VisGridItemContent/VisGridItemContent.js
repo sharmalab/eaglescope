@@ -4,9 +4,6 @@ import React, { PureComponent, Suspense } from "react";
 // css class
 import "./VisGridItemContent.css";
 
-// config for view grid and vis compoments
-import _CONFIG_ from "../../../../../../config/vis-config.json";
-
 import VisTypeComponents from "../../../../VisualTools/VisTypeComponents.js";
 
 const PieChart = React.lazy(() =>
