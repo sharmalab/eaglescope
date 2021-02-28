@@ -1,0 +1,2 @@
+- name: Buildah Build
+  uses: redhat-actions/buildah-build@v2.2
