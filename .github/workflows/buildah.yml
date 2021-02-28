@@ -1,2 +1,18 @@
-- name: Buildah Build
-  uses: redhat-actions/buildah-build@v2.2
+name: Buildah via Dockerfile
+on: [push]
+
+jobs:
+  build:
+    name: Build image
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Buildah Action
+      uses: redhat-actions/buildah-build@v2.2
+      with:
+        image: eaglescope-edge
+        tags: v1 ${{ github.sha }}
+        dockerfiles: |
+          ./Dockerfile
