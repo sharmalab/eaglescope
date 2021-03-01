@@ -7,6 +7,7 @@ RUN mkdir -p /source/
 COPY ./ /source/
 WORKDIR /source/
 RUN rm -rf ./.git/
+RUN npm config set unsafe-perm true
 RUN npm install
 RUN npm run-script build
 RUN mkdir -p /var/www/html/
