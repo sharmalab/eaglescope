@@ -2,6 +2,7 @@ from node:8-alpine
 
 RUN npm install -g http-server
 RUN npm install -g parcel-bundler
+RUN npm install
 EXPOSE 80
 RUN mkdir -p /source/
 COPY ./ /source/
