@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import Header from "./Header/Header";
 import SearchPanel from "./SearchPanel";
@@ -8,7 +8,7 @@ import ContentPanel from "./Content/ContentPanel";
 /* css */
 // props -> title name
 
-class FieldeSlectionPanel extends Component {
+class FieldeSlectionPanel extends PureComponent {
   constructor(props) {
     super(props);
     

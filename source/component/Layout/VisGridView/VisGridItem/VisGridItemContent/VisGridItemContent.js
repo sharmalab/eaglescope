@@ -1,11 +1,8 @@
-import React, { Component, Suspense } from "react";
+import React, { PureComponent, Suspense } from "react";
 // import PropTypes from "prop-types";
 
 // css class
 import "./VisGridItemContent.css";
-
-// config for view grid and vis compoments
-import _CONFIG_ from "../../../../../../config/vis-config.json";
 
 import VisTypeComponents from "../../../../VisualTools/VisTypeComponents.js";
 
@@ -28,14 +25,7 @@ const ScatterChart = React.lazy(() =>
 const VisDataTable = React.lazy(() =>
   import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
-const VegaLitePlot = React.lazy(() =>
-  import("../../../../VegaLitePlot")
-);
 
-
-//import BarChart from '../../../../VisualTools/Chart/BarChart';
-//import PieChart from '../../../../VisualTools/Chart/PieChart';
-//import Table from '../../../../VisualTools/Table/Table';
 
 const _style = {
   display: "flex",
@@ -49,7 +39,7 @@ const _style1 = {
   visibility: "visible"
 };
 
-export default class VisGridItemContent extends Component {
+export default class VisGridItemContent extends PureComponent {
   constructor(props) {
     super(props);
   }

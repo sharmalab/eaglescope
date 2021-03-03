@@ -1,0 +1,11 @@
+.full-screen {
+    /* background-color: darkorchid; */
+    /* min-height: 60rem; */
+    padding: 1rem 1rem 0 1rem;
+    
+}
+.full-screen .item {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {numFixed} from '../../../common/utils.js'; 
 import * as d3 from "d3";
 import "./style.css";
-export default class ScatterChart extends Component {
+export default class ScatterChart extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -39,7 +39,7 @@ export default class ScatterChart extends Component {
     }
 
     componentDidUpdate(){
-        console.log('componentDidUpdate')
+
         if(this.props.filters.length > 0){
             this.circles.attr('class', d=> this.props.filterData.includes(d)?'brushed':'non_brushed')
         }else{
@@ -48,49 +48,54 @@ export default class ScatterChart extends Component {
     }
 
     componentDidMount() {
-        const rect = this.self.current.getBoundingClientRect();
-        const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
-        const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-        // create svg 
-        const svg = d3.select(this.self.current)
-        .append("svg")
-            .attr("width", rect.width)
-            .attr("height", rect.height)
-        // create viewer
-        const viewer = svg.append("g")
-            .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
-        //
-        this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
-        this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
-
-        this.radiusScale = this.createScaleLiner(this.props.fields.z, [3, 10]);
-
-        viewer.append("g")
-        .attr("transform", "translate(0," + innerHeight + ")")
-        .call(d3.axisBottom(this.xScale).tickSize(-innerHeight));
+        setTimeout(() => {
+            const rect = this.self.current.getBoundingClientRect();
+            const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
+            const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+            // create svg 
+            const svg = d3.select(this.self.current)
+            .append("svg")
+                .attr("width", rect.width)
+                .attr("height", rect.height)
+            // create viewer
+            const viewer = svg.append("g")
+                .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
+            //
+            this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
+            this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
+    
+            this.radiusScale = this.createScaleLiner(this.props.fields.z, [3, 10]);
+    
+            viewer.append("g")
+            .attr("transform", "translate(0," + innerHeight + ")")
+            .call(d3.axisBottom(this.xScale).tickSize(-innerHeight));
+            
+            // add the y Axis
+            viewer.append("g")
+                .call(d3.axisLeft(this.yScale).tickSize(-innerWidth));
+    
+    
+    
+            this.circles = viewer.selectAll("circle").data(this.state.data)
+            .enter().append("circle")
+            .attr("r", d => this.radiusScale(d[this.props.fields.z]))
+            .attr("cx", d => this.xScale(d[this.props.fields.x]))
+            .attr("cy", d => this.yScale(d[this.props.fields.y]))
+            .attr("class", "brushed");
+    
+    
+    
+            this.brush = d3.brush().extent([[0,0],[innerWidth, innerHeight]])
+                //.on("brush", this.brushed.bind(this))
+                .on("end", this.end.bind(this)); 
+    
+            this.brush_area = viewer.append("g")
+            
+            .call(this.brush);
+            
+            this.componentDidUpdate()        
+        }, 500);
         
-        // add the y Axis
-        viewer.append("g")
-            .call(d3.axisLeft(this.yScale).tickSize(-innerWidth));
-
-
-
-        this.circles = viewer.selectAll("circle").data(this.state.data)
-        .enter().append("circle")
-        .attr("r", d => this.radiusScale(d[this.props.fields.z]))
-        .attr("cx", d => this.xScale(d[this.props.fields.x]))
-        .attr("cy", d => this.yScale(d[this.props.fields.y]))
-        .attr("class", "brushed");
-
-
-
-        this.brush = d3.brush().extent([[0,0],[innerWidth, innerHeight]])
-            //.on("brush", this.brushed.bind(this))
-            .on("end", this.end.bind(this)); 
-
-        this.brush_area = viewer.append("g")
-        
-        .call(this.brush);
         
     }
     brushed(){

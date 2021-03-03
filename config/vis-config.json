@@ -2,7 +2,7 @@
     "HEIGHT_OF_VIS_HEADER": 30,
     "MARGIN_OF_VIS": [10, 10],
 
-    "UNIT_OF_GRID_VIEW": [220,200],
+    "UNIT_OF_GRID_VIEW": [224,200],
     "MARGIN_OF_GRID_VIEW": [10, 10],
     "DATA_RESOURCE_URL":"https://pathdb.cancerimagingarchive.net/pathdb/sparql?format=csv&query=prefix+%3A+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%2Fns%2F%3E%0ASELECT+*+WHERE+{graph+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%3E+{%0A++++%3Fsss+%3APathDBID+%3FPathDBID%3B+%3Aclinicaltrialsubjectid+%3FslideID+.+%3Fss+%3Asubmitter_id+%3Fsubmitter_id%3B+%3Apercent_pos+%3Fpercent_pos%3B+%3ATIL_classhalf+%3FTIL_classhalf%3B+%3Acollapsed_stage+%3Fcollapsed_stage%3B+%3AsurvivalB+%3FsurvivalB+.+%3Fs%0A++++++%3Asubmitter_id+%3Fsubmitter_id%3B%0A++++++%3Aajcc_pathologic_stage+%3Fajcc_pathologic_stage%3B%0A++++++%3Aprimary_diagnosis+%3Fprimary_diagnosis%3B%0A++++++%3Aprior_malignancy+%3Fprior_malignancy%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3ABreast_Tumor_Type+%3FBreast_Tumor_Type%3B%0A++++++%3AsurvivalA+%3FsurvivalA%3B%0A++++++%3AslideID+%3FslideID%3B%0A++++++%3APercent_TILs_in_tumor_region+%3FPercent_TILs_in_tumor_region%3B%0A++++++%3AImmune_Subtype+%3FImmune_Subtype%3B%0A++++++%3AMolwxular_Cybersort_Lymphocytes+%3FMolwxular_Cybersort_Lymphocytes%3B%0A++++++%3AGlobal_Pattern+%3FGlobal_Pattern}}",
     "DATA_FORMAT":"csv",
@@ -155,8 +155,7 @@
           "fields":[
             {
               "dataKey":"submitter_id",
-              "label":"ID",
-              "width":0.1
+              "label":"ID"
             },
             {
               "dataKey":"slideID",
@@ -164,44 +163,35 @@
               "link":{
                 "url":"https://pathdb.cancerimagingarchive.net/caMicroscope/apps/viewer/viewer.html?mode=pathdb&slideId=",
                 "field":"PathDBID"
-              },
-              "width":0.1
+              }
             },
             {
               "dataKey":"ajcc_pathologic_stage",
-              "label":"Pathologic Stage",
-              "width":0.1
+              "label":"Pathologic Stage"
             },
             {
               "dataKey":"vital_status",
-              "label":"Vital Status",
-              "width":0.08
+              "label":"Vital Status"
             },
             {
               "dataKey":"Breast_Tumor_Type",
-              "label":"Breast Tumor Type",
-              "width":0.08
+              "label":"Breast Tumor Type"
             },
             {
               "dataKey":"survivalA",
-              "label":"Survival A",
-              "width":0.08
+              "label":"Survival A"
             },{
               "dataKey":"Percent_TILs_in_tumor_region",
-              "label":"TILs Percent",
-              "width":0.08
+              "label":"TILs Percent"
             },{
               "dataKey":"Immune_Subtype",
-              "label":"Immune Subtype",
-              "width":0.05
+              "label":"Immune Subtype"
             },{
               "dataKey":"Molwxular_Cybersort_Lymphocytes",
-              "label":"Lymphocytes",
-              "width":0.08
+              "label":"Lymphocytes"
             },{
               "dataKey":"Global_Pattern",
-              "label":"Global Pattern",
-              "width":0.15
+              "label":"Global Pattern"
             }],
           "size": [4, 2],
           "priority": 70

@@ -1,8 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import Item from "./Item";
 import Footer from "./Footer";
 
-class ContentPanel extends Component {
+class ContentPanel extends PureComponent {
   constructor(props) {
     super(props);
   }

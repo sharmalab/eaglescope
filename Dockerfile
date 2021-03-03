@@ -1,17 +1,25 @@
 from node:8-alpine
-
+RUN npm config set unsafe-perm true
 RUN npm install -g http-server
 RUN npm install -g parcel-bundler
-EXPOSE 80
+EXPOSE 1180
 RUN mkdir -p /source/
 COPY ./ /source/
 WORKDIR /source/
 RUN rm -rf ./.git/
+
+RUN npm install
 RUN npm run-script build
 RUN mkdir -p /var/www/html/
 RUN mv /source/dist/* /var/www/html
 RUN mv /source/treemap /var/www/html
 RUN mv /source/data /var/www/html
+RUN cp -r /source/config /var/www/html
 WORKDIR /var/www/html/
 
-CMD http-server -p 80
+RUN chgrp -R 0 /var/www/html/
+RUN chmod -R g+rwX /var/www/html/
+
+USER 1001
+
+CMD http-server -p 1180

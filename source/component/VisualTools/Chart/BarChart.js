@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {isEquivalent} from '../../../common/utils.js'
 import * as d3 from "d3";
 
-export default class BarChart extends Component {
+export default class BarChart extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -46,14 +46,6 @@ export default class BarChart extends Component {
         .domain([0, d3.max(this.state.data, function(d) { return d[f]; })])
         .range([height, 0]);
         return yScale;
-    }
-    shouldComponentUpdate ( nextProps, nextState ) {
-        // TODO LIST
-        console.log('bar shouldComponentUpdate')
-        //console.log(nextProps.filters, this.props.filters)
-        // const flag = isEquivalent(nextProps.filters, this.props.filters);
-        // console.log(flag)
-        return true;
     }
 
     drawBar(selection, data, className='og') {
@@ -101,7 +93,7 @@ export default class BarChart extends Component {
     }
 
     componentDidUpdate() {
-        console.log('bar update',this.props)
+        // console.log('bar update',this.props)
         let data = [];
         if(this.props.filters.length > 0){
             data = this.transform(this.props.filterData, this.props.fields.x)
@@ -111,71 +103,44 @@ export default class BarChart extends Component {
         this.filterbars= this.drawBar(this.viewer,data,'ft');
     }
     componentDidMount() {
+        setTimeout(()=>{
+            const rect = this.self.current.getBoundingClientRect();
+            this.innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
+            this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+            // create svg 
+            const svg = d3.select(this.self.current)
+            .append("svg")
+                .attr("width", rect.width)
+                .attr("height", rect.height)
+            // create viewer
+            this.viewer = svg.append("g")
+                .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
+            //
+            this.xScale = this.createXScale(this.state.fields.x, this.innerWidth);
+            this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
 
-        console.log('bar',this.props)
-        const rect = this.self.current.getBoundingClientRect();
-        this.innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
-        this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-        // create svg 
-        const svg = d3.select(this.self.current)
-        .append("svg")
-            .attr("width", rect.width)
-            .attr("height", rect.height)
-        // create viewer
-        this.viewer = svg.append("g")
-            .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
-        //
-        this.xScale = this.createXScale(this.state.fields.x, this.innerWidth);
-        this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
+            this.xAxis = d3.axisBottom(this.xScale)
+            //.tickSize(this.innerWidth)
+            this.viewer.append("g")
+            .attr("class", "x axis")
+            .attr("transform", `translate(0,${this.innerHeight})`)
+            .call(this.xAxis)
+            .selectAll(".tick text")
+            .call(this.wrap, this.xScale.bandwidth());
+    
+            // add the y Axis
+            this.yAxis = d3.axisLeft(this.yScale)
+            .tickSize(-this.innerWidth)
+            this.viewer.append("g")
+                .call(this.yAxis);
 
-        this.xAxis = d3.axisBottom(this.xScale)
-        //.tickSize(this.innerWidth)
-        this.viewer.append("g")
-        .attr("class", "x axis")
-        .attr("transform", `translate(0,${this.innerHeight})`)
-        .call(this.xAxis)
-        .selectAll(".tick text")
-        .call(this.wrap, this.xScale.bandwidth());
-  
-        // add the y Axis
-        this.yAxis = d3.axisLeft(this.yScale)
-        .tickSize(-this.innerWidth)
-        this.viewer.append("g")
-            .call(this.yAxis);
+            this.bars = this.drawBar(this.viewer, this.state.data,'og')
+            this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
+            
+            this.componentDidUpdate()
 
+        }, 500)
 
-        this.bars = this.drawBar(this.viewer, this.state.data,'og')
-        this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
-        //this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
-        // this.bars = this.viewer.selectAll(".bar").data(this.state.data)
-        // .enter().append("rect")
-        // .attr("class", "bar")
-        // .attr('fill','steelblue')
-        // .attr("x", function(d) { return this.xScale(d[this.state.fields.x])}.bind(this))
-        // .attr("width", this.xScale.bandwidth())
-        // .attr("y", function(d) { return this.yScale(d[this.state.fields.y])}.bind(this))
-        // .attr("height", function(d) { return this.innerHeight - this.yScale(d[this.state.fields.y]); }.bind(this))
-        // .on('click', (data,i) =>{
-        //     this.bars.attr('opacity',0.2)
-        //     const selected = this.bars.filter(function(d){
-        //       return d === data
-        //     })
-        //     selected.attr('opacity',1)
-        //     const value = selected.data()[0].key
-        //     const filter = {
-        //         id:this.props.id,
-        //         field:this.props.fields.x,
-        //         operation:'eq',
-        //         values:value
-        //     }
-        //     this.props.filterAdded([filter])
-        // })
-        // this.bars.append('title').text(d=> `${d.key}:${d.value}`)
-
-
-
-
-        
     }
     wrap(text, width) {
         text.each(function() {

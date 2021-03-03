@@ -1,16 +1,15 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import VisGridItemContent from "./VisGridItemContent/VisGridItemContent";
 import VisGridItemHeader from "./VisGridItemHeader/VisGridItemHeader";
-import VisGridItemControl from "./VisGridItemControl/VisGridItemControl";
-import PropTypes from "prop-types";
 
 // css class
 import "./VisGridItem.css";
 
-export default class VisGridItem extends Component {
+export default class VisGridItem extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { hover: false };
+
     //this.state.name = props.i;
     this.onMouseEnterHandle = this.onMouseEnterHandle.bind(this);
     this.onMouseLeaveHeadle = this.onMouseLeaveHeadle.bind(this);
@@ -24,15 +23,25 @@ export default class VisGridItem extends Component {
     this.setState({ hover: false });
   }
 
+
   render() {
+
     return (
       <div
-        className="vis-grid-item"
+        className={`vis-grid-item bg-light`}
         onMouseEnter={this.onMouseEnterHandle}
         onMouseLeave={this.onMouseLeaveHeadle}
       >
-        <VisGridItemHeader id={this.props.operation.id} title={this.props.operation.title} description={this.props.operation.description} hover={this.state.hover} filters={this.props.filters} filterRemove={this.props.filterRemove}/>
-        <VisGridItemControl id={this.props.operation.id} title={this.props.operation.title} description={this.props.operation.description} hover={this.state.hover} filters={this.props.filters} filterRemove={this.props.filterRemove}/>
+        <VisGridItemHeader
+          id={this.props.operation.id}
+          title={this.props.operation.title}
+          description={this.props.operation.description}
+          toggleFullScreen={this.props.toggleFullScreen}
+          fullScreened={this.props.operation.fullScreened}
+          hover={this.state.hover}
+          filters={this.props.filters}
+          filterRemove={this.props.filterRemove} />
+
         <VisGridItemContent
           {...this.props.operation}
           data={this.props.data}
@@ -40,6 +49,7 @@ export default class VisGridItem extends Component {
           filters={this.props.filters}
           filterAdded={this.props.filterAdded}
           filterRemove={this.props.filterRemove}
+          config={this.config}
         />
       </div>
     );

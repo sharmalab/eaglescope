@@ -1,16 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {isEquivalent} from '../../../common/utils.js'
 import * as d3 from "d3";
 
-function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); //The maximum is inclusive and the minimum is inclusive 
-}
 function isUndefined(d){
     return d==undefined||d==null||(typeof d === 'string' && d.toLowerCase()==`na`)
 }
-export default class KMCurve extends Component {
+export default class KMCurve extends PureComponent {
     constructor(props) {
         super(props);
         this.self = React.createRef();
@@ -75,14 +70,8 @@ export default class KMCurve extends Component {
         
         return rs;
         
-    }    
-    shouldComponentUpdate ( nextProps, nextState ) {
-        // TODO LIST
-        //console.log(nextProps.filters, this.props.filters)
-        // const flag = isEquivalent(nextProps.filters, this.props.filters);
-        // console.log(flag)
-        return true;
     }
+    
     drawLine(viewer, points, color){
         const line = d3.line()
         .curve(d3.curveStepAfter)
@@ -129,91 +118,95 @@ export default class KMCurve extends Component {
     componentDidUpdate() {
 
     }
+    
     componentDidMount() {
-        const rect = this.self.current.getBoundingClientRect();
-        const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
-        const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-        // create svg 
-        const svg = d3.select(this.self.current)
-        .append("svg")
-            .attr("width", rect.width)
-            .attr("height", rect.height)
-        // create viewer
-        const viewer = svg.append("g")
-            .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
-        //
-        this.xScale = d3.scaleLinear()
-        .domain([0, this.maxTime])
-        .range([0, innerWidth])
-        
-        this.yScale = d3.scaleLinear()
-        .domain([0, 1])
-        .range([innerHeight, 0])
-
-        this.color = d3.scaleOrdinal()
-        .domain(this.state.data.map(d => d.key))
-        .range(d3.quantize(t => d3.interpolateSpectral(t), this.state.data.length))
-        
-        
-
-
-        const xaxisGroup = viewer.append("g")
-        .attr("transform", "translate(0," + innerHeight + ")")
-        .call(d3.axisBottom(this.xScale).ticks(4)); //.tickSize(-innerWidth));
-        xaxisGroup.append('text')
-        .attr('y', 30)
-        .attr('x', innerWidth/2)
-        .attr('fill','black')
-        .attr('font-size',13)
-        .text(`Time ${this.props.fields.time.unit?`(${this.props.fields.time.unit})`:''}`)
-        
-        // add the y Axis
-        const yaxisGroup = viewer.append("g")
-            .call(d3.axisLeft(this.yScale).ticks(4)); // .tickSize(-innerWidth)
-            yaxisGroup.append('text')
-            .attr('y', -30)
-            .attr('x', -innerHeight/3)
+        setTimeout(()=>{
+            const rect = this.self.current.getBoundingClientRect();
+            const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
+            const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+            // create svg 
+            const svg = d3.select(this.self.current)
+            .append("svg")
+                .attr("width", rect.width)
+                .attr("height", rect.height)
+            // create viewer
+            const viewer = svg.append("g")
+                .attr("transform", "translate(" + this.state.margin.left + "," + this.state.margin.top + ")");
+            //
+            this.xScale = d3.scaleLinear()
+            .domain([0, this.maxTime])
+            .range([0, innerWidth])
+            
+            this.yScale = d3.scaleLinear()
+            .domain([0, 1])
+            .range([innerHeight, 0])
+    
+            this.color = d3.scaleOrdinal()
+            .domain(this.state.data.map(d => d.key))
+            .range(d3.quantize(t => d3.interpolateSpectral(t), this.state.data.length))
+            
+            
+    
+    
+            const xaxisGroup = viewer.append("g")
+            .attr("transform", "translate(0," + innerHeight + ")")
+            .call(d3.axisBottom(this.xScale).ticks(4)); //.tickSize(-innerWidth));
+            xaxisGroup.append('text')
+            .attr('y', 30)
+            .attr('x', innerWidth/2)
             .attr('fill','black')
             .attr('font-size',13)
-            .attr("transform", "rotate(-90)")
-            .text(`Survival Probability`)
-
-        this.state.data.forEach(d=>this.drawKMCurve(viewer,d))
-
-
-        const height = 0;
-        const width = 15;
-        var nodeWidth = (d) => d.getBBox().width;
-        const legend = svg.append('g')
-          .attr('class', 'legend')
-          .attr('transform', `translate(${this.state.margin.left+innerWidth/2},0)`);
-
-        const lg = legend.selectAll('g')
-          .data(this.state.data)
-          .enter()
-        .append('g')
-          .attr('transform', (d,i) => `translate(${i * 100},${height + 15})`);
-
-        lg.append('rect')
-          .style('fill', d => this.color(d.key))
-          .attr('x', 0)
-          .attr('y', 0)
-          .attr('width', 10)
-          .attr('height', 10);
-
-        lg.append('text')
-          .style('font-family', 'Georgia')
-          .style('font-size', '13px')
-          .attr('x', 17.5)
-          .attr('y', 10)
-          .text(d => d.key);
-
-        let offset = 0;
-        lg.attr('transform', function(d, i) {
-            let x = offset;
-            offset += nodeWidth(this) + 10;
-            return `translate(${x},${height + 10})`;
-        });        
+            .text(`Time ${this.props.fields.time.unit?`(${this.props.fields.time.unit})`:''}`)
+            
+            // add the y Axis
+            const yaxisGroup = viewer.append("g")
+                .call(d3.axisLeft(this.yScale).ticks(4)); // .tickSize(-innerWidth)
+                yaxisGroup.append('text')
+                .attr('y', -30)
+                .attr('x', -innerHeight/3)
+                .attr('fill','black')
+                .attr('font-size',13)
+                .attr("transform", "rotate(-90)")
+                .text(`Survival Probability`)
+    
+            this.state.data.forEach(d=>this.drawKMCurve(viewer,d))
+    
+    
+            const height = 0;
+            const width = 15;
+            var nodeWidth = (d) => d.getBBox().width;
+            const legend = svg.append('g')
+              .attr('class', 'legend')
+              .attr('transform', `translate(${this.state.margin.left+innerWidth/2},0)`);
+    
+            const lg = legend.selectAll('g')
+              .data(this.state.data)
+              .enter()
+            .append('g')
+              .attr('transform', (d,i) => `translate(${i * 100},${height + 15})`);
+    
+            lg.append('rect')
+              .style('fill', d => this.color(d.key))
+              .attr('x', 0)
+              .attr('y', 0)
+              .attr('width', 10)
+              .attr('height', 10);
+    
+            lg.append('text')
+              .style('font-family', 'Georgia')
+              .style('font-size', '13px')
+              .attr('x', 17.5)
+              .attr('y', 10)
+              .text(d => d.key);
+    
+            let offset = 0;
+            lg.attr('transform', function(d, i) {
+                let x = offset;
+                offset += nodeWidth(this) + 10;
+                return `translate(${x},${height + 10})`;
+            }); 
+        },500);
+       
     }
     
     render() {
