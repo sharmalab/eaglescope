@@ -22,4 +22,4 @@ RUN chmod -R g+rwX /var/www/html/
 
 USER 1001
 
-CMD http-server -p 80
+CMD http-server -p 1180
