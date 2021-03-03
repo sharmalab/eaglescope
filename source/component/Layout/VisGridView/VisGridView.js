@@ -8,7 +8,7 @@ import "./VisGridView.css";
 // config for view grid and vis compoments
 import _CONFIG_ from "../../../../config/vis-config.json";
 
-// enumeration for 
+// enumeration for
 
 class VisGridView extends PureComponent {
   constructor(props) {
@@ -22,9 +22,9 @@ class VisGridView extends PureComponent {
       cols: 0,
       config: {
         layout: [], // calculate layout based on view's width and vis charts.
-        grid: [..._CONFIG_.UNIT_OF_GRID_VIEW], // a size of grid [width, height] in pixel
-        margins: [..._CONFIG_.MARGIN_OF_GRID_VIEW],
-        visConfig: [..._CONFIG_.VISUALIZATION_VIEW_CONFIGURATION]
+        grid: [...this.props.config.UNIT_OF_GRID_VIEW], // a size of grid [width, height] in pixel
+        margins: [...this.props.config.MARGIN_OF_GRID_VIEW],
+        visConfig: [...this.props.config.VISUALIZATION_VIEW_CONFIGURATION]
       },
       error: null,
       isLoad: false,
@@ -39,9 +39,9 @@ class VisGridView extends PureComponent {
     const rect = this.self.current.getBoundingClientRect();
     // console.log(rect, window.innerWidth, window.innerHeight)
     const cols = parseInt((rect.width - this.state.config.margins[0] ) / (this.state.config.grid[0]+this.state.config.margins[0]));
-    
+
     if(cols===this.state.cols) return;
-    
+
     // if(this.state.config.visConfig.find(config=>config.fullScreened)){
     //   console.log('FUll')
     // }else{
@@ -92,7 +92,7 @@ class VisGridView extends PureComponent {
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateViewSize);
   }
-  
+
   layoutChangeHandler(layout){
     console.log('layout', layout)
   }
@@ -100,9 +100,9 @@ class VisGridView extends PureComponent {
   render() {
     if (this.state.config.layout.length > 0) {
       let __vis = this.state.config.layout.map((item, index) => (
-        
+
         <div key={item.i} className="border border-primary">
-          <VisGridItem 
+          <VisGridItem
             {...item}
             operation={this.state.config.visConfig[index]}
             data={this.props.data}
@@ -111,6 +111,7 @@ class VisGridView extends PureComponent {
             filterAdded = {this.props.filterAdded}
             filterRemove = {this.props.filterRemove}
             toggleFullScreen={this.fullScreenHandler}
+            config={this.props.config}
           />
         </div>
       ));

@@ -14,6 +14,7 @@ RUN mkdir -p /var/www/html/
 RUN mv /source/dist/* /var/www/html
 RUN mv /source/treemap /var/www/html
 RUN mv /source/data /var/www/html
+RUN mv /source/config /var/www/html
 WORKDIR /var/www/html/
 
 RUN chgrp -R 0 /var/www/html/

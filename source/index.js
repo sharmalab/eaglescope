@@ -26,8 +26,18 @@ import "../node_modules/react-resizable/css/styles.css";
 
 import "./style/main.scss";
 import 'react-virtualized/styles.css';
+
 // config for view grid and vis compoments
-import _CONFIG_ from "../config/vis-config.json";
+// import _CONFIG_ from "../config/vis-config.json";
+
+// get confing on request
+function getConfig(){
+  const query = new URLSearchParams(window.location.search);
+  let config_url = query.get("template") || "../config/vis-config.json"
+  return fetch(config_url, {cors:true}).then(x=>x.json())
+}
+
+
 
 // var __DM = null;
 function isNumeric(str) {
@@ -92,7 +102,6 @@ function filterData(data, filters) {
 class App extends React.PureComponent {
   constructor(props) {
     super(props);
-    console.log('config', _CONFIG_)
     this.state = {
       error: null,
       isLoaded: false,
@@ -102,6 +111,7 @@ class App extends React.PureComponent {
       filters: [],
       isFullScreen: false,
       fullScreenVis: null,
+      config: null
 
 
     };
@@ -171,59 +181,68 @@ class App extends React.PureComponent {
   }
 
   componentDidMount() {
-    if (_CONFIG_.DATA_FORMAT === 'csv') {
-      d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
-        this.setState({
-          isLoaded: true,
-          data: data
-        });
-      })
+    getConfig().then(_CONFIG_=>{
+          if (_CONFIG_.DATA_FORMAT === 'csv') {
+            d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
+              this.setState({
+                isLoaded: true,
+                data: data,
+                config: _CONFIG_
+              });
+            })
 
-    } else if (_CONFIG_.DATA_FORMAT === 'json') {
-      fetch(_CONFIG_.DATA_RESOURCE_URL, {
-        mode: 'cors'
-      }).then(res => res.json()).then(data => {
-        // TODO need a replace method to replace null, undefined etc.
-        data.forEach(d => {// clear up null value
-          if (d.disease_type == null) d.disease_type = 'NA'
-          if (d.sexlabel == null) d.sexlabel = 'NA'
-          if (d.age == null) d.age = 'NA'
-          if (d.stagelabel == null) d.stagelabel = 'NA'
-        })
-        return data;
-      })
-        .then((data) => {
-          this.setState({
-            isLoaded: true,
-            data: data
-          });
-        },
-          // Note: it's important to handle errors here
-          // instead of a catch() block so that we don't swallow
-          // exceptions from actual bugs in components.
-          (error) => {
-            console.log('error', error)
-            this.setState({
-              isLoaded: true,
-              error
-            });
+          } else if (_CONFIG_.DATA_FORMAT === 'json') {
+            fetch(_CONFIG_.DATA_RESOURCE_URL, {
+              mode: 'cors'
+            }).then(res => res.json()).then(data => {
+              // TODO need a replace method to replace null, undefined etc.
+              data.forEach(d => {// clear up null value
+                if (d.disease_type == null) d.disease_type = 'NA'
+                if (d.sexlabel == null) d.sexlabel = 'NA'
+                if (d.age == null) d.age = 'NA'
+                if (d.stagelabel == null) d.stagelabel = 'NA'
+              })
+              return data;
+            })
+              .then((data) => {
+                this.setState({
+                  isLoaded: true,
+                  data: data
+                });
+              },
+                // Note: it's important to handle errors here
+                // instead of a catch() block so that we don't swallow
+                // exceptions from actual bugs in components.
+                (error) => {
+                  console.log('error', error)
+                  this.setState({
+                    isLoaded: true,
+                    error: error
+                  });
+                }
+              )
           }
-        )
-    }
 
 
-    if (this.state.isFullScreen) {
-      // debounce();
-      this.resizeHandler();
-    }
+          if (this.state.isFullScreen) {
+            // debounce();
+            this.resizeHandler();
+          }
 
 
-    // TODO debouce
-    window.addEventListener("resize", this.debounceResizeHandler);
+          // TODO debouce
+          window.addEventListener("resize", this.debounceResizeHandler);
+    }).catch(error=> {
+      console.error(error)
+      this.setState({
+        isLoaded: true,
+        error: error
+      });
+    })
 
   }
   resizeHandler() {
-    
+
     console.log(`resized to: ${this.state.isFullScreen}`, window.innerWidth, 'x', window.innerHeight)
   }
 
@@ -233,7 +252,7 @@ class App extends React.PureComponent {
   }
 
   render() {
-    const { error, isLoaded, data, filterData, filters } = this.state;
+    const { error, isLoaded, data, filterData, filters, config } = this.state;
     const progressAttrs = {
       now: data.length,
       label: `${data.length}/${data.length}`
@@ -268,7 +287,7 @@ class App extends React.PureComponent {
               label={progressAttrs.label} />
           </nav>
           <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
-          {this.state.isFullScreen?<VisFullScreenView operation={_CONFIG_.VISUALIZATION_VIEW_CONFIGURATION.find(opt=>opt.id==this.state.fullScreenVis)}             data={data}
+          {this.state.isFullScreen?<VisFullScreenView operation={config.VISUALIZATION_VIEW_CONFIGURATION.find(opt=>opt.id==this.state.fullScreenVis)}             data={data}
             filterData={filterData}
             filters={filters}
             filterAdded={this.addFiltersHandler.bind(this)}
@@ -281,6 +300,7 @@ class App extends React.PureComponent {
             filterAdded={this.addFiltersHandler.bind(this)}
             filterRemove={this.removeFiltersHandler.bind(this)}
             fullVisScreenHandler={this.fullScreenHandler}
+            config={config}
           />}
         </div>
       );
