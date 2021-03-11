@@ -1,9 +1,10 @@
 {
+  "HOME_URL":"https://pathdb.cancerimagingarchive.net/",
   "HEIGHT_OF_VIS_HEADER": 30,
   "MARGIN_OF_VIS": [10, 10],
   "UNIT_OF_GRID_VIEW": [224,200],
   "MARGIN_OF_GRID_VIEW": [10, 10],
-  "DATA_RESOURCE_URL":"http://localhost:3000/collection",
+  "DATA_RESOURCE_URL":"https://wolf.cci.emory.edu/resources/collections.json",
   "DATA_FORMAT":"json",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {

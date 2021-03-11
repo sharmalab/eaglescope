@@ -6,10 +6,11 @@ import Button from 'react-bootstrap/Button'
 class HomeButton extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
+    this.goHome = this.goHome.bind(this)
   }
   goHome(){
     const query = new URLSearchParams(window.location.search);
-    const homeUrl = query.get("homeurl") || "../"
+    const homeUrl = this.props.url || query.get("homeurl") || "../"
     console.log(homeUrl)
     window.location.href = homeUrl;
   }

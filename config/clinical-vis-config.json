@@ -1,9 +1,10 @@
 {
+    "HOME_URL":"https://pathdb.cancerimagingarchive.net/",
     "HEIGHT_OF_VIS_HEADER": 30,
     "MARGIN_OF_VIS": [10, 10],
     "UNIT_OF_GRID_VIEW": [224,200],
     "MARGIN_OF_GRID_VIEW": [10, 10],
-    "DATA_RESOURCE_URL":"http://localhost:3000/csv",
+    "DATA_RESOURCE_URL":"https://pathdb.cancerimagingarchive.net/pathdb/sparql?format=csv&query=prefix+%3A+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%2Fns%2F%3E%0ASELECT+*+WHERE+{graph+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%3E+{%0A++++%3Fsss+%3APathDBID+%3FPathDBID%3B+%3Aclinicaltrialsubjectid+%3FslideID+.+%3Fss+%3Asubmitter_id+%3Fsubmitter_id%3B+%3Apercent_pos+%3Fpercent_pos%3B+%3ATIL_classhalf+%3FTIL_classhalf%3B+%3Acollapsed_stage+%3Fcollapsed_stage%3B+%3AsurvivalB+%3FsurvivalB+.+%3Fs%0A++++++%3Asubmitter_id+%3Fsubmitter_id%3B%0A++++++%3Aajcc_pathologic_stage+%3Fajcc_pathologic_stage%3B%0A++++++%3Aprimary_diagnosis+%3Fprimary_diagnosis%3B%0A++++++%3Aprior_malignancy+%3Fprior_malignancy%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3ABreast_Tumor_Type+%3FBreast_Tumor_Type%3B%0A++++++%3AsurvivalA+%3FsurvivalA%3B%0A++++++%3AslideID+%3FslideID%3B%0A++++++%3APercent_TILs_in_tumor_region+%3FPercent_TILs_in_tumor_region%3B%0A++++++%3AImmune_Subtype+%3FImmune_Subtype%3B%0A++++++%3AMolwxular_Cybersort_Lymphocytes+%3FMolwxular_Cybersort_Lymphocytes%3B%0A++++++%3AGlobal_Pattern+%3FGlobal_Pattern}}",
     "DATA_FORMAT":"csv",
     "VISUALIZATION_VIEW_CONFIGURATION": [
         {

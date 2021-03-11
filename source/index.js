@@ -293,7 +293,7 @@ class App extends React.PureComponent {
         <div ref={this.view}>
           <nav className="navbar blue-bar pl-0">
             <div>
-              <HomeButton />
+              <HomeButton url={config.HOME_URL}/>
               <span className="navbar-brand px-2 mb-0 h1 whitetext" >{title}</span>
             </div>
             <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
