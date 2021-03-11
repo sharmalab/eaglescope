@@ -40,10 +40,18 @@ export default class VisDataTable extends PureComponent {
     }
   }
   cellRenderer(d, f) {
+    let urlElt;
+    if(f.link&&f.link.url&&f.link.field){
+      urlElt = <a href={f.link.url + d.rowData[f.link.field]}>{d.cellData}</a>
+    }else if(f.link&&f.link.url){
+      urlElt = <a href={f.link.url}>{d.cellData}</a>
+    } else{
+      urlElt = d.cellData
+    }
     return (<React.Fragment key={f.dataKey}>
 
       <div className="ReactVirtualized__Table__headerTruncatedText" title={d.cellData}>
-        {f.link ? <a href={f.link.url + d.rowData[f.link.field]}>{d.cellData}</a> : d.cellData}
+        {urlElt}
       </div>
     </React.Fragment>)
   }
