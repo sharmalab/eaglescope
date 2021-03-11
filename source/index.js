@@ -277,7 +277,7 @@ class App extends React.PureComponent {
           <nav className="navbar blue-bar pl-0">
             <div>
               <HomeButton />
-              <span className="navbar-brand px-2 mb-0 h1 whitetext" >TCIA Clinical Data Explorer</span>
+              <span className="navbar-brand px-2 mb-0 h1 whitetext" >PRISM Data Explorer</span>
             </div>
             <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
               min={0}
