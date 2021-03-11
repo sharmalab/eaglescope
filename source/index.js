@@ -50,7 +50,7 @@ function getConfig(){
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
   
-  return fetch(config_url, {cors:true}).then(x=>x.json())
+  return fetch(config_url, {mode: 'cors'}).then(x=>x.json())
 }
 
 
