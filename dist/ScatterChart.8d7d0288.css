@@ -1,0 +1,45 @@
+.og {
+    fill: #87CEFA; /* LightSkyBlue */
+    opacity: 1;
+}
+.ft {
+    /* fill: #B0C4DE; LightSteelBlue */
+    fill:#4682B4; /* SteelBlue */
+    opacity: 1;
+}
+
+
+.slide.selected {
+    stroke-width: 3;
+    fill-opacity: 1;
+    stroke: #C0C0C0; /* silver */
+}
+
+circle.brushed {
+    fill: #87CEEB; /* SkyBlue */
+    stroke: #4682B4; /* SteelBlue */
+    opacity: .8;
+}
+
+circle.non_brushed {
+    fill: #C0C0C0C0; /* Silver */
+    stroke: #000000; /* Black */
+    opacity: .2;
+}
+
+text.label {
+    font-size:12px;
+}
+
+.tick:not(:first-of-type) line {
+    stroke: #c0c0c0;
+    stroke-dasharray: 1;
+    stroke-opacity: 1;
+}
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+
+/*# sourceMappingURL=/ScatterChart.8d7d0288.css.map */
