@@ -6,8 +6,9 @@ import VisGridView from "./component/Layout/VisGridView/VisGridView.js";
 import VisFullScreenView from "./component/Layout/VisFullScreenView/VisFullScreenView.js"
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import FilterOperationPanel from './component/FilterOperationPanel/FilterOperationPanel.js'
-import { debounce } from "lodash";
+import { debounce, template } from "lodash";
 import * as d3 from "d3";
+import "./component/VisualTools/Chart/style.css"
 import {
   Responsive,
   WidthProvider,
@@ -31,10 +32,25 @@ import 'react-virtualized/styles.css';
 // import _CONFIG_ from "../config/vis-config.json";
 
 // get confing on request
+let title = "PRISM - Eaglescope";
 function getConfig(){
   const query = new URLSearchParams(window.location.search);
-  let config_url = query.get("template") || "../config/vis-config.json"
-  return fetch(config_url, {cors:true}).then(x=>x.json())
+  const templateName = query.get("template")
+
+  let config_url = "../config/collection-vis-config.json"
+  if(templateName=='collection'){
+    config_url = "../config/collection-vis-config.json"
+    title = "PRISM Collection Explorer"
+  }else if(templateName=='clinical'){
+    config_url = "../config/clinical-vis-config.json"
+    title = "PRISM Clinical Explorer"
+  }else{
+    config_url = "../config/collection-vis-config.json"
+    title = "PRISM Collection Explorer"
+  }
+  //let config_url = query.get("template") || "../config/collection-vis-config.json"
+  
+  return fetch(config_url, {mode: 'cors'}).then(x=>x.json())
 }
 
 
@@ -207,7 +223,8 @@ class App extends React.PureComponent {
               .then((data) => {
                 this.setState({
                   isLoaded: true,
-                  data: data
+                  data: data,
+                  config: _CONFIG_
                 });
               },
                 // Note: it's important to handle errors here
@@ -276,8 +293,8 @@ class App extends React.PureComponent {
         <div ref={this.view}>
           <nav className="navbar blue-bar pl-0">
             <div>
-              <HomeButton />
-              <span className="navbar-brand px-2 mb-0 h1 whitetext" >TCIA Clinical Data Explorer</span>
+              <HomeButton url={config.HOME_URL}/>
+              <span className="navbar-brand px-2 mb-0 h1 whitetext" >{title}</span>
             </div>
             <ProgressBar style={{ width: '30rem' }} className="border border-light bg-light"
               min={0}

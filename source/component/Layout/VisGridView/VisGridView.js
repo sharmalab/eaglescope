@@ -6,7 +6,7 @@ import { getLayoutConfig } from "../../../common/utils";
 import "./VisGridView.css";
 
 // config for view grid and vis compoments
-import _CONFIG_ from "../../../../config/vis-config.json";
+//import _CONFIG_ from "../../../../config/vis-config.json";
 
 // enumeration for
 

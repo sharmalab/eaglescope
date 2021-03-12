@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import {numFixed} from '../../../common/utils.js'; 
 import * as d3 from "d3";
-import "./style.css";
 export default class ScatterChart extends PureComponent {
     constructor(props) {
         super(props);
