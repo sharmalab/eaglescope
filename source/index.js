@@ -50,7 +50,7 @@ function getConfig(){
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
   
-  return fetch(config_url, {mode: 'cors'}).then(x=>x.json())
+  return fetch(config_url, {mode: 'cors', credentials:'include'}).then(x=>x.json())
 }
 
 
@@ -209,7 +209,8 @@ class App extends React.PureComponent {
 
           } else if (_CONFIG_.DATA_FORMAT === 'json') {
             fetch(_CONFIG_.DATA_RESOURCE_URL, {
-              mode: 'cors'
+              mode: 'cors',
+              credentials: 'include'
             }).then(res => res.json()).then(data => {
               // TODO need a replace method to replace null, undefined etc.
               data.forEach(d => {// clear up null value
