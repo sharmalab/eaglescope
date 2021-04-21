@@ -49,7 +49,7 @@ function getConfig(){
     title = "PRISM Collection Explorer"
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
-  
+
   return fetch(config_url, {mode: 'cors', credentials:'include'}).then(x=>x.json())
 }
 
@@ -239,6 +239,25 @@ class App extends React.PureComponent {
                   });
                 }
               )
+          } else if (_CONFIG_.DATA_FORMAT === 'ndjson') {
+            fetch(_CONFIG_.DATA_RESOURCE_URL, {
+              mode: 'cors',
+              credentials: 'include'
+            }).then(x=>x.text()).then(x=>{
+              let r = x.split("\n")
+              let res = []
+              for (const e of r){
+                res.push(JSON.parse(e))
+              }
+              return res
+            }).then((data) => {
+                this.setState({
+                  isLoaded: true,
+                  data: data,
+                  config: _CONFIG_
+                });
+              }
+            )
           }
 
 
