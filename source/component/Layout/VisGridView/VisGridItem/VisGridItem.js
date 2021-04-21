@@ -49,7 +49,7 @@ export default class VisGridItem extends PureComponent {
           filters={this.props.filters}
           filterAdded={this.props.filterAdded}
           filterRemove={this.props.filterRemove}
-          config={this.config}
+          config={this.props.config}
         />
       </div>
     );

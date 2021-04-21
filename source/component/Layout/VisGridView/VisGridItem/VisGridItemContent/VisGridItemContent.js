@@ -1,5 +1,5 @@
 import React, { PureComponent, Suspense } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 // css class
 import "./VisGridItemContent.css";
@@ -26,25 +26,16 @@ const VisDataTable = React.lazy(() =>
   import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
 
-
-const _style = {
-  display: "flex",
-  flexGrow: 1,
-  margin: "auto",
-  alignItems: "center"
-};
-
-const _style1 = {
-  display: "flex",
-  visibility: "visible"
-};
+const VisGridCard = React.lazy(() =>
+  import("../../../../VisualTools/VisGridCard/VisGridCard")
+);
 
 export default class VisGridItemContent extends PureComponent {
   constructor(props) {
     super(props);
   }
   render() {
-
+    
     // switch content
     const TagName = VisTypeComponents[this.props.chartType];
     let component;
@@ -73,6 +64,10 @@ export default class VisGridItemContent extends PureComponent {
         component = <VisDataTable {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
+      case "VisGridCard":
+        component = <VisGridCard {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+          break;        
       case "VegaLitePlot":
         component = <VegaLitePlot {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
