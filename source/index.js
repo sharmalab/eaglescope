@@ -49,10 +49,8 @@ function getConfig(){
     title = "PRISM Collection Explorer"
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
-
   return fetch(config_url, {mode: 'cors', credentials:'include'}).then(x=>x.json())
 }
-
 
 
 // var __DM = null;
@@ -288,6 +286,14 @@ class App extends React.PureComponent {
     window.removeEventListener("resize", this.debounceResizeHandler);
   }
 
+  static getDerivedStateFromError(error) {
+    return {hasError: true};
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error(error, errorInfo);
+  }
+
   render() {
     const { error, isLoaded, data, filterData, filters, config } = this.state;
     const progressAttrs = {
@@ -299,7 +305,10 @@ class App extends React.PureComponent {
       progressAttrs.now = filterData.length;
       progressAttrs.label = `${filterData.length}/${data.length}`
     }
-    if (error) {
+    if (this.state.hasError){
+      return <div> ERROR </div>;
+    }
+    else if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
       return <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
