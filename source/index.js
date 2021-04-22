@@ -44,11 +44,12 @@ function getConfig(){
   }else if(templateName=='clinical'){
     config_url = "../config/clinical-vis-config.json"
     title = "PRISM Clinical Explorer"
-  }else{
-    config_url = "../config/collection-vis-config.json"
-    title = "PRISM Collection Explorer"
+  }else {
+    config_url = "../config/vis-config.json"
+    title = "Eaglescope"
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
+  console.log(config_url)
   return fetch(config_url, {mode: 'cors', credentials:'include'}).then(x=>x.json())
 }
 
@@ -287,7 +288,7 @@ class App extends React.PureComponent {
   }
 
   static getDerivedStateFromError(error) {
-    return {hasError: true};
+    return {hasError: true, error: error};
   }
 
   componentDidCatch(error, errorInfo) {
