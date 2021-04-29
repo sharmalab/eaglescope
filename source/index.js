@@ -65,8 +65,12 @@ function covertRaw(elt) {
     const raw = elt[key];
     if (isNumeric(raw)) {
       elt[key] = +raw;
+      elt[key.trim()] = +raw;
     } else if (raw == 'true' || raw == 'false') {
       elt[key] = raw == 'true' ? true : false;
+      elt[key.trim()] = raw == 'true' ? true : false;
+    } else {
+      elt[key.trim()] = raw.trim()
     }
   }
   return elt;
