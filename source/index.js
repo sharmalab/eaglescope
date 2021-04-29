@@ -45,8 +45,8 @@ function getConfig(){
     config_url = "../config/clinical-vis-config.json"
     title = "PRISM Clinical Explorer"
   }else {
-    config_url = "../config/vis-config.json"
-    title = "Eaglescope"
+    config_url = query.get("configurl") || "../config/vis-config.json"
+    title = query.get("title") || "Eaglescope"
   }
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
   console.log(config_url)
