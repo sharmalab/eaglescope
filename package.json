@@ -54,6 +54,7 @@
   },
   "devDependencies": {
     "parcel-plugin-static-files-copy": "^2.5.1",
+    "react-router-dom": "^5.2.0",
     "sass": "^1.32.6"
   },
   "staticFiles": {
