@@ -19,7 +19,7 @@ function getConfig(config) {
     console.log(config)
     return fetch(`../../config/${config}`, {
         mode: 'cors',
-        credentials: 'include' 
+        credentials: 'same-origin'
     }).then(x => x.json())
 }
 
@@ -175,7 +175,7 @@ export default class Eaglescope extends PureComponent {
                 })
                 fetch(_CONFIG_.DATA_RESOURCE_URL, {
                     mode: 'cors',
-                    credentials: 'include'
+                    credentials: 'same-origin'
                 }).then(res => res.json()).then(data => {
                     // TODO need a replace method to replace null, undefined etc.
                     data.forEach(d => {// clear up null value
