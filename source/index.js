@@ -35,21 +35,7 @@ import 'react-virtualized/styles.css';
 let title = "PRISM - Eaglescope";
 function getConfig(){
   const query = new URLSearchParams(window.location.search);
-  const templateName = query.get("template")
-
-  let config_url = "../config/collection-vis-config.json"
-  if(templateName=='collection'){
-    config_url = "../config/collection-vis-config.json"
-    title = "PRISM Collection Explorer"
-  }else if(templateName=='clinical'){
-    config_url = "../config/clinical-vis-config.json"
-    title = "PRISM Clinical Explorer"
-  }else{
-    config_url = "../config/collection-vis-config.json"
-    title = "PRISM Collection Explorer"
-  }
-  //let config_url = query.get("template") || "../config/collection-vis-config.json"
-  
+  const config_url = query.get("configurl") || "./config/collection-vis-config.json"
   return fetch(config_url, {mode: 'cors'}).then(x=>x.json())
 }
 
