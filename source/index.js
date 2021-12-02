@@ -32,24 +32,26 @@ import 'react-virtualized/styles.css';
 // import _CONFIG_ from "../config/vis-config.json";
 
 // get confing on request
-let title = "PRISM - Eaglescope";
+let title = "Histopathology Imaging on TCIA";
 function getConfig(){
   const query = new URLSearchParams(window.location.search);
   const templateName = query.get("template")
 
+
   let config_url = "../config/collection-vis-config.json"
   if(templateName=='collection'){
     config_url = "../config/collection-vis-config.json"
-    title = "PRISM Collection Explorer"
+    //title = "PRISM Collection Explorer"
   }else if(templateName=='clinical'){
     config_url = "../config/clinical-vis-config.json"
-    title = "PRISM Clinical Explorer"
+    //title = "PRISM Clinical Explorer"
   }else{
     config_url = "../config/collection-vis-config.json"
-    title = "PRISM Collection Explorer"
+    //title = "PRISM Collection Explorer"
   }
+  title = query.get("title") || title
   //let config_url = query.get("template") || "../config/collection-vis-config.json"
-  
+
   return fetch(config_url, {mode: 'cors'}).then(x=>x.json())
 }
 
