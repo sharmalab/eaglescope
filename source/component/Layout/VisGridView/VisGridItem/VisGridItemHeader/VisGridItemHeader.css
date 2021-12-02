@@ -17,6 +17,7 @@
   text-overflow: ellipsis;
   text-align: left !important;
   font-weight: bold;
+  font-weight: 400;
 }
 
 .draggable {

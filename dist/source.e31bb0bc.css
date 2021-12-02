@@ -40,6 +40,7 @@
   text-overflow: ellipsis;
   text-align: left !important;
   font-weight: bold;
+  font-weight: 400;
 }
 
 .draggable {
@@ -116,6 +117,49 @@
     margin: .25rem !important;
     padding: 0 .25rem !important;
 }
+.og {
+    fill: #2467A8;
+    opacity: 1;
+}
+.ft {
+
+    fill: #51A6FA;
+    opacity: 1;
+}
+
+.slide.selected {
+    stroke-width: 3;
+    fill-opacity: 1;
+    stroke: #C0C0C0; /* silver */
+}
+
+circle.brushed {
+    fill: #87CEEB; /* SkyBlue */
+    stroke: #4682B4; /* SteelBlue */
+    opacity: .8;
+}
+
+circle.non_brushed {
+    fill: #C0C0C0C0; /* Silver */
+    stroke: #000000; /* Black */
+    opacity: .2;
+}
+
+text.label {
+    font-size:12px;
+}
+
+.tick:not(:first-of-type) line {
+    stroke: #c0c0c0;
+    stroke-dasharray: 1;
+    stroke-opacity: 1;
+}
+.line {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 2px;
+}
+
 /*!
  * Font Awesome Free 5.15.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -280,7 +324,7 @@ h1 {
 }
 
 .blue-bar {
-  background-color: #2e86de;
+  background-color: #51A6FA;
 }
 
 #count1 {
@@ -337,6 +381,18 @@ h1 {
 
 .btn, .btn:focus {
   box-shadow: none !important;
+}
+
+.bg-primary {
+  background-color: #121416 !important;
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
+
+.progress, .progress-bar {
+  border-radius: 30px;
 }
 /* Collection default theme */
 

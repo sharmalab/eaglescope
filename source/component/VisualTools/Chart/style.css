@@ -1,13 +1,12 @@
 .og {
-    fill: #87CEFA; /* LightSkyBlue */
+    fill: #2467A8;
     opacity: 1;
 }
 .ft {
-    /* fill: #B0C4DE; LightSteelBlue */
-    fill:#4682B4; /* SteelBlue */
+
+    fill: #51A6FA;
     opacity: 1;
 }
-
 
 .slide.selected {
     stroke-width: 3;

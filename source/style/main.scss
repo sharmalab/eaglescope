@@ -28,7 +28,7 @@ h1{
 }
 
 .blue-bar {
-  background-color: #2e86de;
+  background-color: #51A6FA;
 }
 
 #count1{
@@ -46,7 +46,7 @@ h1{
   /* text-align: center;
   align-content: center;
   align-items: center;
-  
+
   align-items: center; */
 }
 
@@ -83,4 +83,16 @@ h1{
 }
 .btn, .btn:focus{
   box-shadow: none !important;
+}
+
+.bg-primary {
+    background-color: #121416!important;
+}
+
+.text-light {
+    color: #f8f9fa!important;
+}
+
+.progress, .progress-bar {
+    border-radius: 30px;
 }
