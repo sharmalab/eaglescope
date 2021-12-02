@@ -103,7 +103,6 @@
     flex-wrap: wrap;
     margin: .5rem;
     padding: .5rem;
-    border-radius: .25rem;
     background-color: #262626;
     border: 0px solid #ddd;
 }
@@ -452,6 +451,10 @@ h1 {
 
 a {
   color: #51a6fa;
+}
+
+.border {
+  border: 0px solid #dee2e6 !important;
 }
 /* Collection default theme */
 
