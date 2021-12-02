@@ -30,6 +30,11 @@ text.label {
     font-size:12px;
 }
 
+.ReactVirtualized__Table__headerRow {
+    font-weight: 400;
+    color: #888;
+}
+
 .tick:not(:first-of-type) line {
     stroke: #c0c0c0;
     stroke-dasharray: 1;
@@ -39,4 +44,17 @@ text.label {
     fill: none;
     stroke: steelblue;
     stroke-width: 2px;
+}
+
+.bg-light {
+    background-color: #1a1a1a!important;
+}
+
+.border {
+    border: 0px solid #dee2e6!important;
+}
+
+body {
+    color: #bbbbbb;
+    background-color: #111111;
 }
