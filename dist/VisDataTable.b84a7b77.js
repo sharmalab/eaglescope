@@ -20246,10 +20246,12 @@ function (_PureComponent) {
 
       if (f.link && f.link.url && f.link.field) {
         urlElt = _react.default.createElement("a", {
+          target: "_parent",
           href: f.link.url + d.rowData[f.link.field]
         }, d.cellData);
       } else if (f.link && f.link.url) {
         urlElt = _react.default.createElement("a", {
+          target: "_parent",
           href: f.link.url
         }, d.cellData);
       } else {
@@ -20488,7 +20490,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46493" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44761" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
