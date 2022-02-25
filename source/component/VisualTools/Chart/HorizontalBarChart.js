@@ -22,7 +22,7 @@ export default class HorizontalBarChart extends PureComponent {
             .rollup(function(v) { return v.length; })
             .entries(data);
         return new_data;
-        
+
     }
     createXAixs(svg) {
 
@@ -50,7 +50,7 @@ export default class HorizontalBarChart extends PureComponent {
 
     drawBar(selection, data, className='og') {
         const update_bars = selection.selectAll(`rect.${className}`).data(data,d=> d[this.state.fields.y])
-        
+
         const enter_bars = update_bars.enter().append('rect')
         enter_bars.attr('class', `${className}`)
             .attr("x", 0)
@@ -73,18 +73,18 @@ export default class HorizontalBarChart extends PureComponent {
                 this.props.filterAdded([filter])
             })
 
-        enter_bars.append('title').text(d=> `${d.key}:${d.value}`)   
+        enter_bars.append('title').text(d=> `${d.key}:${d.value}`)
 
         update_bars.merge(enter_bars)
             .transition().duration(1000)
             .attr("width", function(d) { return this.xScale(d[this.state.fields.x]); }.bind(this))
             .selectAll('.label').text(d=>d.key)
         // update_bars
-        
+
         update_bars.exit()
             .transition().duration(1000)
             .attr('width',0).remove()
-        
+
         return update_bars;
 
     }
@@ -106,7 +106,7 @@ export default class HorizontalBarChart extends PureComponent {
             const rect = this.self.current.getBoundingClientRect();
             const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
             this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-            // create svg 
+            // create svg
             const svg = d3.select(this.self.current)
             .append("svg")
                 .attr("width", rect.width)
@@ -117,25 +117,25 @@ export default class HorizontalBarChart extends PureComponent {
             //
             this.xScale = this.createXScale(this.state.fields.x, innerWidth);
             this.yScale = this.createYScale(this.state.fields.y, this.innerHeight);
-    
+
             this.viewer.append("g")
             .attr("transform", `translate(0,${this.innerHeight})`)
             .call(d3.axisBottom(this.xScale).tickSize(-this.innerHeight))
-    
+
             this.bars = this.drawBar(this.viewer, this.state.data,'og')
             this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
             this.createTextLabel();
-            
+
             this.componentDidUpdate()
-        }, 500); 
+        }, 500);
 
 
 
-  
+
         // add the y Axis
         // this.viewer.append("g")
         //     .call(d3.axisLeft(this.yScale));
-        
+
     }
     createTextLabel(){
         this.viewer.selectAll('.label').remove();

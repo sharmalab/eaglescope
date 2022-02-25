@@ -282,7 +282,7 @@ function (_PureComponent) {
         var rect = _this3.self.current.getBoundingClientRect();
 
         var innerWidth = rect.width - _this3.state.margin.left - _this3.state.margin.right;
-        _this3.innerHeight = rect.height - _this3.state.margin.top - _this3.state.margin.bottom; // create svg 
+        _this3.innerHeight = rect.height - _this3.state.margin.top - _this3.state.margin.bottom; // create svg
 
         var svg = d3.select(_this3.self.current).append("svg").attr("width", rect.width).attr("height", rect.height); // create viewer
 
@@ -384,7 +384,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44761" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40675" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -401,7 +401,6 @@ h1 {
 
 .btn, .btn:focus {
   box-shadow: none !important;
-  display: none;
 }
 
 .bg-success {
@@ -455,6 +454,10 @@ a {
 
 .border {
   border: 0px solid #dee2e6 !important;
+}
+
+.label {
+  pointer-events: none;
 }
 /* Collection default theme */
 

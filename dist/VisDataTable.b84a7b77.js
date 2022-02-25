@@ -20244,10 +20244,11 @@ function (_PureComponent) {
     value: function cellRenderer(d, f) {
       var urlElt;
 
-      if (f.link && f.link.url && f.link.field) {
+      if (f.link && f.link.field) {
+        var urlbase = f.link.url || "";
         urlElt = _react.default.createElement("a", {
           target: "_parent",
-          href: f.link.url + d.rowData[f.link.field]
+          href: urlbase + d.rowData[f.link.field]
         }, d.cellData);
       } else if (f.link && f.link.url) {
         urlElt = _react.default.createElement("a", {
@@ -20490,7 +20491,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44761" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "40675" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
