@@ -41,8 +41,10 @@ export default class VisDataTable extends PureComponent {
   }
   cellRenderer(d, f) {
     let urlElt;
-    if(f.link&&f.link.url&&f.link.field){
-      urlElt = <a target="_parent" href={f.link.url + d.rowData[f.link.field]}>{d.cellData}</a>
+    
+    if(f.link&&f.link.field){
+      let urlbase = f.link.url || "";
+      urlElt = <a target="_parent" href={urlbase + d.rowData[f.link.field]}>{d.cellData}</a>
     }else if(f.link&&f.link.url){
       urlElt = <a target="_parent" href={f.link.url}>{d.cellData}</a>
     } else{
