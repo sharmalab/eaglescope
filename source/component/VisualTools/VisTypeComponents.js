@@ -14,5 +14,6 @@ VisTypeComponents.SCATTER_CHART = "ScatterChart";
 VisTypeComponents.KM_CURVE = "KMCurve";
 VisTypeComponents.VIS_DATA_TABLE = "VisDataTable";
 VisTypeComponents.VEGA_LITE_PLOT = "VegaLitePlot";
+VisTypeComponents.HISTOGRAM = "Histogram";
 
 export default VisTypeComponents

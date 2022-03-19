@@ -26,6 +26,10 @@ const VisDataTable = React.lazy(() =>
   import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
 
+const Histogram = React.lazy(() =>
+  import("../../../../VisualTools/Chart/Histogram")
+);
+
 
 const _style = {
   display: "flex",
@@ -76,6 +80,9 @@ export default class VisGridItemContent extends PureComponent {
       case "VegaLitePlot":
         component = <VegaLitePlot {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+        break;
+      case "Histogram":
+        component = <Histogram {...this.props} />;
         break;
       default:
         component = <div>I'm Sorry. There Is No {TagName} Component...</div>;
