@@ -17,7 +17,7 @@ class VisFullScreenView extends PureComponent {
     }
     
     render() {
-        const viewHeight = window.innerHeight - this.navHeight - (this.props.filters.length?65:0);
+        const viewHeight = window.innerHeight - this.navHeight - 65;
         console.log(window.innerHeight, viewHeight)
         console.log(this.props)
         return (
