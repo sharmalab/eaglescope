@@ -1,5 +1,6 @@
 body{
   min-width: 500px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 h1{
     color:red
@@ -80,6 +81,8 @@ h1{
 }
 .progress-bar {
   font-weight: bold;
+  text-shadow: rgb(0 0 0) -1px -1px 0px, rgb(0 0 0) 1px -1px 0px, rgb(0 0 0) -1px 1px 0px, rgb(0 0 0) 1px 1px 0px;
+  overflow: visible;
 }
 .btn, .btn:focus{
   box-shadow: none !important;

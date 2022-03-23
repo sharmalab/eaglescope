@@ -22,7 +22,7 @@ export default class BarChart extends PureComponent {
             .rollup(function(v) { return v.length; })
             .entries(data);
         return new_data;
-        
+
     }
 
     createXScale(f,width) {
@@ -50,7 +50,7 @@ export default class BarChart extends PureComponent {
 
     drawBar(selection, data, className='og') {
         const update_bars = selection.selectAll(`rect.${className}`).data(data,d=> d[this.state.fields.x])
-        
+
         const enter_bars = update_bars.enter().append('rect')
         enter_bars.attr('class', `${className}`)
             .attr("x", function(d) { return this.xScale(d[this.state.fields.x])}.bind(this))
@@ -74,20 +74,20 @@ export default class BarChart extends PureComponent {
                 this.props.filterAdded([filter])
             })
 
-        enter_bars.append('title').text(d=> `${d.key}:${d.value}`)   
-        
+        enter_bars.append('title').text(d=> `${d.key}:${d.value}`)
+
         update_bars.merge(enter_bars)
             .transition().duration(1000)
             .attr("y", function(d) { return this.yScale(d[this.state.fields.y])}.bind(this))
             .attr("height", function(d) { return this.innerHeight - this.yScale(d[this.state.fields.y]); }.bind(this))
-        
+
         // update_bars
-        
+
         update_bars.exit()
             .transition().duration(1000)
             .attr('y',this.innerHeight)
             .attr('height',0).remove()
-        
+
         return update_bars;
 
     }
@@ -107,7 +107,7 @@ export default class BarChart extends PureComponent {
             const rect = this.self.current.getBoundingClientRect();
             this.innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
             this.innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
-            // create svg 
+            // create svg
             const svg = d3.select(this.self.current)
             .append("svg")
                 .attr("width", rect.width)
@@ -127,7 +127,7 @@ export default class BarChart extends PureComponent {
             .call(this.xAxis)
             .selectAll(".tick text")
             .call(this.wrap, this.xScale.bandwidth());
-    
+
             // add the y Axis
             this.yAxis = d3.axisLeft(this.yScale)
             .tickSize(-this.innerWidth)
@@ -136,7 +136,7 @@ export default class BarChart extends PureComponent {
 
             this.bars = this.drawBar(this.viewer, this.state.data,'og')
             this.filterbars = this.drawBar(this.viewer, this.state.data,'ft')
-            
+
             this.componentDidUpdate()
 
         }, 500)
@@ -165,7 +165,19 @@ export default class BarChart extends PureComponent {
           }
         });
     }
+
+    componentDidCatch(error, errorInfo) {
+      console.error(error, errorInfo);
+    }
+
+    static getDerivedStateFromError(error) {
+      return {hasError: true, error: error};
+    }
+
     render() {
+      if (this.state.hasError){
+        return (<div>ERROR</div>);
+      } else {
         return (
             <div
               id={this.props.id}
@@ -174,4 +186,5 @@ export default class BarChart extends PureComponent {
             ></div>
         );
       }
+    }
 }

@@ -1,5 +1,5 @@
 import React, { PureComponent, Suspense } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 
 // css class
 import "./VisGridItemContent.css";
@@ -31,6 +31,15 @@ const Histogram = React.lazy(() =>
 );
 
 
+const VisGridCard = React.lazy(() =>
+  import("../../../../VisualTools/VisGridCard/VisGridCard")
+);
+
+const Histogram = React.lazy(() =>
+  import("../../../../VisualTools/Chart/Histogram")
+);
+
+
 const _style = {
   display: "flex",
   flexGrow: 1,
@@ -44,13 +53,21 @@ const _style1 = {
 };
 
 export default class VisGridItemContent extends PureComponent {
+  componentDidCatch(error, errorInfo) {
+    console.error("VC", error, errorInfo);
+  }
+
+  static getDerivedStateFromError(error) {
+    return {hasError: true, error: error};
+  }
   constructor(props) {
     super(props);
   }
   render() {
-
     // switch content
+    console.log(this.props.chartType)
     const TagName = VisTypeComponents[this.props.chartType];
+    console.log(TagName)
     let component;
     switch (TagName) {
       case "PieChart":
@@ -77,6 +94,10 @@ export default class VisGridItemContent extends PureComponent {
         component = <VisDataTable {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
         break;
+      case "VisGridCard":
+        component = <VisGridCard {...this.props} data={this.props.data} filterData={this.props.filterData}
+        filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
+          break;
       case "VegaLitePlot":
         component = <VegaLitePlot {...this.props} data={this.props.data} filterData={this.props.filterData}
         filters={this.props.filters} filterAdded={this.props.filterAdded}/>;
@@ -87,11 +108,15 @@ export default class VisGridItemContent extends PureComponent {
       default:
         component = <div>I'm Sorry. There Is No {TagName} Component...</div>;
     }
-
-    return (
-      <div className="vis-grid-item-content">
-        <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
-      </div>
-    );
+    if (this.state && this.state.hasError){
+      return(<div>ERROR</div>)
+    } else {
+      console.log("XX", component)
+      return (
+        <div className="vis-grid-item-content">
+          <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
+        </div>
+      );
+    }
   }
 }
