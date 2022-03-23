@@ -77,7 +77,7 @@ export default class ScatterChart extends PureComponent {
     
             this.circles = viewer.selectAll("circle").data(this.state.data)
             .enter().append("circle")
-            .attr("r", d => this.radiusScale(d[this.props.fields.z]))
+            .attr("r", d => this.props.fields.z ? this.radiusScale(d[this.props.fields.z]) : 3)
             .attr("cx", d => this.xScale(d[this.props.fields.x]))
             .attr("cy", d => this.yScale(d[this.props.fields.y]))
             .attr("class", "brushed");
