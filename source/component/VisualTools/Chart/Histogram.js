@@ -3,8 +3,17 @@ import { numFixed } from "../../../common/utils.js";
 import * as d3 from "d3";
 
 /**
- * @param
- * @returns
+ * @function Histogram
+ * @description Creates an interactive histogram chart
+ *              User can select specific range of x by brushing
+ * @param {Object} data - total data without filtering
+ * @param {Array} fields - contains filed to creat histogram on
+ * @param {String} id - HTML id for the chart
+ * @param {Integer} binsCount - number of bins to split data on
+ * @param {Object} filterData - data after applying filters 
+ * @param {Array} filters - current filters
+ * @param {Function} filterAdded - handler for adding new filter
+ * @returns {Component}
  */
 
 const Histogram = ({
