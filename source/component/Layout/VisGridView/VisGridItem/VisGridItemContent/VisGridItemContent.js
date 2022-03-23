@@ -26,11 +26,6 @@ const VisDataTable = React.lazy(() =>
   import("../../../../VisualTools/VisDataTable/VisDataTable")
 );
 
-const Histogram = React.lazy(() =>
-  import("../../../../VisualTools/Chart/Histogram")
-);
-
-
 const VisGridCard = React.lazy(() =>
   import("../../../../VisualTools/VisGridCard/VisGridCard")
 );
