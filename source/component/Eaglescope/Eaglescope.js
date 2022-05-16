@@ -138,8 +138,7 @@ export default class Eaglescope extends PureComponent {
         let thisParams = new URLSearchParams(thisUrl.search);
         thisParams.set('filterState', JSON.stringify([...new_filters]));
         let newUrl = thisUrl.pathname + "?" + thisParams.toString();
-        // TODO -- decide pushState or replaceState??
-        window.history.pushState({}, document.title, newUrl);
+        window.history.replaceState({}, document.title, newUrl);
 
     }
 
@@ -152,8 +151,7 @@ export default class Eaglescope extends PureComponent {
             let thisParams = new URLSearchParams(thisUrl.search);
             thisParams.delete('filterState');
             let newUrl = thisUrl.pathname + "?" + thisParams.toString();
-            // TODO -- decide pushState or replaceState??
-            window.history.pushState({}, document.title, newUrl);
+            window.history.replaceState({}, document.title, newUrl);
             return;
         }
         const old_filters = [...this.state.filters];
@@ -174,8 +172,7 @@ export default class Eaglescope extends PureComponent {
         let thisParams = new URLSearchParams(thisUrl.search);
         thisParams.set('filterState', JSON.stringify([...new_filters]));
         let newUrl = thisUrl.pathname + "?" + thisParams.toString();
-        // TODO -- decide pushState or replaceState??
-        window.history.pushState({}, document.title, newUrl);
+        window.history.replaceState({}, document.title, newUrl);
     }
 
     componentDidMount() {
