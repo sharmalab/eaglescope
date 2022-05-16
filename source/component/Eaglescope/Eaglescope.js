@@ -267,6 +267,20 @@ export default class Eaglescope extends PureComponent {
             now: data.length,
             label: `${data.length}/${data.length}`
         };
+        //  handle url state filters
+        let thisUrl = new URL(window.location);
+        let thisParams = new URLSearchParams(thisUrl.search);
+        let thisFilterState = thisParams.get('filterState');
+        try{
+          if(thisFilterState && isLoaded){
+            this.addFiltersHandler(JSON.parse(thisFilterState))
+            thisParams.delete('filterState');
+            let newUrl = thisUrl.pathname + "?" + thisParams.toString();
+            window.history.replaceState({}, document.title, newUrl);
+          }
+        } catch (e){
+          console.info(e);
+        }
 
         if (filters.length > 0) {
             progressAttrs.now = filterData.length;
