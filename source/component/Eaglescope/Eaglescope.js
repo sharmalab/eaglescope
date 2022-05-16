@@ -117,6 +117,7 @@ export default class Eaglescope extends PureComponent {
         })
 
     }
+
     // {
     //    id:
     //    field:xxx,
@@ -132,6 +133,13 @@ export default class Eaglescope extends PureComponent {
         // do filter
         const dataset_afterFilter = filterData(this.state.data, new_filters);
         this.setState({ filterData: [...dataset_afterFilter], filters: [...new_filters] })
+        // handle url
+        let thisUrl = new URL(window.location);
+        let thisParams = new URLSearchParams(thisUrl.search);
+        thisParams.set('filterState', JSON.stringify([...new_filters]));
+        let newUrl = thisUrl.pathname + "?" + thisParams.toString();
+        // TODO -- decide pushState or replaceState??
+        window.history.pushState({}, document.title, newUrl);
 
     }
 
@@ -139,6 +147,13 @@ export default class Eaglescope extends PureComponent {
         // remove all filter
         if (id === 'ALL') {
             this.setState({ filterData: [], filters: [] });
+            // handle url
+            let thisUrl = new URL(window.location);
+            let thisParams = new URLSearchParams(thisUrl.search);
+            thisParams.delete('filterState');
+            let newUrl = thisUrl.pathname + "?" + thisParams.toString();
+            // TODO -- decide pushState or replaceState??
+            window.history.pushState({}, document.title, newUrl);
             return;
         }
         const old_filters = [...this.state.filters];
@@ -154,6 +169,13 @@ export default class Eaglescope extends PureComponent {
         }
         const dataset_afterFilter = filterData(this.state.data, new_filters);
         this.setState({ filterData: [...dataset_afterFilter], filters: [...new_filters] })
+        // handle url
+        let thisUrl = new URL(window.location);
+        let thisParams = new URLSearchParams(thisUrl.search);
+        thisParams.set('filterState', JSON.stringify([...new_filters]));
+        let newUrl = thisUrl.pathname + "?" + thisParams.toString();
+        // TODO -- decide pushState or replaceState??
+        window.history.pushState({}, document.title, newUrl);
     }
 
     componentDidMount() {
@@ -267,16 +289,14 @@ export default class Eaglescope extends PureComponent {
             now: data.length,
             label: `${data.length}/${data.length}`
         };
-        //  handle url state filters
+        // handle url state filters only on first load
         let thisUrl = new URL(window.location);
         let thisParams = new URLSearchParams(thisUrl.search);
         let thisFilterState = thisParams.get('filterState');
         try{
-          if(thisFilterState && isLoaded){
+          // needs to run after load, but never after setting other filters
+          if(filters.length == 0 && thisFilterState && isLoaded){
             this.addFiltersHandler(JSON.parse(thisFilterState))
-            thisParams.delete('filterState');
-            let newUrl = thisUrl.pathname + "?" + thisParams.toString();
-            window.history.replaceState({}, document.title, newUrl);
           }
         } catch (e){
           console.info(e);
