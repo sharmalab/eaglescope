@@ -10,11 +10,15 @@ class DownloadButton extends BaseVisualization {
   }
   download(){
     console.log("downloading", this.props.data, this);
-    const blob = new Blob([JSON.stringify(this.props.data)],{type:'application/json'});
+    let data = this.props.data[0];
+    if (data.length == 0){
+      data = this.props.data[1]
+    }
+    const blob = new Blob([JSON.stringify(data)],{type:'application/json'});
     const href =  URL.createObjectURL(blob)
     const link = document.createElement('a');
     link.href = href;
-    link.download = this.title || "download" + ".json";
+    link.download = this.props.title || "download" + ".json";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
