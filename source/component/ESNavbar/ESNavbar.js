@@ -1,5 +1,6 @@
 import React, { PureComponent } from "react";
 import HomeButton from "../HomeButton.js";
+import DownloadButton from "../DownloadButton.js";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
@@ -13,10 +14,11 @@ export default class ESNavbar extends PureComponent {
   }
 
   render() {
-    const { url, title, max, now, progressLabel } = this.props;
+    const { url, title, max, now, progressLabel, data } = this.props;
     return (
       <Navbar bg="primary" variant="dark">
         {url ? <HomeButton url={url} /> : null}
+        <DownloadButton data={data} title={title}/>
         <Navbar.Brand href={url ? url : "#"}>
           {title ? title : "Eaglescope"}
         </Navbar.Brand>

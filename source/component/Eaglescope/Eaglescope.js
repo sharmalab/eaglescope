@@ -324,6 +324,7 @@ export default class Eaglescope extends PureComponent {
                         max={data.length}
                         now={progressAttrs.now}
                         progressLabel={progressAttrs.label}
+                        data={[filterData, data]}
                     />
                     <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
 
