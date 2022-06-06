@@ -11,8 +11,11 @@ export default class App extends PureComponent {
     constructor(props) {
         super(props)
 
+        const query = new URLSearchParams(window.location.search);
+        let routeConfig = query.get("routes") || '../config/router.json';
+
         this.state = {
-            pathConfig: '../config/router.json',
+            pathConfig: routeConfig,
             isLoaded: false,
             error: null,
             paths: null
@@ -22,7 +25,10 @@ export default class App extends PureComponent {
     componentDidMount() {
 
         // loading the path config for react router
-        d3.json(this.state.pathConfig).then(paths => {
+        fetch(this.state.pathConfig, {
+            mode: 'cors',
+            credentials: 'same-origin'
+        }).then(x=>x.json()).then(paths => {
             this.setState({ isLoaded: true, paths })
         }).catch(error => {
             // TODO error log
@@ -39,11 +45,11 @@ export default class App extends PureComponent {
         if (error) {
             return <div >Error: {error.message}</div>;
         }
-        // loading 
+        // loading
         if (!isLoaded) {
             return <div>Loading...</div>;
         }
-        // 
+        //
         return (
             <Router>
                 <Switch>
