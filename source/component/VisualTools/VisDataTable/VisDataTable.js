@@ -1,5 +1,5 @@
-import React, { Component, PureComponent } from 'react'
-import { AutoSizer, Column, Table, SortDirection, SortIndicator } from 'react-virtualized';
+import React, { PureComponent } from 'react'
+import { AutoSizer, Column, Table, SortDirection } from 'react-virtualized';
 import Draggable from "react-draggable";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown, faSortUp, faSort } from '@fortawesome/free-solid-svg-icons';
@@ -7,8 +7,8 @@ import VisDataTableControl from './VisDataTableControl/VisDataTableControl';
 import arrayMove from 'array-move';
 import './VisDataTable.css';
 export default class VisDataTable extends PureComponent {
-  constructor(props, context) {
-    super(props, context);
+  constructor(props) {
+    super(props);
     const fWidth = 1 / this.props.fields.length;
     const fields = this.props.fields.map(f => { return { ...f, width: fWidth, isShow: true } })
     this.state = {

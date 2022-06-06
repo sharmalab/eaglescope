@@ -23,35 +23,45 @@ export default class VisGridItem extends PureComponent {
     this.setState({ hover: false });
   }
 
+  componentDidCatch(error, errorInfo) {
+    console.error(error, errorInfo);
+  }
+
+  static getDerivedStateFromError(error) {
+    return {hasError: true, error: error};
+  }
 
   render() {
+    if(this.state.hasError){
+      return(<div>ERROR</div>)
+    } else {
+      return (
+        <div
+          className={`vis-grid-item bg-light`}
+          onMouseEnter={this.onMouseEnterHandle}
+          onMouseLeave={this.onMouseLeaveHeadle}
+        >
+          <VisGridItemHeader
+            id={this.props.operation.id}
+            title={this.props.operation.title}
+            description={this.props.operation.description}
+            toggleFullScreen={this.props.toggleFullScreen}
+            fullScreened={this.props.operation.fullScreened}
+            hover={this.state.hover}
+            filters={this.props.filters}
+            filterRemove={this.props.filterRemove} />
 
-    return (
-      <div
-        className={`vis-grid-item bg-light`}
-        onMouseEnter={this.onMouseEnterHandle}
-        onMouseLeave={this.onMouseLeaveHeadle}
-      >
-        <VisGridItemHeader
-          id={this.props.operation.id}
-          title={this.props.operation.title}
-          description={this.props.operation.description}
-          toggleFullScreen={this.props.toggleFullScreen}
-          fullScreened={this.props.operation.fullScreened}
-          hover={this.state.hover}
-          filters={this.props.filters}
-          filterRemove={this.props.filterRemove} />
-
-        <VisGridItemContent
-          {...this.props.operation}
-          data={this.props.data}
-          filterData={this.props.filterData}
-          filters={this.props.filters}
-          filterAdded={this.props.filterAdded}
-          filterRemove={this.props.filterRemove}
-          config={this.config}
-        />
-      </div>
-    );
+          <VisGridItemContent
+            {...this.props.operation}
+            data={this.props.data}
+            filterData={this.props.filterData}
+            filters={this.props.filters}
+            filterAdded={this.props.filterAdded}
+            filterRemove={this.props.filterRemove}
+            config={this.props.config}
+          />
+        </div>
+      );
+    }
   }
 }

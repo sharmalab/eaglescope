@@ -58,7 +58,7 @@ class VisGridView extends PureComponent {
     // calculate width and height
     this.setState(updatedState);
 
-    this.fullScreenHandler = this.fullScreenHandler.bind(this);
+    // this.fullScreenHandler = this.fullScreenHandler.bind(this);
     this.updateViewSize = this.updateViewSize.bind(this)
   }
 
@@ -67,16 +67,7 @@ class VisGridView extends PureComponent {
   //   //this.state.config.layout
   //   //this.setState({ items: _.reject(this.state.items, { i: i }) });
   // }
-  fullScreenHandler(id, fullScreened) {
-    const newVisConfig = [...this.state.config.visConfig].map(config=>{
-      config.fullScreened = config.id==id?fullScreened: false;
-      return config;
-    })
-    const updatedState = { ...this.state };
-    updatedState.config.visConfig = newVisConfig;
-    this.setState(updatedState);
-    this.props.fullVisScreenHandler(id, fullScreened);
-  }
+
 
   componentDidMount() {
     this.updateViewSize();
@@ -94,7 +85,7 @@ class VisGridView extends PureComponent {
   }
 
   layoutChangeHandler(layout){
-    console.log('layout', layout)
+    
   }
 
   render() {
@@ -110,7 +101,7 @@ class VisGridView extends PureComponent {
             filters={this.props.filters}
             filterAdded = {this.props.filterAdded}
             filterRemove = {this.props.filterRemove}
-            toggleFullScreen={this.fullScreenHandler}
+            toggleFullScreen={this.props.fullVisScreenHandler}
             config={this.props.config}
           />
         </div>

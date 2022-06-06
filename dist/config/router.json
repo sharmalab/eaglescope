@@ -1,0 +1,14 @@
+[
+  {
+    "path": "",
+    "config": "collection-vis-config.json"
+  },
+  {
+    "path": "clinical",
+    "config": "clinical-vis-config.json"
+  },
+  {
+    "path": "collection",
+    "config": "collection-vis-config.json"
+  }
+]
