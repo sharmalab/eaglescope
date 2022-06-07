@@ -177,7 +177,9 @@ export default class Eaglescope extends PureComponent {
 
     componentDidMount() {
         const {config} = this.props;
-        getConfig(config).then(_CONFIG_ => {
+        const query = new URLSearchParams(window.location.search);
+        let routeConfig = query.get("configurl") || config;
+        getConfig(routeConfig).then(_CONFIG_ => {
             if (_CONFIG_.DATA_FORMAT === 'csv') {
                 d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
                     this.setState({
