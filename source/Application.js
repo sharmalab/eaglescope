@@ -10,53 +10,49 @@ import Eaglescope from './component/Eaglescope/Eaglescope'
 export default class App extends PureComponent {
     constructor(props) {
         super(props)
-
-        const query = new URLSearchParams(window.location.search);
-        let routeConfig = query.get("routes") || '../config/router.json';
-
         this.state = {
-            pathConfig: routeConfig,
+            config: null,
             isLoaded: false,
-            error: null,
-            paths: null
+            error: null
         }
     }
-
-    componentDidMount() {
-
-        // loading the path config for react router
-        fetch(this.state.pathConfig, {
-            mode: 'cors',
-            credentials: 'same-origin'
-        }).then(x=>x.json()).then(paths => {
-            this.setState({ isLoaded: true, paths })
-        }).catch(error => {
-            // TODO error log
-            console.error(error)
-            this.setState({
-                isLoaded: true,
-                error
-            });
-        })
+    componentDidMount(){
+      const query = new URLSearchParams(window.location.search);
+      let configUrl = query.get("configurl") || './config/clinical-vis-config.json'
+      return fetch(configUrl, {
+          mode: 'cors',
+          credentials: 'same-origin'
+      }).then(x=>x.json()).then(x =>{
+        this.setState({
+            config: x,
+            isLoaded: true,
+            error: null
+        });
+      }).catch(e =>{
+        console.error(e)
+        this.setState({
+            config: null,
+            isLoaded: false,
+            error: e
+        });
+      })
     }
+
     render() {
-        const { error, isLoaded, paths } = this.state;
+        const { config, error, isLoaded } = this.state;
+        console.log(this.state)
         // handle error
         if (error) {
             return <div >Error: {error.message}</div>;
         }
         // loading
-        if (!isLoaded) {
+        else if (!isLoaded) {
             return <div>Loading...</div>;
         }
-        //
-        return (
-            <Router>
-                <Switch>
-                    {paths.map((item, idx) => <Route key={idx} path={[`/${item.path}`]} exact render={(routeProps) => <Eaglescope {...routeProps} config={item.config}/>} />)}
-                </Switch>
-            </Router>
-
-        )
+        else {
+          return (
+              <Eaglescope config={config}/>
+          )
+        }
     }
 }
