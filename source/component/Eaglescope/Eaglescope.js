@@ -15,9 +15,10 @@ import {
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
 // get confing on request
-function getConfig(config) {
+function getConfig(config, override) {
     console.log(config)
-    return fetch(`../../config/${config}`, {
+    let configUrl = override || `../../config/${config}`;
+    return fetch(configUrl, {
         mode: 'cors',
         credentials: 'same-origin'
     }).then(x => x.json())
@@ -178,8 +179,7 @@ export default class Eaglescope extends PureComponent {
     componentDidMount() {
         const {config} = this.props;
         const query = new URLSearchParams(window.location.search);
-        let routeConfig = query.get("configurl") || config;
-        getConfig(routeConfig).then(_CONFIG_ => {
+        getConfig(config, query.get("configurl")).then(_CONFIG_ => {
             if (_CONFIG_.DATA_FORMAT === 'csv') {
                 d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
                     this.setState({
