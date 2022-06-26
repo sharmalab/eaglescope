@@ -1,0 +1,40 @@
+{
+  "HOME_URL": "https://pathdb.cancerimagingarchive.net/",
+  "HEIGHT_OF_VIS_HEADER": 30,
+  "TITLE": "PRISM Collection Explorer",
+  "MARGIN_OF_VIS": [10, 10],
+  "UNIT_OF_GRID_VIEW": [300, 300],
+  "MARGIN_OF_GRID_VIEW": [40, 10],
+  "DATA_RESOURCE_URL": "../config/wines.csv",
+  "DATA_FORMAT": "csv",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id": "access",
+      "title": "Quality Level",
+      "description": "Quality Level",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "quality_label" },
+      "size": [2, 2],
+      "priority": 60
+    },
+    {
+      "id": "images",
+      "title": "Image Types",
+      "description": "Showing the number of patients in gender",
+      "chartType": "BAR_CHART",
+      "fields": { "x": "quality_label" },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "histogram",
+      "title": "histogram",
+      "description": "histogram",
+      "chartType": "HISTOGRAM",
+      "fields": { "x": "volatile acidity" },
+      "binsCount": 50,
+      "size": [1, 1],
+      "priority": 50
+    }
+  ]
+}
