@@ -1,56 +1,46 @@
-import React, { PureComponent } from 'react'
-import * as d3 from "d3";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from 'react-router-dom';
-import Eaglescope from './component/Eaglescope/Eaglescope'
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import useFetch from './hooks/useFetch';
+import Eaglescope from './components/Eaglescope/Eaglescope';
+import ConfigContextProvider from './contexts/ConfigContext';
+import DataContextProvider from './contexts/DataContext';
+import LoadingSpinner from './components/partials/LoadingSpinner';
+import ErrorMsg from './components/partials/ErrorMsg';
 
-export default class App extends PureComponent {
-    constructor(props) {
-        super(props)
+// style
 
-        this.state = {
-            pathConfig: '../config/router.json',
-            isLoaded: false,
-            error: null,
-            paths: null
-        }
-    }
+function APP() {
+  const { error, data: paths, isPending } = useFetch('../config/router.json');
 
-    componentDidMount() {
-
-        // loading the path config for react router
-        d3.json(this.state.pathConfig).then(paths => {
-            this.setState({ isLoaded: true, paths })
-        }).catch(error => {
-            // TODO error log
-            console.error(error)
-            this.setState({
-                isLoaded: true,
-                error
-            });
-        })
-    }
-    render() {
-        const { error, isLoaded, paths } = this.state;
-        // handle error
-        if (error) {
-            return <div >Error: {error.message}</div>;
-        }
-        // loading 
-        if (!isLoaded) {
-            return <div>Loading...</div>;
-        }
-        // 
-        return (
-            <Router>
-                <Switch>
-                    {paths.map((item, idx) => <Route key={idx} path={[`/${item.path}`]} exact render={(routeProps) => <Eaglescope {...routeProps} config={item.config}/>} />)}
-                </Switch>
-            </Router>
-
-        )
-    }
+  if (error) {
+    return <ErrorMsg text="Error While Loading Paths" />;
+  }
+  // loading
+  if (isPending) {
+    return <LoadingSpinner text="Loading Paths ..." />;
+  }
+  //
+  return (
+    <Router>
+      <Switch>
+        {paths
+          && paths.map((item) => (
+            <Route
+              key={item.path}
+              path={[`/${item.path}`]}
+              exact
+              render={(routeProps) => (
+                <ConfigContextProvider configName={item.config}>
+                  <DataContextProvider>
+                    <Eaglescope {...routeProps} />
+                  </DataContextProvider>
+                </ConfigContextProvider>
+              )}
+            />
+          ))}
+      </Switch>
+    </Router>
+  );
 }
+
+export default APP;
