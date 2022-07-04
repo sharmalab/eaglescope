@@ -74,7 +74,11 @@ VisGridItem.propTypes = {
   layout: PropTypes.shape({
     width: PropTypes.number.isRequired,
     currentCols: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
   fullScreened: PropTypes.bool.isRequired,
   toggleFullScreen: PropTypes.func.isRequired,
+};
+
+VisGridItem.defaultProps = {
+  layout: null,
 };

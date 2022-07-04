@@ -27,12 +27,22 @@ export default class ScatterChart extends PureComponent {
       const rect = this.self.current.getBoundingClientRect();
       const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
       const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+
+      this.canvas = d3
+        .select(this.self.current)
+        .append('canvas')
+        .attr('width', innerWidth)
+        .attr('height', innerHeight + 10)
+        .style('transform', `translate(${this.state.margin.left}px,${this.state.margin.top}px)`);
+
       // create svg
       const svg = d3
         .select(this.self.current)
         .append('svg')
         .attr('width', rect.width)
-        .attr('height', rect.height);
+        .attr('height', rect.height)
+        .attr('transform', `translate(${0},${-innerHeight})`);
+
       // create viewer
       const viewer = svg
         .append('g')
@@ -40,7 +50,6 @@ export default class ScatterChart extends PureComponent {
       //
       this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
       this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
-
       this.radiusScale = this.createScaleLiner(this.props.fields.z, [3, 10]);
 
       viewer
@@ -51,16 +60,6 @@ export default class ScatterChart extends PureComponent {
       // add the y Axis
       viewer.append('g').call(d3.axisLeft(this.yScale).tickSize(-innerWidth));
 
-      this.circles = viewer
-        .selectAll('circle')
-        .data(this.state.data)
-        .enter()
-        .append('circle')
-        .attr('r', (d) => (this.props.fields.z ? this.radiusScale(d[this.props.fields.z]) : 3))
-        .attr('cx', (d) => this.xScale(d[this.props.fields.x]))
-        .attr('cy', (d) => this.yScale(d[this.props.fields.y]))
-        .attr('class', 'brushed');
-
       this.brush = d3
         .brush()
         .extent([
@@ -69,20 +68,56 @@ export default class ScatterChart extends PureComponent {
         ])
         .on('end', this.end.bind(this));
 
-      this.brush_area = viewer
-        .append('g')
-
-        .call(this.brush);
+      viewer.append('g').call(this.brush);
 
       this.componentDidUpdate();
     }, 100);
   }
 
   componentDidUpdate() {
-    if (this.props.filters.length > 0) {
-      this.circles.attr('class', (d) => (this.props.filterData.includes(d) ? 'brushed' : 'non_brushed'));
+    this.draw();
+  }
+
+  drawPoint(point) {
+    const cx = this.xScale(point[this.props.fields.x]);
+    const cy = this.yScale(point[this.props.fields.y]);
+    const r = this.props.fields.z ? this.radiusScale(point[this.props.fields.z]) : 3;
+
+    this.context.beginPath();
+    this.context.arc(cx, cy, r, 0, 2 * Math.PI);
+    this.context.closePath();
+    this.context.fill();
+    this.context.stroke();
+  }
+
+  draw() {
+    const rect = this.self.current.getBoundingClientRect();
+    this.context = this.canvas.node().getContext('2d');
+    this.context.clearRect(0, 0, rect.width, rect.height);
+    this.context.fillStyle = '#87CEEB';
+    this.context.strokeWidth = 1;
+    this.context.strokeStyle = '#4682B4';
+    this.context.globalAlpha = 1;
+
+    if (this.props.filters.length === 0) {
+      this.state.data.forEach((point) => {
+        this.drawPoint(point);
+      });
     } else {
-      this.circles.attr('class', 'brushed');
+      this.state.data.forEach((point) => {
+        if (this.props.filterData.includes(point)) {
+          this.context.fillStyle = '#87CEEB';
+          this.context.strokeWidth = 1;
+          this.context.strokeStyle = '#4682B4';
+          this.context.globalAlpha = 1;
+        } else {
+          this.context.fillStyle = '#c0c0c0c0';
+          this.context.strokeWidth = 1;
+          this.context.strokeStyle = '#000000';
+          this.context.globalAlpha = 0.2;
+        }
+        this.drawPoint(point);
+      });
     }
   }
 
@@ -101,14 +136,14 @@ export default class ScatterChart extends PureComponent {
     const [x1, y1] = d3.event.selection[1];
     const filters = [
       {
-        id: this.props.id,
+        id: `${this.props.id}_x`,
         title: this.props.title,
         field: this.props.fields.x,
         operation: 'range',
         values: [numFixed(this.xScale.invert(x0)), numFixed(this.xScale.invert(x1))],
       },
       {
-        id: this.props.id,
+        id: `${this.props.id}_y`,
         title: this.props.title,
         field: this.props.fields.y,
         operation: 'range',
@@ -116,7 +151,6 @@ export default class ScatterChart extends PureComponent {
       },
     ];
     this.props.filterAdded(filters);
-    this.brush_area.call(this.brush.move, null);
   }
 
   render() {
