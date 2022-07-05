@@ -63,7 +63,7 @@ export default function DataContextProvider({ children }) {
   const addFiltersHandler = (toAddFilters) => {
     const oldFilters = [...filtersRef.current];
     // remove first
-    let newFilters = oldFilters.filter((of) => toAddFilters.some((nf) => !(of.id === nf.id)));
+    let newFilters = oldFilters.filter((of) => toAddFilters.every((nf) => !(of.id === nf.id)));
     // add
     newFilters = [...newFilters, ...toAddFilters];
     // do filter
