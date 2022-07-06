@@ -9,10 +9,10 @@ export default class ScatterChart extends PureComponent {
     this.self = React.createRef();
     this.state = {
       margin: {
-        top: 10,
+        top: 5,
         right: 10,
         bottom: 25,
-        left: 40,
+        left: 25,
       },
     };
     this.state.data = this.props.data.filter(
@@ -32,7 +32,7 @@ export default class ScatterChart extends PureComponent {
         .select(this.self.current)
         .append('canvas')
         .attr('width', innerWidth)
-        .attr('height', innerHeight + 10)
+        .attr('height', innerHeight + 5)
         .style('transform', `translate(${this.state.margin.left}px,${this.state.margin.top}px)`);
 
       // create svg

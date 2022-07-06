@@ -12,7 +12,7 @@
     "config": "collection-vis-config.json"
   },
   {
-    "path": "data",
-    "config": "data.json"
+    "path": "demo",
+    "config": "demo.json"
   }
 ]

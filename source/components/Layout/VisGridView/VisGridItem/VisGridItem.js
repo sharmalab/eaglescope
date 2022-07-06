@@ -66,7 +66,11 @@ VisGridItem.propTypes = {
     chartType: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     fields: PropTypes.oneOfType([
-      PropTypes.shape({ x: PropTypes.string, y: PropTypes.string, z: PropTypes.string }),
+      PropTypes.shape({
+        x: PropTypes.string,
+        y: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+        z: PropTypes.string,
+      }),
       PropTypes.array,
     ]).isRequired,
   }).isRequired,
