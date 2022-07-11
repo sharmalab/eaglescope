@@ -57,6 +57,18 @@
       "binsCount": 50,
       "size": [2, 2],
       "priority": 50
+    },
+    {
+      "id": "density",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "DENSITY_2D",
+      "fields": {
+        "x": "residual sugar",
+        "y": "free sulfur dioxide"
+      },
+      "size": [2, 2],
+      "priority": 50
     }
   ]
 }

@@ -15,6 +15,7 @@ const VisDataTable = React.lazy(() => import('../../../../VisualTools/VisDataTab
 const VisGridCard = React.lazy(() => import('../../../../VisualTools/VisGridCard/VisGridCard'));
 const Histogram = React.lazy(() => import('../../../../VisualTools/Chart/Histogram'));
 const ParallelCoordinates = React.lazy(() => import('../../../../VisualTools/Chart/ParallelCoordinates'));
+const DensityChart = React.lazy(() => import('../../../../VisualTools/Chart/DensityChart'));
 
 function VisGridItemContent(props) {
   const TagName = VisTypeComponents[props.chartType];
@@ -46,6 +47,9 @@ function VisGridItemContent(props) {
       break;
     case 'ParallelCoordinates':
       component = <ParallelCoordinates {...props} />;
+      break;
+    case 'DensityChart':
+      component = <DensityChart {...props} />;
       break;
     default:
       component = (
