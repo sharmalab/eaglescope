@@ -1,43 +1,63 @@
 .og {
-    fill: #87CEFA; /* LightSkyBlue */
-    opacity: 1;
+  fill: #87cefa; /* LightSkyBlue */
+  opacity: 1;
 }
 .ft {
-    /* fill: #B0C4DE; LightSteelBlue */
-    fill:#4682B4; /* SteelBlue */
-    opacity: 1;
+  /* fill: #B0C4DE; LightSteelBlue */
+  fill: #4682b4; /* SteelBlue */
+  opacity: 1;
 }
 
-
 .slide.selected {
-    stroke-width: 3;
-    fill-opacity: 1;
-    stroke: #C0C0C0; /* silver */
+  stroke-width: 3;
+  fill-opacity: 1;
+  stroke: #c0c0c0; /* silver */
 }
 
 circle.brushed {
-    fill: #87CEEB; /* SkyBlue */
-    stroke: #4682B4; /* SteelBlue */
-    opacity: .8;
+  fill: #87ceeb; /* SkyBlue */
+  stroke: #4682b4; /* SteelBlue */
+  opacity: 0.8;
 }
 
 circle.non_brushed {
-    fill: #C0C0C0C0; /* Silver */
-    stroke: #000000; /* Black */
-    opacity: .2;
+  fill: #c0c0c0c0; /* Silver */
+  stroke: #000000; /* Black */
+  opacity: 0.2;
 }
 
 text.label {
-    font-size:12px;
+  font-size: 12px;
 }
 
 .tick:not(:first-of-type) line {
-    stroke: #c0c0c0;
-    stroke-dasharray: 1;
-    stroke-opacity: 1;
+  stroke: #c0c0c0;
+  stroke-dasharray: 1;
+  stroke-opacity: 1;
 }
 .line {
-    fill: none;
-    stroke: steelblue;
-    stroke-width: 2px;
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 2px;
+}
+svg {
+  font: 10px sans-serif;
+}
+
+.brush .extent {
+  fill-opacity: 0.3;
+  stroke: #fff;
+  shape-rendering: crispEdges;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  fill: #000;
+  text-shadow: 0 1px 0 #fff;
 }
