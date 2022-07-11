@@ -14,6 +14,7 @@ const ScatterChart = React.lazy(() => import('../../../../VisualTools/Chart/Scat
 const VisDataTable = React.lazy(() => import('../../../../VisualTools/VisDataTable/VisDataTable'));
 const VisGridCard = React.lazy(() => import('../../../../VisualTools/VisGridCard/VisGridCard'));
 const Histogram = React.lazy(() => import('../../../../VisualTools/Chart/Histogram'));
+const DensityChart = React.lazy(() => import('../../../../VisualTools/Chart/DensityChart'));
 
 function VisGridItemContent(props) {
   const TagName = VisTypeComponents[props.chartType];
@@ -42,6 +43,9 @@ function VisGridItemContent(props) {
       break;
     case 'Histogram':
       component = <Histogram {...props} />;
+      break;
+    case 'DensityChart':
+      component = <DensityChart {...props} />;
       break;
     default:
       component = (
