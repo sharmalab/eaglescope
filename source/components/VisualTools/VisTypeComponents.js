@@ -17,5 +17,6 @@ VisTypeComponents.VIS_GRID_CARD = 'VisGridCard';
 VisTypeComponents.VEGA_LITE_PLOT = 'VegaLitePlot';
 VisTypeComponents.HISTOGRAM = 'Histogram';
 VisTypeComponents.DENSITY_2D = 'DensityChart';
+VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
 
 export default VisTypeComponents;

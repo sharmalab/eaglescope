@@ -15,14 +15,18 @@ const transform = (data, field) => {
 const wrap = (text, width) => {
   text.each(function updateBars() {
     const currentText = d3.select(this);
-    const words = text.text().split(/\s+/).reverse();
+    const words = currentText.text().split(/\s+/).reverse();
     let word;
     let line = [];
     let lineNumber = 0;
     const lineHeight = 1.1; // ems
     const y = currentText.attr('y');
     const dy = parseFloat(currentText.attr('dy'));
-    let tspan = text.text(null).append('tspan').attr('x', 0).attr('y', y)
+    let tspan = currentText
+      .text(null)
+      .append('tspan')
+      .attr('x', 0)
+      .attr('y', y)
       .attr('dy', `${dy}em`);
     word = words.pop();
     while (word) {
@@ -32,7 +36,7 @@ const wrap = (text, width) => {
         line.pop();
         tspan.text(line.join(' '));
         line = [word];
-        tspan = text
+        tspan = currentText
           .append('tspan')
           .attr('x', 0)
           .attr('y', y)
