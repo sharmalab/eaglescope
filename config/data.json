@@ -69,6 +69,16 @@
       },
       "size": [2, 2],
       "priority": 50
+    },
+    {
+      "id": "scatter",
+      "title": "scatter",
+      "description": "scatter",
+      "chartType": "SCATTER_CHART",
+      "fields": { "x": "volatile acidity", "y": "citric acid" },
+      "binsCount": 50,
+      "size": [2, 2],
+      "priority": 50
     }
   ]
 }
