@@ -13,7 +13,7 @@ function DensityChart(props) {
   const margin = {
     top: 10,
     right: 30,
-    bottom: 30,
+    bottom: 20,
     left: 40,
   };
 
@@ -57,11 +57,11 @@ function DensityChart(props) {
 
       scales.current.x
         .domain(d3.extent(props.data, (d) => d[props.fields.x]))
-        .range([margin.left, innerWidth - margin.right]);
+        .range([0, innerWidth]);
 
       scales.current.y
         .domain(d3.extent(props.data, (d) => d[props.fields.y]))
-        .range([innerHeight - margin.bottom, margin.bottom]);
+        .range([innerHeight, 0]);
 
       svg.current
         .append('g')
@@ -104,6 +104,7 @@ function DensityChart(props) {
       svg.current
         .insert('g', 'g')
         .attr('id', 'draw_area')
+        .attr('transform', `translate(${margin.left},${-margin.bottom})`)
         .selectAll('path')
         .data(densityData)
         .enter()
