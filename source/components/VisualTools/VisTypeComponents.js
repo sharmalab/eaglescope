@@ -18,5 +18,6 @@ VisTypeComponents.VEGA_LITE_PLOT = 'VegaLitePlot';
 VisTypeComponents.HISTOGRAM = 'Histogram';
 VisTypeComponents.DENSITY_2D = 'DensityChart';
 VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
+VisTypeComponents.HEATMAP = 'Heatmap';
 
 export default VisTypeComponents;

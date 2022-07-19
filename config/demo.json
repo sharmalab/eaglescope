@@ -3,7 +3,7 @@
   "HEIGHT_OF_VIS_HEADER": 20,
   "TITLE": "PRISM Collection Explorer",
   "MARGIN_OF_VIS": [10, 10],
-  "UNIT_OF_GRID_VIEW": [230, 210],
+  "UNIT_OF_GRID_VIEW": [230, 230],
   "MARGIN_OF_GRID_VIEW": [10, 10],
   "DATA_RESOURCE_URL": "../config/wines.csv",
   "DATA_FORMAT": "csv",
@@ -56,6 +56,31 @@
       },
       "binsCount": 50,
       "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "density",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "DENSITY_2D",
+      "fields": {
+        "x": "residual sugar",
+        "y": "free sulfur dioxide"
+      },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "heatmap",
+      "title": "Heatmap",
+      "description": "Heatmap",
+      "chartType": "HEATMAP",
+      "fields": {
+        "y": "wine_type",
+        "x": "quality_label",
+        "z": "residual sugar"
+      },
+      "size": [2, 1],
       "priority": 50
     }
   ]
