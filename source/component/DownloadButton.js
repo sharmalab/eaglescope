@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button'
 class DownloadButton extends BaseVisualization {
   constructor(props, ctx) {
     super(props, ctx);
-    this.goHome = this.download.bind(this)
+    this.download = this.download.bind(this)
   }
   download(){
     console.log("downloading", this.props.data, this);

@@ -18,7 +18,7 @@ export default class App extends PureComponent {
     }
     componentDidMount(){
       const query = new URLSearchParams(window.location.search);
-      let configUrl = query.get("configurl") || './config/clinical-vis-config.json'
+      let configUrl = query.get("configurl") || './config/collection-vis-config.json'
       return fetch(configUrl, {
           mode: 'cors',
           credentials: 'same-origin'
