@@ -14,16 +14,6 @@ import {
 // import GridLayout from 'react-grid-layout';
 const ResponsiveGridLayout = WidthProvider(Responsive);
 
-// get confing on request
-function getConfig(config) {
-    console.log(config)
-    return fetch(`../../config/${config}`, {
-        mode: 'cors',
-        credentials: 'same-origin'
-    }).then(x => x.json())
-}
-
-
 // var __DM = null;
 function isNumeric(str) {
     if (typeof str != "string") return false // we only process strings!
@@ -177,91 +167,83 @@ export default class Eaglescope extends PureComponent {
 
     componentDidMount() {
         const {config} = this.props;
-        const query = new URLSearchParams(window.location.search);
-        let routeConfig = query.get("configurl") || config;
-        getConfig(routeConfig).then(_CONFIG_ => {
-            if (_CONFIG_.DATA_FORMAT === 'csv') {
-                d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
+        console.log("HERE", config);
+        const _CONFIG_ = config;
+        if (_CONFIG_.DATA_FORMAT === 'csv') {
+            d3.csv(_CONFIG_.DATA_RESOURCE_URL, d => covertRaw(d)).then(data => {
+                this.setState({
+                    isLoaded: true,
+                    data: data,
+                    config: _CONFIG_
+                });
+            })
+
+        } else if (_CONFIG_.DATA_FORMAT === 'json') {
+
+            d3.json(_CONFIG_.DATA_RESOURCE_URL).then(d => {
+                console.log('JSON', d);
+            })
+            fetch(_CONFIG_.DATA_RESOURCE_URL, {
+                mode: 'cors',
+                credentials: 'same-origin'
+            }).then(res => res.json()).then(data => {
+                // TODO need a replace method to replace null, undefined etc.
+                data.forEach(d => {// clear up null value
+                    if (d.disease_type == null) d.disease_type = 'NA'
+                    if (d.sexlabel == null) d.sexlabel = 'NA'
+                    if (d.age == null) d.age = 'NA'
+                    if (d.stagelabel == null) d.stagelabel = 'NA'
+                })
+                return data;
+            })
+                .then((data) => {
                     this.setState({
                         isLoaded: true,
                         data: data,
                         config: _CONFIG_
                     });
-                })
-
-            } else if (_CONFIG_.DATA_FORMAT === 'json') {
-
-                d3.json(_CONFIG_.DATA_RESOURCE_URL).then(d => {
-                    console.log('JSON', d);
-                })
-                fetch(_CONFIG_.DATA_RESOURCE_URL, {
-                    mode: 'cors',
-                    credentials: 'same-origin'
-                }).then(res => res.json()).then(data => {
-                    // TODO need a replace method to replace null, undefined etc.
-                    data.forEach(d => {// clear up null value
-                        if (d.disease_type == null) d.disease_type = 'NA'
-                        if (d.sexlabel == null) d.sexlabel = 'NA'
-                        if (d.age == null) d.age = 'NA'
-                        if (d.stagelabel == null) d.stagelabel = 'NA'
-                    })
-                    return data;
-                })
-                    .then((data) => {
+                },
+                    // Note: it's important to handle errors here
+                    // instead of a catch() block so that we don't swallow
+                    // exceptions from actual bugs in components.
+                    (error) => {
+                        console.log('error', error)
                         this.setState({
                             isLoaded: true,
-                            data: data,
-                            config: _CONFIG_
+                            error: error
                         });
-                    },
-                        // Note: it's important to handle errors here
-                        // instead of a catch() block so that we don't swallow
-                        // exceptions from actual bugs in components.
-                        (error) => {
-                            console.log('error', error)
-                            this.setState({
-                                isLoaded: true,
-                                error: error
-                            });
-                        }
-                    )
-            } else if (_CONFIG_.DATA_FORMAT === 'ndjson') {
-                fetch(_CONFIG_.DATA_RESOURCE_URL, {
-                    mode: 'cors',
-                    credentials: 'include'
-                }).then(x => x.text()).then(x => {
-                    let r = x.split("\n")
-                    let res = []
-                    for (const e of r) {
-                        res.push(JSON.parse(e))
                     }
-                    return res
-                }).then((data) => {
-                    this.setState({
-                        isLoaded: true,
-                        data: data,
-                        config: _CONFIG_
-                    });
-                }
                 )
+        } else if (_CONFIG_.DATA_FORMAT === 'ndjson') {
+            fetch(_CONFIG_.DATA_RESOURCE_URL, {
+                mode: 'cors',
+                credentials: 'include'
+            }).then(x => x.text()).then(x => {
+                let r = x.split("\n")
+                let res = []
+                for (const e of r) {
+                    res.push(JSON.parse(e))
+                }
+                return res
+            }).then((data) => {
+                this.setState({
+                    isLoaded: true,
+                    data: data,
+                    config: _CONFIG_
+                });
             }
+            )
+        }
 
 
-            if (this.state.isFullScreen) {
-                // debounce();
-                this.resizeHandler();
-            }
+        if (this.state.isFullScreen) {
+            // debounce();
+            this.resizeHandler();
+        }
 
 
-            // TODO debouce
-            window.addEventListener("resize", this.debounceResizeHandler);
-        }).catch(error => {
-            console.error(error)
-            this.setState({
-                isLoaded: true,
-                error: error
-            });
-        })
+        // TODO debouce
+        window.addEventListener("resize", this.debounceResizeHandler);
 
     }
     resizeHandler() {
