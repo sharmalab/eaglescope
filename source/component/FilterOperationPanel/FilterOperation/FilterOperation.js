@@ -74,15 +74,20 @@ export default class FilterOperation extends PureComponent {
                 <span className='opr'> ≤ </span>
                 <span className='value'>{values[1]}</span>
             </div>
+        case 'search':
+            return <div>
+                <span className='opr'> Search </span>
+                <span className='value'>{values[0]}</span>
+            </div>
         default:
             return <div className='error'>Can't Find The <span className='warning'>{opr}</span> Filter Operation</div>;
       }
     }
     render() {
         const{ id, index, title, operation, field, values} = this.props;
-        
+
         return (
-            <Badge variant="info" 
+            <Badge variant="info"
             style={{display:'inline-flex', textAlign:'center', alignItems:'center'}}>
                 <span className='title'>{title}</span>
                 <span className='separator'>&nbsp;|&nbsp;</span>

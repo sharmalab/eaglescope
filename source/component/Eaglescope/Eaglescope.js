@@ -4,6 +4,7 @@ import VisGridView from "../Layout/VisGridView/VisGridView.js";
 import VisFullScreenView from "../Layout/VisFullScreenView/VisFullScreenView.js"
 import ESNavbar from "../ESNavbar/ESNavbar.js";
 import FilterOperationPanel from '../FilterOperationPanel/FilterOperationPanel.js'
+import SearchBar from "../SearchBar.js"
 import { debounce, template } from "lodash";
 import * as d3 from "d3";
 import {
@@ -44,31 +45,35 @@ function filterData(data, filters) {
 
             let broken = false
             if (!broken && operation === 'eq') {
-                broken = broken || val !== filter.values
+                broken = val !== filter.values
             }
             if (!broken && operation === 'gt') {
-                broken = broken || val <= filter.values
+                broken = val <= filter.values
             }
             if (!broken && operation === 'gte') {
-                broken = broken || val < filter.values
+                broken = val < filter.values
             }
             if (!broken && operation === 'lt') {
-                broken = broken || val >= filter.values
+                broken = val >= filter.values
             }
             if (!broken && operation === 'lte') {
-                broken = broken || val > filter.values
+                broken = val > filter.values
             }
             if (!broken && operation === 'ne') {
-                broken = broken || val === filter.values
+                broken = val === filter.values
             }
             if (!broken && operation === 'in') {
-                broken = broken || !filter.values.some(v => val == v)
+                broken = !filter.values.some(v => val == v)
             }
             if (!broken && operation === 'nin') {
-                broken = broken || filter.values.some(v => val == v)
+                broken = filter.values.some(v => val == v)
             }
             if (!broken && operation === 'range') {
-                broken = broken || filter.values[0] > val || filter.values[1] < val
+                broken = filter.values[0] > val || filter.values[1] < val
+            }
+            // search operates on the whole record instead of val
+            if (!broken && operation === 'search'){
+                broken = Object.values(record).join("|").indexOf(filter.values[0]) == -1
             }
             if (broken) {
                 return false
@@ -310,6 +315,7 @@ export default class Eaglescope extends PureComponent {
                         progressLabel={progressAttrs.label}
                         data={[filterData, data]}
                     />
+                    <SearchBar filterAdded={this.addFiltersHandler.bind(this)} filterRemove={this.removeFiltersHandler.bind(this)}/>
                     <FilterOperationPanel filters={filters} filterRemove={this.removeFiltersHandler.bind(this)} />
 
                     {this.state.isFullScreen ? <VisFullScreenView operation={config.VISUALIZATION_VIEW_CONFIGURATION.find(opt => opt.id == this.state.fullScreenVis)} data={data}
