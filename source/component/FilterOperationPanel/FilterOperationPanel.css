@@ -1,12 +1,11 @@
-.filterOperationPanel {   
+.filterOperationPanel {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     margin: .5rem;
     padding: .5rem;
-    background-color: #ececec;
-    border-radius: .25rem;
-    border: #ddd 1px solid;
+    background-color: #262626;
+    border: 0px solid #ddd;
 }
 
 .filterOperationPanel > .badge {

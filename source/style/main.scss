@@ -1,5 +1,7 @@
 body{
   min-width: 500px;
+  color: #bbbbbb;
+  background-color: #111111;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 h1{
@@ -29,7 +31,7 @@ h1{
 }
 
 .blue-bar {
-  background-color: #2e86de;
+  background-color: #262626;
 }
 
 #count1{
@@ -47,7 +49,7 @@ h1{
   /* text-align: center;
   align-content: center;
   align-items: center;
-  
+
   align-items: center; */
 }
 
@@ -86,4 +88,61 @@ h1{
 }
 .btn, .btn:focus{
   box-shadow: none !important;
+}
+
+.bg-success {
+    background-color: #51A6FA!important;
+}
+
+.bg-primary {
+    background-color: #262626!important;
+}
+
+.text-light {
+    color: #f8f9fa!important;
+}
+
+.bg-light {
+    background-color: #1a1a1a!important;
+}
+
+.progress, .progress-bar {
+    border-radius: 200px;
+}
+
+.badge-info {
+    background-color: #ff5773;
+}
+
+.filterOperationPanel>.badge {
+    padding: 6px!important;
+}
+
+.title {
+    color: #000;
+    font-weight: 500;
+}
+
+.opr, .separator {
+    color: #000;
+}
+
+.field {
+    color: #000;
+}
+
+.value {
+    color: #000;
+}
+
+a {
+    color: #51a6fa;
+}
+
+.border {
+    border: 0px solid #dee2e6!important;
+}
+
+.label {
+  pointer-events: none;
 }
