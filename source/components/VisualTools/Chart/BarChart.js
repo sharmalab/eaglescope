@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
+import createTooltip from '../../partials/tooltip';
 
 const transform = (data, field) => {
   const newData = d3
@@ -82,6 +83,12 @@ function BarChart(props) {
   };
 
   const drawBar = (selection, data, className = 'og') => {
+    const addLabel = (d) => `${d.key}: ${d.value}`;
+    const offset = {
+      x: 60,
+      y: 0,
+    };
+    const tooltipHandlers = createTooltip(self.current, addLabel, offset);
     const updateBars = selection.selectAll(`rect.${className}`).data(data, (d) => d[fields.x]);
 
     const enterBars = updateBars.enter().append('rect');
@@ -90,20 +97,21 @@ function BarChart(props) {
       .attr('x', (d) => scaleRef.current.x(d[fields.x]))
       .attr('width', scaleRef.current.x.bandwidth())
       .attr('y', hightRef.current);
-    enterBars.on('click', (currentData) => {
-      const selected = enterBars.filter((d) => d === currentData);
-      const value = selected.data()[0].key;
-      const filter = {
-        id: props.id,
-        title: props.title,
-        field: props.fields.x,
-        operation: 'eq',
-        values: value,
-      };
-      props.filterAdded([filter]);
-    });
-
-    enterBars.append('title').text((d) => `${d.key}:${d.value}`);
+    enterBars
+      .on('mousemove', tooltipHandlers.mousemove)
+      .on('mouseleave', tooltipHandlers.mouseleave)
+      .on('click', (currentData) => {
+        const selected = enterBars.filter((d) => d === currentData);
+        const value = selected.data()[0].key;
+        const filter = {
+          id: props.id,
+          title: props.title,
+          field: props.fields.x,
+          operation: 'eq',
+          values: value,
+        };
+        props.filterAdded([filter]);
+      });
 
     updateBars
       .merge(enterBars)

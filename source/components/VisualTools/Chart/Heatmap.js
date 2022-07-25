@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import { numFixed } from '../../../common/utils';
+import createTooltip from '../../partials/tooltip';
 
 function Heatmap(props) {
   const self = useRef();
@@ -67,32 +68,13 @@ function Heatmap(props) {
         .domain(d3.extent(props.data, (d) => d[props.fields.z]));
 
       // create a tooltip
-      const tooltip = d3
-        .select(self.current)
-        .append('div')
-        .style('opacity', 0)
-        .attr('class', 'tooltip')
-        .style('background-color', 'white')
-        .style('border', 'solid')
-        .style('border-width', '2px')
-        .style('border-radius', '5px')
-        .style('padding', '5px');
-
-      // handlers to show or hide tooltip
-      const mouseover = function over() {
-        tooltip.style('opacity', 1);
-        d3.select(this).style('stroke', 'black').style('opacity', 1);
+      const addLabel = (d) => `The ${props.fields.z} of this 
+      cell is: ${numFixed(d.z ? d.z : 0)}`;
+      const offset = {
+        x: 80,
+        y: 0,
       };
-      const mousemove = function move(d) {
-        tooltip
-          .html(`The ${props.fields.z} of this cell is: ${numFixed(d.z ? d.z : 0)}`)
-          .style('left', `${d3.mouse(this)[0] + 70}px`)
-          .style('top', `${d3.mouse(this)[1]}px`);
-      };
-      const mouseleave = function leave() {
-        tooltip.style('opacity', 0);
-        d3.select(this).style('stroke', 'none').style('opacity', 0.8);
-      };
+      const tooltipHandlers = createTooltip(self.current, addLabel, offset);
 
       // Group data by the values of x and y
       // then aggregate to one value using mean
@@ -125,9 +107,8 @@ function Heatmap(props) {
         .style('stroke-width', 4)
         .style('stroke', 'none')
         .style('opacity', 0.8)
-        .on('mouseover', mouseover)
-        .on('mousemove', mousemove)
-        .on('mouseleave', mouseleave)
+        .on('mousemove', tooltipHandlers.mousemove)
+        .on('mouseleave', tooltipHandlers.mouseleave)
         .on('click', (d) => {
           const filters = [
             {

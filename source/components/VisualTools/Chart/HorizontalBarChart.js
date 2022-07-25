@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
+import createTooltip from '../../partials/tooltip';
 
 const transform = (data, field) => {
   const newData = d3
@@ -14,7 +15,10 @@ const transform = (data, field) => {
 
 function HorizontalBarChart(props) {
   const margin = {
-    top: 10, right: 10, bottom: 35, left: 10,
+    top: 10,
+    right: 10,
+    bottom: 35,
+    left: 10,
   };
 
   const fields = { y: 'key', x: 'value' };
@@ -56,6 +60,12 @@ function HorizontalBarChart(props) {
   };
 
   const drawBar = (selection, data, className = 'og') => {
+    const addLabel = (d) => `${d.key}: ${d.value}`;
+    const offset = {
+      x: 30,
+      y: 10,
+    };
+    const tooltipHandlers = createTooltip(self.current, addLabel, offset);
     const updateBars = selection.selectAll(`rect.${className}`).data(data, (d) => d[fields.y]);
 
     const enterBars = updateBars.enter().append('rect');
@@ -64,20 +74,21 @@ function HorizontalBarChart(props) {
       .attr('x', 0)
       .attr('height', scaleRef.current.y.bandwidth())
       .attr('y', (d) => scaleRef.current.y(d[fields.y]));
-    enterBars.on('click', (enterData) => {
-      const selected = enterBars.filter((d) => d === enterData);
-      const value = selected.data()[0].key;
-      const filter = {
-        id: props.id,
-        title: props.title,
-        field: props.fields.y,
-        operation: 'eq',
-        values: value,
-      };
-      props.filterAdded([filter]);
-    });
-
-    enterBars.append('title').text((d) => `${d.key}:${d.value}`);
+    enterBars
+      .on('mousemove', tooltipHandlers.mousemove)
+      .on('mouseleave', tooltipHandlers.mouseleave)
+      .on('click', (enterData) => {
+        const selected = enterBars.filter((d) => d === enterData);
+        const value = selected.data()[0].key;
+        const filter = {
+          id: props.id,
+          title: props.title,
+          field: props.fields.y,
+          operation: 'eq',
+          values: value,
+        };
+        props.filterAdded([filter]);
+      });
 
     updateBars
       .merge(enterBars)

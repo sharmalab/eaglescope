@@ -9,15 +9,6 @@
   "DATA_FORMAT": "csv",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
-      "id": "type",
-      "title": "Wine Type",
-      "description": "Wine Type",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "wine_type" },
-      "size": [1, 1],
-      "priority": 50
-    },
-    {
       "id": "quality",
       "title": "Quality Level",
       "description": "Quality Level",
@@ -81,6 +72,15 @@
         "z": "residual sugar"
       },
       "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "type",
+      "title": "Wine Type",
+      "description": "Wine Type",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "wine_type" },
+      "size": [1, 1],
       "priority": 50
     }
   ]
