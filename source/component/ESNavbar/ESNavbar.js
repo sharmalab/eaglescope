@@ -15,6 +15,7 @@ export default class ESNavbar extends PureComponent {
 
   render() {
     const { url, title, max, now, progressLabel, data } = this.props;
+    document.title = title || "Eaglescope";
     return (
       <Navbar bg="primary" variant="dark">
         {url ? <HomeButton url={url} /> : null}
