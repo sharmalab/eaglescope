@@ -1,7 +1,7 @@
 body{
   min-width: 500px;
-  color: #bbbbbb;
-  background-color: #111111;
+  color: #000000;
+  background-color: #e9e9e9;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
 }
 h1{
@@ -93,9 +93,17 @@ h1{
 .bg-success {
     background-color: #51A6FA!important;
 }
+.btn-lg{
+  margin:1px;
+}
 
 .bg-primary {
     background-color: #262626!important;
+}
+
+.btn-primary{
+  background-color: #51A6FA;
+  border-color: #51A6FA;
 }
 
 .text-light {
@@ -103,7 +111,7 @@ h1{
 }
 
 .bg-light {
-    background-color: #1a1a1a!important;
+    background-color: #f8f9fa!important;
 }
 
 .progress, .progress-bar {
