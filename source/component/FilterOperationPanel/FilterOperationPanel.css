@@ -4,7 +4,7 @@
     flex-wrap: wrap;
     margin: .5rem;
     padding: .5rem;
-    background-color: #262626;
+    background-color: #ddd;
     border: 0px solid #ddd;
 }
 
@@ -16,4 +16,15 @@
 .filterOperationPanel > .btn {
     margin: .25rem !important;
     padding: 0 .25rem !important;
+}
+
+.btn-danger{
+  background-color: #51A6FA!important;
+  border-color: #51A6FA!important;
+}
+
+.btn-info{
+  background-color: #333!important;
+  border-color: #333!important;
+  margin-left: 5px;
 }
