@@ -1,14 +1,15 @@
 .vis-grid-item-header {
   display: flex;
   align-items: center;
-  font-size: .8rem;
+  font-size: 0.8rem;
   position: relative;
+  /*border-radius: 5px;*/
 }
 
 .name-header {
   align-items: center;
   vertical-align: middle;
-  padding:0 .5rem;
+  padding: 0 0.5rem;
   height: 1.5rem;
   flex-grow: 1;
   display: flex;

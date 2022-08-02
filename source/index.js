@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import Application from './Application.js';
 
 // style
@@ -11,4 +11,6 @@ import 'react-resizable/css/styles.css';
 import './style/main.scss';
 import 'react-virtualized/styles.css';
 
-ReactDOM.render(<Application />, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Application tab="home" />);

@@ -39,11 +39,11 @@ function Histogram({
   // initialize svg and draw base histogram
   useEffect(() => {
     setTimeout(() => {
+      d3.select(svgRef.current).selectAll('svg').remove('svg');
       const rect = svgRef.current.getBoundingClientRect();
       const innerWidth = rect.width - margin.left - margin.right;
       const innerHeight = rect.height - margin.top - margin.bottom;
 
-      d3.select(svgRef.current).selectAll('svg').remove('svg');
       const svg = d3
         .select(svgRef.current)
         .append('svg')

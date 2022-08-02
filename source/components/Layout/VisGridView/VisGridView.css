@@ -1,9 +1,8 @@
 .vis-grid-view {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
 }
 /* .react-grid-item {
     

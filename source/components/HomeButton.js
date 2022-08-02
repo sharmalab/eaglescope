@@ -20,12 +20,16 @@ class HomeButton extends PureComponent {
     return (
       <Button
         size="lg"
+        style={{
+          background: 'none',
+          border: 'none',
+        }}
         id={this.id}
         onClick={() => {
           this.goHome();
         }}
       >
-        <FontAwesomeIcon icon={faHome} />
+        <FontAwesomeIcon size="1x" icon={faHome} />
       </Button>
     );
   }

@@ -12,7 +12,13 @@ function VisGridItemControl(props) {
   let btnFilterRemove;
   if (props.filters.length > 0 && props.filters.find((f) => f.id === props.id)) {
     btnFilterRemove = (
-      <Button onClick={() => props.filterRemove(props.id)}>
+      <Button
+        style={{
+          background: 'none',
+          border: 'none',
+        }}
+        onClick={() => props.filterRemove(props.id)}
+      >
         <FontAwesomeIcon icon="undo-alt" />
       </Button>
     );
@@ -23,10 +29,21 @@ function VisGridItemControl(props) {
         <div className="vis-grid-item-control">
           {btnFilterRemove}
 
-          <Button>
+          <Button
+            style={{
+              background: 'none',
+              border: 'none',
+            }}
+          >
             <FontAwesomeIcon icon="info-circle" />
           </Button>
-          <Button onClick={() => props.toggleFullScreen(props.id, !props.fullScreened)}>
+          <Button
+            style={{
+              background: 'none',
+              border: 'none',
+            }}
+            onClick={() => props.toggleFullScreen(props.id, !props.fullScreened)}
+          >
             <FontAwesomeIcon icon={props.fullScreened ? faCompressArrowsAlt : faExpandArrowsAlt} />
           </Button>
         </div>

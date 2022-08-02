@@ -24,31 +24,50 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
   const visConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
   const draggableHandle = '.draggable';
 
-  const [appLayout, setAppLayout] = useState({ width: 0, currentCols: 0, layout: [] });
+  const [appLayout, setAppLayout] = useState({
+    width: 0,
+    currentCols: 0,
+    layout: [],
+    margin: 0,
+    grid,
+  });
 
   const self = useRef();
 
   const updateViewSize = () => {
     const rect = self.current.getBoundingClientRect();
     const cols = parseInt((rect.width - margins[0]) / (grid[0] + margins[0]), 10);
-
-    if (cols === appLayout.currentCols) return;
+    if (
+      cols === appLayout.currentCols
+      && grid[0] === appLayout.grid[0]
+      && grid[1] === appLayout.grid[1]
+      && margins[0] === appLayout.margins[0]
+      && margins[1] === appLayout.margins[1]
+    ) return;
     const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
 
     const updatedLayout = getLayoutConfig(visConfig, cols);
 
-    setAppLayout({ width: gridLayoutWidth, currentCols: cols, layout: updatedLayout.layout });
+    setAppLayout({
+      width: gridLayoutWidth,
+      currentCols: cols,
+      layout: updatedLayout.layout,
+      margins,
+      grid,
+    });
   };
 
   const debouncedUpdateViewSize = debounce(updateViewSize, 100);
 
   useEffect(() => {
-    if (!appLayout.currentCols) updateViewSize();
+    // console.log('kaak');
+    // if (!appLayout.currentCols) updateViewSize();
+    updateViewSize();
     window.addEventListener('resize', debouncedUpdateViewSize);
     return () => {
       window.removeEventListener('resize', debouncedUpdateViewSize);
     };
-  }, [appLayout.currentCols]);
+  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW]);
 
   return (
     <div className="vis-grid-view" ref={self}>
@@ -62,7 +81,14 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
           draggableHandle={draggableHandle}
         >
           {appLayout.layout.map((item, index) => (
-            <div key={item.i} className="border border-primary">
+            <div
+              key={item.i}
+              style={{
+                border: config?.HIDE_BORDER
+                  ? ''
+                  : `1px solid ${config?.THEME_COLOR ? config?.THEME_COLOR : '#007bff'}`,
+              }}
+            >
               <VisGridItem
                 layout={appLayout}
                 operation={visConfig[index]}

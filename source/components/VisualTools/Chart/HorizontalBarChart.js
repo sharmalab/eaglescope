@@ -107,12 +107,12 @@ function HorizontalBarChart(props) {
 
   useEffect(() => {
     setTimeout(() => {
+      d3.select(self.current).selectAll('svg').remove('svg');
       const rect = self.current.getBoundingClientRect();
       const innerWidth = rect.width - margin.left - margin.right;
       const innerHeight = rect.height - margin.top - margin.bottom;
       hightRef.current = innerHeight;
 
-      d3.select(self.current).selectAll('svg').remove('svg');
       // create svg
       const svg = d3
         .select(self.current)

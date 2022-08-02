@@ -63,6 +63,7 @@ function Eaglescope() {
         now={progressAttrs.now}
         progressLabel={progressAttrs.label}
         data={[filteredData, data]}
+        color={config.THEME_COLOR}
       />
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
 

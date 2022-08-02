@@ -121,7 +121,7 @@ export default class FilterOperation extends PureComponent {
 
     return (
       <Badge
-        variant="info"
+        bg="info"
         style={{ display: 'inline-flex', textAlign: 'center', alignItems: 'center' }}
       >
         <span className="title">{title}</span>

@@ -6,6 +6,8 @@ import ConfigContextProvider from './contexts/ConfigContext';
 import DataContextProvider from './contexts/DataContext';
 import LoadingSpinner from './components/partials/LoadingSpinner';
 import ErrorMsg from './components/partials/ErrorMsg';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap'; // <-- JS File
 
 // style
 
