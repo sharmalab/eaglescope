@@ -24,6 +24,7 @@ export default class ScatterChart extends PureComponent {
 
   componentDidMount() {
     setTimeout(() => {
+      d3.select(this.self.current).selectAll('svg').remove('svg');
       const rect = this.self.current.getBoundingClientRect();
       const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
       const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;

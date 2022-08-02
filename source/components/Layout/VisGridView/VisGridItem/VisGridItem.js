@@ -24,9 +24,13 @@ function VisGridItem(props) {
     if (props.fullScreened) setHover(true);
   }, [props.fullScreened]);
 
+  /* useEffect(() => {
+    console.log(props.layout);
+  }, [props.layout]); */
+
   return (
     <div
-      className="vis-grid-item bg-light"
+      className="vis-grid-item"
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
     >

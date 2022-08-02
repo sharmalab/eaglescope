@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import VisGridItemControl from '../VisGridItemControl/VisGridItemControl';
+import { ConfigContext } from '../../../../../contexts/ConfigContext';
 // css class
 import './VisGridItemHeader.css';
 
 function VisGridItemHeader(props) {
+  const { config } = useContext(ConfigContext);
+  const { THEME_COLOR: color } = config;
   return (
-    <div className="vis-grid-item-header bg-primary text-light" title={props.description}>
+    <div
+      className="vis-grid-item-header text-light"
+      title={props.description}
+      style={{
+        backgroundColor: color || '#007bff',
+      }}
+    >
       <div className="name-header draggable">
         <div className="chartTitle">{props.title}</div>
       </div>

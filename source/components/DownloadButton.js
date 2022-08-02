@@ -24,12 +24,16 @@ class DownloadButton extends PureComponent {
     return (
       <Button
         size="lg"
+        style={{
+          background: 'none',
+          border: 'none',
+        }}
         id={this.id}
         onClick={() => {
           this.download();
         }}
       >
-        <FontAwesomeIcon icon="download" />
+        <FontAwesomeIcon size="1x" icon="download" />
       </Button>
     );
   }
