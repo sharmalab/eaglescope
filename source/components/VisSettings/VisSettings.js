@@ -39,6 +39,7 @@ function VisSettings({
     // Update chart config
     chartConfig.id = chartId;
     chartConfig.title = title;
+    chartConfig.description = description;
     chartConfig.size[0] = Number(visSize.x);
     chartConfig.size[1] = Number(visSize.y);
 

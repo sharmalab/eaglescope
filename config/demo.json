@@ -7,7 +7,6 @@
   "MARGIN_OF_GRID_VIEW": [10, 10],
   "DATA_RESOURCE_URL": "../config/wines.csv",
   "DATA_FORMAT": "csv",
-  "HIDE_BORDER": true,
   "THEME_COLOR": "#007bff",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
