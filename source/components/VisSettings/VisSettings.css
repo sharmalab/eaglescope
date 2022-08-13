@@ -1,0 +1,50 @@
+.visSettings-row {
+  display: flex;
+}
+
+.visSettings-label {
+  font-family: "Rubik", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 29px;
+
+  display: inline-block;
+  margin-bottom: 5px;
+  color: #152536;
+}
+
+.visSettings-input {
+  /* /Gray / White */
+
+  background: #ffffff;
+  /* Stroke/Input */
+
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+
+  font-family: "Rubik", sans-serif;
+  height: 38px;
+  padding: 10px 5px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  /* identical to box height, or 131% */
+
+  /* Secondary/Light Color */
+
+  color: #abb5be;
+}
+
+.visSettings-input:focus {
+  color: #152536;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon {
+  margin: 0px 5px;
+}
