@@ -45,7 +45,6 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
       && margins[1] === appLayout.margins[1]
     ) return;
     const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
-
     const updatedLayout = getLayoutConfig(visConfig, cols);
 
     setAppLayout({
@@ -60,7 +59,6 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
   const debouncedUpdateViewSize = debounce(updateViewSize, 100);
 
   useEffect(() => {
-    // console.log('kaak');
     // if (!appLayout.currentCols) updateViewSize();
     updateViewSize();
     window.addEventListener('resize', debouncedUpdateViewSize);
@@ -68,6 +66,21 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
       window.removeEventListener('resize', debouncedUpdateViewSize);
     };
   }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW]);
+
+  useEffect(() => {
+    const rect = self.current.getBoundingClientRect();
+    const cols = parseInt((rect.width - margins[0]) / (grid[0] + margins[0]), 10);
+    const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
+    const updatedLayout = getLayoutConfig(visConfig, cols);
+
+    setAppLayout({
+      width: gridLayoutWidth,
+      currentCols: cols,
+      layout: updatedLayout.layout,
+      margins,
+      grid,
+    });
+  }, [visConfig]);
 
   return (
     <div className="vis-grid-view" ref={self}>
@@ -80,7 +93,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
           layout={appLayout.layout}
           draggableHandle={draggableHandle}
         >
-          {appLayout.layout.map((item, index) => (
+          {appLayout.layout.map((item) => (
             <div
               key={item.i}
               style={{
@@ -91,7 +104,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
             >
               <VisGridItem
                 layout={appLayout}
-                operation={visConfig[index]}
+                operation={visConfig.find((vis) => vis.id === item.i)}
                 toggleFullScreen={fullVisScreenHandler}
                 fullScreened={fullScreened}
               />

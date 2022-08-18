@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressArrowsAlt, faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import VisSettings from '../../../../VisSettings/VisSettings';
 
 // css class
 import './VisGridItemControl.css';
 
 function VisGridItemControl(props) {
+  const [show, setShow] = useState(false);
   let btnFilterRemove;
   if (props.filters.length > 0 && props.filters.find((f) => f.id === props.id)) {
     btnFilterRemove = (
@@ -25,18 +27,10 @@ function VisGridItemControl(props) {
   }
   return (
     <div>
-      {props.hover && (
+      {(props.hover || show) && (
         <div className="vis-grid-item-control">
           {btnFilterRemove}
-
-          <Button
-            style={{
-              background: 'none',
-              border: 'none',
-            }}
-          >
-            <FontAwesomeIcon icon="info-circle" />
-          </Button>
+          <VisSettings id={props.id} show={show} setShow={setShow} setHover={props.setHover} />
           <Button
             style={{
               background: 'none',
@@ -61,4 +55,5 @@ VisGridItemControl.propTypes = {
   filterRemove: PropTypes.func.isRequired,
   fullScreened: PropTypes.bool.isRequired,
   toggleFullScreen: PropTypes.func.isRequired,
+  setHover: PropTypes.func.isRequired,
 };

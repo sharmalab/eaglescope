@@ -25,8 +25,10 @@ ColumnInput.propTypes = {
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   setValue: PropTypes.func.isRequired,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 ColumnInput.defaultProps = {
   type: 'text',
+  disabled: false,
 };

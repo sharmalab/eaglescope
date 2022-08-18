@@ -41,6 +41,7 @@ function VisGridItem(props) {
         toggleFullScreen={props.toggleFullScreen}
         fullScreened={props.fullScreened}
         hover={hover}
+        setHover={setHover}
         filters={filters}
         filterRemove={removeFiltersHandler}
       />

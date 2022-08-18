@@ -20,4 +20,58 @@ VisTypeComponents.DENSITY_2D = 'DensityChart';
 VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
 VisTypeComponents.HEATMAP = 'Heatmap';
 
+const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE'];
+
+const VisInputDescription = {
+  PIE_CHART: {
+    hasX: true,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  },
+  BAR_CHART: {
+    hasX: true,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  },
+  HORIZONTAL_BAR_CHART: {
+    hasX: false,
+    hasY: true,
+    isXArr: false,
+    isYArr: false,
+  },
+  SCATTER_CHART: {
+    hasX: true,
+    hasY: true,
+    isXArr: false,
+    isYArr: false,
+  },
+  HISTOGRAM: {
+    hasX: true,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  },
+  DENSITY_2D: {
+    hasX: true,
+    hasY: true,
+    isXArr: false,
+    isYArr: false,
+  },
+  PARALLEL_COORDINATES: {
+    hasX: false,
+    hasY: true,
+    isXArr: false,
+    isYArr: true,
+  },
+  HEATMAP: {
+    hasX: true,
+    hasY: true,
+    isXArr: false,
+    isYArr: false,
+  },
+};
+
 export default VisTypeComponents;
+export { VisInputDescription, SpecialVis };
