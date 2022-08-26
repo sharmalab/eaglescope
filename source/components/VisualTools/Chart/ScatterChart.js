@@ -23,11 +23,16 @@ export default class ScatterChart extends PureComponent {
   }
 
   componentDidMount() {
+    this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
     setTimeout(() => {
+      d3.select(this.self.current).selectAll('canvas').remove('canvas');
       d3.select(this.self.current).selectAll('svg').remove('svg');
-      const rect = this.self.current.getBoundingClientRect();
-      const innerWidth = rect.width - this.state.margin.left - this.state.margin.right;
-      const innerHeight = rect.height - this.state.margin.top - this.state.margin.bottom;
+      this.rect = this.self.current.getBoundingClientRect();
+      const innerWidth = this.rect.width - this.state.margin.left - this.state.margin.right;
+      const innerHeight = this.rect.height - this.state.margin.top - this.state.margin.bottom;
 
       this.canvas = d3
         .select(this.self.current)
@@ -40,8 +45,8 @@ export default class ScatterChart extends PureComponent {
       const svg = d3
         .select(this.self.current)
         .append('svg')
-        .attr('width', rect.width)
-        .attr('height', rect.height)
+        .attr('width', this.rect.width)
+        .attr('height', this.rect.height)
         .attr('transform', `translate(${0},${-innerHeight})`);
 
       // create viewer
@@ -71,12 +76,8 @@ export default class ScatterChart extends PureComponent {
 
       viewer.append('g').call(this.brush);
 
-      this.componentDidUpdate();
+      this.draw();
     }, 100);
-  }
-
-  componentDidUpdate() {
-    this.draw();
   }
 
   drawPoint(point) {
@@ -92,9 +93,8 @@ export default class ScatterChart extends PureComponent {
   }
 
   draw() {
-    const rect = this.self.current.getBoundingClientRect();
     this.context = this.canvas.node().getContext('2d');
-    this.context.clearRect(0, 0, rect.width, rect.height);
+    this.context.clearRect(0, 0, this.rect.width, this.rect.height);
     this.context.fillStyle = '#87CEEB';
     this.context.strokeWidth = 1;
     this.context.strokeStyle = '#4682B4';
