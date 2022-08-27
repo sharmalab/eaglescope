@@ -21,6 +21,9 @@ function Settings() {
   const [homeUrl, setHomeUrl] = useState(config.HOME_URL);
   const [headerHight, setHeaderHight] = useState(config.HEIGHT_OF_VIS_HEADER);
   const [hideBorder, setHideBorder] = useState(config?.HIDE_BORDER ? 'Hide' : 'Show');
+  const [borderRadius, setBorderRadius] = useState(
+    config?.BORDER_RADIUS ? config.BORDER_RADIUS : 0,
+  );
   const [visMargin, setVisMargin] = useState({
     x: config.MARGIN_OF_GRID_VIEW[0],
     y: config.MARGIN_OF_GRID_VIEW[1],
@@ -50,6 +53,7 @@ function Settings() {
       UNIT_OF_GRID_VIEW: [Number(visSize.x), Number(visSize.y)],
       THEME_COLOR: color,
       HIDE_BORDER: hideBorder !== 'Show',
+      BORDER_RADIUS: borderRadius,
     }));
 
     setPending(false);
@@ -104,6 +108,12 @@ function Settings() {
                   setValue={setHeaderHight}
                   type="number"
                   disabled
+                />
+                <ColumnInput
+                  label="Border Radius"
+                  value={borderRadius}
+                  setValue={setBorderRadius}
+                  type="number"
                 />
               </Col>
 
