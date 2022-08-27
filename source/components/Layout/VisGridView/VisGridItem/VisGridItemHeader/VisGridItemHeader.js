@@ -14,6 +14,7 @@ function VisGridItemHeader(props) {
       title={props.description}
       style={{
         backgroundColor: color || '#007bff',
+        borderRadius: config?.BORDER_RADIUS ? `${config.BORDER_RADIUS}px` : '0px',
       }}
     >
       <div className="name-header draggable">

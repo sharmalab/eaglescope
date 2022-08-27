@@ -100,6 +100,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
                 border: config?.HIDE_BORDER
                   ? ''
                   : `1px solid ${config?.THEME_COLOR ? config?.THEME_COLOR : '#007bff'}`,
+                borderRadius: config?.BORDER_RADIUS ? `${config.BORDER_RADIUS}px` : '0px',
               }}
             >
               <VisGridItem

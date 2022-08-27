@@ -20,6 +20,10 @@ function Settings() {
   const [color, setColor] = useState(config.THEME_COLOR ? config.THEME_COLOR : '#007bff');
   const [homeUrl, setHomeUrl] = useState(config.HOME_URL);
   const [headerHight, setHeaderHight] = useState(config.HEIGHT_OF_VIS_HEADER);
+  const [hideBorder, setHideBorder] = useState(config?.HIDE_BORDER ? 'Hide' : 'Show');
+  const [borderRadius, setBorderRadius] = useState(
+    config?.BORDER_RADIUS ? config.BORDER_RADIUS : 0,
+  );
   const [visMargin, setVisMargin] = useState({
     x: config.MARGIN_OF_GRID_VIEW[0],
     y: config.MARGIN_OF_GRID_VIEW[1],
@@ -48,6 +52,8 @@ function Settings() {
       MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
       UNIT_OF_GRID_VIEW: [Number(visSize.x), Number(visSize.y)],
       THEME_COLOR: color,
+      HIDE_BORDER: hideBorder !== 'Show',
+      BORDER_RADIUS: borderRadius,
     }));
 
     setPending(false);
@@ -84,6 +90,13 @@ function Settings() {
                 <ColumnInput label="Title" value={title} setValue={setTitle} />
                 <ColumnInput label="Data URL" value={url} setValue={setUrl} disabled />
                 <ColumnInput label="Data Format" value={format} setValue={setFormat} disabled />
+                <Form.Group as={Col} className="mb-3">
+                  <Form.Label className="settings-label">Borders</Form.Label>
+                  <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
+                    <option>Show</option>
+                    <option>Hide</option>
+                  </Form.Select>
+                </Form.Group>
               </Col>
 
               <Col className="p-0">
@@ -95,6 +108,12 @@ function Settings() {
                   setValue={setHeaderHight}
                   type="number"
                   disabled
+                />
+                <ColumnInput
+                  label="Border Radius"
+                  value={borderRadius}
+                  setValue={setBorderRadius}
+                  type="number"
                 />
               </Col>
 
