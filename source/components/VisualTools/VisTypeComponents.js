@@ -68,6 +68,7 @@ const VisInputDescription = {
   HEATMAP: {
     hasX: true,
     hasY: true,
+    hasZ: true,
     isXArr: false,
     isYArr: false,
   },

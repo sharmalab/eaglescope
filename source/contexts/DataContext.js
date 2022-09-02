@@ -127,7 +127,7 @@ export default function DataContextProvider({ children }) {
       addFiltersHandler,
       removeFiltersHandler,
     }),
-    [filters, loading, dataError],
+    [filters, loading, dataError, data, filteredData],
   );
 
   return <DataContext.Provider value={memoData}>{children}</DataContext.Provider>;
