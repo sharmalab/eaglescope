@@ -65,7 +65,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     return () => {
       window.removeEventListener('resize', debouncedUpdateViewSize);
     };
-  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW]);
+  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW, visConfig]);
 
   useEffect(() => {
     const rect = self.current.getBoundingClientRect();
@@ -103,12 +103,14 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
                 borderRadius: config?.BORDER_RADIUS ? `${config.BORDER_RADIUS}px` : '0px',
               }}
             >
-              <VisGridItem
-                layout={appLayout}
-                operation={visConfig.find((vis) => vis.id === item.i)}
-                toggleFullScreen={fullVisScreenHandler}
-                fullScreened={fullScreened}
-              />
+              {visConfig.find((vis) => vis.id === item.i) && (
+                <VisGridItem
+                  layout={appLayout}
+                  operation={visConfig.find((vis) => vis.id === item.i)}
+                  toggleFullScreen={fullVisScreenHandler}
+                  fullScreened={fullScreened}
+                />
+              )}
             </div>
           ))}
         </GridLayout>

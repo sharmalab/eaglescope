@@ -9,10 +9,10 @@ import './VisSettings.css';
 import VisFields from './containers/VisFields';
 
 function VisSettings({
-  id, show, setShow, setHover,
+  chartConfig, show, setShow, setHover,
 }) {
   const { config, setConfig } = useContext(ConfigContext);
-  const chartConfig = config.VISUALIZATION_VIEW_CONFIGURATION.find((f) => f.id === id);
+  // const chartConfig = config.VISUALIZATION_VIEW_CONFIGURATION.find((f) => f.id === id);
   const inputDesc = VisInputDescription[chartConfig.chartType];
 
   const [title, setTitle] = useState(chartConfig.title);
@@ -28,6 +28,7 @@ function VisSettings({
   const [yFields, setYFields] = useState(
     inputDesc?.isYArr ? chartConfig.fields.y : [chartConfig.fields.y],
   );
+  const [zFields, setZFields] = useState([chartConfig.fields?.z]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,6 +56,10 @@ function VisSettings({
       chartConfig.fields.y = yFields[0];
     }
 
+    if (inputDesc?.hasZ) {
+      chartConfig.fields.z = zFields[0];
+    }
+
     // add
     newCharts = [...newCharts, chartConfig];
 
@@ -62,12 +67,24 @@ function VisSettings({
       ...prevConfig,
       VISUALIZATION_VIEW_CONFIGURATION: newCharts,
     }));
+
+    // setShow(false);
+  };
+
+  const handleDelete = () => {
+    const oldCharts = config.VISUALIZATION_VIEW_CONFIGURATION;
+    const newCharts = oldCharts.filter((oc) => oc.id !== chartConfig.id);
+    setConfig((prevConfig) => ({
+      ...prevConfig,
+      VISUALIZATION_VIEW_CONFIGURATION: newCharts,
+    }));
+    setShow(false);
   };
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
     setShow(true);
-    setHover(false);
+    if (setHover) setHover(false);
   };
   return (
     <>
@@ -187,17 +204,41 @@ function VisSettings({
                 />
               )}
             </div>
-            <input
-              type="submit"
+            {inputDesc?.hasZ && (
+              <VisFields title="Z" fields={zFields} setFields={setZFields} isArr={false} />
+            )}
+            <div
               style={{
-                marginTop: '10px',
-                width: '50%',
-                backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
-                border: 'none',
-                color: '#fff',
-                padding: '0.375rem 0.75rem',
+                display: 'flex',
+                justifyContent: 'space-between',
               }}
-            />
+            >
+              <input
+                type="submit"
+                value="Save"
+                style={{
+                  marginTop: '10px',
+                  width: '48%',
+                  backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
+                  border: 'none',
+                  color: '#fff',
+                  padding: '0.375rem 0.75rem',
+                }}
+              />
+              <Button
+                onClick={handleDelete}
+                variant="danger"
+                style={{
+                  marginTop: '10px',
+                  width: '48%',
+                  border: 'none',
+                  color: '#fff',
+                  padding: '0.375rem 0.75rem',
+                }}
+              >
+                Delete Chart
+              </Button>
+            </div>
           </form>
         </Offcanvas.Body>
       </Offcanvas>
@@ -208,8 +249,12 @@ function VisSettings({
 export default VisSettings;
 
 VisSettings.propTypes = {
-  id: PropTypes.string.isRequired,
+  chartConfig: PropTypes.shape().isRequired,
   show: PropTypes.bool.isRequired,
   setShow: PropTypes.func.isRequired,
-  setHover: PropTypes.func.isRequired,
+  setHover: PropTypes.func,
+};
+
+VisSettings.defaultProps = {
+  setHover: null,
 };

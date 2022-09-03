@@ -5,11 +5,12 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import { ConfigContext } from '../../contexts/ConfigContext';
 import './Settings.css';
 import ColumnInput from './containers/ColumnInput';
 import RawInput from './containers/RawInput';
+import VisSettings from '../VisSettings/VisSettings';
+import VisTypeComponents, { VisInputDescription } from '../VisualTools/VisTypeComponents';
 
 function Settings() {
   const { config, setConfig } = useContext(ConfigContext);
@@ -21,6 +22,9 @@ function Settings() {
   const [homeUrl, setHomeUrl] = useState(config.HOME_URL);
   const [headerHight, setHeaderHight] = useState(config.HEIGHT_OF_VIS_HEADER);
   const [hideBorder, setHideBorder] = useState(config?.HIDE_BORDER ? 'Hide' : 'Show');
+  const [addChart, setAddChart] = useState('PIE_CHART');
+  const [newVis, setNewVis] = useState({});
+  const [showNewVis, setShowNewVis] = useState(false);
   const [borderRadius, setBorderRadius] = useState(
     config?.BORDER_RADIUS ? config.BORDER_RADIUS : 0,
   );
@@ -54,12 +58,38 @@ function Settings() {
       THEME_COLOR: color,
       HIDE_BORDER: hideBorder !== 'Show',
       BORDER_RADIUS: borderRadius,
+      DATA_RESOURCE_URL: url,
+      DATA_FORMAT: format,
+      VISUALIZATION_VIEW_CONFIGURATION:
+        url !== prevConfig.DATA_RESOURCE_URL || format !== prevConfig.DATA_FORMAT
+          ? []
+          : prevConfig.VISUALIZATION_VIEW_CONFIGURATION,
     }));
 
     setPending(false);
   };
+
+  const handleAdd = (e) => {
+    e.preventDefault();
+    setNewVis({
+      title: '',
+      id: '',
+      description: '',
+      chartType: addChart,
+      size: [1, 1],
+      fields: {
+        x: VisInputDescription[addChart]?.isXArr ? [''] : '',
+        y: VisInputDescription[addChart]?.isYArr ? [''] : '',
+        z: '',
+      },
+    });
+
+    setShow(false);
+    setShowNewVis(true);
+  };
   return (
     <>
+      {showNewVis && <VisSettings chartConfig={newVis} show={showNewVis} setShow={setShowNewVis} />}
       <Button
         size="lg"
         style={{
@@ -88,8 +118,8 @@ function Settings() {
             <Row>
               <Col className="p-0">
                 <ColumnInput label="Title" value={title} setValue={setTitle} />
-                <ColumnInput label="Data URL" value={url} setValue={setUrl} disabled />
-                <ColumnInput label="Data Format" value={format} setValue={setFormat} disabled />
+                <ColumnInput label="Data URL" value={url} setValue={setUrl} />
+                <ColumnInput label="Data Format" value={format} setValue={setFormat} />
                 <Form.Group as={Col} className="mb-3">
                   <Form.Label className="settings-label">Borders</Form.Label>
                   <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
@@ -136,6 +166,35 @@ function Settings() {
                 <RawInput label="X" value={visSize.x} setValue={setVisSize} field="x" />
                 <RawInput label="Y" value={visSize.y} setValue={setVisSize} field="y" />
               </Row>
+
+              <Form.Group className="mb-3">
+                <Form.Label className="settings-label">Add New Chart</Form.Label>
+                <div style={{ display: 'flex' }}>
+                  <Form.Select
+                    value={addChart}
+                    onChange={(e) => setAddChart(e.target.value)}
+                    style={{
+                      width: '70%',
+                      marginRight: '10px',
+                    }}
+                  >
+                    {Object.keys(VisTypeComponents).map((key) => (
+                      <option key={key} value={key}>
+                        {VisTypeComponents[key]}
+                      </option>
+                    ))}
+                  </Form.Select>
+                  <Button
+                    style={{
+                      backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
+                      border: 'none',
+                    }}
+                    onClick={handleAdd}
+                  >
+                    Add Chart
+                  </Button>
+                </div>
+              </Form.Group>
 
               <Row>
                 <Col sm={5}>

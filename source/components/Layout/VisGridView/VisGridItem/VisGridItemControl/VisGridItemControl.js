@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressArrowsAlt, faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
+import { ConfigContext } from '../../../../../contexts/ConfigContext';
 import VisSettings from '../../../../VisSettings/VisSettings';
 
 // css class
 import './VisGridItemControl.css';
 
 function VisGridItemControl(props) {
+  const { config } = useContext(ConfigContext);
   const [show, setShow] = useState(false);
   let btnFilterRemove;
   if (props.filters.length > 0 && props.filters.find((f) => f.id === props.id)) {
@@ -30,7 +31,12 @@ function VisGridItemControl(props) {
       {(props.hover || show) && (
         <div className="vis-grid-item-control">
           {btnFilterRemove}
-          <VisSettings id={props.id} show={show} setShow={setShow} setHover={props.setHover} />
+          <VisSettings
+            show={show}
+            setShow={setShow}
+            setHover={props.setHover}
+            chartConfig={config.VISUALIZATION_VIEW_CONFIGURATION.find((f) => f.id === props.id)}
+          />
           <Button
             style={{
               background: 'none',
