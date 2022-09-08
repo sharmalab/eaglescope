@@ -100,6 +100,13 @@ const createOperationText = (field, opr, values) => {
           <span className="value">{values[1]}</span>
         </div>
       );
+    case 'search':
+      return (
+        <div>
+          <span className="opr"> Search </span>
+          <span className="value">{values[0]}</span>
+        </div>
+      );
     default:
       return (
         <div className="error">

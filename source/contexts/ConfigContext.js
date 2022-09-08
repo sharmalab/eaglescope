@@ -10,7 +10,7 @@ export default function ConfigContextProvider({ children, configName }) {
     data: config,
     isPending: configLoading,
     setData: setConfig,
-  } = useFetch(`../../config/${configName}`);
+  } = useFetch(`${configName}`);
 
   const memoConfig = useMemo(
     () => ({

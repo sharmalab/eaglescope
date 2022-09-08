@@ -7,13 +7,20 @@ import { ConfigContext } from '../../contexts/ConfigContext';
 import { DataContext } from '../../contexts/DataContext';
 import LoadingSpinner from '../partials/LoadingSpinner';
 import ErrorMsg from '../partials/ErrorMsg';
+import SearchBar from '../SearchBar';
 
 function Eaglescope() {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [fullScreenVis, setFullScreenVis] = useState(null);
   const { config, configLoading, configError } = useContext(ConfigContext);
   const {
-    data, loading, filteredData, filters, removeFiltersHandler, dataError,
+    data,
+    loading,
+    filteredData,
+    filters,
+    removeFiltersHandler,
+    addFiltersHandler,
+    dataError,
   } = useContext(DataContext);
 
   const fullScreenHandler = (id, fullScreened) => {
@@ -65,6 +72,7 @@ function Eaglescope() {
         data={[filteredData, data]}
         color={config.THEME_COLOR}
       />
+      <SearchBar filterAdded={addFiltersHandler} filterRemove={removeFiltersHandler} />
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
 
       {isFullScreen ? (
