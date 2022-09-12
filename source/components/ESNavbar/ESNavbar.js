@@ -12,6 +12,7 @@ function ESNavbar(props) {
   const {
     url, title, max, now, progressLabel, data, color,
   } = props;
+  document.title = title || 'Eaglescope';
 
   return (
     <Navbar
