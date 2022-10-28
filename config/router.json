@@ -10,5 +10,9 @@
   {
     "path": "collection",
     "config": "collection-vis-config.json"
+  },
+  {
+    "path": "demo",
+    "config": "demo.json"
   }
 ]
