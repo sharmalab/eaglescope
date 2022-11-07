@@ -41,6 +41,10 @@ function filterData(data, filters) {
       if (!broken && operation === 'range') {
         broken = broken || filter.values[0] > val || filter.values[1] < val;
       }
+      // search operates on the whole record instead of val
+      if (!broken && operation === 'search'){
+          broken = Object.values(record).join("|").indexOf(filter.values[0]) == -1
+      }
       if (broken) {
         return false;
       }
