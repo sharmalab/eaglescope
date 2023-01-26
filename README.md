@@ -1,4 +1,4 @@
-# DataScope 2
+# Eaglescope
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
 ![](docs/features.png)
