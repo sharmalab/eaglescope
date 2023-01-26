@@ -1,8 +1,6 @@
 # Eaglescope
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
-![](docs/features.png)
-
 ## Development
 Install dependencies using `npm install`
 
