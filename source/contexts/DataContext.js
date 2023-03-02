@@ -38,12 +38,18 @@ function filterData(data, filters) {
       if (!broken && operation === 'nin') {
         broken = broken || filter.values.some((v) => val === v);
       }
+      if (!broken && operation === 'has') {
+        broken = broken || !(val && val.some((v) => filter.values === v));
+      }
+      if (!broken && operation === 'nhas') { // TODO test
+        broken = broken || !(val && val.find((v) => filter.values === v));
+      }
       if (!broken && operation === 'range') {
         broken = broken || filter.values[0] > val || filter.values[1] < val;
       }
       // search operates on the whole record instead of val
-      if (!broken && operation === 'search'){
-          broken = Object.values(record).join("|").indexOf(filter.values[0]) == -1
+      if (!broken && operation === 'search') {
+        broken = Object.values(record).join('|').indexOf(filter.values[0]) === -1;
       }
       if (broken) {
         return false;

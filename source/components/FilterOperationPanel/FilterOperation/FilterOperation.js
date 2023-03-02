@@ -90,6 +90,24 @@ const createOperationText = (field, opr, values) => {
           </span>
         </div>
       );
+    case 'has':
+      return (
+        <div>
+          <span className="field">{field}</span>
+          <span className="opr"> Has </span>
+          <span className="value">{values}</span>
+        </div>
+      );
+    case 'nhas':
+      return (
+        <div>
+          <span className="field">{field}</span>
+          <span className="opr">
+            {'Doesn\'t Has'}
+          </span>
+          <span className="value">{values}</span>
+        </div>
+      );
     case 'range':
       return (
         <div>

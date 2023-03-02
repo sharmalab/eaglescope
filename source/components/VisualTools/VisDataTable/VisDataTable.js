@@ -26,7 +26,8 @@ const cellRenderer = (d, f) => {
       </a>
     );
   } else {
-    urlElt = d.cellData;
+    // urlElt = d.cellData;
+    urlElt = Array.isArray(d.cellData) ? d.cellData.join(', ') : d.cellData;
   }
   return (
     <React.Fragment key={f.dataKey}>
@@ -101,6 +102,7 @@ export default class VisDataTable extends PureComponent {
     const { data, filterData, filters } = this.props;
     const { sortBy, sortDirection } = this.state;
     const currentData = filters.length > 0 ? filterData : data;
+    // filter TODO
     return sortBy && sortDirection
       ? currentData.sort((a, b) => {
         const first = sortDirection === SortDirection.ASC ? a : b;

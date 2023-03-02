@@ -9,6 +9,21 @@ class DownloadButton extends PureComponent {
     if (data.length === 0) {
       data = this.props.data[1];
     }
+    // CSV
+    // let csvContent = 'data:text/csv;charset=utf-8,';
+    // data.forEach((rowArray) => {
+    //   const row = rowArray.join(',');
+    //   csvContent += `${row}\r\n`;
+    // });
+    // const encodedUri = encodeURI(csvContent);
+    // const link = document.createElement('a');
+    // link.href = encodedUri;
+    // link.download = this.props.title || 'download.csv';
+    // document.body.appendChild(link); // Required for FF
+    // link.click(); // This will download the data file named "my_data.csv".
+    // document.body.removeChild(link);
+
+    // JSON
     const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
     const href = URL.createObjectURL(blob);
     const link = document.createElement('a');
