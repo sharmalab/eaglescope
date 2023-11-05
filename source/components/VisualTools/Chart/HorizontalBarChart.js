@@ -53,6 +53,7 @@ function HorizontalBarChart(props) {
       .data(fullData, (d) => d[fields.y])
       .enter()
       .append('text')
+      .attr('pointer-events', 'none')
       .attr('class', 'label')
       .attr('x', 5)
       .attr('y', (d) => scaleRef.current.y(d[fields.y]) + scaleRef.current.y.bandwidth() / 2 + 4)
