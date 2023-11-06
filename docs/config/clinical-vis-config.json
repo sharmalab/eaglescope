@@ -1,5 +1,6 @@
 {
     "HOME_URL":"https://pathdb.cancerimagingarchive.net/",
+    "TITLE": "PRISM Clinical Explorer",
     "HEIGHT_OF_VIS_HEADER": 30,
     "MARGIN_OF_VIS": [10, 10],
     "UNIT_OF_GRID_VIEW": [224,200],
