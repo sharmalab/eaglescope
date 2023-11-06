@@ -25,9 +25,9 @@ function createTooltip(mount, addLabel, offset) {
   const mousemove = function move(d) {
     tooltip
       .html(addLabel(d))
-      .style('opacity', 1)
-      .style('left', `${offset.x + d3.mouse(this)[0]}px`)
-      .style('top', `${offset.y + d3.mouse(this)[1]}px`);
+      .style('opacity', 0.9)
+      .style('left', `${offset.x + d3.mouse(mount)[0]}px`)
+      .style('top', `${offset.y  + d3.mouse(mount)[1]}px`);
   };
 
   const mouseleave = function leave() {
