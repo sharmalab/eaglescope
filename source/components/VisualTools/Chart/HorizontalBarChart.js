@@ -75,7 +75,17 @@ function HorizontalBarChart(props) {
       .attr('class', 'label')
       .attr('x', 5)
       .attr('y', (d) => scaleRef.current.y(d[fields.y]) + scaleRef.current.y.bandwidth() / 2 + 4)
-      .text((d) => d.key);
+      .text((d) => d.key)
+      .on('click', x=>{
+        const filter = {
+          id: props.id,
+          title: props.title,
+          field: props.fields.y,
+          operation: 'eq',
+          values: x.key,
+        };
+        props.filterAdded([filter])
+      });
   };
 
   const drawBar = (selection, data, className = 'og') => {
