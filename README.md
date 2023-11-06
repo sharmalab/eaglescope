@@ -1,4 +1,9 @@
 # Eaglescope
+
+<h2 align="center">
+  <a href="http://sharmalab.github.io/eaglescope">![Eaglescope](eaglescope.png?raw=true "Eaglescope")</a>
+</h2>
+
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
 ## Development
