@@ -1,8 +1,7 @@
 # Eaglescope
 
-<h2 align="center">
-  <a href="http://sharmalab.github.io/eaglescope">![Eaglescope](eaglescope.png?raw=true "Eaglescope")</a>
-</h2>
+[<h2 align="center"><img src="./eaglescope.png" width="200" /></h2>](.eaglescope.png)
+
 
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
 
