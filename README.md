@@ -1,7 +1,5 @@
-# DataScope 2
+# Eaglescope
 Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
-
-![](docs/features.png)
 
 ## Development
 Install dependencies using `npm install`
@@ -20,8 +18,8 @@ Develop mode using `npm run dev`
 ##### Installation
 
 * Clone the [repository](https://github.com/birm/datascope2.git)
-* Enter the datascope2 directory (this directory)
-* Get dependencies with ```npm install``
+* Enter the eaglescope directory (this directory)
+* Get dependencies with ```npm install```
 * Run ```npm run build```
 
 ##### Running
