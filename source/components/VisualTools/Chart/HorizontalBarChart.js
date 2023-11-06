@@ -3,14 +3,33 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
 
-const transform = (data, field) => {
-  const newData = d3
+const transformList = (data, f) => {
+  const map = new Map();
+  data.forEach((d) => {
+    const items = d[f];
+    if (Array.isArray(items)) {
+      items.forEach((i) => {
+        if (!map.has(i)) { map.set(i, 0); }
+        map.set(i, map.get(i) + 1);
+      });
+    } else {
+      if (!map.has(items)) { map.set(items, 0); }
+      map.set(items, map.get(items) + 1);
+    }
+  });
+  return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
+};
+
+const transform = (data, field, isList = false) => {
+  if (isList) {
+    return transformList(data, field);
+  }
+  return d3
     .nest()
     .key((d) => d[field])
     .sortKeys(d3.ascending)
     .rollup((v) => v.length)
     .entries(data);
-  return newData;
 };
 
 function HorizontalBarChart(props) {
@@ -22,7 +41,7 @@ function HorizontalBarChart(props) {
   };
 
   const fields = { y: 'key', x: 'value' };
-  const fullData = transform(props.data, props.fields.y);
+  const fullData = transform(props.data, props.fields.y, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
@@ -80,7 +99,13 @@ function HorizontalBarChart(props) {
       .on('click', (enterData) => {
         const selected = enterBars.filter((d) => d === enterData);
         const value = selected.data()[0].key;
-        const filter = {
+        const filter = props?.fields?.isList ? {
+          id: props.id,
+          title: props.title,
+          field: props.fields.y,
+          operation: 'has',
+          values: value,
+        } : {
           id: props.id,
           title: props.title,
           field: props.fields.y,
@@ -142,7 +167,7 @@ function HorizontalBarChart(props) {
     setTimeout(() => {
       let data = [];
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.y);
+        data = transform(props.filterData, props.fields.y, props.fields.isList);
       } else {
         data = fullData;
       }
@@ -158,7 +183,7 @@ export default HorizontalBarChart;
 
 HorizontalBarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  fields: PropTypes.shape({ y: PropTypes.string.isRequired }).isRequired,
+  fields: PropTypes.shape({ y: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

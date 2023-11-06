@@ -6,7 +6,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faCheckSquare, faArrowsAltV } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
-import { VisSortableItem } from './VisSortableItem/VisSortableItem';
+import VisSortableItem from './VisSortableItem/VisSortableItem';
 
 import './VisDataTableControl.css';
 
@@ -29,7 +29,7 @@ export default class VisDataTableControl extends PureComponent {
   renderPopOver(props) {
     return (
       <Popover {...props}>
-        <Popover.Title as="div">
+        <Popover.Header as="div">
           <div className="text-primary" style={{ padding: '0 .5rem' }}>
             <FontAwesomeIcon icon={faArrowsAltV} />
           </div>
@@ -43,8 +43,8 @@ export default class VisDataTableControl extends PureComponent {
           >
             <FontAwesomeIcon icon={faCheckSquare} />
           </Button>
-        </Popover.Title>
-        <Popover.Content>
+        </Popover.Header>
+        <Popover.Body>
           <SortableContainer
             onSortEnd={({ oldIndex, newIndex }) => {
               document.body.style.cursor = 'default';
@@ -64,7 +64,7 @@ export default class VisDataTableControl extends PureComponent {
               />
             ))}
           </SortableContainer>
-        </Popover.Content>
+        </Popover.Body>
       </Popover>
     );
   }

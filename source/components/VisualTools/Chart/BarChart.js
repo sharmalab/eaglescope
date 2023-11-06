@@ -3,14 +3,31 @@ import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
 
-const transform = (data, field) => {
-  const newData = d3
-    .nest()
-    .key((d) => d[field])
+const transformList = (data, f) => {
+  const map = new Map();
+  data.forEach((d) => {
+    const items = d[f];
+    if (Array.isArray(items)) {
+      items.forEach((i) => {
+        if (!map.has(i)) { map.set(i, 0); }
+        map.set(i, map.get(i) + 1);
+      });
+    } else {
+      if (!map.has(items)) { map.set(items, 0); }
+      map.set(items, map.get(items) + 1);
+    }
+  });
+  return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
+};
+
+const transform = (data, field, isList = false) => {
+  if (isList) {
+    return transformList(data, field);
+  }
+  return d3.nest().key((d) => d[field])
     .sortKeys(d3.ascending)
     .rollup((v) => v.length)
     .entries(data);
-  return newData;
 };
 
 const wrap = (text, width) => {
@@ -58,7 +75,7 @@ function BarChart(props) {
   };
 
   const fields = { x: 'key', y: 'value' };
-  const fullData = transform(props.data, props.fields.x);
+  const fullData = transform(props.data, props.fields.x, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
@@ -68,7 +85,7 @@ function BarChart(props) {
     // set the ranges
     const xScale = d3
       .scaleBand()
-      .domain(fullData.map((d) => d[f]))
+      .domain(fullData.map((d) => d[f]).flat())
       .range([0, width])
       .padding(0.1);
     return xScale;
@@ -103,7 +120,13 @@ function BarChart(props) {
       .on('click', (currentData) => {
         const selected = enterBars.filter((d) => d === currentData);
         const value = selected.data()[0].key;
-        const filter = {
+        const filter = props?.fields?.isList ? {
+          id: props.id,
+          title: props.title,
+          field: props.fields.x,
+          operation: 'has',
+          values: value,
+        } : {
           id: props.id,
           title: props.title,
           field: props.fields.x,
@@ -175,7 +198,7 @@ function BarChart(props) {
     setTimeout(() => {
       let data = [];
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x);
+        data = transform(props.filterData, props.fields.x, props.fields.isList);
       } else {
         data = fullData;
       }
@@ -190,7 +213,7 @@ export default BarChart;
 
 BarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  fields: PropTypes.shape({ x: PropTypes.string.isRequired }).isRequired,
+  fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,

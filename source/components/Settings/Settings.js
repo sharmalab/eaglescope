@@ -93,6 +93,7 @@ function Settings() {
       <Button
         size="lg"
         style={{
+          display: 'none',
           background: 'none',
           border: 'none',
         }}
