@@ -38,7 +38,7 @@ export default class ScatterChart extends PureComponent {
         .select(this.self.current)
         .append('canvas')
         .attr('width', innerWidth)
-        .attr('height', innerHeight + 5)
+        .attr('height', innerHeight)
         .style('transform', `translate(${this.state.margin.left}px,${this.state.margin.top}px)`);
 
       // create svg
@@ -52,7 +52,7 @@ export default class ScatterChart extends PureComponent {
       // create viewer
       const viewer = svg
         .append('g')
-        .attr('transform', `translate(${this.state.margin.left},${this.state.margin.top})`);
+        .attr('transform', `translate(${this.state.margin.left},0)`);
       //
       this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
       this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
