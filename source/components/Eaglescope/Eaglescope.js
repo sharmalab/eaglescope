@@ -36,7 +36,6 @@ function Eaglescope() {
   // handle progress bar
   useEffect(() => {
     if (!data) return;
-    console.log(config)
     if (filters.length > 0) {
       setProgressAttrs({
         now: filteredData.length,

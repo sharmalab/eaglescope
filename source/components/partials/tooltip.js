@@ -14,8 +14,9 @@ function createTooltip(mount, addLabel, offset) {
   const tooltip = d3
     .select(mount)
     .append('div')
-    .style('opacity', 0)
+    .style('opacity', 1)
     .attr('class', 'tooltip')
+    .style('display', 'none')
     .style('background-color', 'white')
     .style('border', 'solid')
     .style('border-width', '2px')
@@ -25,13 +26,13 @@ function createTooltip(mount, addLabel, offset) {
   const mousemove = function move(d) {
     tooltip
       .html(addLabel(d))
-      .style('opacity', 0.9)
-      .style('left', `${offset.x + d3.mouse(mount)[0]}px`)
-      .style('top', `${offset.y  + d3.mouse(mount)[1]}px`);
+      .style('display', '')
+      .style('left', `${offset.x + d3.mouse(this)[0]}px`)
+      .style('top', `${offset.y + d3.mouse(this)[1]}px`);
   };
 
   const mouseleave = function leave() {
-    tooltip.style('opacity', 0);
+    tooltip.style('display', 'none');
   };
 
   return { mousemove, mouseleave };

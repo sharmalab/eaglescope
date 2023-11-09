@@ -7,11 +7,11 @@ import './VisGridItemHeader.css';
 
 function VisGridItemHeader(props) {
   const { config } = useContext(ConfigContext);
-  console.log("config", config)
   const { THEME_COLOR: color } = config;
-  let dragHeader = "name-header draggable";
-  if (config.DISABLE_DRAGGING){
-    dragHeader = "name-header notDraggable";
+
+  let dragHeader = 'name-header';
+  if (config.DRAGGABLE) {
+    dragHeader = 'name-header draggable';
   }
   return (
     <div

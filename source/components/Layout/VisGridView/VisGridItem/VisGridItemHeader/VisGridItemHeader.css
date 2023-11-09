@@ -20,6 +20,6 @@
   font-weight: bold;
 }
 
-.draggable {
+.name-header.draggable {
   cursor: move;
 }
