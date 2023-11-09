@@ -123,9 +123,13 @@ export default class ScatterChart extends PureComponent {
   }
 
   createScaleLiner(f, range) {
+    const paddingPercent = 0.1; // Adjust the percentage of padding as needed
+    const domainExtent = d3.extent(this.state.data, (d) => d[f]);
+    const domainPadding = (domainExtent[1] - domainExtent[0]) * paddingPercent;
     const scaleLiner = d3
       .scaleLinear()
-      .domain(d3.extent(this.state.data, (d) => d[f]))
+      .domain([domainExtent[0] - domainPadding,
+        domainExtent[1] + domainPadding])
       .range(range)
       .nice();
     return scaleLiner;

@@ -54,13 +54,19 @@ function DensityChart(props) {
         .attr('height', rect.height)
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
-
+      const paddingPercent = 0.1; // Adjust the percentage of padding as needed
+      const domainExtentX = d3.extent(props.data, (d) => d[props.fields.x]);
+      const domainPaddingX = (domainExtentX[1] - domainExtentX[0]) * paddingPercent;
+      const domainExtentY = d3.extent(props.data, (d) => d[props.fields.y]);
+      const domainPaddingY = (domainExtentY[1] - domainExtentY[0]) * paddingPercent;
       scales.current.x
-        .domain(d3.extent(props.data, (d) => d[props.fields.x]))
+        .domain([domainExtentX[0] - domainPaddingX,
+          domainExtentX[1] + domainPaddingX])
         .range([0, innerWidth]);
 
       scales.current.y
-        .domain(d3.extent(props.data, (d) => d[props.fields.y]))
+        .domain([domainExtentY[0] - domainPaddingY,
+          domainExtentY[1] + domainPaddingY])
         .range([innerHeight, 0]);
 
       svg.current
@@ -104,7 +110,6 @@ function DensityChart(props) {
       svg.current
         .insert('g', 'g')
         .attr('id', 'draw_area')
-        .attr('transform', `translate(${margin.left},${-margin.bottom})`)
         .selectAll('path')
         .data(densityData)
         .enter()
