@@ -9,7 +9,7 @@ import 'bootstrap'; // <-- JS File
 
 function APP() {
   const query = new URLSearchParams(window.location.search);
-  const configUrl = query.get('configurl') || './config/collection-vis-config.json';
+  const configUrl = query.get('configurl') || './config/wines.json';
 
   //
   return (
