@@ -22,8 +22,12 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
   const grid = config.UNIT_OF_GRID_VIEW;
   const margins = config.MARGIN_OF_GRID_VIEW;
   const visConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
-  const draggableHandle = '.draggable';
-
+  const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
+  const isDraggable = config.DRAGGABLE || false;
+  const isResizable = config.RESIZABLE || false;
+  
+  const [isResizing, SetIsResizing] = useState(false);
+  const [resizingItemId, SetResizingItemId] = useState(null);
   const [appLayout, setAppLayout] = useState({
     width: 0,
     currentCols: 0,
@@ -31,7 +35,6 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     margin: 0,
     grid,
   });
-
   const self = useRef();
 
   const updateViewSize = () => {
@@ -45,7 +48,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
       && margins[1] === appLayout.margins[1]
     ) return;
     const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
-    const updatedLayout = getLayoutConfig(visConfig, cols);
+    const updatedLayout = getLayoutConfig(visConfig, cols, isResizable);
 
     setAppLayout({
       width: gridLayoutWidth,
@@ -58,8 +61,15 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
 
   const debouncedUpdateViewSize = debounce(updateViewSize, 100);
 
+  const onResizeStartHandle = (layout, oldItem) => {
+    SetIsResizing(true);
+    SetResizingItemId(oldItem.i);
+  };
+  const onResizeStopHandle = () => {
+    SetIsResizing(false);
+    SetResizingItemId(null);
+  };
   useEffect(() => {
-    // if (!appLayout.currentCols) updateViewSize();
     updateViewSize();
     window.addEventListener('resize', debouncedUpdateViewSize);
     return () => {
@@ -71,7 +81,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     const rect = self.current.getBoundingClientRect();
     const cols = parseInt((rect.width - margins[0]) / (grid[0] + margins[0]), 10);
     const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
-    const updatedLayout = getLayoutConfig(visConfig, cols);
+    const updatedLayout = getLayoutConfig(visConfig, cols, isResizable);
 
     setAppLayout({
       width: gridLayoutWidth,
@@ -81,7 +91,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
       grid,
     });
   }, [visConfig]);
-
+  useEffect(() => {}, [isResizing, resizingItemId]);
   return (
     <div className="vis-grid-view" ref={self}>
       {appLayout.layout.length > 0 && (
@@ -91,7 +101,11 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
           width={appLayout.width}
           margin={margins}
           layout={appLayout.layout}
+          isDraggable={isDraggable}
+          isResizable={isResizable}
           draggableHandle={draggableHandle}
+          onResizeStart={onResizeStartHandle}
+          onResizeStop={onResizeStopHandle}
         >
           {appLayout.layout.map((item) => (
             <div
@@ -105,6 +119,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
             >
               {visConfig.find((vis) => vis.id === item.i) && (
                 <VisGridItem
+                  isResizing={item.i === resizingItemId && isResizing}
                   layout={appLayout}
                   operation={visConfig.find((vis) => vis.id === item.i)}
                   toggleFullScreen={fullVisScreenHandler}

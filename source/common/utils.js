@@ -109,7 +109,7 @@ export function fillMatrix(matrix, val, pos = [0, 0], size = [matrix[0].length, 
 }
 
 // get layout for react-grid-layout
-export function getLayoutConfig(chartsConfig, cols) {
+export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
   const layout = [];
   const matrix = createMatrix(cols);
   // sort charts by priority
@@ -144,7 +144,7 @@ export function getLayoutConfig(chartsConfig, cols) {
       y: pos[1],
       w: size[0],
       h: size[1],
-      isResizable: false,
+      isResizable: resiziable,
     });
   });
 

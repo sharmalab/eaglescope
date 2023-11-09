@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import VisGridItemContent from './VisGridItemContent/VisGridItemContent';
 import VisGridItemHeader from './VisGridItemHeader/VisGridItemHeader';
 import { DataContext } from '../../../../contexts/DataContext';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // css class
 import './VisGridItem.css';
 
@@ -15,7 +15,6 @@ function VisGridItem(props) {
   const onMouseLeaveHandle = () => {
     setHover(false);
   };
-
   const {
     data, filteredData, filters, addFiltersHandler, removeFiltersHandler,
   } = useContext(DataContext);
@@ -23,18 +22,14 @@ function VisGridItem(props) {
   useEffect(() => {
     if (props.fullScreened) setHover(true);
   }, [props.fullScreened]);
-
-  /* useEffect(() => {
-    console.log(props.layout);
-  }, [props.layout]); */
-
+  useEffect(() => {}, [props.isResizing]);
   return (
     <div
       className="vis-grid-item"
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
-    >
-      <VisGridItemHeader
+
+    ><VisGridItemHeader
         id={props.operation.id}
         title={props.operation.title}
         description={props.operation.description}
@@ -45,7 +40,10 @@ function VisGridItem(props) {
         filters={filters}
         filterRemove={removeFiltersHandler}
       />
-
+      
+      {props.isResizing?<div className="place-holder">
+        <FontAwesomeIcon icon="chart-area" className="chart-area"/>
+      </div>:
       <VisGridItemContent
         fields={props.operation.fields}
         chartType={props.operation.chartType}
@@ -57,7 +55,7 @@ function VisGridItem(props) {
         id={props.operation.id}
         title={props.operation.title}
         layout={props.layout}
-      />
+      />}
     </div>
   );
 }
