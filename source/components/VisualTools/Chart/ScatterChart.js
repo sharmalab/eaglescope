@@ -38,7 +38,7 @@ export default class ScatterChart extends PureComponent {
         .select(this.self.current)
         .append('canvas')
         .attr('width', innerWidth)
-        .attr('height', innerHeight + 5)
+        .attr('height', innerHeight)
         .style('transform', `translate(${this.state.margin.left}px,${this.state.margin.top}px)`);
 
       // create svg
@@ -52,7 +52,7 @@ export default class ScatterChart extends PureComponent {
       // create viewer
       const viewer = svg
         .append('g')
-        .attr('transform', `translate(${this.state.margin.left},${this.state.margin.top})`);
+        .attr('transform', `translate(${this.state.margin.left},0)`);
       //
       this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
       this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
@@ -123,9 +123,13 @@ export default class ScatterChart extends PureComponent {
   }
 
   createScaleLiner(f, range) {
+    const paddingPercent = 0.1; // Adjust the percentage of padding as needed
+    const domainExtent = d3.extent(this.state.data, (d) => d[f]);
+    const domainPadding = (domainExtent[1] - domainExtent[0]) * paddingPercent;
     const scaleLiner = d3
       .scaleLinear()
-      .domain(d3.extent(this.state.data, (d) => d[f]))
+      .domain([domainExtent[0] - domainPadding,
+        domainExtent[1] + domainPadding])
       .range(range)
       .nice();
     return scaleLiner;
