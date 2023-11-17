@@ -5,9 +5,9 @@
   "MARGIN_OF_VIS": [10, 10],
   "UNIT_OF_GRID_VIEW": [230, 210],
   "MARGIN_OF_GRID_VIEW": [10, 10],
-  "RESIZABLE" : "TRUE",
-  "DRAGGABLE" : 1,
-  "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
+  "RESIZABLE" : 0,
+  "DRAGGABLE" : 0,
+  "HAS_SETTINGS" : 0,
   "DATA_RESOURCE_URL": "./config/wines.csv",
   "DATA_FORMAT": "csv",
   "VISUALIZATION_VIEW_CONFIGURATION": [
