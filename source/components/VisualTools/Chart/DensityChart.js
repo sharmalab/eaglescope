@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { numFixed } from '../../../common/utils';
 
 function DensityChart(props) {
+  let startPosition = [0, 0];
+  let endPosition = [0, 0];
   const self = useRef();
   const svg = useRef();
   const scales = useRef({
@@ -19,8 +21,10 @@ function DensityChart(props) {
 
   const end = () => {
     if (!d3.event.selection) return;
-    const [x0, y0] = d3.event.selection[0];
-    const [x1, y1] = d3.event.selection[1];
+    const [x0, y0] = [Math.min(startPosition[0], endPosition[0]),
+      Math.min(startPosition[1], endPosition[1])];
+    const [x1, y1] = [Math.max(startPosition[0], endPosition[0]),
+      Math.max(startPosition[1], endPosition[1])];
     const filters = [
       {
         id: `${props.id}_x`,
@@ -75,13 +79,52 @@ function DensityChart(props) {
         .call(d3.axisBottom(scales.current.x));
       svg.current.append('g').call(d3.axisLeft(scales.current.y));
 
+      const getCurrentMouseClickPosition = () => {
+        const mouseX = d3.event.sourceEvent.clientX - svg.current.node().getBoundingClientRect().x
+        - 2 * margin.left;
+        const mouseY = d3.event.sourceEvent.clientY - svg.current.node().getBoundingClientRect().y;
+        return [mouseX, mouseY];
+      };
+
       const brush = d3
         .brush()
         .extent([
           [0, 0],
           [innerWidth, innerHeight],
-        ])
-        .on('end', end);
+        ]).on('start', () => {
+          startPosition = getCurrentMouseClickPosition();
+          svg.current.selectAll('.selection').remove('rect');
+        }).on('brush', () => {
+          endPosition = getCurrentMouseClickPosition();
+          svg.current.selectAll('.selected-area').remove('.selected-area');
+          svg.current.selectAll('.selection').remove('rect');
+          const startX = Math.min(startPosition[0], endPosition[0]);
+          const startY = Math.min(startPosition[1], endPosition[1]);
+          const selectArea = svg.current.append('rect')
+            .attr('class', 'selected-area')
+            .attr('position', 'absolute')
+            .attr('x', startX + margin.left)
+            .attr('y', startY)
+            .attr('width', Math.abs(endPosition[0] - startPosition[0]))
+            .attr('height', Math.abs(endPosition[1] - startPosition[1]))
+            .attr('fill', 'rgba(130, 130, 130, 0.5)');
+        })
+        .on('end', () => {
+          endPosition = getCurrentMouseClickPosition();
+          svg.current.selectAll('.selected-area').remove('.selected-area');
+          svg.current.selectAll('.selection').remove('rect');
+          const startX = Math.min(startPosition[0], endPosition[0]);
+          const startY = Math.min(startPosition[1], endPosition[1]);
+          const selectedArea = svg.current.append('rect')
+            .attr('class', 'selected-area')
+            .attr('position', 'absolute')
+            .attr('x', startX + margin.left)
+            .attr('y', startY)
+            .attr('width', Math.abs(endPosition[0] - startPosition[0]))
+            .attr('height', Math.abs(endPosition[1] - startPosition[1]))
+            .attr('fill', 'rgba(140, 140, 140, 0.5)');
+          end();
+        });
 
       svg.current.append('g').call(brush);
     }, 100);
