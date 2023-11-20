@@ -3241,7 +3241,7 @@ var _OverlayTrigger = _interopRequireDefault(require("react-bootstrap/OverlayTri
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
 var _Button = _interopRequireDefault(require("react-bootstrap/Button"));
-var _VisSortableItem = _interopRequireDefault(require("./VisSortableItem/VisSortableItem"));
+var _VisSortableItem = require("./VisSortableItem/VisSortableItem");
 require("./VisDataTableControl.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
@@ -3291,7 +3291,7 @@ var VisDataTableControl = exports.default = /*#__PURE__*/function (_PureComponen
     key: "renderPopOver",
     value: function renderPopOver(props) {
       var _this2 = this;
-      return /*#__PURE__*/_react.default.createElement(_Popover.default, props, /*#__PURE__*/_react.default.createElement(_Popover.default.Header, {
+      return /*#__PURE__*/_react.default.createElement(_Popover.default, props, /*#__PURE__*/_react.default.createElement(_Popover.default.Title, {
         as: "div"
       }, /*#__PURE__*/_react.default.createElement("div", {
         className: "text-primary",
@@ -3312,7 +3312,7 @@ var VisDataTableControl = exports.default = /*#__PURE__*/function (_PureComponen
         className: "py-0 px-1 border-gray"
       }, /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
         icon: _freeSolidSvgIcons.faCheckSquare
-      }))), /*#__PURE__*/_react.default.createElement(_Popover.default.Body, null, /*#__PURE__*/_react.default.createElement(SortableContainer, {
+      }))), /*#__PURE__*/_react.default.createElement(_Popover.default.Content, null, /*#__PURE__*/_react.default.createElement(SortableContainer, {
         onSortEnd: function onSortEnd(_ref2) {
           var oldIndex = _ref2.oldIndex,
             newIndex = _ref2.newIndex;
@@ -3327,7 +3327,7 @@ var VisDataTableControl = exports.default = /*#__PURE__*/function (_PureComponen
         },
         useDragHandle: true
       }, this.props.list.map(function (item, index) {
-        return /*#__PURE__*/_react.default.createElement(_VisSortableItem.default, _extends({
+        return /*#__PURE__*/_react.default.createElement(_VisSortableItem.VisSortableItem, _extends({
           key: "item-".concat(item.dataKey)
         }, item, {
           index: index,
@@ -3427,8 +3427,7 @@ var _cellRenderer = function cellRenderer(d, f) {
       href: f.link.url
     }, d.cellData);
   } else {
-    // urlElt = d.cellData;
-    urlElt = Array.isArray(d.cellData) ? d.cellData.join(', ') : d.cellData;
+    urlElt = d.cellData;
   }
   return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, {
     key: f.dataKey
@@ -3534,7 +3533,6 @@ var VisDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         sortBy = _this$state.sortBy,
         sortDirection = _this$state.sortDirection;
       var currentData = filters.length > 0 ? filterData : data;
-      // filter TODO
       return sortBy && sortDirection ? currentData.sort(function (a, b) {
         var first = sortDirection === _reactVirtualized.SortDirection.ASC ? a : b;
         var second = sortDirection === _reactVirtualized.SortDirection.ASC ? b : a;
@@ -3698,7 +3696,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62781" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

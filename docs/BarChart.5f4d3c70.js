@@ -131,41 +131,13 @@ var _tooltip = _interopRequireDefault(require("../../partials/tooltip"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-var transformList = function transformList(data, f) {
-  var map = new Map();
-  data.forEach(function (d) {
-    var items = d[f];
-    if (Array.isArray(items)) {
-      items.forEach(function (i) {
-        if (!map.has(i)) {
-          map.set(i, 0);
-        }
-        map.set(i, map.get(i) + 1);
-      });
-    } else {
-      if (!map.has(items)) {
-        map.set(items, 0);
-      }
-      map.set(items, map.get(items) + 1);
-    }
-  });
-  return Array.from(map).map(function (d) {
-    return {
-      key: d[0],
-      value: d[1]
-    };
-  });
-};
 var transform = function transform(data, field) {
-  var isList = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-  if (isList) {
-    return transformList(data, field);
-  }
-  return d3.nest().key(function (d) {
+  var newData = d3.nest().key(function (d) {
     return d[field];
   }).sortKeys(d3.ascending).rollup(function (v) {
     return v.length;
   }).entries(data);
+  return newData;
 };
 var wrap = function wrap(text, width) {
   text.each(function updateBars() {
@@ -203,7 +175,7 @@ function BarChart(props) {
     x: 'key',
     y: 'value'
   };
-  var fullData = transform(props.data, props.fields.x, props.fields.isList);
+  var fullData = transform(props.data, props.fields.x);
   var self = (0, _react.useRef)();
   var scaleRef = (0, _react.useRef)();
   var hightRef = (0, _react.useRef)();
@@ -212,7 +184,7 @@ function BarChart(props) {
     // set the ranges
     var xScale = d3.scaleBand().domain(fullData.map(function (d) {
       return d[f];
-    }).flat()).range([0, width]).padding(0.1);
+    })).range([0, width]).padding(0.1);
     return xScale;
   };
   var createYScale = function createYScale(f, height) {
@@ -239,18 +211,11 @@ function BarChart(props) {
       return scaleRef.current.x(d[fields.x]);
     }).attr('width', scaleRef.current.x.bandwidth()).attr('y', hightRef.current);
     enterBars.on('mousemove', tooltipHandlers.mousemove).on('mouseleave', tooltipHandlers.mouseleave).on('click', function (currentData) {
-      var _props$fields;
       var selected = enterBars.filter(function (d) {
         return d === currentData;
       });
       var value = selected.data()[0].key;
-      var filter = props !== null && props !== void 0 && (_props$fields = props.fields) !== null && _props$fields !== void 0 && _props$fields.isList ? {
-        id: props.id,
-        title: props.title,
-        field: props.fields.x,
-        operation: 'has',
-        values: value
-      } : {
+      var filter = {
         id: props.id,
         title: props.title,
         field: props.fields.x,
@@ -300,7 +265,7 @@ function BarChart(props) {
     setTimeout(function () {
       var data = [];
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x, props.fields.isList);
+        data = transform(props.filterData, props.fields.x);
       } else {
         data = fullData;
       }
@@ -320,8 +285,7 @@ var _default = exports.default = BarChart;
 BarChart.propTypes = {
   data: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
   fields: _propTypes.default.shape({
-    x: _propTypes.default.string.isRequired,
-    isList: _propTypes.default.bool
+    x: _propTypes.default.string.isRequired
   }).isRequired,
   id: _propTypes.default.string.isRequired,
   title: _propTypes.default.string.isRequired,
@@ -358,7 +322,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62781" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

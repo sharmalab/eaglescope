@@ -132,12 +132,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
@@ -186,22 +180,44 @@ var ScatterChart = exports.default = /*#__PURE__*/function (_PureComponent) {
         _this2.rect = _this2.self.current.getBoundingClientRect();
         var innerWidth = _this2.rect.width - _this2.state.margin.left - _this2.state.margin.right;
         var innerHeight = _this2.rect.height - _this2.state.margin.top - _this2.state.margin.bottom;
-        _this2.canvas = d3.select(_this2.self.current).append('canvas').attr('width', innerWidth).attr('height', innerHeight + 5).style('transform', "translate(".concat(_this2.state.margin.left, "px,").concat(_this2.state.margin.top, "px)"));
+        _this2.canvas = d3.select(_this2.self.current).append('canvas').attr('width', innerWidth).attr('height', innerHeight).style('transform', "translate(".concat(_this2.state.margin.left, "px,").concat(_this2.state.margin.top, "px)"));
 
         // create svg
         var svg = d3.select(_this2.self.current).append('svg').attr('width', _this2.rect.width).attr('height', _this2.rect.height).attr('transform', "translate(".concat(0, ",", -innerHeight, ")"));
 
         // create viewer
-        var viewer = svg.append('g').attr('transform', "translate(".concat(_this2.state.margin.left, ",").concat(_this2.state.margin.top, ")"));
+        var viewer = svg.append('g').attr('transform', "translate(".concat(_this2.state.margin.left, ",0)"));
+
         //
         _this2.xScale = _this2.createScaleLiner(_this2.props.fields.x, [0, innerWidth]);
         _this2.yScale = _this2.createScaleLiner(_this2.props.fields.y, [innerHeight, 0]);
         _this2.radiusScale = _this2.createScaleLiner(_this2.props.fields.z, [3, 10]);
+        var getCurrentMouseClickPosition = function getCurrentMouseClickPosition() {
+          console.log(svg);
+          var mouseX = d3.event.sourceEvent.clientX - svg.node().getBoundingClientRect().x - _this2.state.margin.left;
+          var mouseY = d3.event.sourceEvent.clientY - svg.node().getBoundingClientRect().y;
+          return [mouseX, mouseY];
+        };
         viewer.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(_this2.xScale).tickSize(-innerHeight));
 
         // add the y Axis
         viewer.append('g').call(d3.axisLeft(_this2.yScale).tickSize(-innerWidth));
-        _this2.brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('end', _this2.end.bind(_this2));
+        _this2.brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('start', function () {
+          _this2.startPosition = getCurrentMouseClickPosition();
+        }).on('brush', function () {
+          _this2.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          var startX = Math.min(_this2.startPosition[0], _this2.endPosition[0]);
+          var startY = Math.min(_this2.startPosition[1], _this2.endPosition[1]);
+          var selectedArea = svg.append('rect').attr('position', 'absolute').attr('x', startX + _this2.state.margin.left).attr('y', startY).attr('width', Math.abs(_this2.endPosition[0] - _this2.startPosition[0])).attr('height', Math.abs(_this2.endPosition[1] - _this2.startPosition[1])).attr('fill', 'rgba(211, 211, 211, 0.5)');
+        }).on('end', function () {
+          _this2.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          var startX = Math.min(_this2.startPosition[0], _this2.endPosition[0]);
+          var startY = Math.min(_this2.startPosition[1], _this2.endPosition[1]);
+          var selectedArea = svg.append('rect').attr('position', 'absolute').attr('x', startX + _this2.state.margin.left).attr('y', startY).attr('width', Math.abs(_this2.endPosition[0] - _this2.startPosition[0])).attr('height', Math.abs(_this2.endPosition[1] - _this2.startPosition[1])).attr('fill', 'rgba(211, 211, 211, 0.5)');
+          _this2.end();
+        });
         viewer.append('g').call(_this2.brush);
         _this2.draw();
       }, 100);
@@ -252,21 +268,24 @@ var ScatterChart = exports.default = /*#__PURE__*/function (_PureComponent) {
   }, {
     key: "createScaleLiner",
     value: function createScaleLiner(f, range) {
-      var scaleLiner = d3.scaleLinear().domain(d3.extent(this.state.data, function (d) {
+      var paddingPercent = 0.1; // Adjust the percentage of padding as needed
+      var domainExtent = d3.extent(this.state.data, function (d) {
         return d[f];
-      })).range(range).nice();
+      });
+      var domainPadding = (domainExtent[1] - domainExtent[0]) * paddingPercent;
+      var scaleLiner = d3.scaleLinear().domain([domainExtent[0] - domainPadding, domainExtent[1] + domainPadding]).range(range).nice();
       return scaleLiner;
     }
   }, {
     key: "end",
     value: function end() {
       if (!d3.event.selection) return;
-      var _d3$event$selection$ = _slicedToArray(d3.event.selection[0], 2),
-        x0 = _d3$event$selection$[0],
-        y0 = _d3$event$selection$[1];
-      var _d3$event$selection$2 = _slicedToArray(d3.event.selection[1], 2),
-        x1 = _d3$event$selection$2[0],
-        y1 = _d3$event$selection$2[1];
+      var _ref = [Math.min(this.startPosition[0], this.endPosition[0]), Math.min(this.startPosition[1], this.endPosition[1])],
+        x0 = _ref[0],
+        y0 = _ref[1];
+      var _ref2 = [Math.max(this.startPosition[0], this.endPosition[0]), Math.max(this.startPosition[1], this.endPosition[1])],
+        x1 = _ref2[0],
+        y1 = _ref2[1];
       var filters = [{
         id: "".concat(this.props.id, "_x"),
         title: this.props.title,
@@ -335,7 +354,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62781" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
