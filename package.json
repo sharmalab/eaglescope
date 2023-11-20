@@ -7,7 +7,7 @@
     "lint": "eslint source",
     "lint:fix": "eslint --fix",
     "test": "npm run-script build",
-    "build": "parcel build source/index.html --public-url ./",
+    "build": "parcel build source/index.html --no-minify --public-url ./",
     "dev": "parcel source/index.html"
   },
   "repository": {

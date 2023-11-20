@@ -39,6 +39,7 @@ class PathdbDownloadButton extends PureComponent {
     if (this.props.field){
       return (
         <Button
+          title="Download WSI Files"
           size="lg"
           style={{
             background: 'none',
