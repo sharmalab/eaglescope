@@ -1,0 +1,129 @@
+{
+  "HOME_URL": "https://pathdb.cancerimagingarchive.net/",
+  "TITLE": "PRISM Collection Explorer",
+  "DISABLE_DRAGGING": "TRUE",
+  "HEIGHT_OF_VIS_HEADER": 30,
+  "MARGIN_OF_VIS": [10, 10],
+  "UNIT_OF_GRID_VIEW": [224, 200],
+  "MARGIN_OF_GRID_VIEW": [10, 10],
+  "DATA_RESOURCE_URL": "https://wolf.cci.emory.edu/resources/collections.json",
+  "DATA_FORMAT": "json",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id": "species",
+      "title": "Species",
+      "description": "Showing the number of collection in Species",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "species" },
+      "size": [1, 1],
+      "priority": 10
+    },
+    {
+      "id": "access",
+      "title": "Collection Access",
+      "description": "Showing the number of collection in Access",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "access" },
+      "size": [1, 1],
+      "priority": 60
+    },
+    {
+      "id": "status",
+      "title": "Collection Status",
+      "description": "Showing the number of collection in Status",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "status" },
+      "size": [1, 1],
+      "priority": 60
+    },
+    {
+      "id": "location",
+      "title": "Cancer Location",
+      "description": "Showing the number of collection in Cancer Location",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields": { "y": "location" },
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "image_types",
+      "title": "Image Types",
+      "description": "Showing the number of patients in gender",
+      "chartType": "BAR_CHART",
+      "fields": { "x": "image_types" },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "cancer_type",
+      "title": "Cancer Type",
+      "description": "Showing the number of collection in image types",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields": { "y": "cancer_type" },
+      "size": [2, 2],
+      "priority": 10
+    },
+    {
+      "id": "supporting_data",
+      "title": "Supporting Data",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields": { "x": "supporting_data" },
+      "size": [2, 1],
+      "priority": 60
+    },
+    {
+      "id": "collection_data_table",
+      "title": "Collection Data Table",
+      "description": "Showing Collection Data",
+      "chartType": "VIS_DATA_TABLE",
+      "fields": [
+        {
+          "dataKey": "collection",
+          "label": "Collection",
+          "link": {
+            "url": "http://localhost:1234/?template=clinical"
+          }
+        },
+        {
+          "dataKey": "cancer_type",
+          "label": "Cancer Type"
+        },
+        {
+          "dataKey": "location",
+          "label": "Location"
+        },
+        {
+          "dataKey": "species",
+          "label": "Species"
+        },
+        {
+          "dataKey": "subject",
+          "label": "Subject"
+        },
+        {
+          "dataKey": "image_types",
+          "label": "Image Types"
+        },
+        {
+          "dataKey": "supporting_data",
+          "label": "Supporting Data"
+        },
+        {
+          "dataKey": "access",
+          "label": "Access"
+        },
+        {
+          "dataKey": "status",
+          "label": "Status"
+        },
+        {
+          "dataKey": "updated",
+          "label": "Updated"
+        }
+      ],
+      "size": [4, 2],
+      "priority": 70
+    }
+  ]
+}
