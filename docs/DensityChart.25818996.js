@@ -131,13 +131,9 @@ var _utils = require("../../../common/utils");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
 function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function DensityChart(props) {
+  var startPosition = [0, 0];
+  var endPosition = [0, 0];
   var self = (0, _react.useRef)();
   var svg = (0, _react.useRef)();
   var scales = (0, _react.useRef)({
@@ -152,12 +148,12 @@ function DensityChart(props) {
   };
   var end = function end() {
     if (!d3.event.selection) return;
-    var _d3$event$selection$ = _slicedToArray(d3.event.selection[0], 2),
-      x0 = _d3$event$selection$[0],
-      y0 = _d3$event$selection$[1];
-    var _d3$event$selection$2 = _slicedToArray(d3.event.selection[1], 2),
-      x1 = _d3$event$selection$2[0],
-      y1 = _d3$event$selection$2[1];
+    var _ref = [Math.min(startPosition[0], endPosition[0]), Math.min(startPosition[1], endPosition[1])],
+      x0 = _ref[0],
+      y0 = _ref[1];
+    var _ref2 = [Math.max(startPosition[0], endPosition[0]), Math.max(startPosition[1], endPosition[1])],
+      x1 = _ref2[0],
+      y1 = _ref2[1];
     var filters = [{
       id: "".concat(props.id, "_x"),
       title: props.title,
@@ -180,15 +176,43 @@ function DensityChart(props) {
       var innerWidth = rect.width - margin.left - margin.right;
       var innerHeight = rect.height - margin.top - margin.bottom;
       svg.current = d3.select(self.current).append('svg').attr('width', rect.width).attr('height', rect.height).append('g').attr('transform', "translate(".concat(margin.left, ",").concat(margin.top, ")"));
-      scales.current.x.domain(d3.extent(props.data, function (d) {
+      var paddingPercent = 0.1; // Adjust the percentage of padding as needed
+      var domainExtentX = d3.extent(props.data, function (d) {
         return d[props.fields.x];
-      })).range([0, innerWidth]);
-      scales.current.y.domain(d3.extent(props.data, function (d) {
+      });
+      var domainPaddingX = (domainExtentX[1] - domainExtentX[0]) * paddingPercent;
+      var domainExtentY = d3.extent(props.data, function (d) {
         return d[props.fields.y];
-      })).range([innerHeight, 0]);
+      });
+      var domainPaddingY = (domainExtentY[1] - domainExtentY[0]) * paddingPercent;
+      scales.current.x.domain([domainExtentX[0] - domainPaddingX, domainExtentX[1] + domainPaddingX]).range([0, innerWidth]);
+      scales.current.y.domain([domainExtentY[0] - domainPaddingY, domainExtentY[1] + domainPaddingY]).range([innerHeight, 0]);
       svg.current.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(scales.current.x));
       svg.current.append('g').call(d3.axisLeft(scales.current.y));
-      var brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('end', end);
+      var getCurrentMouseClickPosition = function getCurrentMouseClickPosition() {
+        var mouseX = d3.event.sourceEvent.clientX - svg.current.node().getBoundingClientRect().x - 2 * margin.left;
+        var mouseY = d3.event.sourceEvent.clientY - svg.current.node().getBoundingClientRect().y;
+        return [mouseX, mouseY];
+      };
+      var brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('start', function () {
+        startPosition = getCurrentMouseClickPosition();
+        svg.current.selectAll('.selection').remove('rect');
+      }).on('brush', function () {
+        endPosition = getCurrentMouseClickPosition();
+        svg.current.selectAll('.selected-area').remove('.selected-area');
+        svg.current.selectAll('.selection').remove('rect');
+        var startX = Math.min(startPosition[0], endPosition[0]);
+        var startY = Math.min(startPosition[1], endPosition[1]);
+        var selectArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX + margin.left).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(130, 130, 130, 0.5)');
+      }).on('end', function () {
+        endPosition = getCurrentMouseClickPosition();
+        svg.current.selectAll('.selected-area').remove('.selected-area');
+        svg.current.selectAll('.selection').remove('rect');
+        var startX = Math.min(startPosition[0], endPosition[0]);
+        var startY = Math.min(startPosition[1], endPosition[1]);
+        var selectedArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX + margin.left).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(140, 140, 140, 0.5)');
+        end();
+      });
       svg.current.append('g').call(brush);
     }, 100);
   }, [props.layout]);
@@ -207,7 +231,7 @@ function DensityChart(props) {
         return scales.current.y(d[props.fields.y]);
       }).size([innerWidth, innerHeight]).bandwidth(20)(data);
       svg.current.select('#draw_area').remove('g');
-      svg.current.insert('g', 'g').attr('id', 'draw_area').attr('transform', "translate(".concat(margin.left, ",").concat(-margin.bottom, ")")).selectAll('path').data(densityData).enter().append('path').attr('d', d3.geoPath()).attr('fill', function (d) {
+      svg.current.insert('g', 'g').attr('id', 'draw_area').selectAll('path').data(densityData).enter().append('path').attr('d', d3.geoPath()).attr('fill', function (d) {
         return color(d.value);
       });
     }, 100);
@@ -263,7 +287,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65344" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62781" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
