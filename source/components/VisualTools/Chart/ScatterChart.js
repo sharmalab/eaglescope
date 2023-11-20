@@ -6,6 +6,7 @@ import { numFixed } from '../../../common/utils';
 export default class ScatterChart extends PureComponent {
   constructor(props) {
     super(props);
+
     this.self = React.createRef();
     this.state = {
       margin: {
@@ -53,11 +54,18 @@ export default class ScatterChart extends PureComponent {
       const viewer = svg
         .append('g')
         .attr('transform', `translate(${this.state.margin.left},0)`);
+
       //
       this.xScale = this.createScaleLiner(this.props.fields.x, [0, innerWidth]);
       this.yScale = this.createScaleLiner(this.props.fields.y, [innerHeight, 0]);
       this.radiusScale = this.createScaleLiner(this.props.fields.z, [3, 10]);
-
+      const getCurrentMouseClickPosition = () => {
+        console.log(svg);
+        const mouseX = d3.event.sourceEvent.clientX - svg.node().getBoundingClientRect().x
+        - this.state.margin.left;
+        const mouseY = d3.event.sourceEvent.clientY - svg.node().getBoundingClientRect().y;
+        return [mouseX, mouseY];
+      };
       viewer
         .append('g')
         .attr('transform', `translate(0,${innerHeight})`)
@@ -71,8 +79,35 @@ export default class ScatterChart extends PureComponent {
         .extent([
           [0, 0],
           [innerWidth, innerHeight],
-        ])
-        .on('end', this.end.bind(this));
+        ]).on('start', () => {
+          this.startPosition = getCurrentMouseClickPosition();
+        }).on('brush', () => {
+          this.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          const startX = Math.min(this.startPosition[0], this.endPosition[0]);
+          const startY = Math.min(this.startPosition[1], this.endPosition[1]);
+          const selectedArea = svg.append('rect')
+            .attr('position', 'absolute')
+            .attr('x', startX + this.state.margin.left)
+            .attr('y', startY)
+            .attr('width', Math.abs(this.endPosition[0] - this.startPosition[0]))
+            .attr('height', Math.abs(this.endPosition[1] - this.startPosition[1]))
+            .attr('fill', 'rgba(211, 211, 211, 0.5)');
+        })
+        .on('end', () => {
+          this.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          const startX = Math.min(this.startPosition[0], this.endPosition[0]);
+          const startY = Math.min(this.startPosition[1], this.endPosition[1]);
+          const selectedArea=svg.append('rect')
+            .attr('position', 'absolute')
+            .attr('x', startX + this.state.margin.left)
+            .attr('y', startY)
+            .attr('width', Math.abs(this.endPosition[0] - this.startPosition[0]))
+            .attr('height', Math.abs(this.endPosition[1] - this.startPosition[1]))
+            .attr('fill', 'rgba(211, 211, 211, 0.5)');
+          this.end();
+        });
 
       viewer.append('g').call(this.brush);
 
@@ -137,8 +172,12 @@ export default class ScatterChart extends PureComponent {
 
   end() {
     if (!d3.event.selection) return;
-    const [x0, y0] = d3.event.selection[0];
-    const [x1, y1] = d3.event.selection[1];
+
+    const [x0, y0] = [Math.min(this.startPosition[0], this.endPosition[0]),
+      Math.min(this.startPosition[1], this.endPosition[1])];
+    const [x1, y1] = [Math.max(this.startPosition[0], this.endPosition[0]),
+      Math.max(this.startPosition[1], this.endPosition[1])];
+
     const filters = [
       {
         id: `${this.props.id}_x`,
@@ -159,7 +198,9 @@ export default class ScatterChart extends PureComponent {
   }
 
   render() {
-    return <div id={this.props.id} ref={this.self} style={{ width: '100%', height: '100%' }} />;
+    return (
+      <div id={this.props.id} ref={this.self} style={{ width: '100%', height: '100%' }} />
+    );
   }
 }
 
