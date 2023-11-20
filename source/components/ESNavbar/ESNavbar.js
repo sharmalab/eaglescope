@@ -5,12 +5,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import PropTypes from 'prop-types';
 import DownloadButton from '../DownloadButton';
+import PathdbDownloadButton from '../PathdbDownloadButton';
 import HomeButton from '../HomeButton';
 import Settings from '../Settings/Settings';
 
 function ESNavbar(props) {
   const {
-    url, title, max, now, progressLabel, data, color,
+    url, title, max, now, progressLabel, data, color, externalDownloadField,
   } = props;
   document.title = title || 'Eaglescope';
 
@@ -24,6 +25,7 @@ function ESNavbar(props) {
     >
       {url ? <HomeButton url={url} /> : null}
       <DownloadButton data={data} title={title} />
+      <PathdbDownloadButton data={data} title={title} field={externalDownloadField} />
       <Navbar.Brand href={url || '#'}>{title || 'Eaglescope'}</Navbar.Brand>
       <Nav className="mr-auto" />
       <Form inline="true">

@@ -71,6 +71,7 @@ function Eaglescope() {
         progressLabel={progressAttrs.label}
         data={[filteredData, data]}
         color={config.THEME_COLOR}
+        externalDownloadField={config.DOWNLOAD_FIELD}
       />
       <SearchBar filterAdded={addFiltersHandler} filterRemove={removeFiltersHandler} />
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
