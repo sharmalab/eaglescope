@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-      - birm-patch-1
 permissions:
   contents: write
 jobs:
