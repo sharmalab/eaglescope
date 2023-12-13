@@ -1,0 +1,88 @@
+{
+  "HOME_URL": "https://pathdb.cancerimagingarchive.net/",
+  "HEIGHT_OF_VIS_HEADER": 40,
+  "TITLE": "PRISM Collection Explorer",
+  "MARGIN_OF_VIS": [30, 10],
+  "UNIT_OF_GRID_VIEW": [230, 230],
+  "MARGIN_OF_GRID_VIEW": [10, 10],
+  "DATA_RESOURCE_URL": "./config/wines.csv",
+  "DATA_FORMAT": "csv",
+  "THEME_COLOR": "#007bff",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id": "quality",
+      "title": "Quality Level",
+      "description": "Quality Level",
+      "chartType": "BAR_CHART",
+      "fields": { "x": "quality_label" },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "v_acidity",
+      "title": "Volatile Acidity",
+      "description": "Volatile Acidity",
+      "chartType": "HISTOGRAM",
+      "fields": { "x": "volatile acidity" },
+      "binsCount": 50,
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "vc_acidity",
+      "title": "Volatile and Citric Acidity",
+      "description": "Volatile and Citric Acidity",
+      "chartType": "SCATTER_CHART",
+      "fields": { "x": "volatile acidity", "y": "citric acid" },
+      "binsCount": 30,
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "props",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "PARALLEL_COORDINATES",
+      "fields": {
+        "y": ["citric acid", "volatile acidity", "sulphates", "residual sugar"]
+      },
+      "binsCount": 50,
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "density",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "DENSITY_2D",
+      "fields": {
+        "x": "residual sugar",
+        "y": "free sulfur dioxide"
+      },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "heatmap",
+      "title": "Heatmap",
+      "description": "Heatmap",
+      "chartType": "HEATMAP",
+      "fields": {
+        "y": "wine_type",
+        "x": "quality_label",
+        "z": "residual sugar"
+      },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "type",
+      "title": "Wine Type",
+      "description": "Wine Type",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "wine_type" },
+      "size": [1, 1],
+      "priority": 50
+    }
+  ]
+}

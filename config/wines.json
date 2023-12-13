@@ -1,0 +1,133 @@
+{
+  "HOME_URL": "https://github.com/sharmalab/eaglescope/",
+  "HEIGHT_OF_VIS_HEADER": 20,
+  "TITLE": "Eaglescope Demo | Wines",
+  "MARGIN_OF_VIS": [10, 10],
+  "UNIT_OF_GRID_VIEW": [230, 210],
+  "MARGIN_OF_GRID_VIEW": [10, 10],
+  "RESIZABLE" : "TRUE",
+  "DRAGGABLE" : 1,
+  "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
+  "DATA_RESOURCE_URL": "./config/wines.csv",
+  "DATA_FORMAT": "csv",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id": "type",
+      "title": "Wine Type",
+      "description": "Wine Type",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "wine_type" },
+      "size": [1, 1],
+      "priority": 50
+    },
+    {
+      "id": "quality",
+      "title": "Quality Level",
+      "description": "Quality Level",
+      "chartType": "BAR_CHART",
+      "fields": { "x": "quality_label" },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "v_acidity",
+      "title": "Volatile Acidity",
+      "description": "Volatile Acidity",
+      "chartType": "HISTOGRAM",
+      "fields": { "x": "volatile acidity" },
+      "binsCount": 50,
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
+      "id": "vc_acidity",
+      "title": "Volatile and Citric Acidity",
+      "description": "Volatile and Citric Acidity",
+      "chartType": "SCATTER_CHART",
+      "fields": { "x": "volatile acidity", "y": "citric acid" },
+      "binsCount": 30,
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "props",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "PARALLEL_COORDINATES",
+      "fields": {
+        "y": ["citric acid", "volatile acidity", "sulphates", "residual sugar"]
+      },
+      "binsCount": 50,
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "density",
+      "title": "Properties",
+      "description": "Properties",
+      "chartType": "DENSITY_2D",
+      "fields": {
+        "x": "residual sugar",
+        "y": "free sulfur dioxide"
+      },
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "Sugar and pH",
+      "title": "Sugar and pH",
+      "description": "Sugar and pH scatter",
+      "chartType": "SCATTER_CHART",
+      "fields": { "x": "residual sugar", "y": "pH" },
+      "binsCount": 50,
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "collection_data_table",
+      "title": "Collection Data Table",
+      "description": "Showing Collection Data",
+      "chartType": "VIS_DATA_TABLE",
+      "fields": [
+        {
+          "dataKey": "wine_type",
+          "label": "Wine Type"
+        },
+        {
+          "dataKey": "quality",
+          "label": "Quality"
+        },
+        {
+          "dataKey": "alcohol",
+          "label": "Alcohol"
+        },
+        {
+          "dataKey": "sulphates",
+          "label": "Sulphates"
+        },
+        {
+          "dataKey": "pH",
+          "label": "Wine pH"
+        },
+        {
+          "dataKey": "total sulfur dioxide",
+          "label": "Total Sulfur Dioxide"
+        },
+        {
+          "dataKey": "free sulfur dioxide",
+          "label": "Free Sulfur Dioxide"
+        },
+        {
+          "dataKey": "volatile acidity",
+          "label": "Volatile Acidity"
+        },
+        {
+          "dataKey": "citric acid",
+          "label": "Citric Acid"
+        }
+      ],
+      "size": [4, 2],
+      "priority": 10
+    }
+  ]
+}
