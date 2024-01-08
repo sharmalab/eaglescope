@@ -3415,7 +3415,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 var _cellRenderer = function cellRenderer(d, f) {
   var urlElt;
-  if (f.link && f.link.url && f.link.field) {
+  if (f.link && (f.link.url || f.link.field)) {
     var urlbase = f.link.url || '';
     urlElt = /*#__PURE__*/_react.default.createElement("a", {
       target: "_parent",

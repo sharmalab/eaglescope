@@ -12,7 +12,7 @@ import './VisDataTable.css';
 
 const cellRenderer = (d, f) => {
   let urlElt;
-  if (f.link && f.link.url && f.link.field) {
+  if (f.link && (f.link.url || f.link.field)) {
     const urlbase = f.link.url || '';
     urlElt = (
       <a target="_parent" href={urlbase + d.rowData[f.link.field]}>
