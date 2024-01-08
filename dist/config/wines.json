@@ -129,6 +129,10 @@
         {
           "dataKey": "citric acid",
           "label": "Citric Acid"
+        },
+        {
+          "dataKey": "updated",
+          "label": "Updated"
         }
       ],
       "size": [4, 2],
