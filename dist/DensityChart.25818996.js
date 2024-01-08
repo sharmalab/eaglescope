@@ -190,8 +190,9 @@ function DensityChart(props) {
       svg.current.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(scales.current.x));
       svg.current.append('g').call(d3.axisLeft(scales.current.y));
       var getCurrentMouseClickPosition = function getCurrentMouseClickPosition() {
-        var mouseX = d3.event.sourceEvent.clientX - svg.current.node().getBoundingClientRect().x - 2 * margin.left;
-        var mouseY = d3.event.sourceEvent.clientY - svg.current.node().getBoundingClientRect().y;
+        var rec = svg.current.select('.overlay').node();
+        var mouseX = d3.event.sourceEvent.clientX - rec.getBoundingClientRect().x;
+        var mouseY = d3.event.sourceEvent.clientY - rec.getBoundingClientRect().y;
         return [mouseX, mouseY];
       };
       var brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('start', function () {
@@ -203,15 +204,18 @@ function DensityChart(props) {
         svg.current.selectAll('.selection').remove('rect');
         var startX = Math.min(startPosition[0], endPosition[0]);
         var startY = Math.min(startPosition[1], endPosition[1]);
-        var selectArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX + margin.left).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(130, 130, 130, 0.5)');
+        var selectArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(130, 130, 130, 0.5)');
       }).on('end', function () {
         endPosition = getCurrentMouseClickPosition();
         svg.current.selectAll('.selected-area').remove('.selected-area');
         svg.current.selectAll('.selection').remove('rect');
         var startX = Math.min(startPosition[0], endPosition[0]);
         var startY = Math.min(startPosition[1], endPosition[1]);
-        var selectedArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX + margin.left).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(140, 140, 140, 0.5)');
+        var selectedArea = svg.current.append('rect').attr('class', 'selected-area').attr('position', 'absolute').attr('x', startX).attr('y', startY).attr('width', Math.abs(endPosition[0] - startPosition[0])).attr('height', Math.abs(endPosition[1] - startPosition[1])).attr('fill', 'rgba(140, 140, 140, 0.5)');
         end();
+        setTimeout(function () {
+          selectedArea.remove();
+        }, 20);
       });
       svg.current.append('g').call(brush);
     }, 100);
@@ -287,7 +291,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58481" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51793" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
