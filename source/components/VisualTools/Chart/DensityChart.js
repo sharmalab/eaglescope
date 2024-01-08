@@ -80,9 +80,9 @@ function DensityChart(props) {
       svg.current.append('g').call(d3.axisLeft(scales.current.y));
 
       const getCurrentMouseClickPosition = () => {
-        const mouseX = d3.event.sourceEvent.clientX - svg.current.node().getBoundingClientRect().x
-        - 2 * margin.left;
-        const mouseY = d3.event.sourceEvent.clientY - svg.current.node().getBoundingClientRect().y;
+        const rec = svg.current.select('.overlay').node();
+        const mouseX = d3.event.sourceEvent.clientX - rec.getBoundingClientRect().x;
+        const mouseY = d3.event.sourceEvent.clientY - rec.getBoundingClientRect().y;
         return [mouseX, mouseY];
       };
 
@@ -103,7 +103,7 @@ function DensityChart(props) {
           const selectArea = svg.current.append('rect')
             .attr('class', 'selected-area')
             .attr('position', 'absolute')
-            .attr('x', startX + margin.left)
+            .attr('x', startX)
             .attr('y', startY)
             .attr('width', Math.abs(endPosition[0] - startPosition[0]))
             .attr('height', Math.abs(endPosition[1] - startPosition[1]))
@@ -118,12 +118,18 @@ function DensityChart(props) {
           const selectedArea = svg.current.append('rect')
             .attr('class', 'selected-area')
             .attr('position', 'absolute')
-            .attr('x', startX + margin.left)
+            .attr('x', startX)
             .attr('y', startY)
             .attr('width', Math.abs(endPosition[0] - startPosition[0]))
             .attr('height', Math.abs(endPosition[1] - startPosition[1]))
             .attr('fill', 'rgba(140, 140, 140, 0.5)');
           end();
+          setTimeout(
+            () => {
+              selectedArea.remove();
+            },
+            20,
+          );
         });
 
       svg.current.append('g').call(brush);
