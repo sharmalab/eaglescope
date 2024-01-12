@@ -3418,12 +3418,12 @@ var _cellRenderer = function cellRenderer(d, f) {
   if (f.link && (f.link.url || f.link.field)) {
     var urlbase = f.link.url || '';
     urlElt = /*#__PURE__*/_react.default.createElement("a", {
-      target: "_parent",
+      target: "_blank",
       href: urlbase + d.rowData[f.link.field]
     }, d.cellData);
   } else if (f.link && f.link.url) {
     urlElt = /*#__PURE__*/_react.default.createElement("a", {
-      target: "_parent",
+      target: "_blank",
       href: f.link.url
     }, d.cellData);
   } else {
@@ -3698,7 +3698,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51793" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60973" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -31,12 +31,6 @@ function VisGridItemControl(props) {
       {(props.hover || show) && (
         <div className="vis-grid-item-control">
           {btnFilterRemove}
-          <VisSettings
-            show={show}
-            setShow={setShow}
-            setHover={props.setHover}
-            chartConfig={config.VISUALIZATION_VIEW_CONFIGURATION.find((f) => f.id === props.id)}
-          />
           <Button
             style={{
               background: 'none',

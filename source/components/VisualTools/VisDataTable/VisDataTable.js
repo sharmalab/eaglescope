@@ -15,13 +15,13 @@ const cellRenderer = (d, f) => {
   if (f.link && (f.link.url || f.link.field)) {
     const urlbase = f.link.url || '';
     urlElt = (
-      <a target="_parent" href={urlbase + d.rowData[f.link.field]}>
+      <a target="_blank" href={urlbase + d.rowData[f.link.field]}>
         {d.cellData}
       </a>
     );
   } else if (f.link && f.link.url) {
     urlElt = (
-      <a target="_parent" href={f.link.url}>
+      <a target="_blank" href={f.link.url}>
         {d.cellData}
       </a>
     );
