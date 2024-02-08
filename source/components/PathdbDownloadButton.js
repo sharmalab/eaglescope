@@ -10,9 +10,12 @@ class PathdbDownloadButton extends PureComponent {
       data = this.props.data[1];
     }
     let limitedData = data.slice(0, 10);
+    console.log(limitedData)
+    console.log("about to try?")
     // trigger downloads from pathdb
     for (let record of limitedData){
       if (record[this.props.field]){
+        console.log("inside loop")
         console.log("trying to get metadata for slide with pathdb id", record[this.props.field])
         fetch("/node/" + record[this.props.field] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
           console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
