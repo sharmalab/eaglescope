@@ -24,7 +24,7 @@ class PathdbDownloadButton extends PureComponent {
           link.href = slide_url
           document.body.appendChild(link);
           link.click();
-          document.body.removeChild(link);
+          //document.body.removeChild(link);
         }).catch(console.error)
       }
     }
