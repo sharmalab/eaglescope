@@ -28,15 +28,6 @@ class PathdbDownloadButton extends PureComponent {
         }).catch(console.error)
       }
     }
-    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
-    const href = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = href;
-    link.download = this.props.title || 'download.json';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    URL.revokeObjectURL(href);
   }
 
   render() {
