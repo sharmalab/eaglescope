@@ -20,11 +20,11 @@ class PathdbDownloadButton extends PureComponent {
           if (window.location.protocol === "https:") {
             slide_url = slide_url.replace(/^http:\/\//i, 'https://');
           }
-          let link = document.createElement('a');
-          link.href = slide_url
-          document.body.appendChild(link);
-          link.click();
-          //document.body.removeChild(link);
+          const iframe = document.createElement("iframe");
+          iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
+          iframe.src = slide_url;
+          iframe.setAttribute("style", "display: none");
+          document.body.appendChild(iframe);
         }).catch(console.error)
       }
     }
