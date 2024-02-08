@@ -16,8 +16,12 @@ class PathdbDownloadButton extends PureComponent {
         console.log("trying to get metadata for slide with pathdb id", record[this.props.field])
         fetch("/node/" + record[this.props.field] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
           console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
+          let slide_url = x['field_wsiimage'][0]['url']
+          if (window.location.protocol === "https:") {
+            slide_url = slide_url.replace(/^http:\/\//i, 'https://');
+          }
           let link = document.createElement('a');
-          link.href = x['field_wsiimage'][0]['url']
+          link.href = slide_url
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
