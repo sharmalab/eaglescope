@@ -37,9 +37,10 @@ Develop mode using `npm run dev`
 * Run ```npm run dev```
 * Goto ```http://localhost:1234``` from your favorite browser.
 
+## Demo
+[![Demo Video](https://img.youtube.com/vi/8ce1-LKtsKs/0.jpg)](https://www.youtube.com/watch?v=8ce1-LKtsKs)
+
 ## Architecture
 ![](docs/architecture.png)
 
 [OVERALL](https://docs.google.com/presentation/d/1zvXCeV-a8k4VercXsgFPTHqml7QwmDDu9snz6dhqIC4/edit?usp=sharing)
-
-[DEMO VIDEO](https://youtu.be/8ce1-LKtsKs)
