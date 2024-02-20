@@ -35,9 +35,12 @@ Develop mode using `npm run dev`
 
 
 * Run ```npm run dev```
-* Goto ```http://localhost:1234``` from your favorite browser.
+* Go to ```http://localhost:1234```.
 
-## Demo
+## Interactive Demo Site
+[Eaglescope Demo](https://sharmalab.github.io/eaglescope/)
+
+## Demo Video
 [![Demo Video](https://img.youtube.com/vi/8ce1-LKtsKs/0.jpg)](https://www.youtube.com/watch?v=8ce1-LKtsKs)
 
 ## Architecture
