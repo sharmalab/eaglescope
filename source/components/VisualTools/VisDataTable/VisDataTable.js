@@ -5,7 +5,7 @@ import {
 import Draggable from 'react-draggable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSortDown, faSortUp, faSort } from '@fortawesome/free-solid-svg-icons';
-import arrayMove from 'array-move';
+import { arrayMoveImmutable } from 'array-move';
 import PropTypes from 'prop-types';
 import VisDataTableControl from './VisDataTableControl/VisDataTableControl';
 import './VisDataTable.css';
@@ -74,7 +74,7 @@ export default class VisDataTable extends PureComponent {
 
   onSortEnd({ oldIndex, newIndex }) {
     this.setState(({ fields }) => ({
-      fields: arrayMove(fields, oldIndex, newIndex),
+      fields: arrayMoveImmutable(fields, oldIndex, newIndex),
     }));
   }
 
