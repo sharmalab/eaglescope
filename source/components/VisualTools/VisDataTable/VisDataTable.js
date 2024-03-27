@@ -122,7 +122,6 @@ export default class VisDataTable extends PureComponent {
     if (idx < prevFields.length - 1) {
       prevFields[idx + 1].width = prevFields[idx + 1].width - percentDelta;
     }
-
     this.setState({ fields: [...prevFields] });
   }
 
@@ -189,7 +188,6 @@ export default class VisDataTable extends PureComponent {
               sortDirection={sortDirection}
             >
               {fields
-                .filter((f) => f.isShow)
                 .map((f) => (
                   <Column
                     key={f.dataKey}
