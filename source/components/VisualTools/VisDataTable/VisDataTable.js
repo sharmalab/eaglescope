@@ -189,7 +189,6 @@ export default class VisDataTable extends PureComponent {
               sortDirection={sortDirection}
             >
               {fields
-                .filter((f) => f.isShow)
                 .map((f) => (
                   <Column
                     key={f.dataKey}
