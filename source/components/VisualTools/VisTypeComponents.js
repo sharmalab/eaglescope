@@ -14,13 +14,14 @@ VisTypeComponents.SCATTER_CHART = 'ScatterChart';
 VisTypeComponents.KM_CURVE = 'KMCurve';
 VisTypeComponents.VIS_DATA_TABLE = 'VisDataTable';
 VisTypeComponents.VIS_GRID_CARD = 'VisGridCard';
+VisTypeComponents.SEL_DATA_TABLE = 'SelectDataTable';
 VisTypeComponents.VEGA_LITE_PLOT = 'VegaLitePlot';
 VisTypeComponents.HISTOGRAM = 'Histogram';
 VisTypeComponents.DENSITY_2D = 'DensityChart';
 VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
 VisTypeComponents.HEATMAP = 'Heatmap';
 
-const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE'];
+const SpecialVis = ['VIS_DATA_TABLE', 'SEL_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE'];
 
 const VisInputDescription = {
   PIE_CHART: {

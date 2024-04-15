@@ -100,6 +100,37 @@ export default class SelectDataTable extends PureComponent {
     }));
   }
 
+  downloadSelected() {
+    let downloadLimit = this.props.downloadLimit || 15;
+    let data = this.state.selected
+    if (data.length > downloadLimit){
+      data = data.slice(0, downloadLimit);
+      alert("Limiting download to first " + downloadLimit)
+    }
+    let limitedData = data.slice(0, 10);
+    console.log(limitedData)
+    console.log("about to try?")
+    // trigger downloads from pathdb
+    for (let record of limitedData){
+      if (record[this.props.downloadField]){
+        console.log("inside loop")
+        console.log("trying to get metadata for slide with pathdb id", record[this.props.field])
+        fetch("/node/" + record[this.props.field] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
+          console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
+          let slide_url = x['field_wsiimage'][0]['url']
+          if (window.location.protocol === "https:") {
+            slide_url = slide_url.replace(/^http:\/\//i, 'https://');
+          }
+          const iframe = document.createElement("iframe");
+          iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
+          iframe.src = slide_url;
+          iframe.setAttribute("style", "display: none");
+          document.body.appendChild(iframe);
+        }).catch(console.error)
+      }
+    }
+  }
+
   getSortData() {
     const { data, filterData, filters } = this.props;
     const { sortBy, sortDirection } = this.state;
@@ -160,6 +191,7 @@ export default class SelectDataTable extends PureComponent {
   }
 
   selectionHandler(isChecked, rowData){
+    let downloadLimit = this.props.downloadLimit || 15;
     console.log("chexmix", isChecked, rowData)
     const { selected } = this.state;
     console.log("state selected before change", selected)
@@ -175,6 +207,9 @@ export default class SelectDataTable extends PureComponent {
       this.setState(prevState => ({
         selected: prevState.selected.filter(item => item[""] !== rowData[""])
       }));
+    }
+    if (this.state.selected.length > downloadLimit - 2) {
+      alert("Warning: We limit to at most " + downloadLimit + " concurrent downloads.")
     }
   }
 
@@ -213,7 +248,7 @@ export default class SelectDataTable extends PureComponent {
               dataKey="checkbox"
               width={50} // Adjust width as needed
               label="↓"
-              headerRenderer={() => <div>↓</div>}
+              headerRenderer={() => <div onClick={(e)=>{this.downloadSelected()}}>↓</div>}
               cellRenderer={({ rowData }) => (
                 <input
                   type="checkbox"
