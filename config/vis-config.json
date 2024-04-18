@@ -151,7 +151,7 @@
           "id":"clinical_data_table",
           "title": "Clinical Data Table",
           "description": "Showing Clinical Data",
-          "chartType": "VIS_DATA_TABLE",
+          "chartType": "SEL_DATA_TABLE",
           "fields":[
             {
               "dataKey":"submitter_id",

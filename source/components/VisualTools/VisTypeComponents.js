@@ -20,8 +20,9 @@ VisTypeComponents.HISTOGRAM = 'Histogram';
 VisTypeComponents.DENSITY_2D = 'DensityChart';
 VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
 VisTypeComponents.HEATMAP = 'Heatmap';
+VisTypeComponents.TEXT_CONTAINER = "TextContainer";
 
-const SpecialVis = ['VIS_DATA_TABLE', 'SEL_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE'];
+const SpecialVis = ['VIS_DATA_TABLE', 'SEL_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE', 'TEXT_CONTAINER'];
 
 const VisInputDescription = {
   PIE_CHART: {

@@ -55,6 +55,7 @@ function VisGridItem(props) {
         id={props.operation.id}
         title={props.operation.title}
         layout={props.layout}
+        configProps={props.operation}
       />}
     </div>
   );

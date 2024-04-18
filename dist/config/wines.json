@@ -22,6 +22,14 @@
       "priority": 50
     },
     {
+      "id":"TextTest",
+      "title": "Quality Level",
+      "description": "Did you know that text exists? Does <b>bold</b> work?",
+      "chartType": "TEXT_CONTAINER",
+      "size": [1, 1],
+      "priority": 50
+    },
+    {
       "id": "quality",
       "title": "Quality Level",
       "description": "Quality Level",
@@ -88,7 +96,8 @@
       "id": "collection_data_table",
       "title": "Collection Data Table",
       "description": "Showing Collection Data",
-      "chartType": "VIS_DATA_TABLE",
+      "downloadField": "quality_label",
+      "chartType": "SEL_DATA_TABLE",
       "fields": [
         {
           "dataKey": "pathdbid",

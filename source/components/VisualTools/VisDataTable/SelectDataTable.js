@@ -4,7 +4,7 @@ import {
 } from 'react-virtualized';
 import Draggable from 'react-draggable';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSortDown, faSortUp, faSort } from '@fortawesome/free-solid-svg-icons';
+import { faSortDown, faSortUp, faSort, faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
 import arrayMove from 'array-move';
 import PropTypes from 'prop-types';
 import VisDataTableControl from './VisDataTableControl/VisDataTableControl';
@@ -47,6 +47,8 @@ const rowClassName = ({ index }) => {
 
 export default class SelectDataTable extends PureComponent {
   constructor(props) {
+    console.log("constructed, showing props")
+    console.log(props)
     super(props);
     const fWidth = 1 / this.props.fields.length;
     let fields = this.props.fields.map((f) => ({ ...f, width: fWidth, isShow: true }));
@@ -101,7 +103,7 @@ export default class SelectDataTable extends PureComponent {
   }
 
   downloadSelected() {
-    let downloadLimit = this.props.downloadLimit || 15;
+    let downloadLimit = this.props.configProps.downloadLimit || 15;
     let data = this.state.selected
     if (data.length > downloadLimit){
       data = data.slice(0, downloadLimit);
@@ -110,12 +112,13 @@ export default class SelectDataTable extends PureComponent {
     let limitedData = data.slice(0, 10);
     console.log(limitedData)
     console.log("about to try?")
+    console.log(this.props.configProps)
     // trigger downloads from pathdb
     for (let record of limitedData){
-      if (record[this.props.downloadField]){
+      if (record[this.props.configProps.downloadField]){
         console.log("inside loop")
-        console.log("trying to get metadata for slide with pathdb id", record[this.props.field])
-        fetch("/node/" + record[this.props.field] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
+        console.log("trying to get metadata for slide with pathdb id", record[this.props.configProps.field])
+        fetch("/node/" + record[this.props.configProps.downloadField] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
           console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
           let slide_url = x['field_wsiimage'][0]['url']
           if (window.location.protocol === "https:") {
@@ -191,7 +194,7 @@ export default class SelectDataTable extends PureComponent {
   }
 
   selectionHandler(isChecked, rowData){
-    let downloadLimit = this.props.downloadLimit || 15;
+    let downloadLimit = this.props.configProps.downloadLimit || 15;
     console.log("chexmix", isChecked, rowData)
     const { selected } = this.state;
     console.log("state selected before change", selected)
@@ -248,7 +251,7 @@ export default class SelectDataTable extends PureComponent {
               dataKey="checkbox"
               width={50} // Adjust width as needed
               label="↓"
-              headerRenderer={() => <div onClick={(e)=>{this.downloadSelected()}}>↓</div>}
+              headerRenderer={() => <div  title="Download Selected Files" onClick={(e)=>{this.downloadSelected()}}> <FontAwesomeIcon icon={faFileArrowDown} style={{height:'1.8em', color:'#1b7d00'}} /></div>}
               cellRenderer={({ rowData }) => (
                 <input
                   type="checkbox"

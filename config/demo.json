@@ -10,6 +10,14 @@
   "THEME_COLOR": "#007bff",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
+      "id":"TextTest",
+      "title": "Quality Level",
+      "description": "Did you know that text exists? Does <b>bold</b> work?",
+      "chartType": "TEXT_CONTAINER",
+      "size": [1, 1],
+      "priority": 50
+    },
+    {
       "id": "quality",
       "title": "Quality Level",
       "description": "Quality Level",
