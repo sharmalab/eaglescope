@@ -3,7 +3,7 @@
 [<h2 align="center"><img src="./eaglescope.png" width="200" /></h2>](.eaglescope.png)
 
 
-Cohort Visualization And Selection Dashboard For Biomedical Data Exploration Without Any Coding. 
+Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. 
 
 ## Development
 Install dependencies using `npm install`
