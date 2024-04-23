@@ -10,6 +10,7 @@ authors:
   - name: Nan Li
     equal-contrib: true
     affiliation: 1
+    orcid: 0000-0002-3975-4809
   - name: Ryan Birmingham
     orcid: 0000-0002-7943-6346
     equal-contrib: true
@@ -33,6 +34,7 @@ bibliography: paper.bib
 
 Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly.
 Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms.
+![Interactive Contextual Visualizations](./ContextualVis.png)
 To create a dashboard, users simply need to create a file specifying the data source, configurations for each visualization, and any further desired customizations to the platform. Hosting is as straightforward as copying the static files, along with the configuration and data files if applicable, to any location capable of hosting static files. This streamlined process was intentionally designed to support the visualization of multiple datasets without added complexity or specialized requirements. Additionally, the flexibility of hosting allows for seamless scalability with demand, eliminating the need for modifications to Eaglescope itself.
 
 # Statement of Need
