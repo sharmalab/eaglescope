@@ -113,7 +113,7 @@ export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
   const layout = [];
   const matrix = createMatrix(cols);
   // sort charts by priority
-  chartsConfig = chartsConfig.sort(
+  const chartsConfigSorted = chartsConfig.sort(
     (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName),
   );
 
@@ -124,7 +124,7 @@ export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
   // filter out the solid chart before compute the position of the rest of charts
 
   // make an arrangement for the rest of charts
-  chartsConfig.forEach((chart) => {
+  chartsConfigSorted.forEach((chart) => {
     // get the size of a chart; default size is [1,1] (w,h)
     const size = chart.size || [1, 1];
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);
@@ -149,16 +149,4 @@ export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
   });
 
   return { layout, rows: matrix[0].length };
-}
-
-// Grid includes 10px margin
-export function getSizeOfGridContent(gridSize, margin) {
-  return [
-    STUDY_VIEW_CONFIG.layout.grid.w * gridSize[0]
-      + (chartDimension.w - 1) * STUDY_VIEW_CONFIG.layout.gridMargin.x
-      - borderWidth * 2,
-    STUDY_VIEW_CONFIG.layout.grid.h * gridSize[1]
-      + (chartDimension.h - 1) * STUDY_VIEW_CONFIG.layout.gridMargin.y
-      - chartHeight,
-  ];
 }

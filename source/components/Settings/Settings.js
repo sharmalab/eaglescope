@@ -90,8 +90,9 @@ function Settings() {
   return (
     <>
       {showNewVis && <VisSettings chartConfig={newVis} show={showNewVis} setShow={setShowNewVis} />}
-      
-      {config.HAS_SETTINGS&&(<Button
+
+      {config.HAS_SETTINGS && (
+      <Button
         size="lg"
         style={{
           background: 'none',
@@ -102,7 +103,8 @@ function Settings() {
         <span>
           <FontAwesomeIcon size="1x" icon="fa-solid fa-bars" />
         </span>
-      </Button>)}
+      </Button>
+      )}
 
       <Offcanvas
         show={show}

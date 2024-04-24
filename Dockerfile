@@ -8,7 +8,7 @@ COPY ./ /source/
 WORKDIR /source/
 RUN rm -rf ./.git/
 
-RUN npm install
+RUN npm install --legacy-peer-deps
 RUN npm run-script build
 RUN mkdir -p /var/www/html/
 RUN mv /source/dist/* /var/www/html

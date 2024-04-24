@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VisGridItemContent from './VisGridItemContent/VisGridItemContent';
 import VisGridItemHeader from './VisGridItemHeader/VisGridItemHeader';
 import { DataContext } from '../../../../contexts/DataContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // css class
 import './VisGridItem.css';
 
@@ -29,7 +29,8 @@ function VisGridItem(props) {
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
 
-    ><VisGridItemHeader
+    >
+      <VisGridItemHeader
         id={props.operation.id}
         title={props.operation.title}
         description={props.operation.description}
@@ -40,22 +41,25 @@ function VisGridItem(props) {
         filters={filters}
         filterRemove={removeFiltersHandler}
       />
-      
-      {props.isResizing?<div className="place-holder">
-        <FontAwesomeIcon icon="chart-area" className="chart-area"/>
-      </div>:
-      <VisGridItemContent
-        fields={props.operation.fields}
-        chartType={props.operation.chartType}
-        data={data}
-        filterData={filteredData}
-        filters={filters}
-        filterAdded={addFiltersHandler}
-        filterRemove={removeFiltersHandler}
-        id={props.operation.id}
-        title={props.operation.title}
-        layout={props.layout}
-      />}
+
+      {props.isResizing ? (
+        <div className="place-holder">
+          <FontAwesomeIcon icon="chart-area" className="chart-area" />
+        </div>
+      ) : (
+        <VisGridItemContent
+          fields={props.operation.fields}
+          chartType={props.operation.chartType}
+          data={data}
+          filterData={filteredData}
+          filters={filters}
+          filterAdded={addFiltersHandler}
+          filterRemove={removeFiltersHandler}
+          id={props.operation.id}
+          title={props.operation.title}
+          layout={props.layout}
+        />
+      )}
     </div>
   );
 }

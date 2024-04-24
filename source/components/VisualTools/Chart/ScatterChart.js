@@ -99,7 +99,7 @@ export default class ScatterChart extends PureComponent {
           svg.selectAll('rect').remove('rect');
           const startX = Math.min(this.startPosition[0], this.endPosition[0]);
           const startY = Math.min(this.startPosition[1], this.endPosition[1]);
-          const selectedArea=svg.append('rect')
+          const selectedArea = svg.append('rect')
             .attr('position', 'absolute')
             .attr('x', startX + this.state.margin.left)
             .attr('y', startY)

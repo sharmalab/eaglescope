@@ -46,7 +46,12 @@ export default class MasonryComponent extends Component {
     if (style.top !== undefined && Number.isInteger(style.top)) style.top += 10;
     if (style.left !== undefined && Number.isInteger(style.left)) style.left += 10;
     return (
-      <CellMeasurer cache={this.cellMeasurerCache} index={index} key={item[fields.key]} parent={parent}>
+      <CellMeasurer
+        cache={this.cellMeasurerCache}
+        index={index}
+        key={item[fields.key]}
+        parent={parent}
+      >
         <div style={style} className="img-wrap">
           {item[fields.image] && (
           <img
