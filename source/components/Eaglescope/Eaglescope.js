@@ -39,12 +39,12 @@ function Eaglescope() {
     if (filters.length > 0) {
       setProgressAttrs({
         now: filteredData.length,
-        label: `${filteredData.length}/${data.length}, ${Math.floor((filteredData.length/data.length)*100)}\%`,
+        label: `${filteredData.length}/${data.length}, ${Math.floor((filteredData.length / data.length) * 100)}%`,
       });
     } else {
       setProgressAttrs({
         now: data.length,
-        label: `${data.length}/${data.length}, ${Math.floor((data.length/data.length)*100)}\%`,
+        label: `${data.length}/${data.length}, ${Math.floor((data.length / data.length) * 100)}%`,
       });
     }
   }, [filters, filteredData]);

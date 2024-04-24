@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import Application from './Application.js';
+import Application from './Application';
 
 // style
 import './components/VisualTools/Chart/style.css';

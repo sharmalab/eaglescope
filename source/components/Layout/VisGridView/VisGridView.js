@@ -25,7 +25,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
   const isDraggable = config.DRAGGABLE || false;
   const isResizable = config.RESIZABLE || false;
-  
+
   const [isResizing, SetIsResizing] = useState(false);
   const [resizingItemId, SetResizingItemId] = useState(null);
   const [appLayout, setAppLayout] = useState({
