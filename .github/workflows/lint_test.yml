@@ -2,11 +2,6 @@ name: Code Quality Checks (Lint)
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   lint:

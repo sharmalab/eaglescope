@@ -1,12 +1,6 @@
 name: Code Test (Smoke)
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+on: [push]
 
 jobs:
   lint:
