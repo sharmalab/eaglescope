@@ -44,19 +44,27 @@ function EnumList(props) {
   const hightRef = useRef();
   const viewerRef = useRef();
 
-  // Draw list of items
-  const addList = (selection, data, className = 'og') => {
-    selection.selectAll('.list-item')
-      .data(data)
-      .enter()
-      .append('div')
-      .attr('class', 'list-item')
-      .html((d) => `
-        <input class="form-check-input" type="checkbox" value="${d.key}" id="${d.key}" onChange={onSelect}>
-        <label class="form-check-label" htmlFor="${d.key}">${d.key}</label>
-        <span class="badge badge-secondary">${d.value}</span>`
-      );
+  const addList = (data, className = 'og') => {
+    const container = self.current;
+    container.innerHTML = ''; // Clear previous content
+    fullData.forEach((d) => {
+      const filteredCount = data.find(item => item.key === d.key)?.value || 0;
+      let listItem = document.createElement('div');
+      listItem.id = d.key;
+      listItem.className = 'list-item';
+      listItem.innerText = d.key;
+      let listBadge = document.createElement("span")
+      listBadge.innerText = filteredCount + "/" + d.value;
+      listBadge.classList.add('badge')
+      listBadge.classList.add('badge-secondary')
+      listBadge.style.margin = "2px";
+      listItem.appendChild(listBadge);
+      listItem.onclick = onSelect;
+      listItem.style.padding = "3px";
+      container.appendChild(listItem);
+    });
   };
+  
 
   // Handle checkbox selection
   const onSelect = (e) => {
@@ -85,14 +93,14 @@ function EnumList(props) {
       } else {
         data = fullData;
       }
-      addList(viewerRef.current, data, 'ft');
+      addList(data, 'ft');
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
   return <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />;
 }
 
-BarChart.propTypes = {
+EnumList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,
@@ -106,4 +114,4 @@ BarChart.propTypes = {
   }).isRequired,
 };
 
-export default BarChart;
+export default EnumList;

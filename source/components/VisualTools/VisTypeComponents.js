@@ -9,6 +9,7 @@
 const VisTypeComponents = {};
 VisTypeComponents.PIE_CHART = 'PieChart';
 VisTypeComponents.BAR_CHART = 'BarChart';
+VisTypeComponents.ENUM_LIST = 'EnumList' 
 VisTypeComponents.HORIZONTAL_BAR_CHART = 'HorizontalBarChart';
 VisTypeComponents.SCATTER_CHART = 'ScatterChart';
 VisTypeComponents.KM_CURVE = 'KMCurve';
@@ -32,6 +33,12 @@ const VisInputDescription = {
     isYArr: false,
   },
   BAR_CHART: {
+    hasX: true,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  },
+  ENUM_LIST: {
     hasX: true,
     hasY: false,
     isXArr: false,

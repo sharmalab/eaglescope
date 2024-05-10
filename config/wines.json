@@ -39,6 +39,15 @@
       "priority": 50
     },
     {
+      "id": "quality2",
+      "title": "Quality Level",
+      "description": "Quality Level",
+      "chartType": "ENUM_LIST",
+      "fields": { "x": "quality_label" },
+      "size": [2, 1],
+      "priority": 50
+    },
+    {
       "id": "v_acidity",
       "title": "Volatile Acidity",
       "description": "Volatile Acidity",

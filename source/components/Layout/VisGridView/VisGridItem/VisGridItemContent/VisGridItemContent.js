@@ -9,6 +9,7 @@ import VisTypeComponents from '../../../../VisualTools/VisTypeComponents';
 const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
 const KMCurve = React.lazy(() => import('../../../../VisualTools/Chart/KMCurve'));
+const EnumList = React.lazy(() => import('../../../../VisualTools/Chart/EnumList'));
 const HorizontalBarChart = React.lazy(() => import('../../../../VisualTools/Chart/HorizontalBarChart'));
 const ScatterChart = React.lazy(() => import('../../../../VisualTools/Chart/ScatterChart'));
 const VisDataTable = React.lazy(() => import('../../../../VisualTools/VisDataTable/VisDataTable'));
@@ -32,6 +33,9 @@ function VisGridItemContent(props) {
       break;
     case 'BarChart':
       component = <BarChart {...props} />;
+      break;
+    case 'EnumList':
+      component = <EnumList {...props} />;
       break;
     case 'KMCurve':
       component = <KMCurve {...props} />;
@@ -66,7 +70,7 @@ function VisGridItemContent(props) {
     default:
       component = (
         <div>
-          I&apos;m Sorry. There Is No
+          I&apos;m Sorry. There Is No 
           {TagName}
           {' '}
           Component...
