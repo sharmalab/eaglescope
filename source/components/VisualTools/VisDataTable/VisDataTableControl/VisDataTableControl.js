@@ -10,7 +10,9 @@ import VisSortableItem from './VisSortableItem/VisSortableItem';
 
 import './VisDataTableControl.css';
 
-const SortableContainer = ({ children }) => <div>{children}</div>;
+function SortableContainer({ children }) {
+  return <div>{children}</div>;
+}
 
 export default class VisDataTableControl extends PureComponent {
   constructor(props) {

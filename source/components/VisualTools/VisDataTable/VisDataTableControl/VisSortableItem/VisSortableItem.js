@@ -5,7 +5,7 @@ import { useDrag } from 'react-dnd';
 
 import './VisSortableItem.css';
 
-const DragHandle = () => {
+function DragHandle() {
   const [{ isDragging }, drag] = useDrag({
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
@@ -17,9 +17,9 @@ const DragHandle = () => {
       <FontAwesomeIcon icon={faGripLines} style={{ opacity: isDragging ? 0.4 : 1 }} />
     </div>
   );
-};
+}
 
-const VisSortableItem = (props) => {
+function VisSortableItem(props) {
   return (
     <div className="vis-sortable-item">
       <DragHandle />
@@ -37,6 +37,6 @@ const VisSortableItem = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default VisSortableItem;
