@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { sortableContainer } from 'react-sortable-hoc';
+import { useDrag } from 'react-dnd';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,7 @@ import VisSortableItem from './VisSortableItem/VisSortableItem';
 
 import './VisDataTableControl.css';
 
-const SortableContainer = sortableContainer(({ children }) => <div>{children}</div>);
+const SortableContainer = ({ children }) => <div>{children}</div>;
 
 export default class VisDataTableControl extends PureComponent {
   constructor(props) {
@@ -45,16 +45,7 @@ export default class VisDataTableControl extends PureComponent {
           </Button>
         </Popover.Header>
         <Popover.Body>
-          <SortableContainer
-            onSortEnd={({ oldIndex, newIndex }) => {
-              document.body.style.cursor = 'default';
-              this.props.onSortEnd({ oldIndex, newIndex });
-            }}
-            onSortStart={() => {
-              document.body.style.cursor = 'grabbing';
-            }}
-            useDragHandle
-          >
+          <SortableContainer>
             {this.props.list.map((item, index) => (
               <VisSortableItem
                 key={`item-${item.dataKey}`}
@@ -90,6 +81,5 @@ export default class VisDataTableControl extends PureComponent {
 VisDataTableControl.propTypes = {
   onAllCheck: PropTypes.func.isRequired,
   onCheckChanged: PropTypes.func.isRequired,
-  onSortEnd: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({ dataKey: PropTypes.string.isRequired })).isRequired,
 };
