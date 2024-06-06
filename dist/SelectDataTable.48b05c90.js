@@ -298,16 +298,34 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
           }).then(function (x) {
             return x.json();
           }).then(function (x) {
-            console.log("got something for pathdb id", x['field_wsiimage'][0]['url']);
+            console.log("looking at wsi url: ", x['field_wsiimage'][0]['url']);
             var slide_url = x['field_wsiimage'][0]['url'];
             if (window.location.protocol === "https:") {
               slide_url = slide_url.replace(/^http:\/\//i, 'https://');
             }
-            var iframe = document.createElement("iframe");
-            iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
-            iframe.src = slide_url;
-            iframe.setAttribute("style", "display: none");
-            document.body.appendChild(iframe);
+            var problematicExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.svg', '.pdf'];
+            function hasProblematicExtension(url) {
+              return problematicExtensions.some(function (ext) {
+                return url.toLowerCase().endsWith(ext);
+              });
+            }
+            if (hasProblematicExtension(slide_url)) {
+              console.log("using anchor method");
+              var filename = slide_url.substring(url.lastIndexOf('/') + 1);
+              var a = document.createElement('a');
+              a.href = slide_url;
+              a.download = filename;
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            } else {
+              console.log("using iframe method");
+              var iframe = document.createElement("iframe");
+              iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
+              iframe.src = slide_url;
+              iframe.setAttribute("style", "display: none");
+              document.body.appendChild(iframe);
+            }
           }).catch(console.error);
         }
       } catch (err) {
