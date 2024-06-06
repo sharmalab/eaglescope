@@ -117,16 +117,32 @@ export default class SelectDataTable extends PureComponent {
         console.log("inside loop")
         console.log("trying to get metadata for slide with pathdb id", record)
         fetch("/node/" + record + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{ 
-          console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
+          console.log("looking at wsi url: ", x['field_wsiimage'][0]['url'])
           let slide_url = x['field_wsiimage'][0]['url']
           if (window.location.protocol === "https:") {
             slide_url = slide_url.replace(/^http:\/\//i, 'https://');
           }
-          const iframe = document.createElement("iframe");
-          iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
-          iframe.src = slide_url;
-          iframe.setAttribute("style", "display: none");
-          document.body.appendChild(iframe);
+          const problematicExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.svg', '.pdf'];
+          function hasProblematicExtension(url) {
+            return problematicExtensions.some(ext => url.toLowerCase().endsWith(ext));
+          }
+          if (hasProblematicExtension(slide_url)){
+            console.log("using anchor method")
+            const filename = slide_url.substring(url.lastIndexOf('/') + 1);
+            const a = document.createElement('a');
+            a.href = slide_url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          } else {
+            console.log("using iframe method")
+            const iframe = document.createElement("iframe");
+            iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
+            iframe.src = slide_url;
+            iframe.setAttribute("style", "display: none");
+            document.body.appendChild(iframe);
+          }
         }).catch(console.error)
     }
   }
