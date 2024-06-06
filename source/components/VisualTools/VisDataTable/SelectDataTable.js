@@ -128,7 +128,7 @@ export default class SelectDataTable extends PureComponent {
           }
           if (hasProblematicExtension(slide_url)){
             console.log("using anchor method")
-            const filename = slide_url.substring(url.lastIndexOf('/') + 1);
+            const filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
             const a = document.createElement('a');
             a.href = slide_url;
             a.download = filename;
