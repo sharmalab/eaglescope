@@ -109,16 +109,14 @@ export default class SelectDataTable extends PureComponent {
       data = data.slice(0, downloadLimit);
       alert("Limiting download to first " + downloadLimit)
     }
-    let limitedData = data.slice(0, 10);
-    console.log(limitedData)
+    console.log(data)
     console.log("about to try?")
     console.log(this.props.configProps)
     // trigger downloads from pathdb
-    for (let record of limitedData){
-      if (record[this.props.configProps.downloadField]){
+    for (let record of data){
         console.log("inside loop")
-        console.log("trying to get metadata for slide with pathdb id", record[this.props.configProps.field])
-        fetch("/node/" + record[this.props.configProps.downloadField] + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{
+        console.log("trying to get metadata for slide with pathdb id", record)
+        fetch("/node/" + record + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{ 
           console.log("got something for pathdb id", x['field_wsiimage'][0]['url'])
           let slide_url = x['field_wsiimage'][0]['url']
           if (window.location.protocol === "https:") {
@@ -130,7 +128,6 @@ export default class SelectDataTable extends PureComponent {
           iframe.setAttribute("style", "display: none");
           document.body.appendChild(iframe);
         }).catch(console.error)
-      }
     }
   }
 
@@ -198,17 +195,18 @@ export default class SelectDataTable extends PureComponent {
     console.log("chexmix", isChecked, rowData)
     const { selected } = this.state;
     console.log("state selected before change", selected)
-    const existingIndex = selected.findIndex(item => item[""] === rowData[""]);
+    let item = rowData[this.props.configProps.downloadField];
+    const existingIndex = selected.indexOf(item);
     // if check is true, add to state
     if (isChecked && existingIndex === -1) {
       this.setState(prevState => ({
-        selected: [...prevState.selected, rowData]
+        selected: [...prevState.selected, item]
       }));
     }
       // if check is false, remove from state
     if (!isChecked && existingIndex !== -1) {
       this.setState(prevState => ({
-        selected: prevState.selected.filter(item => item[""] !== rowData[""])
+        selected: prevState.selected.filter(x => x !== item)
       }));
     }
     if (this.state.selected.length > downloadLimit - 2) {
