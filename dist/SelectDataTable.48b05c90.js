@@ -282,36 +282,33 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         data = data.slice(0, downloadLimit);
         alert("Limiting download to first " + downloadLimit);
       }
-      var limitedData = data.slice(0, 10);
-      console.log(limitedData);
+      console.log(data);
       console.log("about to try?");
       console.log(this.props.configProps);
       // trigger downloads from pathdb
-      var _iterator = _createForOfIteratorHelper(limitedData),
+      var _iterator = _createForOfIteratorHelper(data),
         _step;
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var record = _step.value;
-          if (record[this.props.configProps.downloadField]) {
-            console.log("inside loop");
-            console.log("trying to get metadata for slide with pathdb id", record[this.props.configProps.field]);
-            fetch("/node/" + record[this.props.configProps.downloadField] + "?_format=json", {
-              mode: "cors"
-            }).then(function (x) {
-              return x.json();
-            }).then(function (x) {
-              console.log("got something for pathdb id", x['field_wsiimage'][0]['url']);
-              var slide_url = x['field_wsiimage'][0]['url'];
-              if (window.location.protocol === "https:") {
-                slide_url = slide_url.replace(/^http:\/\//i, 'https://');
-              }
-              var iframe = document.createElement("iframe");
-              iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
-              iframe.src = slide_url;
-              iframe.setAttribute("style", "display: none");
-              document.body.appendChild(iframe);
-            }).catch(console.error);
-          }
+          console.log("inside loop");
+          console.log("trying to get metadata for slide with pathdb id", record);
+          fetch("/node/" + record + "?_format=json", {
+            mode: "cors"
+          }).then(function (x) {
+            return x.json();
+          }).then(function (x) {
+            console.log("got something for pathdb id", x['field_wsiimage'][0]['url']);
+            var slide_url = x['field_wsiimage'][0]['url'];
+            if (window.location.protocol === "https:") {
+              slide_url = slide_url.replace(/^http:\/\//i, 'https://');
+            }
+            var iframe = document.createElement("iframe");
+            iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
+            iframe.src = slide_url;
+            iframe.setAttribute("style", "display: none");
+            document.body.appendChild(iframe);
+          }).catch(console.error);
         }
       } catch (err) {
         _iterator.e(err);
@@ -398,14 +395,13 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       console.log("chexmix", isChecked, rowData);
       var selected = this.state.selected;
       console.log("state selected before change", selected);
-      var existingIndex = selected.findIndex(function (item) {
-        return item[""] === rowData[""];
-      });
+      var item = rowData[this.props.configProps.downloadField];
+      var existingIndex = selected.indexOf(item);
       // if check is true, add to state
       if (isChecked && existingIndex === -1) {
         this.setState(function (prevState) {
           return {
-            selected: [].concat(_toConsumableArray(prevState.selected), [rowData])
+            selected: [].concat(_toConsumableArray(prevState.selected), [item])
           };
         });
       }
@@ -413,8 +409,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       if (!isChecked && existingIndex !== -1) {
         this.setState(function (prevState) {
           return {
-            selected: prevState.selected.filter(function (item) {
-              return item[""] !== rowData[""];
+            selected: prevState.selected.filter(function (x) {
+              return x !== item;
             })
           };
         });
@@ -553,7 +549,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60621" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55898" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
