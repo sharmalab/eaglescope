@@ -62,14 +62,21 @@ function filterData(data, filters) {
 
 export const DataContext = createContext();
 
-export default function DataContextProvider({ children }) {
+export default function DataContextProvider({ children, overrideData }) {
   const { config } = useContext(ConfigContext);
   const [loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const filtersRef = useRef();
   const [filters, setFilters] = useState([]);
-  const { error: dataError, data } = useFetch(config?.DATA_RESOURCE_URL, config?.DATA_FORMAT);
-
+  let data;
+  let dataError;
+  if (overrideData) {
+    data = overrideData;
+  } else {
+    const { error, data: fetchedData } = useFetch(config?.DATA_RESOURCE_URL, config?.DATA_FORMAT);
+    dataError = error;
+    data = fetchedData;
+  }
   const addFiltersHandler = (toAddFilters) => {
     const oldFilters = [...filtersRef.current];
     // remove first
@@ -145,4 +152,9 @@ export default function DataContextProvider({ children }) {
 
 DataContextProvider.propTypes = {
   children: PropTypes.shape().isRequired,
+  overrideData: PropTypes.object, // Optional parameter to override configuration data
+};
+
+DataContextProvider.defaultProps = {
+  overrideData: false,
 };

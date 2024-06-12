@@ -18,6 +18,7 @@
     "react/destructuring-assignment": 0,
     "react/jsx-filename-extension": 0,
     "no-plusplus": 0,
+    "react/forbid-prop-types": 0,
     "no-param-reassign": ["error", { "props": false }],
     "prefer-destructuring": ["error", { "object": true, "array": false }],
     "react/no-unused-class-component-methods": 0,
