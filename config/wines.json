@@ -1,8 +1,6 @@
 {
   "HOME_URL": "https://github.com/sharmalab/eaglescope/",
-  "HEIGHT_OF_VIS_HEADER": 20,
   "TITLE": "Eaglescope Demo | Wines",
-  "MARGIN_OF_VIS": [10, 10],
   "UNIT_OF_GRID_VIEW": [230, 210],
   "MARGIN_OF_GRID_VIEW": [10, 10],
   "RESIZABLE" : "TRUE",
@@ -14,7 +12,7 @@
     {
       "id": "type",
       "title": "Wine Type",
-      "description": "Wine Type",
+      "description": "Wine Type DESC",
       "chartType": "PIE_CHART",
       "fields": { "x": "wine_type" },
       "size": [1, 1],
