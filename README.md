@@ -3,47 +3,179 @@
 [<h2 align="center"><img src="./eaglescope.png" width="200" /></h2>](.eaglescope.png)
 
 
-Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. 
+Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly. Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms. 
+
+![Interactive Contextual Visualizations](./ContextualVis.png)
 
 ## Development
-Install dependencies using `npm install`
+Install dependencies by running `npm install`
 
-Develop mode using `npm run dev`
+Use develop mode by running `npm run dev`
 
-
-### Running ###
-
-
-##### Prerequisites
-
-* Install [Node.js](https://nodejs.org/en/download/) and [NPM](https://www.npmjs.com/get-npm)
+Build ./dist for use with a static web server by running `npm run build`
 
 
-##### Installation
+# Setup and Configuration
 
-* Clone the [repository](https://github.com/birm/datascope2.git)
-* Enter the eaglescope directory (this directory)
-* Get dependencies with ```npm install```
-* Run ```npm run build```
+The simplest way to set up eaglescope is to build (`npm run build`) then host the contents of ./dist/ using a static web server such as rapache or `python -m http.server`. Additionally, configuration and data resources are already on the web with appropriate cross origin headers, you can simply navigate to [https://sharmalab.github.io/eaglescope/?configurl=](https://sharmalab.github.io/eaglescope/?configurl=)(configuration json file).
 
-##### Running
-* Modify the files present in ```./config/vis-config.json``` to fit your needs:
-    * UNIT_OF_GRID_VIEW                   (For basic unit in each viusal component)
-    * MARGIN_OF_GRID_VIEW                 (For setting the margin unit in pixel) 
-    * DATA_RESOURCE_URL                   (For data resource)
-    * VISUALIZATION_VIEW_CONFIGURATION    (For dashboard settings)
+Each Eaglescope dashboard needs a configuration url which contains global information for the dashboard, information about the data resource and how to read it, and configuration for each visualization.
 
 
-* Run ```npm run dev```
-* Go to ```http://localhost:1234```.
+<table>
+  <tr>
+   <td><strong>CONFIGURATION FIELD</strong>
+   </td>
+   <td><strong>DESCRIPTION</strong>
+   </td>
+   <td><strong>EXAMPLE VALUE</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>HOME_URL
+   </td>
+   <td>What url the “home” button directs to.
+   </td>
+   <td>"https://github.com/sharmalab/eaglescope/"
+   </td>
+  </tr>
+  <tr>
+   <td>TITLE
+   </td>
+   <td>The title in the header and browser tab for this dashboard.
+   </td>
+   <td>"Eaglescope Demo | Wines"
+   </td>
+  </tr>
+  <tr>
+   <td>UNIT_OF_GRID_VIEW
+   </td>
+   <td>The unit size in pixels for the x and y values for visualization size.
+   </td>
+   <td>[200,200]
+   </td>
+  </tr>
+  <tr>
+   <td>MARGIN_OF_GRID_VIEW
+   </td>
+   <td>The unit size in pixels for margins around visualizations.
+   </td>
+   <td>[10,10]
+   </td>
+  </tr>
+  <tr>
+   <td>HAS_SETTINGS
+   </td>
+   <td>Whether to render the settings button to modify the dashboard temporarily. 
+   </td>
+   <td>Any “truthy” value is true, otherwise do not include this field.
+   </td>
+  </tr>
+  <tr>
+   <td>RESIZABLE
+   </td>
+   <td>Whether to allow users to resize visualizations.
+   </td>
+   <td>Any “truthy” value is true, otherwise do not include this field.
+   </td>
+  </tr>
+  <tr>
+   <td>DRAGGABLE
+   </td>
+   <td>Whether to allow users to reorder and reposition visualizations.
+   </td>
+   <td>Any “truthy” value is true, otherwise do not include this field.
+   </td>
+  </tr>
+  <tr>
+   <td>DATA_RESOURCE_URL
+   </td>
+   <td>The url or path for the API or file for this dashboard’s data.
+   </td>
+   <td>“http://localhost:1234/config/wines.csv”
+   </td>
+  </tr>
+  <tr>
+   <td>DATA_FORMAT
+   </td>
+   <td>Which parsing method to use; can be ‘json’ or ‘csv’.
+   </td>
+   <td>“csv” or “json”
+   </td>
+  </tr>
+</table>
+
+
+Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list of visualization config, where each element in the list represents one visualization. Most visualizations support the following fields:
+
+
+<table>
+  <tr>
+   <td><strong>CONFIGURATION FIELD</strong>
+   </td>
+   <td><strong>DESCRIPTION</strong>
+   </td>
+   <td><strong>EXAMPLE VALUE</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>id
+   </td>
+   <td>Unique reference to each visualization
+   </td>
+   <td>“chart_4”
+   </td>
+  </tr>
+  <tr>
+   <td>title
+   </td>
+   <td>Rendered title
+   </td>
+   <td>"Volatile and Citric Acidity"
+   </td>
+  </tr>
+  <tr>
+   <td>description
+   </td>
+   <td>Comments for the chart
+   </td>
+   <td>“Compare these fields”
+   </td>
+  </tr>
+  <tr>
+   <td>chartType
+   </td>
+   <td>Which visualization to render.
+   </td>
+   <td>Must be an implemented chart type. See this link (<a href="https://github.com/sharmalab/eaglescope/blob/90d6dd1f6c9d0af3d27d740c1eb9e5011608ac1d/source/components/VisualTools/VisTypeComponents.js#L10">https://github.com/sharmalab/eaglescope/blob/90d6dd1f6c9d0af3d27d740c1eb9e5011608ac1d/source/components/VisualTools/VisTypeComponents.js#L10</a>)  for a list of chart types.
+   </td>
+  </tr>
+  <tr>
+   <td>fields
+   </td>
+   <td>Maps fields from their name in the data resource to the fields the chart uses, usually  \
+“x”, “y”
+   </td>
+   <td>{ "x": "volatile acidity", "y": "citric acid" }
+   </td>
+  </tr>
+  <tr>
+   <td>size
+   </td>
+   <td>The size of the visualization in units of UNIT_OF_GRID_VIEW from the dashboard configuration.
+   </td>
+   <td>[2, 1]
+   </td>
+  </tr>
+  <tr>
+   <td>priority
+   </td>
+   <td>When rendering, how to order. Higher priority floats up.
+   </td>
+   <td>42
+   </td>
+  </tr>
+</table>
 
 ## Interactive Demo Site
 [Eaglescope Demo](https://sharmalab.github.io/eaglescope/)
-
-## Demo Video
-[![Demo Video](https://img.youtube.com/vi/8ce1-LKtsKs/0.jpg)](https://www.youtube.com/watch?v=8ce1-LKtsKs)
-
-## Architecture
-![](docs/architecture.png)
-
-[OVERALL](https://docs.google.com/presentation/d/1zvXCeV-a8k4VercXsgFPTHqml7QwmDDu9snz6dhqIC4/edit?usp=sharing)
