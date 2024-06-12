@@ -7,7 +7,9 @@ module.exports = {
     moduleNameMapper: {
       '\\.css$': 'identity-obj-proxy',
     },
-    setupFilesAfterEnv: ['@testing-library/jest-dom'],
-    setupFilesAfterEnv: ['./tests/setupTests.js'],
+    transformIgnorePatterns: [
+        '/node_modules/(?!react-dnd)/', // Ignore node_modules except for react-dnd
+      ],
+    setupFilesAfterEnv: ['@testing-library/jest-dom', './tests/setupTests.js'],
   };
   

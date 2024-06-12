@@ -8,15 +8,23 @@ import testData from '../config/wines_data.json';
 
 
 
-describe('App', () => {
-  test('renders more than 0 visible items with react-grid-item class', async () => {
+describe('Eaglescope basic tests', () => {
+  test('renders title from config', async () => {
     const container = render(
         <App overrideConfig={testConfig} overrideData={testData}/>
     );
-
     await waitFor(() => {
-        const items = container.getAllByClassName('react-grid-item');
-        expect(items.length).toBeGreaterThan(0);
+        const titleElement = screen.getByText('Eaglescope Demo | Wines');
+        expect(titleElement).toBeInTheDocument();
+      });
+  });
+  test('renders vis elems', async () => {
+    const container = render(
+        <App overrideConfig={testConfig} overrideData={testData}/>
+    );
+    await waitFor(() => {
+        const elements = document.getElementsByClassName('vis-grid-item');
+        expect(elements.length).toBeGreaterThan(6);
       });
   });
 });

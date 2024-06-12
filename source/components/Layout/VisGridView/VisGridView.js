@@ -32,7 +32,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     width: 0,
     currentCols: 0,
     layout: [],
-    margin: 0,
+    margins: [], // Initialize margins as an empty array or with default values
     grid,
   });
   const self = useRef();
