@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompressArrowsAlt, faExpandArrowsAlt } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +12,7 @@ import './VisGridItemControl.css';
 function VisGridItemControl(props) {
   const { config } = useContext(ConfigContext);
   const [show, setShow] = useState(false);
+
   let btnFilterRemove;
   if (props.filters.length > 0 && props.filters.find((f) => f.id === props.id)) {
     btnFilterRemove = (
@@ -26,6 +27,28 @@ function VisGridItemControl(props) {
       </Button>
     );
   }
+
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
+  useEffect(() => {
+    if (show) {
+      document.addEventListener('mousedown', stopPropagation, true);
+      document.addEventListener('mousemove', stopPropagation, true);
+      document.addEventListener('mouseup', stopPropagation, true);
+    } else {
+      document.removeEventListener('mousedown', stopPropagation, true);
+      document.removeEventListener('mousemove', stopPropagation, true);
+      document.removeEventListener('mouseup', stopPropagation, true);
+    }
+    return () => {
+      document.removeEventListener('mousedown', stopPropagation, true);
+      document.removeEventListener('mousemove', stopPropagation, true);
+      document.removeEventListener('mouseup', stopPropagation, true);
+    };
+  }, [show]);
+
   return (
     <div>
       {(props.hover || show) && (
