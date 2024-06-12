@@ -1,31 +1,22 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
-const useFetch = jest.fn()
-
-import { ConfigContext } from '../source/contexts/ConfigContext';
 import App from '../source/Application';
+
+import testConfig from '../config/wines.json';
+import testData from '../config/wines_data.json';
 
 
 
 describe('App', () => {
-  beforeEach(() => {
-    // Mock the return value of useFetch
-    useFetch.mockReturnValue({
-      error: null,
-      data: { /* Dummy config data */ },
-      isPending: false,
-      setData: jest.fn(),
-    });
-  });
-
   test('renders more than 0 visible items with react-grid-item class', async () => {
-    render(
-      <ConfigContext.Provider value={{ /* Dummy config data */ }}>
-        <App />
-      </ConfigContext.Provider>
+    const container = render(
+        <App overrideConfig={testConfig} overrideData={testData}/>
     );
 
-    // Your test assertions here
+    await waitFor(() => {
+        const items = container.getAllByClassName('react-grid-item');
+        expect(items.length).toBeGreaterThan(0);
+      });
   });
 });
