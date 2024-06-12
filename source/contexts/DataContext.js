@@ -152,4 +152,9 @@ export default function DataContextProvider({ children, overrideData }) {
 
 DataContextProvider.propTypes = {
   children: PropTypes.shape().isRequired,
+  overrideData: PropTypes.object, // Optional parameter to override configuration data
+};
+
+DataContextProvider.defaultProps = {
+  overrideData: false,
 };

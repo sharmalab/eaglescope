@@ -50,3 +50,7 @@ ConfigContextProvider.propTypes = {
   configName: PropTypes.string.isRequired,
   overrideConfig: PropTypes.object, // Optional parameter to override configuration data
 };
+
+ConfigContextProvider.defaultProps = {
+  overrideConfig: false,
+};
