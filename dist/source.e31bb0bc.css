@@ -304,6 +304,40 @@
     
 } */
 
+.vis-grid-splitter.single {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .vis-grid-splitter.split-horizontal {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-column {
+    overflow-y: auto;
+  }
+  
+  .right-column {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .vis-grid-splitter.split-vertical {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  
+  .top-row {
+    overflow-y: auto;
+  }
+  
+  .bottom-row {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
 .full-screen {
     /* background-color: darkorchid; */
     /* min-height: 60rem; */

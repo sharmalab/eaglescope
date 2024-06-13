@@ -7,21 +7,13 @@ import PropTypes from 'prop-types';
 import VisGridItem from './VisGridItem/VisGridItem';
 import { getLayoutConfig } from '../../../common/utils';
 import { ConfigContext } from '../../../contexts/ConfigContext';
-
-// component style
 import './VisGridView.css';
-/**
- * This Component is Responsible for Handling Layout
- * Calculations and Resize Handler
- * @param {Function} fullVisScreenHandler Handler to set
- * @param {Boolean} fullScreened
- */
 
-function VisGridView({ fullVisScreenHandler, fullScreened }) {
+function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const { config } = useContext(ConfigContext);
   const grid = config.UNIT_OF_GRID_VIEW;
   const margins = config.MARGIN_OF_GRID_VIEW;
-  const visConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
+  const AllVisConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
   const isDraggable = config.DRAGGABLE || false;
   const isResizable = config.RESIZABLE || false;
@@ -36,6 +28,11 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     grid,
   });
   const self = useRef();
+
+  let visConfig = AllVisConfig.filter((x)=>{
+    return x.designation == designation
+    || (!x.designation && designation == "default")
+  });
 
   const updateViewSize = () => {
     const rect = self.current.getBoundingClientRect();
@@ -139,4 +136,9 @@ export default VisGridView;
 VisGridView.propTypes = {
   fullVisScreenHandler: PropTypes.func.isRequired,
   fullScreened: PropTypes.bool.isRequired,
+  designation: PropTypes.string,
+};
+
+VisGridView.defaultProps = {
+  designation: "*",
 };
