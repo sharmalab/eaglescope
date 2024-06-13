@@ -105,11 +105,11 @@
       "id": "collection_data_table",
       "title": "Collection Data Table",
       "description": "Showing Collection Data",
-      "downloadField": "quality_label",
+      "downloadField": "id",
       "chartType": "SEL_DATA_TABLE",
       "fields": [
         {
-          "dataKey": "pathdbid",
+          "dataKey": "id",
           "label": "ID"
         },
         {

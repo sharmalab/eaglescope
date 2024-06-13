@@ -311,7 +311,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             }
             if (hasProblematicExtension(slide_url)) {
               console.log("using anchor method");
-              var filename = slide_url.substring(url.lastIndexOf('/') + 1);
+              var filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
               var a = document.createElement('a');
               a.href = slide_url;
               a.download = filename;
@@ -454,7 +454,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       var _this$state2 = this.state,
         fields = _this$state2.fields,
         sortBy = _this$state2.sortBy,
-        sortDirection = _this$state2.sortDirection;
+        sortDirection = _this$state2.sortDirection,
+        selected = _this$state2.selected;
       var finalData = this.getSortData();
       return /*#__PURE__*/_react.default.createElement("div", {
         style: {
@@ -510,6 +511,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             var rowData = _ref13.rowData;
             return /*#__PURE__*/_react.default.createElement("input", {
               type: "checkbox",
+              checked: selected.includes(rowData[_this3.props.configProps.downloadField]),
               onChange: function onChange(e) {
                 return _this3.selectionHandler(e.target.checked, rowData);
               }
@@ -567,7 +569,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52179" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

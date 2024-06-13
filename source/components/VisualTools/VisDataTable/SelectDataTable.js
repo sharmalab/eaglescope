@@ -235,7 +235,7 @@ export default class SelectDataTable extends PureComponent {
   }
 
   render() {
-    const { fields, sortBy, sortDirection } = this.state;
+    const { fields, sortBy, sortDirection, selected } = this.state;
     const finalData = this.getSortData();
 
     return (
@@ -260,19 +260,20 @@ export default class SelectDataTable extends PureComponent {
               sortBy={sortBy}
               sortDirection={sortDirection}
             >
-            <Column
-              key="checkbox"
-              dataKey="checkbox"
-              width={50} // Adjust width as needed
-              label="↓"
-              headerRenderer={() => <div  title="Download Selected Files" onClick={(e)=>{this.downloadSelected()}}> <FontAwesomeIcon icon={faFileArrowDown} style={{height:'1.8em', color:'#1b7d00'}} /></div>}
-              cellRenderer={({ rowData }) => (
-                <input
-                  type="checkbox"
-                  onChange={(e) => this.selectionHandler(e.target.checked, rowData)}
-                />
-              )}
-            />
+              <Column
+                key="checkbox"
+                dataKey="checkbox"
+                width={50} // Adjust width as needed
+                label="↓"
+                headerRenderer={() => <div title="Download Selected Files" onClick={(e) => { this.downloadSelected() }}> <FontAwesomeIcon icon={faFileArrowDown} style={{ height: '1.8em', color: '#1b7d00' }} /></div>}
+                cellRenderer={({ rowData }) => (
+                  <input
+                    type="checkbox"
+                    checked={selected.includes(rowData[this.props.configProps.downloadField])}
+                    onChange={(e) => this.selectionHandler(e.target.checked, rowData)}
+                  />
+                )}
+              />
               {fields
                 .map((f) => (
                   <Column

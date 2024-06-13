@@ -1,4 +1,4 @@
-,fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality,wine_type,quality_label,updated
+id,fixed acidity,volatile acidity,citric acid,residual sugar,chlorides,free sulfur dioxide,total sulfur dioxide,density,pH,sulphates,alcohol,quality,wine_type,quality_label,updated
 0,7,0.17,0.74,12.8,0.045,24,126,0.9942,3.26,0.38,12.2,8,white,high,12/8/23
 1,7.7,0.64,0.21,2.2,0.077,32,133,0.9956,3.27,0.45,9.9,5,red,low,10/20/23
 2,6.8,0.39,0.34,7.4,0.02,38,133,0.99212,3.18,0.44,12,7,white,medium,10/20/23
