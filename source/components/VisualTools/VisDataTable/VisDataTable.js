@@ -26,7 +26,6 @@ const cellRenderer = (d, f) => {
       </a>
     );
   } else {
-    // urlElt = d.cellData;
     urlElt = Array.isArray(d.cellData) ? d.cellData.join(', ') : d.cellData;
   }
   return (
@@ -99,15 +98,16 @@ export default class VisDataTable extends PureComponent {
   }
 
   getSortData() {
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
     const { data, filterData, filters } = this.props;
     const { sortBy, sortDirection } = this.state;
     const currentData = filters.length > 0 ? filterData : data;
-    // filter TODO
+
     return sortBy && sortDirection
       ? currentData.sort((a, b) => {
         const first = sortDirection === SortDirection.ASC ? a : b;
         const second = sortDirection === SortDirection.ASC ? b : a;
-        return first[sortBy] > second[sortBy] ? 1 : -1;
+        return collator.compare(first[sortBy], second[sortBy]);
       })
       : currentData;
   }
@@ -133,7 +133,6 @@ export default class VisDataTable extends PureComponent {
         <div className="ReactVirtualized__Table__headerTruncatedText" title={label}>
           {label}
         </div>
-        {}
         <div>
           {sortBy === dataKey ? (
             <FontAwesomeIcon icon={sortDirection === SortDirection.DESC ? faSortDown : faSortUp} />
