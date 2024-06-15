@@ -19,39 +19,7 @@
 //   isResizable: false
 // };
 
-// create a matrix
-export function createMatrix(rows, cols = rows) {
-  const matrix = [];
-  for (let i = 0; i < rows; i++) {
-    matrix[i] = new Array(cols);
-  }
-  return matrix;
-}
-// has Space
-export function hasSpace(matrix, pos, size) {
-  if (matrix.length === 0) return true;
-  let isHasSpace = true;
-  if ((size[0] > 1 && pos[0] % 2 !== 0) || (size[1] > 1 && pos[1] % 2 !== 1)) {
-    isHasSpace = false;
-  }
-  if (isHasSpace) {
-    for (let i = pos[1]; i < pos[1] + size[1]; i++) {
-      if (i >= matrix.length) {
-        break;
-      }
-      for (let j = pos[0]; j < pos[0] + size[0]; j++) {
-        if (j >= matrix[0].length || matrix[i][j]) {
-          isHasSpace = false;
-          break;
-        }
-      }
-      if (!isHasSpace) {
-        break;
-      }
-    }
-  }
-  return isHasSpace;
-}
+
 export function numFixed(num, digits = 2) {
   return Number.isInteger(num) ? num : num.toFixed(digits);
 }
@@ -80,24 +48,26 @@ export function isEquivalent(a, b) {
   // are considered equivalent
   return true;
 }
-// get the chart position
-function getPosition(matrix, size) {
-  let position;
 
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (!matrix[i][j] && hasSpace(matrix, [j, i], size)) {
-        position = [j, i];
-        break;
-      }
+/// create a matrix
+export function createMatrix(rows, cols = rows) {
+  const matrix = [];
+  for (let i = 0; i < rows; i++) {
+    matrix[i] = new Array(cols).fill(null);
+  }
+  return matrix;
+}
+
+// has Space
+export function hasSpace(matrix, pos, size) {
+  if (matrix.length === 0) return true;
+  for (let i = pos[1]; i < pos[1] + size[1]; i++) {
+    if (i >= matrix.length) return false;
+    for (let j = pos[0]; j < pos[0] + size[0]; j++) {
+      if (j >= matrix[0].length || matrix[i][j] !== null) return false;
     }
-    if (position) break;
   }
-
-  if (!position) {
-    return [0, matrix.length];
-  }
-  return position;
+  return true;
 }
 
 export function fillMatrix(matrix, val, pos = [0, 0], size = [matrix[0].length, matrix.length]) {
@@ -108,30 +78,38 @@ export function fillMatrix(matrix, val, pos = [0, 0], size = [matrix[0].length, 
   }
 }
 
+// get the chart position
+function getPosition(matrix, size) {
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (matrix[i][j] === null && hasSpace(matrix, [j, i], size)) {
+        return [j, i];
+      }
+    }
+  }
+  return [0, matrix.length];
+}
+
 // get layout for react-grid-layout
-export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
+export function getLayoutConfig(chartsConfig, cols, resizable = false) {
   const layout = [];
   const matrix = createMatrix(cols);
+  
   // sort charts by priority
-  chartsConfig = chartsConfig.sort(
-    (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName),
+  const chartsConfigSorted = chartsConfig.sort(
+    (a, b) => Number(b.priority) - Number(a.priority) || a.title.localeCompare(b.title)
   );
+  console.log("sorted as");
+  console.log(chartsConfigSorted);
 
-  // TODO for some charts that requests a particular position in matrix
-  // 1. do we need to put charts in a particular position?
-  // 2. compute the new charts' layout config
-  // 3. add new charts' layout config into layout array.
-  // filter out the solid chart before compute the position of the rest of charts
-
-  // make an arrangement for the rest of charts
-  chartsConfig.forEach((chart) => {
+  chartsConfigSorted.forEach((chart) => {
     // get the size of a chart; default size is [1,1] (w,h)
     const size = chart.size || [1, 1];
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);
 
-    // grow up if the matrix is small than the expectation
+    // grow matrix if the position is out of bounds
     while (matrix.length <= pos[1] + size[1]) {
-      matrix.push(new Array(cols));
+      matrix.push(new Array(cols).fill(null));
     }
 
     // fill Matrix
@@ -144,12 +122,14 @@ export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
       y: pos[1],
       w: size[0],
       h: size[1],
-      isResizable: resiziable,
+      isResizable: resizable,
     });
   });
 
-  return { layout, rows: matrix[0].length };
+  return { layout, rows: matrix.length };
 }
+
+
 
 // Grid includes 10px margin
 export function getSizeOfGridContent(gridSize, margin) {
