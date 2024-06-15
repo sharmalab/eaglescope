@@ -154,7 +154,7 @@
         }
       ],
       "size": [4, 2],
-      "priority": 10
+      "priority": 100
     }
   ]
 }
