@@ -1,55 +1,4 @@
-// chart = {
-//   id: UniqueKey.WITH_CNA_DATA,
-//   title: "With CNA Data",
-//   description: "With CNA Data",
-//   chartType: ChartTypeEnum.PIE_CHART,
-//   //dataType: ChartMetaDataTypeEnum.GENOMIC,
-//   //patientAttribute: false,
-//   size: [w, h], // size [width, height]
-//   priority: 0 //
-//   //renderWhenDataChange: false
-// };
-
-// layout = {
-//   i: "key",
-//   x: "x",
-//   y: "y",
-//   w: "width",
-//   h: "height",
-//   isResizable: false
-// };
-
-
-export function numFixed(num, digits = 2) {
-  return Number.isInteger(num) ? num : num.toFixed(digits);
-}
-export function isEquivalent(a, b) {
-  // Create arrays of property names
-  const aProps = Object.getOwnPropertyNames(a);
-  const bProps = Object.getOwnPropertyNames(b);
-
-  // If number of properties is different,
-  // objects are not equivalent
-  if (aProps.length !== bProps.length) {
-    return false;
-  }
-
-  for (let i = 0; i < aProps.length; i++) {
-    const propName = aProps[i];
-
-    // If values of same property are not equal,
-    // objects are not equivalent
-    if (a[propName] !== b[propName]) {
-      return false;
-    }
-  }
-
-  // If we made it this far, objects
-  // are considered equivalent
-  return true;
-}
-
-/// create a matrix
+// Create a matrix
 export function createMatrix(rows, cols = rows) {
   const matrix = [];
   for (let i = 0; i < rows; i++) {
@@ -58,64 +7,92 @@ export function createMatrix(rows, cols = rows) {
   return matrix;
 }
 
-// has Space
+// Check if there is space in the matrix at the given position for the given size
 export function hasSpace(matrix, pos, size) {
   if (matrix.length === 0) return true;
+  let isHasSpace = true;
   for (let i = pos[1]; i < pos[1] + size[1]; i++) {
-    if (i >= matrix.length) return false;
+    if (i >= matrix.length) {
+      break;
+    }
     for (let j = pos[0]; j < pos[0] + size[0]; j++) {
-      if (j >= matrix[0].length || matrix[i][j] !== null) return false;
+      if (j >= matrix[0].length || matrix[i][j]) {
+        isHasSpace = false;
+        break;
+      }
+    }
+    if (!isHasSpace) {
+      break;
     }
   }
-  return true;
+  return isHasSpace;
 }
 
+// Get the position for the chart in the matrix
+function getPosition(matrix, size) {
+  let position;
+
+  // Try to fit in existing rows first
+  for (let i = 0; i < matrix.length; i++) {
+    if (matrix[i].some(cell => cell !== null)) { // Check if the row is not empty
+      for (let j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j] === null && hasSpace(matrix, [j, i], size)) {
+          return [j, i];
+        }
+      }
+    }
+  }
+
+  // If no suitable position is found, create a new row
+  return [0, matrix.length];
+}
+
+// Fill the matrix with the chart id at the given position and size
 export function fillMatrix(matrix, val, pos = [0, 0], size = [matrix[0].length, matrix.length]) {
   for (let i = pos[1]; i < pos[1] + size[1]; i++) {
+    while (matrix.length <= i) {
+      matrix.push(new Array(matrix[0].length).fill(null));
+    }
     for (let j = pos[0]; j < pos[0] + size[0]; j++) {
       matrix[i][j] = val;
     }
   }
 }
 
-// get the chart position
-function getPosition(matrix, size) {
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] === null && hasSpace(matrix, [j, i], size)) {
-        return [j, i];
-      }
-    }
-  }
-  return [0, matrix.length];
-}
-
-// get layout for react-grid-layout
+// Get layout for react-grid-layout
 export function getLayoutConfig(chartsConfig, cols, resizable = false) {
   const layout = [];
   const matrix = createMatrix(cols);
-  
-  // sort charts by priority
-  const chartsConfigSorted = chartsConfig.sort(
+
+  // Separate charts into high priority (>=100) and normal priority (<100)
+  const highPriorityCharts = chartsConfig.filter(chart => Number(chart.priority) >= 100);
+  const normalPriorityCharts = chartsConfig.filter(chart => Number(chart.priority) < 100);
+
+  // Sort each group individually
+  const sortedHighPriorityCharts = highPriorityCharts.sort(
     (a, b) => Number(b.priority) - Number(a.priority) || a.title.localeCompare(b.title)
   );
-  console.log("sorted as");
-  console.log(chartsConfigSorted);
+  const sortedNormalPriorityCharts = normalPriorityCharts.sort(
+    (a, b) => Number(b.priority) - Number(a.priority) || a.title.localeCompare(b.title)
+  );
+
+  // Combine sorted charts
+  const chartsConfigSorted = [...sortedHighPriorityCharts, ...sortedNormalPriorityCharts];
 
   chartsConfigSorted.forEach((chart) => {
-    // get the size of a chart; default size is [1,1] (w,h)
+    // Get the size of a chart; default size is [1,1] (w,h)
     const size = chart.size || [1, 1];
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);
 
-    // grow matrix if the position is out of bounds
+    // Grow matrix if the position is out of bounds
     while (matrix.length <= pos[1] + size[1]) {
       matrix.push(new Array(cols).fill(null));
     }
 
-    // fill Matrix
+    // Fill Matrix
     fillMatrix(matrix, chart.id, pos, size);
 
-    // create layout config
+    // Create layout config
     layout.push({
       i: chart.id,
       x: pos[0],
@@ -127,18 +104,4 @@ export function getLayoutConfig(chartsConfig, cols, resizable = false) {
   });
 
   return { layout, rows: matrix.length };
-}
-
-
-
-// Grid includes 10px margin
-export function getSizeOfGridContent(gridSize, margin) {
-  return [
-    STUDY_VIEW_CONFIG.layout.grid.w * gridSize[0]
-      + (chartDimension.w - 1) * STUDY_VIEW_CONFIG.layout.gridMargin.x
-      - borderWidth * 2,
-    STUDY_VIEW_CONFIG.layout.grid.h * gridSize[1]
-      + (chartDimension.h - 1) * STUDY_VIEW_CONFIG.layout.gridMargin.y
-      - chartHeight,
-  ];
 }
