@@ -208,7 +208,7 @@ export default class SelectDataTable extends PureComponent {
           position={{ x: 0 }}
           zIndex={999}
         >
-          <span className="DragHandleIcon">⋮</span>
+          <span className="DragHandleIcon" onMouseDown={(event) => event.stopPropagation()}>⋮</span>
         </Draggable>
       </React.Fragment>
     );
