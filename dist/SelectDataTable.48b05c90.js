@@ -398,6 +398,21 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             deltaX: deltaX
           });
         },
+        onStart: function onStart(event, _ref10) {
+          var deltaX = _ref10.deltaX;
+          _this2.setState({
+            "isResize": true
+          });
+        },
+        onStop: function onStop(event, _ref11) {
+          var deltaX = _ref11.deltaX;
+          setTimeout(function () {
+            _this2.setState({
+              "isResize": false
+            });
+          }, 300); // 300 milliseconds delay
+        },
+
         position: {
           x: 0
         },
@@ -439,13 +454,15 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
     }
   }, {
     key: "sortHandler",
-    value: function sortHandler(_ref10) {
-      var sortBy = _ref10.sortBy,
-        sortDirection = _ref10.sortDirection;
-      this.setState({
-        sortBy: sortBy,
-        sortDirection: sortDirection
-      });
+    value: function sortHandler(_ref12) {
+      var sortBy = _ref12.sortBy,
+        sortDirection = _ref12.sortDirection;
+      if (!this.state.isResize) {
+        this.setState({
+          sortBy: sortBy,
+          sortDirection: sortDirection
+        });
+      }
     }
   }, {
     key: "render",
@@ -470,9 +487,9 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       }), /*#__PURE__*/_react.default.createElement(_reactVirtualized.AutoSizer, {
         ref: this.autoSizer,
         onResize: this.onResize
-      }, function (_ref11) {
-        var width = _ref11.width,
-          height = _ref11.height;
+      }, function (_ref13) {
+        var width = _ref13.width,
+          height = _ref13.height;
         return /*#__PURE__*/_react.default.createElement(_reactVirtualized.Table, {
           width: width,
           height: height,
@@ -480,8 +497,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
           rowHeight: 20,
           rowClassName: rowClassName,
           rowCount: finalData.length,
-          rowGetter: function rowGetter(_ref12) {
-            var index = _ref12.index;
+          rowGetter: function rowGetter(_ref14) {
+            var index = _ref14.index;
             return finalData[index];
           },
           sort: _this3.sortHandler,
@@ -507,8 +524,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
               }
             }));
           },
-          cellRenderer: function cellRenderer(_ref13) {
-            var rowData = _ref13.rowData;
+          cellRenderer: function cellRenderer(_ref15) {
+            var rowData = _ref15.rowData;
             return /*#__PURE__*/_react.default.createElement("input", {
               type: "checkbox",
               checked: selected.includes(rowData[_this3.props.configProps.downloadField]),
@@ -520,8 +537,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         }), fields.map(function (f) {
           return /*#__PURE__*/_react.default.createElement(_reactVirtualized.Column, {
             key: f.dataKey,
-            cellDataGetter: function cellDataGetter(_ref14) {
-              var rowData = _ref14.rowData;
+            cellDataGetter: function cellDataGetter(_ref16) {
+              var rowData = _ref16.rowData;
               return rowData[f.dataKey];
             },
             dataKey: f.dataKey,
@@ -569,7 +586,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51667" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
