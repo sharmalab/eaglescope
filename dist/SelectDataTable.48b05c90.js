@@ -418,7 +418,10 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         },
         zIndex: 999
       }, /*#__PURE__*/_react.default.createElement("span", {
-        className: "DragHandleIcon"
+        className: "DragHandleIcon",
+        onMouseDown: function onMouseDown(event) {
+          return event.stopPropagation();
+        }
       }, "\u22EE")));
     }
   }, {
@@ -586,7 +589,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51667" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52833" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
