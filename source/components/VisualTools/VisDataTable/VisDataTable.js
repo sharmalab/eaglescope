@@ -152,7 +152,7 @@ export default class VisDataTable extends PureComponent {
           position={{ x: 0 }}
           zIndex={999}
         >
-          <span className="DragHandleIcon">⋮</span>
+          <span className="DragHandleIcon" onMouseDown={(event) => event.stopPropagation()}>⋮</span>
         </Draggable>
       </React.Fragment>
     );
