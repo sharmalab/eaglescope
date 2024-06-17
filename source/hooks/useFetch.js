@@ -28,46 +28,72 @@ const useFetch = (url, type = 'json') => {
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
 
-  const abortCont = new AbortController();
-
   useEffect(() => {
+    const abortCont = new AbortController();
     const config = {
-      signal: abortCont.signals,
+      signal: abortCont.signal,
       mode: 'cors',
       credentials: 'same-origin',
     };
 
-    if (!url) return () => abortCont.abort();
+    const fetchData = async () => {
+      if (!url) return;
 
-    if (type === 'csv') {
-      d3.csv(url, (d) => covertRaw(d)).then((res) => {
-        setData(res);
-        setIsPending(false);
-        setError(null);
-      });
+      if (type === 'csv' && url.endsWith('.csv')) {
+        try {
+          const cache = await caches.open('csv-cache');
+          const cachedResponse = await cache.match(url);
 
-      return () => abortCont.abort();
-    }
-    fetch(url, config)
-      .then((x) => x.json())
-      .then((res) => {
-        if (!res.error) {
-          setData(res);
+          if (cachedResponse) {
+            const cachedData = await cachedResponse.json();
+            setData(cachedData);
+            setIsPending(false);
+            setError(null);
+            return;
+          }
+
+          const csvData = await d3.csv(url, covertRaw);
+          setData(csvData);
           setIsPending(false);
           setError(null);
-        } else {
-          throw Error(res.error);
+
+          const responseToCache = new Response(JSON.stringify(csvData));
+          await cache.put(url, responseToCache);
+        } catch (err) {
+          if (err.name !== 'AbortError') {
+            setIsPending(false);
+            setError(err);
+          }
         }
-      })
-      .catch((err) => {
-        if (err.name !== 'AbortError') {
-          setIsPending(false);
-          setError(err);
-        }
-      });
+
+        return () => abortCont.abort();
+      }
+
+      fetch(url, config)
+        .then((x) => x.json())
+        .then((res) => {
+          if (!res.error) {
+            setData(res);
+            setIsPending(false);
+            setError(null);
+          } else {
+            throw Error(res.error);
+          }
+        })
+        .catch((err) => {
+          if (err.name !== 'AbortError') {
+            setIsPending(false);
+            setError(err);
+          }
+        });
+
+      return () => abortCont.abort();
+    };
+
+    fetchData();
 
     return () => abortCont.abort();
-  }, [url]);
+  }, [url, type]);
 
   return {
     error,

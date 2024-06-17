@@ -30,6 +30,7 @@
     "no-underscore-dangle":0,
     "no-unused-vars":0, // for now...
     "no-console": 0,
+    "consistent-return": 0,
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
