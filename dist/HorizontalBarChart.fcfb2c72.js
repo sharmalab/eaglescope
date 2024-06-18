@@ -128,9 +128,9 @@ var _react = _interopRequireWildcard(require("react"));
 var d3 = _interopRequireWildcard(require("d3"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
 var _tooltip = _interopRequireDefault(require("../../partials/tooltip"));
-function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
-function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && Object.prototype.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
 var transformList = function transformList(data, f) {
   var map = new Map();
   data.forEach(function (d) {
@@ -161,9 +161,16 @@ var transform = function transform(data, field) {
   if (isList) {
     return transformList(data, field);
   }
+  var collator = new Intl.Collator(undefined, {
+    numeric: true,
+    sensitivity: 'base'
+  });
+  function collSort(a, b) {
+    return collator.compare(a, b);
+  }
   return d3.nest().key(function (d) {
     return d[field];
-  }).sortKeys(d3.ascending).rollup(function (v) {
+  }).sortKeys(collSort).rollup(function (v) {
     return v.length;
   }).entries(data);
 };
@@ -350,7 +357,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58514" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51744" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
