@@ -147,6 +147,14 @@ export default class VisDataTable extends PureComponent {
           onDrag={(event, { deltaX }) => {
             this.resizeRow({ dataKey, deltaX });
           }}
+          onStart={(event, { deltaX }) => {
+            this.setState({"isResize": true});
+          }}
+          onStop={(event, { deltaX }) => {
+            setTimeout(() => {
+              this.setState({"isResize": false})
+            }, 300);  // 300 milliseconds delay
+          }}
           position={{ x: 0 }}
           zIndex={999}
         >
@@ -157,7 +165,9 @@ export default class VisDataTable extends PureComponent {
   }
 
   sortHandler({ sortBy, sortDirection }) {
-    this.setState({ sortBy, sortDirection });
+    if (!this.state.isResize){
+      this.setState({ sortBy, sortDirection });
+    }
   }
 
   render() {
