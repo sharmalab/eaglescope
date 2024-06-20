@@ -334,23 +334,43 @@ var VisDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             deltaX: deltaX
           });
         },
+        onStart: function onStart(event, _ref10) {
+          var deltaX = _ref10.deltaX;
+          _this2.setState({
+            "isResize": true
+          });
+        },
+        onStop: function onStop(event, _ref11) {
+          var deltaX = _ref11.deltaX;
+          setTimeout(function () {
+            _this2.setState({
+              "isResize": false
+            });
+          }, 300); // 300 milliseconds delay
+        },
+
         position: {
           x: 0
         },
         zIndex: 999
       }, /*#__PURE__*/_react.default.createElement("span", {
-        className: "DragHandleIcon"
+        className: "DragHandleIcon",
+        onMouseDown: function onMouseDown(event) {
+          return event.stopPropagation();
+        }
       }, "\u22EE")));
     }
   }, {
     key: "sortHandler",
-    value: function sortHandler(_ref10) {
-      var sortBy = _ref10.sortBy,
-        sortDirection = _ref10.sortDirection;
-      this.setState({
-        sortBy: sortBy,
-        sortDirection: sortDirection
-      });
+    value: function sortHandler(_ref12) {
+      var sortBy = _ref12.sortBy,
+        sortDirection = _ref12.sortDirection;
+      if (!this.state.isResize) {
+        this.setState({
+          sortBy: sortBy,
+          sortDirection: sortDirection
+        });
+      }
     }
   }, {
     key: "render",
@@ -374,9 +394,9 @@ var VisDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       }), /*#__PURE__*/_react.default.createElement(_reactVirtualized.AutoSizer, {
         ref: this.autoSizer,
         onResize: this.onResize
-      }, function (_ref11) {
-        var width = _ref11.width,
-          height = _ref11.height;
+      }, function (_ref13) {
+        var width = _ref13.width,
+          height = _ref13.height;
         return /*#__PURE__*/_react.default.createElement(_reactVirtualized.Table, {
           width: width,
           height: height,
@@ -384,8 +404,8 @@ var VisDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
           rowHeight: 20,
           rowClassName: rowClassName,
           rowCount: finalData.length,
-          rowGetter: function rowGetter(_ref12) {
-            var index = _ref12.index;
+          rowGetter: function rowGetter(_ref14) {
+            var index = _ref14.index;
             return finalData[index];
           },
           sort: _this3.sortHandler,
@@ -394,8 +414,8 @@ var VisDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         }, fields.map(function (f) {
           return /*#__PURE__*/_react.default.createElement(_reactVirtualized.Column, {
             key: f.dataKey,
-            cellDataGetter: function cellDataGetter(_ref13) {
-              var rowData = _ref13.rowData;
+            cellDataGetter: function cellDataGetter(_ref15) {
+              var rowData = _ref15.rowData;
               return rowData[f.dataKey];
             },
             dataKey: f.dataKey,
@@ -443,7 +463,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51744" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52132" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
