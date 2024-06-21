@@ -8,11 +8,18 @@ Eaglescope is a configurable code-free interactive visualization and cohort sele
 ![Interactive Contextual Visualizations](./ContextualVis.png)
 
 ## Development
+
+Please see our [code of conduct](code_of_conduct.md) for the expectations for all open source community members.
+
 Install dependencies by running `npm install`
 
 Use develop mode by running `npm run dev`
 
 Build ./dist for use with a static web server by running `npm run build`
+
+To run code style checks, run `npm run lint` or to also try to automatically fix some issues, run `npm run lint:fix`.
+
+To run unit and functional tests (also run automatically [using github actions](.github/workflows/smoke_test.yml), run `npm run test` which runs the tests in [this folder](./tests).
 
 
 # Setup and Configuration
