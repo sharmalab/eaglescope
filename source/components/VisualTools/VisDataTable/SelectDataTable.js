@@ -109,6 +109,11 @@ export default class SelectDataTable extends PureComponent {
       data = data.slice(0, downloadLimit);
       alert("Limiting download to first " + downloadLimit)
     }
+    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    console.log(checkedBoxes)
+    for (let x of checkedBoxes){
+      x.parentElement.parentElement.style.backgroundColor = "lightgray"
+    }
     console.log(data)
     console.log("about to try?")
     console.log(this.props.configProps)
