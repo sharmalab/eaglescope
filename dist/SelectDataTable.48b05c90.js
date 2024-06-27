@@ -214,6 +214,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       sortDirection: null,
       selected: []
     };
+    _this.containerRef = _react.default.createRef();
     _this.autoSizer = _react.default.createRef();
     _this.headerRenderer = _this.headerRenderer.bind(_assertThisInitialized(_this));
     _this.resizeRow = _this.resizeRow.bind(_assertThisInitialized(_this));
@@ -282,13 +283,17 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         data = data.slice(0, downloadLimit);
         alert("Limiting download to first " + downloadLimit);
       }
-      var checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      this.setState({
+        "selected": []
+      });
+      var checkedBoxes = this.containerRef.current.querySelectorAll('input[type="checkbox"]:checked');
       console.log(checkedBoxes);
       var _iterator = _createForOfIteratorHelper(checkedBoxes),
         _step;
       try {
         for (_iterator.s(); !(_step = _iterator.n()).done;) {
           var x = _step.value;
+          //x.checked = false;
           x.parentElement.parentElement.style.backgroundColor = "lightgray";
         }
       } catch (err) {
@@ -495,6 +500,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         selected = _this$state2.selected;
       var finalData = this.getSortData();
       return /*#__PURE__*/_react.default.createElement("div", {
+        ref: this.containerRef,
         style: {
           width: '100%',
           height: '100%'
@@ -606,7 +612,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55508" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55859" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
