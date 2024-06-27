@@ -60,7 +60,7 @@ export default class SelectDataTable extends PureComponent {
       sortDirection: null,
       selected: []
     };
-
+    this.containerRef = React.createRef();
     this.autoSizer = React.createRef();
     this.headerRenderer = this.headerRenderer.bind(this);
     this.resizeRow = this.resizeRow.bind(this);
@@ -109,11 +109,14 @@ export default class SelectDataTable extends PureComponent {
       data = data.slice(0, downloadLimit);
       alert("Limiting download to first " + downloadLimit)
     }
-    let checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    this.setState({"selected":[]});
+    let checkedBoxes = this.containerRef.current.querySelectorAll('input[type="checkbox"]:checked');
     console.log(checkedBoxes)
     for (let x of checkedBoxes){
-      x.parentElement.parentElement.style.backgroundColor = "lightgray"
+      //x.checked = false;
+      x.parentElement.parentElement.style.backgroundColor = "lightgray";
     }
+
     console.log(data)
     console.log("about to try?")
     console.log(this.props.configProps)
@@ -256,7 +259,7 @@ export default class SelectDataTable extends PureComponent {
     const finalData = this.getSortData();
 
     return (
-      <div style={{ width: '100%', height: '100%' }}>
+      <div ref={this.containerRef} style={{ width: '100%', height: '100%' }}>
         <VisDataTableControl
           list={fields}
           onSortEnd={this.onSortEnd}
