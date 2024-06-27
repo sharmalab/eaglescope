@@ -49,7 +49,7 @@ function filterData(data, filters) {
       }
       // search operates on the whole record instead of val
       if (!broken && operation === 'search') {
-        broken = Object.values(record).join('|').indexOf(filter.values[0]) === -1;
+        broken = Object.values(record).join('|').toLowerCase().indexOf(filter.values[0].toLowerCase()) === -1;
       }
       if (broken) {
         return false;
