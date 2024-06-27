@@ -282,15 +282,29 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         data = data.slice(0, downloadLimit);
         alert("Limiting download to first " + downloadLimit);
       }
+      var checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+      console.log(checkedBoxes);
+      var _iterator = _createForOfIteratorHelper(checkedBoxes),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var x = _step.value;
+          x.parentElement.parentElement.style.backgroundColor = "lightgray";
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
       console.log(data);
       console.log("about to try?");
       console.log(this.props.configProps);
       // trigger downloads from pathdb
-      var _iterator = _createForOfIteratorHelper(data),
-        _step;
+      var _iterator2 = _createForOfIteratorHelper(data),
+        _step2;
       try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var record = _step.value;
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var record = _step2.value;
           console.log("inside loop");
           console.log("trying to get metadata for slide with pathdb id", record);
           fetch("/node/" + record + "?_format=json", {
@@ -329,9 +343,9 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
           }).catch(console.error);
         }
       } catch (err) {
-        _iterator.e(err);
+        _iterator2.e(err);
       } finally {
-        _iterator.f();
+        _iterator2.f();
       }
     }
   }, {
@@ -592,7 +606,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54254" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55508" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
