@@ -10,8 +10,9 @@ import PropTypes from 'prop-types';
 import VisDataTableControl from './VisDataTableControl/VisDataTableControl';
 import './VisDataTable.css';
 
-const cellRenderer = (d, f) => {
+const cellRenderer = (d, f, bg) => {
   let urlElt;
+  bg = bg || '';
   if (f.link && (f.link.url || f.link.field)) {
     const urlbase = f.link.url || '';
     urlElt = (
@@ -31,7 +32,7 @@ const cellRenderer = (d, f) => {
   }
   return (
     <React.Fragment key={f.dataKey}>
-      <div className="ReactVirtualized__Table__headerTruncatedText" title={d.cellData}>
+      <div className="ReactVirtualized__Table__headerTruncatedText" title={d.cellData} style={{ backgroundColor: bg }}>
         {urlElt}
       </div>
     </React.Fragment>
@@ -58,7 +59,8 @@ export default class SelectDataTable extends PureComponent {
       width: null,
       sortBy: null,
       sortDirection: null,
-      selected: []
+      selected: [],
+      marked: []
     };
     this.containerRef = React.createRef();
     this.autoSizer = React.createRef();
@@ -109,13 +111,17 @@ export default class SelectDataTable extends PureComponent {
       data = data.slice(0, downloadLimit);
       alert("Limiting download to first " + downloadLimit)
     }
-    this.setState({"selected":[]});
-    let checkedBoxes = this.containerRef.current.querySelectorAll('input[type="checkbox"]:checked');
-    console.log(checkedBoxes)
-    for (let x of checkedBoxes){
-      //x.checked = false;
-      x.parentElement.parentElement.style.backgroundColor = "lightgray";
+    for (let x of data) {
+      this.setState(prevState => {
+        if (prevState.marked.indexOf(x) === -1) {
+          return {
+            marked: [...prevState.marked, x]
+          };
+        }
+        return null;
+      });
     }
+    this.setState({"selected":[]});
 
     console.log(data)
     console.log("about to try?")
@@ -255,9 +261,8 @@ export default class SelectDataTable extends PureComponent {
   }
 
   render() {
-    const { fields, sortBy, sortDirection, selected } = this.state;
+    const { fields, sortBy, sortDirection, selected, marked } = this.state;
     const finalData = this.getSortData();
-
     return (
       <div ref={this.containerRef} style={{ width: '100%', height: '100%' }}>
         <VisDataTableControl
@@ -303,7 +308,10 @@ export default class SelectDataTable extends PureComponent {
                     label={f.label}
                     width={width * f.width}
                     headerRenderer={this.headerRenderer}
-                    cellRenderer={(d) => cellRenderer(d, f)}
+                    cellRenderer={(d) => {
+                      let color = marked.includes(d.rowData[this.props.configProps.downloadField])? 'lightGray': '';
+                      return cellRenderer(d, f, color)
+                    }}
                   />
                 ))}
             </Table>
