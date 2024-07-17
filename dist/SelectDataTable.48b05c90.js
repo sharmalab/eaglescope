@@ -159,8 +159,9 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-var _cellRenderer = function cellRenderer(d, f) {
+var _cellRenderer = function cellRenderer(d, f, bg) {
   var urlElt;
+  bg = bg || '';
   if (f.link && (f.link.url || f.link.field)) {
     var urlbase = f.link.url || '';
     urlElt = /*#__PURE__*/_react.default.createElement("a", {
@@ -180,7 +181,10 @@ var _cellRenderer = function cellRenderer(d, f) {
     key: f.dataKey
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "ReactVirtualized__Table__headerTruncatedText",
-    title: d.cellData
+    title: d.cellData,
+    style: {
+      backgroundColor: bg
+    }
   }, urlElt));
 };
 var rowClassName = function rowClassName(_ref) {
@@ -212,7 +216,8 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
       width: null,
       sortBy: null,
       sortDirection: null,
-      selected: []
+      selected: [],
+      marked: []
     };
     _this.containerRef = _react.default.createRef();
     _this.autoSizer = _react.default.createRef();
@@ -277,30 +282,38 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
   }, {
     key: "downloadSelected",
     value: function downloadSelected() {
+      var _this2 = this;
       var downloadLimit = this.props.configProps.downloadLimit || 15;
       var data = this.state.selected;
       if (data.length > downloadLimit) {
         data = data.slice(0, downloadLimit);
         alert("Limiting download to first " + downloadLimit);
       }
-      this.setState({
-        "selected": []
-      });
-      var checkedBoxes = this.containerRef.current.querySelectorAll('input[type="checkbox"]:checked');
-      console.log(checkedBoxes);
-      var _iterator = _createForOfIteratorHelper(checkedBoxes),
+      var _iterator = _createForOfIteratorHelper(data),
         _step;
       try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var _loop = function _loop() {
           var x = _step.value;
-          //x.checked = false;
-          x.parentElement.parentElement.style.backgroundColor = "lightgray";
+          _this2.setState(function (prevState) {
+            if (prevState.marked.indexOf(x) === -1) {
+              return {
+                marked: [].concat(_toConsumableArray(prevState.marked), [x])
+              };
+            }
+            return null;
+          });
+        };
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          _loop();
         }
       } catch (err) {
         _iterator.e(err);
       } finally {
         _iterator.f();
       }
+      this.setState({
+        "selected": []
+      });
       console.log(data);
       console.log("about to try?");
       console.log(this.props.configProps);
@@ -395,7 +408,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
   }, {
     key: "headerRenderer",
     value: function headerRenderer(_ref8) {
-      var _this2 = this;
+      var _this3 = this;
       var dataKey = _ref8.dataKey,
         label = _ref8.label,
         sortBy = _ref8.sortBy,
@@ -415,21 +428,21 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
         defaultClassNameDragging: "DragHandleActive",
         onDrag: function onDrag(event, _ref9) {
           var deltaX = _ref9.deltaX;
-          _this2.resizeRow({
+          _this3.resizeRow({
             dataKey: dataKey,
             deltaX: deltaX
           });
         },
         onStart: function onStart(event, _ref10) {
           var deltaX = _ref10.deltaX;
-          _this2.setState({
+          _this3.setState({
             "isResize": true
           });
         },
         onStop: function onStop(event, _ref11) {
           var deltaX = _ref11.deltaX;
           setTimeout(function () {
-            _this2.setState({
+            _this3.setState({
               "isResize": false
             });
           }, 300); // 300 milliseconds delay
@@ -492,12 +505,13 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
   }, {
     key: "render",
     value: function render() {
-      var _this3 = this;
+      var _this4 = this;
       var _this$state2 = this.state,
         fields = _this$state2.fields,
         sortBy = _this$state2.sortBy,
         sortDirection = _this$state2.sortDirection,
-        selected = _this$state2.selected;
+        selected = _this$state2.selected,
+        marked = _this$state2.marked;
       var finalData = this.getSortData();
       return /*#__PURE__*/_react.default.createElement("div", {
         ref: this.containerRef,
@@ -527,7 +541,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             var index = _ref14.index;
             return finalData[index];
           },
-          sort: _this3.sortHandler,
+          sort: _this4.sortHandler,
           sortBy: sortBy,
           sortDirection: sortDirection
         }, /*#__PURE__*/_react.default.createElement(_reactVirtualized.Column, {
@@ -540,7 +554,7 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             return /*#__PURE__*/_react.default.createElement("div", {
               title: "Download Selected Files",
               onClick: function onClick(e) {
-                _this3.downloadSelected();
+                _this4.downloadSelected();
               }
             }, " ", /*#__PURE__*/_react.default.createElement(_reactFontawesome.FontAwesomeIcon, {
               icon: _freeSolidSvgIcons.faFileArrowDown,
@@ -554,9 +568,9 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             var rowData = _ref15.rowData;
             return /*#__PURE__*/_react.default.createElement("input", {
               type: "checkbox",
-              checked: selected.includes(rowData[_this3.props.configProps.downloadField]),
+              checked: selected.includes(rowData[_this4.props.configProps.downloadField]),
               onChange: function onChange(e) {
-                return _this3.selectionHandler(e.target.checked, rowData);
+                return _this4.selectionHandler(e.target.checked, rowData);
               }
             });
           }
@@ -570,9 +584,10 @@ var SelectDataTable = exports.default = /*#__PURE__*/function (_PureComponent) {
             dataKey: f.dataKey,
             label: f.label,
             width: width * f.width,
-            headerRenderer: _this3.headerRenderer,
+            headerRenderer: _this4.headerRenderer,
             cellRenderer: function cellRenderer(d) {
-              return _cellRenderer(d, f);
+              var color = marked.includes(d.rowData[_this4.props.configProps.downloadField]) ? 'lightGray' : '';
+              return _cellRenderer(d, f, color);
             }
           });
         }));
@@ -612,7 +627,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55859" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52451" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
