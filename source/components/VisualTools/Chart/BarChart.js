@@ -113,7 +113,8 @@ function BarChart(props) {
       .attr('class', `${className}`)
       .attr('x', (d) => scaleRef.current.x(d[fields.x]))
       .attr('width', scaleRef.current.x.bandwidth())
-      .attr('y', hightRef.current);
+      .attr('y', hightRef.current)
+      .attr('role', 'graphics-symbol');
     enterBars
       .on('mousemove', tooltipHandlers.mousemove)
       .on('mouseleave', tooltipHandlers.mouseleave)
@@ -168,7 +169,8 @@ function BarChart(props) {
         .select(self.current)
         .append('svg')
         .attr('width', rect.width)
-        .attr('height', rect.height);
+        .attr('height', rect.height)
+        .attr('role', 'img');
       // create viewer
       viewerRef.current = svg
         .append('g')
@@ -206,7 +208,7 @@ function BarChart(props) {
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
-  return <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />;
+  return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
 export default BarChart;

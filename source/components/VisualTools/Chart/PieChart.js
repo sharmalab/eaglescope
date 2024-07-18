@@ -151,7 +151,7 @@ function PieChart(props) {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />
+      <div role="figure" id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />
     </div>
   );
 }

@@ -142,7 +142,7 @@ function Histogram({
         .style('fill', '#4682B4');
     }, 100);
   }, [filters, filterData, layout]);
-  return <div id={id} ref={svgRef} style={{ width: '100%', height: '100%' }} />;
+  return <div id={id} ref={svgRef} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
 export default Histogram;
