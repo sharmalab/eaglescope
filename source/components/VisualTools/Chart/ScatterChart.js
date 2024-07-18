@@ -199,7 +199,7 @@ export default class ScatterChart extends PureComponent {
 
   render() {
     return (
-      <div id={this.props.id} ref={this.self} style={{ width: '100%', height: '100%' }} />
+      <div id={this.props.id} ref={this.self} role="figure" style={{ width: '100%', height: '100%' }} />
     );
   }
 }

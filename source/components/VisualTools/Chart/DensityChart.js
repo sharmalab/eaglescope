@@ -167,7 +167,7 @@ function DensityChart(props) {
         .attr('fill', (d) => color(d.value));
     }, 100);
   }, [props.layout, props.filters, props.filterData]);
-  return <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />;
+  return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
 export default DensityChart;

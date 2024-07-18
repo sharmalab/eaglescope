@@ -161,7 +161,7 @@ function ParallelCoordinates(props) {
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
-  return <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />;
+  return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
 export default ParallelCoordinates;

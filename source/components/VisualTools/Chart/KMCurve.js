@@ -208,7 +208,7 @@ export default class KMCurve extends PureComponent {
   }
 
   render() {
-    return <div id={this.props.id} ref={this.self} style={{ width: '100%', height: '100%' }} />;
+    return <div id={this.props.id} ref={this.self} role="figure" style={{ width: '100%', height: '100%' }} />;
   }
 }
 
