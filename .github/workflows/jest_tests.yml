@@ -1,4 +1,4 @@
-name: Code Test (Smoke)
+name: Code Test (Jest)
 
 on: [push]
 
