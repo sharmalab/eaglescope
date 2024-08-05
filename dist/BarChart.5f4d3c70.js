@@ -228,6 +228,15 @@ function BarChart(props) {
     })]).range([height, 0]);
     return yScale;
   };
+  var createLogYScale = function createLogYScale(f, height) {
+    var yScale = d3.scaleLog().domain([1, d3.max(fullData, function (d) {
+      return d[f];
+    })]).range([height, 0]);
+    return yScale;
+  };
+  var formatTick = function formatTick(d) {
+    return d.toLocaleString();
+  };
   var drawBar = function drawBar(selection, data) {
     var className = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'og';
     var addLabel = function addLabel(d) {
@@ -289,7 +298,12 @@ function BarChart(props) {
       // create viewer
       viewerRef.current = svg.append('g').attr('transform', "translate(".concat(margin.left, ",").concat(margin.top, ")"));
       var xScale = createXScale(fields.x, innerWidth);
+      var yTickCount = 4;
       var yScale = createYScale(fields.y, innerHeight);
+      if (props.logScale) {
+        yScale = createLogYScale(fields.y, innerHeight);
+        yTickCount = 2;
+      }
       scaleRef.current = {
         x: xScale,
         y: yScale
@@ -298,7 +312,7 @@ function BarChart(props) {
       viewerRef.current.append('g').attr('class', 'x axis').attr('transform', "translate(0,".concat(innerHeight, ")")).call(xAxis).selectAll('.tick text').call(wrap, xScale.bandwidth());
 
       // add the y Axis
-      var yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
+      var yAxis = d3.axisLeft(yScale).tickSize(-innerWidth).tickFormat(formatTick).tickValues(yScale.ticks(yTickCount));
       viewerRef.current.append('g').call(yAxis);
       drawBar(viewerRef.current, fullData, 'og');
     }, 100);
@@ -335,6 +349,7 @@ BarChart.propTypes = {
   filterData: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
   filters: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
   filterAdded: _propTypes.default.func.isRequired,
+  logScale: _propTypes.default.bool,
   layout: _propTypes.default.shape({
     width: _propTypes.default.number.isRequired,
     currentCols: _propTypes.default.number.isRequired
@@ -365,7 +380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52451" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54603" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

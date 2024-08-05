@@ -190,6 +190,14 @@ function HorizontalBarChart(props) {
   var scaleRef = (0, _react.useRef)();
   var hightRef = (0, _react.useRef)();
   var viewerRef = (0, _react.useRef)();
+  var createLogXScale = function createLogXScale(f, width) {
+    var maxValue = d3.max(fullData, function (d) {
+      return d[f];
+    });
+    // for now, starting domain at 1 always.
+    var xScale = d3.scaleLog().domain([1, maxValue]).range([0, width]);
+    return xScale;
+  };
   var createXScale = function createXScale(f, width) {
     var xScale = d3.scaleLinear().domain([0, d3.max(fullData, function (d) {
       return d[f];
@@ -202,6 +210,9 @@ function HorizontalBarChart(props) {
       return d[f];
     })).range([height, 0]).padding(0.1);
     return yScale;
+  };
+  var formatTick = function formatTick(d) {
+    return d.toLocaleString();
   };
   var createTextLabel = function createTextLabel() {
     viewerRef.current.selectAll('.label').remove();
@@ -277,6 +288,7 @@ function HorizontalBarChart(props) {
       var innerWidth = rect.width - margin.left - margin.right;
       var innerHeight = rect.height - margin.top - margin.bottom;
       hightRef.current = innerHeight;
+      var tickCount = 4;
 
       // create svg
       var svg = d3.select(self.current).append('svg').attr('width', rect.width).attr('height', rect.height);
@@ -284,12 +296,17 @@ function HorizontalBarChart(props) {
       viewerRef.current = svg.append('g').attr('transform', "translate(".concat(margin.left, ",").concat(margin.top, ")"));
       //
       var xScale = createXScale(fields.x, innerWidth);
+      console.log(props);
+      if (props.logScale) {
+        xScale = createLogXScale(fields.x, innerWidth);
+        tickCount = 2;
+      }
       var yScale = createYScale(fields.y, innerHeight);
       scaleRef.current = {
         x: xScale,
         y: yScale
       };
-      viewerRef.current.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(xScale).tickSize(-innerHeight));
+      viewerRef.current.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(xScale).tickSize(-innerHeight).tickValues(xScale.ticks(tickCount)).tickFormat(formatTick));
       drawBar(viewerRef.current, fullData, 'og');
       createTextLabel();
     }, 100);
@@ -327,6 +344,7 @@ HorizontalBarChart.propTypes = {
   filterData: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
   filters: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
   filterAdded: _propTypes.default.func.isRequired,
+  logScale: _propTypes.default.bool,
   layout: _propTypes.default.shape({
     width: _propTypes.default.number.isRequired,
     currentCols: _propTypes.default.number.isRequired
@@ -357,7 +375,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52451" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54603" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
