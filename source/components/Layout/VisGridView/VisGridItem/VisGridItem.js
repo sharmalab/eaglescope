@@ -56,6 +56,7 @@ function VisGridItem(props) {
         title={props.operation.title}
         layout={props.layout}
         configProps={props.operation}
+        logScale={props.operation.logScale}
       />}
     </div>
   );
@@ -85,6 +86,7 @@ VisGridItem.propTypes = {
   }),
   fullScreened: PropTypes.bool.isRequired,
   toggleFullScreen: PropTypes.func.isRequired,
+  logScale: PropTypes.bool,
 };
 
 VisGridItem.defaultProps = {

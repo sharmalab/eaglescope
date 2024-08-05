@@ -103,6 +103,16 @@ function BarChart(props) {
     return yScale;
   };
 
+  const createLogYScale = (f, height) => {
+    const yScale = d3
+      .scaleLog()
+      .domain([1, d3.max(fullData, (d) => d[f])])
+      .range([height, 0]);
+    return yScale;
+  };
+
+  const formatTick = (d) => d.toLocaleString();
+
   const drawBar = (selection, data, className = 'og') => {
     const addLabel = (d) => `${d.key}: ${d.value}`;
     const offset = {
@@ -178,7 +188,12 @@ function BarChart(props) {
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
       const xScale = createXScale(fields.x, innerWidth);
-      const yScale = createYScale(fields.y, innerHeight);
+      let yTickCount = 4;
+      let yScale = createYScale(fields.y, innerHeight);
+      if (props.logScale){
+        yScale = createLogYScale(fields.y, innerHeight);
+        yTickCount = 2;
+      }
       scaleRef.current = { x: xScale, y: yScale };
 
       const xAxis = d3.axisBottom(xScale);
@@ -191,7 +206,7 @@ function BarChart(props) {
         .call(wrap, xScale.bandwidth());
 
       // add the y Axis
-      const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
+      const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth).tickFormat(formatTick).tickValues(yScale.ticks(yTickCount));
       viewerRef.current.append('g').call(yAxis);
 
       drawBar(viewerRef.current, fullData, 'og');
@@ -223,6 +238,7 @@ BarChart.propTypes = {
   filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filterAdded: PropTypes.func.isRequired,
+  logScale: PropTypes.bool,
   layout: PropTypes.shape({
     width: PropTypes.number.isRequired,
     currentCols: PropTypes.number.isRequired,

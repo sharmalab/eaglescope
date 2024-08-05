@@ -51,6 +51,15 @@ function HorizontalBarChart(props) {
   const hightRef = useRef();
   const viewerRef = useRef();
 
+  const createLogXScale = (f, width) => {
+    const maxValue = d3.max(fullData, d => d[f]);
+    // for now, starting domain at 1 always.
+    const xScale = d3.scaleLog()
+      .domain([1, maxValue])
+      .range([0, width]);
+    return xScale;
+  };
+
   const createXScale = (f, width) => {
     const xScale = d3
       .scaleLinear()
@@ -58,6 +67,7 @@ function HorizontalBarChart(props) {
       .range([0, width]);
     return xScale;
   };
+
 
   const createYScale = (f, height) => {
     // set the ranges
@@ -69,6 +79,8 @@ function HorizontalBarChart(props) {
     return yScale;
   };
 
+  const formatTick = (d) => d.toLocaleString();
+  
   const createTextLabel = () => {
     viewerRef.current.selectAll('.label').remove();
     viewerRef.current
@@ -151,6 +163,7 @@ function HorizontalBarChart(props) {
       const innerWidth = rect.width - margin.left - margin.right;
       const innerHeight = rect.height - margin.top - margin.bottom;
       hightRef.current = innerHeight;
+      let tickCount = 4;
 
       // create svg
       const svg = d3
@@ -163,14 +176,22 @@ function HorizontalBarChart(props) {
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
       //
-      const xScale = createXScale(fields.x, innerWidth);
+      let xScale = createXScale(fields.x, innerWidth);
+      console.log(props)
+      if (props.logScale){
+        xScale = createLogXScale(fields.x, innerWidth);
+        tickCount = 2;
+      }
       const yScale = createYScale(fields.y, innerHeight);
       scaleRef.current = { x: xScale, y: yScale };
 
       viewerRef.current
         .append('g')
         .attr('transform', `translate(0,${innerHeight})`)
-        .call(d3.axisBottom(xScale).tickSize(-innerHeight));
+        .call(d3.axisBottom(xScale)
+          .tickSize(-innerHeight)
+          .tickValues(xScale.ticks(tickCount))
+          .tickFormat(formatTick));
 
       drawBar(viewerRef.current, fullData, 'og');
       createTextLabel();
@@ -203,6 +224,7 @@ HorizontalBarChart.propTypes = {
   filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   filterAdded: PropTypes.func.isRequired,
+  logScale: PropTypes.bool,
   layout: PropTypes.shape({
     width: PropTypes.number.isRequired,
     currentCols: PropTypes.number.isRequired,
