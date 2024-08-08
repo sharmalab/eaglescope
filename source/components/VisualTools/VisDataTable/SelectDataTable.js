@@ -145,9 +145,10 @@ export default class SelectDataTable extends PureComponent {
             //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
             let imageId = "image";
             try {
-              imageId = a['imageid'][0]['value'];
+              imageId = x['clinicaltrialsubjectid'][0]['value'];
             } catch (error) {
               console.log("image id missing for download, just using 'image'");
+              console.error(error);
             }
             let filename = imageId + "_" + record + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
             const a = document.createElement('a');
