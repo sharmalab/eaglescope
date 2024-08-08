@@ -142,14 +142,14 @@ export default class SelectDataTable extends PureComponent {
           }
           if (hasProblematicExtension(slide_url)){
             console.log("using anchor method")
-            let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
+            //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
             let imageId = "image";
             try {
               imageId = a['imageid'][0]['value'];
             } catch (error) {
               console.log("image id missing for download, just using 'image'");
             }
-            //let filename = imageId + "_" + record + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
+            let filename = imageId + "_" + record + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
             const a = document.createElement('a');
             a.href = slide_url;
             a.download = filename;
