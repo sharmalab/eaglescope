@@ -22,9 +22,19 @@
       "priority": 50
     },
     {
+      "id": "type2",
+      "title": "Wine Type",
+      "description": "Wine Type",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields": { "y": "wine_type" },
+      "logScale": true,
+      "size": [1, 1],
+      "priority": 50
+    },
+    {
       "id":"TextTest",
       "title": "Quality Level",
-      "description": "Did you know that text exists? Does <b>bold</b> work?",
+      "description": "Did you know that text exists?",
       "chartType": "TEXT_CONTAINER",
       "size": [1, 1],
       "priority": 50
@@ -35,6 +45,7 @@
       "description": "Quality Level",
       "chartType": "BAR_CHART",
       "fields": { "x": "quality_label" },
+      "logScale": true,
       "size": [2, 1],
       "priority": 50
     },
