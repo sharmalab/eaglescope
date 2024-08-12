@@ -143,14 +143,21 @@ export default class SelectDataTable extends PureComponent {
           if (hasProblematicExtension(slide_url)){
             console.log("using anchor method")
             //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
-            let imageId = "image";
+            let subId = "subject";
             try {
-              imageId = x['clinicaltrialsubjectid'][0]['value'];
+              subId = x['clinicaltrialsubjectid'][0]['value'];
             } catch (error) {
-              console.log("image id missing for download, just using 'image'");
+              console.log("subject id missing for download, just using 'image'");
               console.error(error);
             }
-            let filename = imageId + "_" + record + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
+            let imageId = record;
+            try {
+              imageId = x['imageid'][0]['value'];
+            } catch (error) {
+              console.log("image id missing for download, just using pathdb id");
+              console.error(error);
+            }
+            let filename = subId + "_" + imageId + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
             const a = document.createElement('a');
             a.href = slide_url;
             a.download = filename;
