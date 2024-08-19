@@ -104,6 +104,17 @@ export default class SelectDataTable extends PureComponent {
     }));
   }
 
+  getFileExt(slide_url) {
+    // gets the extension. if no extension, then entire last path elem
+    // functionally should get the last thing separated by either / or .
+    let lastPart = slide_url.substring(slide_url.lastIndexOf('/') + 1);
+    let lastDotIndex = lastPart.lastIndexOf('.');
+    if (lastDotIndex !== -1) {
+        return lastPart.substring(lastDotIndex + 1);
+    }
+    return lastPart;
+}
+
   downloadSelected() {
     let downloadLimit = this.props.configProps.downloadLimit || 15;
     let data = this.state.selected
@@ -157,7 +168,7 @@ export default class SelectDataTable extends PureComponent {
               console.log("image id missing for download, just using pathdb id");
               console.error(error);
             }
-            let filename = subId + "_" + imageId + "_" + slide_url.substring(slide_url.lastIndexOf('/') + 1);
+            let filename = subId + "_" + imageId + "." + this.getFileExt(slide_url);
             const a = document.createElement('a');
             a.href = slide_url;
             a.download = filename;
