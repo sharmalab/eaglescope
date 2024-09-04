@@ -147,42 +147,29 @@ export default class SelectDataTable extends PureComponent {
           if (window.location.protocol === "https:") {
             slide_url = slide_url.replace(/^http:\/\//i, 'https://');
           }
-          const problematicExtensions = ['.png', '.jpg', '.jpeg', '.gif', '.bmp', '.webp', '.svg', '.pdf'];
-          function hasProblematicExtension(url) {
-            return problematicExtensions.some(ext => url.toLowerCase().endsWith(ext));
+          console.log("using anchor method")
+          //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
+          let subId = "subject";
+          try {
+            subId = x['clinicaltrialsubjectid'][0]['value'];
+          } catch (error) {
+            console.log("subject id missing for download, just using 'image'");
+            console.error(error);
           }
-          if (hasProblematicExtension(slide_url)){
-            console.log("using anchor method")
-            //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
-            let subId = "subject";
-            try {
-              subId = x['clinicaltrialsubjectid'][0]['value'];
-            } catch (error) {
-              console.log("subject id missing for download, just using 'image'");
-              console.error(error);
-            }
-            let imageId = record;
-            try {
-              imageId = x['imageid'][0]['value'];
-            } catch (error) {
-              console.log("image id missing for download, just using pathdb id");
-              console.error(error);
-            }
-            let filename = subId + "_" + imageId + "." + this.getFileExt(slide_url);
-            const a = document.createElement('a');
-            a.href = slide_url;
-            a.download = filename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-          } else {
-            console.log("using iframe method")
-            const iframe = document.createElement("iframe");
-            iframe.setAttribute("sandbox", "allow-downloads allow-scripts");
-            iframe.src = slide_url;
-            iframe.setAttribute("style", "display: none");
-            document.body.appendChild(iframe);
+          let imageId = record;
+          try {
+            imageId = x['imageid'][0]['value'];
+          } catch (error) {
+            console.log("image id missing for download, just using pathdb id");
+            console.error(error);
           }
+          let filename = subId + "_" + imageId + "." + this.getFileExt(slide_url);
+          const a = document.createElement('a');
+          a.href = slide_url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
         }).catch(console.error)
     }
   }
