@@ -24,7 +24,16 @@
       "description": "Quality Level",
       "chartType": "BAR_CHART",
       "fields": { "x": "quality_label" },
-      "size": [2, 1],
+      "size": [1, 1],
+      "priority": 50
+    },
+    {
+      "id": "histogram",
+      "title": "Quality, Wine Type, and Sugar",
+      "description": "Quality, Wine Type, and Sugar Heatmap",
+      "chartType": "HEATMAP",
+      "fields": { "x": "quality_label", "y": "wine_type", "z":"residual sugar" },
+      "size": [2, 2],
       "priority": 50
     },
     {
@@ -34,7 +43,7 @@
       "chartType": "HISTOGRAM",
       "fields": { "x": "volatile acidity" },
       "binsCount": 50,
-      "size": [2, 1],
+      "size": [2, 2],
       "priority": 50
     },
     {
@@ -43,7 +52,6 @@
       "description": "Volatile and Citric Acidity",
       "chartType": "SCATTER_CHART",
       "fields": { "x": "volatile acidity", "y": "citric acid" },
-      "binsCount": 30,
       "size": [2, 2],
       "priority": 50
     },
@@ -55,7 +63,6 @@
       "fields": {
         "y": ["citric acid", "volatile acidity", "sulphates", "residual sugar"]
       },
-      "binsCount": 50,
       "size": [2, 2],
       "priority": 50
     },
@@ -77,7 +84,6 @@
       "description": "Sugar and pH scatter",
       "chartType": "SCATTER_CHART",
       "fields": { "x": "residual sugar", "y": "pH" },
-      "binsCount": 50,
       "size": [2, 2],
       "priority": 50
     },
