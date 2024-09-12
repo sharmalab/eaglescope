@@ -187,16 +187,16 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
 ## Visualization Types
 | Chart Type           | Use for                  | Photo                      | Fields                               | Other Configuration         |
 |----------------------|------------------------------|----------------------------|--------------------------------------|----------------------------|
-| **PIE_CHART**        | Proportions for distinct values of x. | <img src="./docs/img/Pie.png" height="100px" width="100px"/> | x                         | N/A                        |
-| **BAR_CHART**        | Total count of distinct values of x.              | <img src="./docs/img/Bar.png" height="100px" width="100px"/> | x                     | N/A                        |
-| **HISTOGRAM**        | Binned continious values of x, with binsCount bins.         | <img src="./docs/img/Histogram.png" height="100px" width="100px"/> | x                  | binsCount: number of ranges to split x into              |
-| **SCATTER_CHART**    | The relationship between two generally continious variables.  | <img src="./docs/img/Scatter.png" height="100px" width="100px"/> | x and y for the spatial axes values | N/A                        |
-| **PARALLEL_COORDINATES** | Data points as lines going through a set of variables                  | <img src="./docs/img/PC.png" height="100px" width="100px"/> | y: an array of each field to render in order. | N/A                        |
+| **PIE_CHART**        | Proportions for distinct values of x. | <img src="./docs/img/Pie.png" height="100px" width="100px" style="max-width:fit-content;" /> | x                         | N/A                        |
+| **BAR_CHART**        | Total count of distinct values of x.              | <img src="./docs/img/Bar.png" height="100px" width="100px" style="max-width:fit-content;" /> | x                     | N/A                        |
+| **HISTOGRAM**        | Binned continious values of x, with binsCount bins.         | <img src="./docs/img/Histogram.png" height="100px" width="100px" style="max-width:fit-content;" /> | x                  | binsCount: number of ranges to split x into              |
+| **SCATTER_CHART**    | The relationship between two generally continious variables.  | <img src="./docs/img/Scatter.png" height="100px" width="100px" style="max-width:fit-content;" /> | x and y for the spatial axes values | N/A                        |
+| **PARALLEL_COORDINATES** | Data points as lines going through a set of variables                  | <img src="./docs/img/PC.png" height="100px" width="100px" style="max-width:fit-content;" /> | y: an array of each field to render in order. | N/A                        |
 | **KM_CURVE**       | Shows heatmap-like density in a 2d space of x,y. |  | x and y for the spatial axes values | N/A                        |
-| **DENSITY_2D**       | Shows observation density in a 2d space of x,y. | <img src="./docs/img/Density.png" height="100px" width="100px"/> | x and y for the spatial axes values | N/A                        |
-| **HEATMAP**       | Uses color to show mean value of z for discrete-grouped  observations by x and y. | <img src="./docs/img/Heatmap.png" height="100px" width="100px"/> | x and y for spatial arrangment of values, z for colors | N/A                        |
+| **DENSITY_2D**       | Shows observation density in a 2d space of x,y. | <img src="./docs/img/Density.png" height="100px" width="100px" style="max-width:fit-content;" /> | x and y for the spatial axes values | N/A                        |
+| **HEATMAP**       | Uses color to show mean value of z for discrete-grouped  observations by x and y. | <img src="./docs/img/Heatmap.png" height="100px" width="100px" style="max-width:fit-content;" /> | x and y for spatial arrangment of values, z for colors | N/A                        |
 | **HORIZONTAL_BAR_CHART**       | Shows heatmap-like density in a 2d space of x,y. |  | x and y for the spatial axes values | N/A                        |
-| **VIS_DATA_TABLE**   | A tabular representation of data for columns supplied.     | <img src="./docs/img/Table.png" height="100px" width="100px"/> | (list of objects reprsenting fields to show in table) | Each object in the list has a 'dataKey' to find data in the source, and a 'label' to render the field as.                        |
+| **VIS_DATA_TABLE**   | A tabular representation of data for columns supplied.     | <img src="./docs/img/Table.png" height="100px" width="100px" style="max-width:fit-content;" /> | (list of objects reprsenting fields to show in table) | Each object in the list has a 'dataKey' to find data in the source, and a 'label' to render the field as.                        |
 
 
 ## Interactive Demo Site
