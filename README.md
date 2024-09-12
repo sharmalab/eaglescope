@@ -3,7 +3,7 @@
 [<h2 align="center"><img src="./eaglescope.png" width="200" /></h2>](.eaglescope.png)
 
 
-Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly. Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms. 
+Eaglescope is a configurable code-free interactive visualization and cohort definition and analysis tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly. Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms. 
 
 ![Interactive Contextual Visualizations](./ContextualVis.png)
 
@@ -229,7 +229,7 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
             <td style="padding: 8px; border: 1px solid #ddd;"><strong>KM_CURVE</strong></td>
             <td style="padding: 8px; border: 1px solid #ddd;">Shows heatmap-like density in a 2D space of x, y.</td>
             <td style="padding: 8px; border: 1px solid #ddd;"></td>
-            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Event, time, and group as objects including field and title. Also, eventValue, and censoredValue.</td>
         </tr>
         <tr>
             <td style="padding: 8px; border: 1px solid #ddd;"><strong>DENSITY_2D</strong></td>
@@ -245,7 +245,7 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
         </tr>
         <tr>
             <td style="padding: 8px; border: 1px solid #ddd;"><strong>HORIZONTAL_BAR_CHART</strong></td>
-            <td style="padding: 8px; border: 1px solid #ddd;">Shows heatmap-like density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd;">A horizontal bar chart.</td>
             <td style="padding: 8px; border: 1px solid #ddd;"></td>
             <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
         </tr>
