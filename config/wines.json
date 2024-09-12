@@ -43,7 +43,6 @@
       "description": "Volatile and Citric Acidity",
       "chartType": "SCATTER_CHART",
       "fields": { "x": "volatile acidity", "y": "citric acid" },
-      "binsCount": 30,
       "size": [2, 2],
       "priority": 50
     },
@@ -55,7 +54,6 @@
       "fields": {
         "y": ["citric acid", "volatile acidity", "sulphates", "residual sugar"]
       },
-      "binsCount": 50,
       "size": [2, 2],
       "priority": 50
     },
@@ -77,7 +75,6 @@
       "description": "Sugar and pH scatter",
       "chartType": "SCATTER_CHART",
       "fields": { "x": "residual sugar", "y": "pH" },
-      "binsCount": 50,
       "size": [2, 2],
       "priority": 50
     },
