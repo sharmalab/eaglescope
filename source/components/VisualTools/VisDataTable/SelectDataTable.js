@@ -142,34 +142,40 @@ export default class SelectDataTable extends PureComponent {
         console.log("inside loop")
         console.log("trying to get metadata for slide with pathdb id", record)
         fetch("/node/" + record + "?_format=json", {mode: "cors"}).then(x=>x.json()).then(x=>{ 
-          console.log("looking at wsi url: ", x['field_wsiimage'][0]['url'])
-          let slide_url = x['field_wsiimage'][0]['url']
-          if (window.location.protocol === "https:") {
-            slide_url = slide_url.replace(/^http:\/\//i, 'https://');
-          }
-          console.log("using anchor method")
-          //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
-          let subId = "subject";
-          try {
-            subId = x['clinicaltrialsubjectid'][0]['value'];
-          } catch (error) {
-            console.log("subject id missing for download, just using 'image'");
-            console.error(error);
-          }
-          let imageId = record;
-          try {
-            imageId = x['imageid'][0]['value'];
-          } catch (error) {
-            console.log("image id missing for download, just using pathdb id");
-            console.error(error);
-          }
-          let filename = subId + "_" + imageId + "." + this.getFileExt(slide_url);
-          const a = document.createElement('a');
-          a.href = slide_url;
-          a.download = filename;
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
+          let collectionId = x['field_collection'][0]['target_id'];
+          // look for collection in pathdb
+          fetch("/taxonomy/term/" + collectionId + "?_format=json", {mode: "cors"}).then(y=>y.json()).then(collectionDoc=>{
+            let collectionName = collectionDoc['name']['0']['value'];
+            console.log("looking at wsi url: ", x['field_wsiimage'][0]['url'])
+            let slide_url = x['field_wsiimage'][0]['url']
+            if (window.location.protocol === "https:") {
+              slide_url = slide_url.replace(/^http:\/\//i, 'https://');
+            }
+            console.log("using anchor method")
+            //let filename = slide_url.substring(slide_url.lastIndexOf('/') + 1);
+            let subId = "subject";
+            try {
+              subId = x['clinicaltrialsubjectid'][0]['value'];
+            } catch (error) {
+              console.log("subject id missing for download, just using 'image'");
+              console.error(error);
+            }
+            let imageId = record;
+            try {
+              imageId = x['imageid'][0]['value'];
+            } catch (error) {
+              console.log("image id missing for download, just using pathdb id");
+              console.error(error);
+            }
+            let filename = collectionName + "_" + subId + "_" + imageId + "." + this.getFileExt(slide_url);
+            const a = document.createElement('a');
+            a.href = slide_url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+          })
+
         }).catch(console.error)
     }
   }
