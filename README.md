@@ -3,7 +3,7 @@
 [<h2 align="center"><img src="./eaglescope.png" width="200" /></h2>](.eaglescope.png)
 
 
-Eaglescope is a configurable code-free interactive visualization and cohort selection tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly. Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms. 
+Eaglescope is a configurable code-free interactive visualization and cohort definition and analysis tool designed for biomedical data exploration. It is designed to be hosted flexibly without the need for a dedicated server, and creates an interactive dashboard based upon a configuration file and either an API or data file. It uses visualizations of sets of features to describe and enable contextual filtering of the data. This allows for users to understand deeper patterns or anomalies within the data, and to create datasets specifically tuned to their requirements effortlessly. Eaglescope is typically utilized either as a tool to create refined datasets tailored for training and validating machine learning AI models, or as a central hub for further exploration, allowing users to seamlessly navigate to biomedical viewers such as DICOM or whole slide imaging (WSI) platforms. 
 
 ![Interactive Contextual Visualizations](./ContextualVis.png)
 
@@ -183,6 +183,81 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
    </td>
   </tr>
 </table>
+
+## Visualization Types
+<table style="width: 100%; min-width: 500px; border-collapse: collapse; overflow-x: auto; display: block;">
+    <thead>
+        <tr>
+            <th style="width: 15%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Chart Type</th>
+            <th style="width: 40%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Use for</th>
+            <th style="width: 100px; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Photo</th>
+            <th style="width: 25%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Fields</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>PIE_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Proportions for distinct values of x.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Pie.png" alt="Pie Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>BAR_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Total count of distinct values of x.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Bar.png" alt="Bar Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HISTOGRAM</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Binned continuous values of x, with binsCount bins.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Histogram.png" alt="Histogram" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>SCATTER_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">The relationship between two generally continuous variables.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Scatter.png" alt="Scatter Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>PARALLEL_COORDINATES</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Data points as lines going through a set of variables.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/PC.png" alt="Parallel Coordinates" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">y: an array of each field to render in order.</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>KM_CURVE</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Shows heatmap-like density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Event, time, and group as objects including field and title. Also, eventValue, and censoredValue.</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>DENSITY_2D</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Shows observation density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Density.png" alt="Density 2D" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HEATMAP</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Uses color to show mean value of z for discrete-grouped observations by x and y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Heatmap.png" alt="Heatmap" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for spatial arrangement of values, z for colors</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HORIZONTAL_BAR_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">A horizontal bar chart.</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>VIS_DATA_TABLE</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">A tabular representation of data for columns supplied.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Table.png" alt="Data Table" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">(list of objects representing fields to show in table)</td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Interactive Demo Site
 [Eaglescope Demo](https://sharmalab.github.io/eaglescope/)
