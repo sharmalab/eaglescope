@@ -185,19 +185,78 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
 </table>
 
 ## Visualization Types
-| Chart Type           | Use for                  | Photo                                                                                      | Fields                               | Other Configuration         |
-|----------------------|------------------------------|--------------------------------------------------------------------------------------------|--------------------------------------|----------------------------|
-| **PIE_CHART**        | Proportions for distinct values of x. | <img src="./docs/img/Pie.png" style="width: 100px; height: 100px;"/>                     | x                                    | N/A                        |
-| **BAR_CHART**        | Total count of distinct values of x.              | <img src="./docs/img/Bar.png" style="width: 100px; height: 100px;"/>                     | x                                    | N/A                        |
-| **HISTOGRAM**        | Binned continuous values of x, with binsCount bins.         | <img src="./docs/img/Histogram.png" style="width: 100px; height: 100px;"/>              | x                                    | binsCount: number of ranges to split x into              |
-| **SCATTER_CHART**    | The relationship between two generally continuous variables.  | <img src="./docs/img/Scatter.png" style="width: 100px; height: 100px;"/>                 | x and y for the spatial axes values | N/A                        |
-| **PARALLEL_COORDINATES** | Data points as lines going through a set of variables                  | <img src="./docs/img/PC.png" style="width: 100px; height: 100px;"/>                     | y: an array of each field to render in order. | N/A                        |
-| **KM_CURVE**         | Shows heatmap-like density in a 2d space of x,y. |  | x and y for the spatial axes values | N/A                        |
-| **DENSITY_2D**       | Shows observation density in a 2d space of x,y. | <img src="./docs/img/Density.png" style="width: 100px; height: 100px;"/>                 | x and y for the spatial axes values | N/A                        |
-| **HEATMAP**          | Uses color to show mean value of z for discrete-grouped observations by x and y. | <img src="./docs/img/Heatmap.png" style="width: 100px; height: 100px;"/>                 | x and y for spatial arrangement of values, z for colors | N/A                        |
-| **HORIZONTAL_BAR_CHART** | Shows heatmap-like density in a 2d space of x,y. |  | x and y for the spatial axes values | N/A                        |
-| **VIS_DATA_TABLE**   | A tabular representation of data for columns supplied.     | <img src="./docs/img/Table.png" style="width: 100px; height: 100px;"/>                  | (list of objects representing fields to show in table) | Each object in the list has a 'dataKey' to find data in the source, and a 'label' to render the field as.                        |
-
+<table style="width: 100%; min-width: 500px; border-collapse: collapse; overflow-x: auto; display: block;">
+    <thead>
+        <tr>
+            <th style="width: 15%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Chart Type</th>
+            <th style="width: 40%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Use for</th>
+            <th style="width: 100px; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Photo</th>
+            <th style="width: 25%; padding: 8px; border: 1px solid #ddd; background-color: #f4f4f4;">Fields</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>PIE_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Proportions for distinct values of x.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Pie.png" alt="Pie Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>BAR_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Total count of distinct values of x.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Bar.png" alt="Bar Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HISTOGRAM</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Binned continuous values of x, with binsCount bins.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Histogram.png" alt="Histogram" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>SCATTER_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">The relationship between two generally continuous variables.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Scatter.png" alt="Scatter Chart" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>PARALLEL_COORDINATES</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Data points as lines going through a set of variables.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/PC.png" alt="Parallel Coordinates" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">y: an array of each field to render in order.</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>KM_CURVE</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Shows heatmap-like density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>DENSITY_2D</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Shows observation density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Density.png" alt="Density 2D" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HEATMAP</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Uses color to show mean value of z for discrete-grouped observations by x and y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Heatmap.png" alt="Heatmap" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for spatial arrangement of values, z for colors</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>HORIZONTAL_BAR_CHART</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">Shows heatmap-like density in a 2D space of x, y.</td>
+            <td style="padding: 8px; border: 1px solid #ddd;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">x and y for the spatial axes values</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; border: 1px solid #ddd;"><strong>VIS_DATA_TABLE</strong></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">A tabular representation of data for columns supplied.</td>
+            <td style="padding: 8px; border: 1px solid #ddd; text-align: center;"><img src="./docs/img/Table.png" alt="Data Table" style="width: 100px; height: auto;"></td>
+            <td style="padding: 8px; border: 1px solid #ddd;">(list of objects representing fields to show in table)</td>
+        </tr>
+    </tbody>
+</table>
 
 
 ## Interactive Demo Site
