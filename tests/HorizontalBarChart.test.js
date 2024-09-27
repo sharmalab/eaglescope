@@ -1,18 +1,19 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import HorizontalBarChart from '../source/components/VisualTools/Chart/HorizontalBarChart';
 
 const mockData = [
-    { category: 'A' },
-    { category: 'B' },
-    { category: 'A' },
-    { category: 'C' },
-    { category: 'B' },
-    { category: 'A' },
+    { category: 'A', total: 1 },
+    { category: 'B', total: 1  },
+    { category: 'A', total: 1  },
+    { category: 'C', total: 1  },
+    { category: 'B', total: 1  },
+    { category: 'A', total: 1  },
   ];
 
 const mockFields = {
-  x: 'category',
+  y: 'category',
+  x: 'total',
   isList: false,
 };
 
@@ -22,8 +23,8 @@ const mockTitle = 'Test Horiz Bar Chart';
 const mockId = 'test-horiz-bar-chart';
 
 describe('HorizontalBarChart Vis Component', () => {
-  it('renders', () => {
-    render(
+  it('renders', async () => {
+    const {container} = render(
       <HorizontalBarChart
         data={mockData}
         fields={mockFields}
@@ -35,7 +36,19 @@ describe('HorizontalBarChart Vis Component', () => {
         layout={mockLayout}
       />
     );
-    const chartElement = screen.getByRole('figure', { hidden: true });
-    expect(chartElement).toBeInTheDocument();
+    // Wait for the chart to render, up to 3 seconds
+    await waitFor(() => {
+      // console.log(container.innerHTML);
+      const chartElement = screen.getByRole('figure', { hidden: true });
+      expect(chartElement).toBeInTheDocument();
+      // console.log(chartElement.innerHTML);
+      const labelElements = chartElement.querySelectorAll('.label');
+      const barElements = chartElement.querySelectorAll('.og');
+      const barFElements = chartElement.querySelectorAll('.ft');
+      expect(labelElements).toHaveLength(3);
+      expect(barElements).toHaveLength(3);
+      expect(barFElements).toHaveLength(3);
+
+    }, { timeout: 3000 });
   });
 });

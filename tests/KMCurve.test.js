@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import KMCurve from '../source/components/VisualTools/Chart/KMCurve';
 
 const mockData = [
@@ -23,8 +23,8 @@ const mockTitle = 'Test KMCurve Chart';
 const mockId = 'test-km-curve-chart';
 
 describe('KMCurve Vis Component', () => {
-  it('renders', () => {
-    render(
+  it('renders', async () => {
+    const {container} = render(
       <KMCurve
         data={mockData}
         fields={mockFields}
@@ -36,7 +36,17 @@ describe('KMCurve Vis Component', () => {
         layout={mockLayout}
       />
     );
-    const chartElement = screen.getByRole('figure', { hidden: true });
-    expect(chartElement).toBeInTheDocument();
+    // Wait for the chart to render, up to 3 seconds
+    await waitFor(() => {
+      // console.log(container.innerHTML);
+      const chartElement = screen.getByRole('figure', { hidden: true });
+      expect(chartElement).toBeInTheDocument();
+      // console.log(chartElement.innerHTML);
+      const tickElements = chartElement.querySelectorAll('.tick');
+      const domainElements = chartElement.querySelectorAll('.domain');
+      expect(tickElements.length).toBeGreaterThan(0); // axes rendered
+      expect(domainElements.length).toBeGreaterThan(0); // body rendered
+
+    }, { timeout: 3000 });
   });
 });

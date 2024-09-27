@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import ParallelCoordinates from '../source/components/VisualTools/Chart/ParallelCoordinates';
 
 const mockData = [
@@ -19,8 +19,39 @@ const mockFilters = [];
 const mockTitle = 'Test Parallel Coordinates Chart';
 const mockId = 'test-parallel-coords-chart';
 
-describe('ParallelCoordinates Vis Component', () => {
-  it('renders', () => {
+describe('ParallelCoordinates Vis Component',  () => {
+
+  beforeEach(() => {
+    // Mocking the getBoundingClientRect method, which otherwise breaks these tests
+    const mockGetBoundingClientRect = jest.fn(() => ({
+      width: 500,
+      height: 300,
+      top: 0,
+      right: 500,
+      bottom: 300,
+      left: 0,
+    }));
+
+    // this feels pretty bad. improve this test.
+    const mockGetContext = jest.fn().mockReturnValue({
+      strokeStyle: '',
+      clearRect: console.log,
+      beginPath: console.log,
+      moveTo: console.log,
+      lineTo: console.log,
+      stroke: console.log,
+    });
+  
+    Element.prototype.getBoundingClientRect = mockGetBoundingClientRect;
+    HTMLCanvasElement.prototype.getContext = mockGetContext;
+  });
+
+  afterEach(() => {
+    // Restore the original implementation
+    jest.restoreAllMocks();
+  });
+
+  it('renders', async () => {
     render(
       <ParallelCoordinates
         data={mockData}
@@ -33,7 +64,12 @@ describe('ParallelCoordinates Vis Component', () => {
         layout={mockLayout}
       />
     );
-    const chartElement = screen.getByRole('figure', { hidden: true });
-    expect(chartElement).toBeInTheDocument();
+    await waitFor(() => {
+      const chartElement = screen.getByRole('figure', { hidden: true });
+      expect(chartElement).toBeInTheDocument();
+      // console.log(chartElement.innerHTML)
+      const canvasElements = chartElement.querySelectorAll('canvas');
+      expect(canvasElements.length).toBeGreaterThan(0); // body rendered
+    }), { timeout: 3000 };
   });
 });
