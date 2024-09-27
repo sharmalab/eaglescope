@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import PieChart from '../source/components/VisualTools/Chart/PieChart';
 
 const mockData = [
@@ -22,8 +22,8 @@ const mockTitle = 'Test Pie Chart';
 const mockId = 'test-pie-chart';
 
 describe('PieChart Vis Component', () => {
-  it('renders', () => {
-    render(
+  it('renders', async () => {
+    const {container} = render(
       <PieChart
         data={mockData}
         fields={mockFields}
@@ -35,7 +35,15 @@ describe('PieChart Vis Component', () => {
         layout={mockLayout}
       />
     );
-    const chartElement = screen.getByRole('figure', { hidden: true });
-    expect(chartElement).toBeInTheDocument();
+    // Wait for the chart to render, up to 3 seconds
+    await waitFor(() => {
+      // console.log(container.innerHTML);
+      const chartElement = screen.getByRole('figure', { hidden: true });
+      expect(chartElement).toBeInTheDocument();
+      // console.log(chartElement.innerHTML);
+      const graphicsElements = chartElement.querySelectorAll('path');
+      expect(graphicsElements).toHaveLength(3);
+
+    }, { timeout: 3000 });
   });
 });

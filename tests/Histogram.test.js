@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Histogram from '../source/components/VisualTools/Chart/Histogram';
 
 const mockData = [
@@ -21,8 +21,8 @@ const mockTitle = 'Test Histogram Chart';
 const mockId = 'test-histogram-chart';
 
 describe('Histogram Vis Component', () => {
-  it('renders', () => {
-    render(
+  it('renders', async () => {
+    const {container} = render(
       <Histogram
         data={mockData}
         fields={mockFields}
@@ -32,10 +32,18 @@ describe('Histogram Vis Component', () => {
         filters={mockFilters}
         filterAdded={[]}
         layout={mockLayout}
-        binsCount={3}
+        binsCount={5}
       />
     );
-    const chartElement = screen.getByRole('figure', { hidden: true });
-    expect(chartElement).toBeInTheDocument();
+    await waitFor(() => {
+      const chartElement = screen.getByRole('figure', { hidden: true });
+      expect(chartElement).toBeInTheDocument();
+      // console.log(chartElement.innerHTML);
+      const barElements = chartElement.querySelectorAll('.bar'); // bars
+      const barFElements = chartElement.querySelectorAll('.bar-f'); // filtered bars
+      expect(barElements).toHaveLength(5);
+      expect(barFElements).toHaveLength(5);
+
+    }, { timeout: 3000 });
   });
 });
