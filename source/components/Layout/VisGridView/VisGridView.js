@@ -30,7 +30,12 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const self = useRef();
 
   const visConfig = useMemo(() => {
-    return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === "default"));
+    console.log("designation", designation)
+    if (designation == "*"){
+      return AllVisConfig // for * don't filter, just show all
+    } else {
+      return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === "default"));
+    }
   }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
