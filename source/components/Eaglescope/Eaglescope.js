@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import VisGridView from '../Layout/VisGridView/VisGridView';
+import VisGridSplitter from '../Layout/VisGridView/VisGridSplitter';
 import VisFullScreenView from '../Layout/VisFullScreenView/VisFullScreenView';
 import ESNavbar from '../ESNavbar/ESNavbar';
 import FilterOperationPanel from '../FilterOperationPanel/FilterOperationPanel';
@@ -84,7 +84,12 @@ function Eaglescope() {
           fullScreened={isFullScreen}
         />
       ) : (
-        <VisGridView fullVisScreenHandler={fullScreenHandler} fullScreened={isFullScreen} />
+        <VisGridSplitter
+          layout={config.LAYOUT || 'default'}
+          size={config.LAYOUT_SIZE || '300px'}
+          fullVisScreenHandler={fullScreenHandler}
+          fullScreened={isFullScreen}
+        />
       )}
     </div>
   );
