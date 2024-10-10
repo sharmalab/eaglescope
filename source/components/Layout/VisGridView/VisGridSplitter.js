@@ -9,7 +9,7 @@ const VisGridSplitter = ({ layout, size, fullVisScreenHandler, fullScreened }) =
 
   const renderSingleView = () => (
     <div className="vis-grid-splitter single">
-      <VisGridView fullVisScreenHandler={fullVisScreenHandler} designation="*" fullScreened={fullScreened} />
+      <VisGridView fullVisScreenHandler={fullVisScreenHandler} designation="default" fullScreened={fullScreened} />
     </div>
   );
 

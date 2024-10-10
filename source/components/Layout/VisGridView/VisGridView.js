@@ -1,5 +1,5 @@
 import React, {
-  useState, useRef, useEffect, useContext,
+  useState, useRef, useEffect, useContext, useMemo,
 } from 'react';
 import { debounce } from 'lodash';
 import GridLayout from 'react-grid-layout';
@@ -29,10 +29,9 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   });
   const self = useRef();
 
-  let visConfig = AllVisConfig.filter((x)=>{
-    return x.designation == designation
-    || (!x.designation && designation == "default")
-  });
+  const visConfig = useMemo(() => {
+    return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === "default"));
+  }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
     const rect = self.current.getBoundingClientRect();
@@ -66,13 +65,14 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
     SetIsResizing(false);
     SetResizingItemId(null);
   };
+
   useEffect(() => {
     updateViewSize();
     window.addEventListener('resize', debouncedUpdateViewSize);
     return () => {
       window.removeEventListener('resize', debouncedUpdateViewSize);
     };
-  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW, visConfig]);
+  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, visConfig]);
 
   useEffect(() => {
     const rect = self.current.getBoundingClientRect();
