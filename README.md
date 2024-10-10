@@ -19,7 +19,7 @@ Build ./dist for use with a static web server by running `npm run build`
 
 To run code style checks, run `npm run lint` or to also try to automatically fix some issues, run `npm run lint:fix`.
 
-To run unit and functional tests (also run automatically [using github actions](.github/workflows/smoke_test.yml), run `npm run test` which runs the tests in [this folder](./tests).
+To run unit and functional tests, which are also run automatically [using github actions](.github/workflows/jest_tests.yml), run `npm run test` which runs the tests in [this folder](./tests).
 
 
 # Setup and Configuration
