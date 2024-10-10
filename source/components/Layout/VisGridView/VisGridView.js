@@ -1,5 +1,5 @@
 import React, {
-  useState, useRef, useEffect, useContext,
+  useState, useRef, useEffect, useContext, useMemo,
 } from 'react';
 import { debounce } from 'lodash';
 import GridLayout from 'react-grid-layout';
@@ -7,21 +7,13 @@ import PropTypes from 'prop-types';
 import VisGridItem from './VisGridItem/VisGridItem';
 import { getLayoutConfig } from '../../../common/utils';
 import { ConfigContext } from '../../../contexts/ConfigContext';
-
-// component style
 import './VisGridView.css';
-/**
- * This Component is Responsible for Handling Layout
- * Calculations and Resize Handler
- * @param {Function} fullVisScreenHandler Handler to set
- * @param {Boolean} fullScreened
- */
 
-function VisGridView({ fullVisScreenHandler, fullScreened }) {
+function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const { config } = useContext(ConfigContext);
   const grid = config.UNIT_OF_GRID_VIEW;
   const margins = config.MARGIN_OF_GRID_VIEW;
-  const visConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
+  const AllVisConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
   const isDraggable = config.DRAGGABLE || false;
   const isResizable = config.RESIZABLE || false;
@@ -36,6 +28,15 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     grid,
   });
   const self = useRef();
+
+  const visConfig = useMemo(() => {
+    console.log("designation", designation)
+    if (designation == "*"){
+      return AllVisConfig // for * don't filter, just show all
+    } else {
+      return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === "default"));
+    }
+  }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
     const rect = self.current.getBoundingClientRect();
@@ -69,13 +70,14 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
     SetIsResizing(false);
     SetResizingItemId(null);
   };
+
   useEffect(() => {
     updateViewSize();
     window.addEventListener('resize', debouncedUpdateViewSize);
     return () => {
       window.removeEventListener('resize', debouncedUpdateViewSize);
     };
-  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, config.UNIT_OF_GRID_VIEW, visConfig]);
+  }, [appLayout.currentCols, config.UNIT_OF_GRID_VIEW, visConfig]);
 
   useEffect(() => {
     const rect = self.current.getBoundingClientRect();
@@ -139,4 +141,10 @@ export default VisGridView;
 VisGridView.propTypes = {
   fullVisScreenHandler: PropTypes.func.isRequired,
   fullScreened: PropTypes.bool.isRequired,
+  designation: PropTypes.string,
 };
+
+VisGridView.defaultProps = {
+  designation: "*",
+};
+

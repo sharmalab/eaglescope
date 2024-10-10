@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import VisGridView from '../Layout/VisGridView/VisGridView';
+import VisGridSplitter from '../Layout/VisGridView/VisGridSplitter';
 import VisFullScreenView from '../Layout/VisFullScreenView/VisFullScreenView';
 import ESNavbar from '../ESNavbar/ESNavbar';
 import FilterOperationPanel from '../FilterOperationPanel/FilterOperationPanel';
@@ -39,12 +39,12 @@ function Eaglescope() {
     if (filters.length > 0) {
       setProgressAttrs({
         now: filteredData.length,
-        label: `${filteredData.length}/${data.length}, ${Math.floor((filteredData.length/data.length)*100)}\%`,
+        label: `${filteredData.length}/${data.length}, ${Math.floor((filteredData.length / data.length) * 100)}%`,
       });
     } else {
       setProgressAttrs({
         now: data.length,
-        label: `${data.length}/${data.length}, ${Math.floor((data.length/data.length)*100)}\%`,
+        label: `${data.length}/${data.length}, ${Math.floor((data.length / data.length) * 100)}%`,
       });
     }
   }, [filters, filteredData]);
@@ -85,10 +85,16 @@ function Eaglescope() {
           fullScreened={isFullScreen}
         />
       ) : (
-        <VisGridView fullVisScreenHandler={fullScreenHandler} fullScreened={isFullScreen} />
+        <VisGridSplitter
+          layout={config.LAYOUT || 'default'}
+          size={config.LAYOUT_SIZE || '300px'}
+          fullVisScreenHandler={fullScreenHandler}
+          fullScreened={isFullScreen}
+        />
       )}
     </div>
   );
 }
 
 export default Eaglescope;
+
