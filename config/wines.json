@@ -8,6 +8,7 @@
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
   "DATA_RESOURCE_URL": "./config/wines.csv",
   "DATA_FORMAT": "csv",
+  "LAYOUT": "left",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
       "id": "type",
@@ -16,7 +17,8 @@
       "chartType": "PIE_CHART",
       "fields": { "x": "wine_type" },
       "size": [1, 1],
-      "priority": 50
+      "priority": 50,
+      "designation":"left"
     },
     {
       "id": "quality",
@@ -25,7 +27,8 @@
       "chartType": "BAR_CHART",
       "fields": { "x": "quality_label" },
       "size": [1, 1],
-      "priority": 50
+      "priority": 50,
+      "designation":"left"
     },
     {
       "id": "histogram",
