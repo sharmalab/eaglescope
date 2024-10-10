@@ -110,6 +110,22 @@ Each Eaglescope dashboard needs a configuration url which contains global inform
    <td>“csv” or “json”
    </td>
   </tr>
+  <tr>
+   <td>LAYOUT
+   </td>
+   <td>If set, split visualizations with a matching "designation" will be put in a special row/column on top/left.
+   </td>
+   <td>"left", or "top": default behavior is no split.
+   </td>
+  </tr>
+  <tr>
+   <td>LAYOUT_SIZE
+   </td>
+   <td>When LAYOUT is set, the size of the top/left section across that dimension.
+   </td>
+   <td>css-like string; default is "300px"
+   </td>
+  </tr>
 </table>
 
 
@@ -180,6 +196,14 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
    <td>When rendering, how to order. Higher priority floats up.
    </td>
    <td>42
+   </td>
+  </tr>
+  <tr>
+   <td>designation
+   </td>
+   <td>When LAYOUT is set to split, set to "left" or "top" to put in the non-default area; don't set to leave in the main area. Do not mismatch left and top across LAYOUT and designation, or affected charts not render at all.
+   </td>
+   <td>left
    </td>
   </tr>
 </table>
