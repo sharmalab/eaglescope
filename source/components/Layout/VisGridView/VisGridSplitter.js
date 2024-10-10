@@ -4,7 +4,9 @@ import VisGridView from './VisGridView';
 import { ConfigContext } from '../../../contexts/ConfigContext';
 import './VisGridSplitter.css';
 
-const VisGridSplitter = ({ layout, size, fullVisScreenHandler, fullScreened }) => {
+function VisGridSplitter({
+  layout, size, fullVisScreenHandler, fullScreened,
+}) {
   const { config } = useContext(ConfigContext);
 
   const renderSingleView = () => (
@@ -45,7 +47,7 @@ const VisGridSplitter = ({ layout, size, fullVisScreenHandler, fullScreened }) =
     default:
       return renderSingleView();
   }
-};
+}
 
 VisGridSplitter.propTypes = {
   layout: PropTypes.oneOf(['default', 'left', 'right', 'top']).isRequired,

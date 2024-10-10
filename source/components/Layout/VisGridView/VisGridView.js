@@ -17,7 +17,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
   const isDraggable = config.DRAGGABLE || false;
   const isResizable = config.RESIZABLE || false;
-  
+
   const [isResizing, SetIsResizing] = useState(false);
   const [resizingItemId, SetResizingItemId] = useState(null);
   const [appLayout, setAppLayout] = useState({
@@ -30,12 +30,11 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const self = useRef();
 
   const visConfig = useMemo(() => {
-    console.log("designation", designation)
-    if (designation == "*"){
-      return AllVisConfig // for * don't filter, just show all
-    } else {
-      return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === "default"));
+    console.log('designation', designation);
+    if (designation == '*') {
+      return AllVisConfig; // for * don't filter, just show all
     }
+    return AllVisConfig.filter((x) => x.designation === designation || (!x.designation && designation === 'default'));
   }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
@@ -145,5 +144,5 @@ VisGridView.propTypes = {
 };
 
 VisGridView.defaultProps = {
-  designation: "*",
+  designation: '*',
 };
