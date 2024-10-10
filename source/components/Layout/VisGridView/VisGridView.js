@@ -24,7 +24,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
     width: 0,
     currentCols: 0,
     layout: [],
-    margin: 0,
+    margins: [],
     grid,
   });
   const self = useRef();
