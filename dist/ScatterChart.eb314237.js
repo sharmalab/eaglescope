@@ -1,0 +1,333 @@
+// modules are defined as an array
+// [ module function, map of requires ]
+//
+// map of requires is short require name -> numeric require
+//
+// anything defined in a previous bundle is accessed via the
+// orig method which is the require for previous bundles
+parcelRequire = (function (modules, cache, entry, globalName) {
+  // Save the require from previous bundle to this closure if any
+  var previousRequire = typeof parcelRequire === 'function' && parcelRequire;
+  var nodeRequire = typeof require === 'function' && require;
+
+  function newRequire(name, jumped) {
+    if (!cache[name]) {
+      if (!modules[name]) {
+        // if we cannot find the module within our internal map or
+        // cache jump to the current global require ie. the last bundle
+        // that was added to the page.
+        var currentRequire = typeof parcelRequire === 'function' && parcelRequire;
+        if (!jumped && currentRequire) {
+          return currentRequire(name, true);
+        }
+
+        // If there are other bundles on this page the require from the
+        // previous one is saved to 'previousRequire'. Repeat this as
+        // many times as there are bundles until the module is found or
+        // we exhaust the require chain.
+        if (previousRequire) {
+          return previousRequire(name, true);
+        }
+
+        // Try the node require function if it exists.
+        if (nodeRequire && typeof name === 'string') {
+          return nodeRequire(name);
+        }
+
+        var err = new Error('Cannot find module \'' + name + '\'');
+        err.code = 'MODULE_NOT_FOUND';
+        throw err;
+      }
+
+      localRequire.resolve = resolve;
+      localRequire.cache = {};
+
+      var module = cache[name] = new newRequire.Module(name);
+
+      modules[name][0].call(module.exports, localRequire, module, module.exports, this);
+    }
+
+    return cache[name].exports;
+
+    function localRequire(x){
+      return newRequire(localRequire.resolve(x));
+    }
+
+    function resolve(x){
+      return modules[name][1][x] || x;
+    }
+  }
+
+  function Module(moduleName) {
+    this.id = moduleName;
+    this.bundle = newRequire;
+    this.exports = {};
+  }
+
+  newRequire.isParcelRequire = true;
+  newRequire.Module = Module;
+  newRequire.modules = modules;
+  newRequire.cache = cache;
+  newRequire.parent = previousRequire;
+  newRequire.register = function (id, exports) {
+    modules[id] = [function (require, module) {
+      module.exports = exports;
+    }, {}];
+  };
+
+  var error;
+  for (var i = 0; i < entry.length; i++) {
+    try {
+      newRequire(entry[i]);
+    } catch (e) {
+      // Save first error but execute all entries
+      if (!error) {
+        error = e;
+      }
+    }
+  }
+
+  if (entry.length) {
+    // Expose entry point to Node, AMD or browser globals
+    // Based on https://github.com/ForbesLindesay/umd/blob/master/template.js
+    var mainExports = newRequire(entry[entry.length - 1]);
+
+    // CommonJS
+    if (typeof exports === "object" && typeof module !== "undefined") {
+      module.exports = mainExports;
+
+    // RequireJS
+    } else if (typeof define === "function" && define.amd) {
+     define(function () {
+       return mainExports;
+     });
+
+    // <script>
+    } else if (globalName) {
+      this[globalName] = mainExports;
+    }
+  }
+
+  // Override the current require with this new one
+  parcelRequire = newRequire;
+
+  if (error) {
+    // throw error from earlier, _after updating parcelRequire_
+    throw error;
+  }
+
+  return newRequire;
+})({"lDhf":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireWildcard(require("react"));
+var d3 = _interopRequireWildcard(require("d3"));
+var _propTypes = _interopRequireDefault(require("prop-types"));
+var _utils = require("../../../common/utils");
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+function _getRequireWildcardCache(e) { if ("function" != typeof WeakMap) return null; var r = new WeakMap(), t = new WeakMap(); return (_getRequireWildcardCache = function (e) { return e ? t : r; })(e); }
+function _interopRequireWildcard(e, r) { if (!r && e && e.__esModule) return e; if (null === e || "object" != typeof e && "function" != typeof e) return { default: e }; var t = _getRequireWildcardCache(r); if (t && t.has(e)) return t.get(e); var n = { __proto__: null }, a = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var u in e) if ("default" !== u && {}.hasOwnProperty.call(e, u)) { var i = a ? Object.getOwnPropertyDescriptor(e, u) : null; i && (i.get || i.set) ? Object.defineProperty(n, u, i) : n[u] = e[u]; } return n.default = e, t && t.set(e, n), n; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
+function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
+function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
+function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
+function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+function _inherits(t, e) { if ("function" != typeof e && null !== e) throw new TypeError("Super expression must either be null or a function"); t.prototype = Object.create(e && e.prototype, { constructor: { value: t, writable: !0, configurable: !0 } }), Object.defineProperty(t, "prototype", { writable: !1 }), e && _setPrototypeOf(t, e); }
+function _setPrototypeOf(t, e) { return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) { return t.__proto__ = e, t; }, _setPrototypeOf(t, e); }
+function _createSuper(t) { var r = _isNativeReflectConstruct(); return function () { var e, o = _getPrototypeOf(t); if (r) { var s = _getPrototypeOf(this).constructor; e = Reflect.construct(o, arguments, s); } else e = o.apply(this, arguments); return _possibleConstructorReturn(this, e); }; }
+function _possibleConstructorReturn(t, e) { if (e && ("object" == _typeof(e) || "function" == typeof e)) return e; if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined"); return _assertThisInitialized(t); }
+function _assertThisInitialized(e) { if (void 0 === e) throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); return e; }
+function _isNativeReflectConstruct() { try { var t = !Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); } catch (t) {} return (_isNativeReflectConstruct = function _isNativeReflectConstruct() { return !!t; })(); }
+function _getPrototypeOf(t) { return _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function (t) { return t.__proto__ || Object.getPrototypeOf(t); }, _getPrototypeOf(t); }
+var ScatterChart = exports.default = /*#__PURE__*/function (_PureComponent) {
+  _inherits(ScatterChart, _PureComponent);
+  var _super = _createSuper(ScatterChart);
+  function ScatterChart(props) {
+    var _this;
+    _classCallCheck(this, ScatterChart);
+    _this = _super.call(this, props);
+    _this.self = _react.default.createRef();
+    _this.state = {
+      margin: {
+        top: 5,
+        right: 10,
+        bottom: 25,
+        left: 25
+      }
+    };
+    _this.state.data = _this.props.data.filter(function (d) {
+      return d[_this.props.fields.x] !== 'N/A' && d[_this.props.fields.y] !== 'N/A' && d[_this.props.fields.z] !== 'N/A';
+    });
+    return _this;
+  }
+  _createClass(ScatterChart, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.componentDidUpdate();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      var _this2 = this;
+      setTimeout(function () {
+        d3.select(_this2.self.current).selectAll('canvas').remove('canvas');
+        d3.select(_this2.self.current).selectAll('svg').remove('svg');
+        _this2.rect = _this2.self.current.getBoundingClientRect();
+        var innerWidth = _this2.rect.width - _this2.state.margin.left - _this2.state.margin.right;
+        var innerHeight = _this2.rect.height - _this2.state.margin.top - _this2.state.margin.bottom;
+        _this2.canvas = d3.select(_this2.self.current).append('canvas').attr('width', innerWidth).attr('height', innerHeight).style('transform', "translate(".concat(_this2.state.margin.left, "px,").concat(_this2.state.margin.top, "px)"));
+
+        // create svg
+        var svg = d3.select(_this2.self.current).append('svg').attr('width', _this2.rect.width).attr('height', _this2.rect.height).attr('transform', "translate(".concat(0, ",", -innerHeight, ")"));
+
+        // create viewer
+        var viewer = svg.append('g').attr('transform', "translate(".concat(_this2.state.margin.left, ",0)"));
+
+        //
+        _this2.xScale = _this2.createScaleLiner(_this2.props.fields.x, [0, innerWidth]);
+        _this2.yScale = _this2.createScaleLiner(_this2.props.fields.y, [innerHeight, 0]);
+        _this2.radiusScale = _this2.createScaleLiner(_this2.props.fields.z, [3, 10]);
+        var getCurrentMouseClickPosition = function getCurrentMouseClickPosition() {
+          console.log(svg);
+          var mouseX = d3.event.sourceEvent.clientX - svg.node().getBoundingClientRect().x - _this2.state.margin.left;
+          var mouseY = d3.event.sourceEvent.clientY - svg.node().getBoundingClientRect().y;
+          return [mouseX, mouseY];
+        };
+        viewer.append('g').attr('transform', "translate(0,".concat(innerHeight, ")")).call(d3.axisBottom(_this2.xScale).tickSize(-innerHeight));
+
+        // add the y Axis
+        viewer.append('g').call(d3.axisLeft(_this2.yScale).tickSize(-innerWidth));
+        _this2.brush = d3.brush().extent([[0, 0], [innerWidth, innerHeight]]).on('start', function () {
+          _this2.startPosition = getCurrentMouseClickPosition();
+        }).on('brush', function () {
+          _this2.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          var startX = Math.min(_this2.startPosition[0], _this2.endPosition[0]);
+          var startY = Math.min(_this2.startPosition[1], _this2.endPosition[1]);
+          var selectedArea = svg.append('rect').attr('position', 'absolute').attr('x', startX + _this2.state.margin.left).attr('y', startY).attr('width', Math.abs(_this2.endPosition[0] - _this2.startPosition[0])).attr('height', Math.abs(_this2.endPosition[1] - _this2.startPosition[1])).attr('fill', 'rgba(211, 211, 211, 0.5)');
+        }).on('end', function () {
+          _this2.endPosition = getCurrentMouseClickPosition();
+          svg.selectAll('rect').remove('rect');
+          var startX = Math.min(_this2.startPosition[0], _this2.endPosition[0]);
+          var startY = Math.min(_this2.startPosition[1], _this2.endPosition[1]);
+          var selectedArea = svg.append('rect').attr('position', 'absolute').attr('x', startX + _this2.state.margin.left).attr('y', startY).attr('width', Math.abs(_this2.endPosition[0] - _this2.startPosition[0])).attr('height', Math.abs(_this2.endPosition[1] - _this2.startPosition[1])).attr('fill', 'rgba(211, 211, 211, 0.5)');
+          _this2.end();
+        });
+        viewer.append('g').call(_this2.brush);
+        _this2.draw();
+      }, 100);
+    }
+  }, {
+    key: "drawPoint",
+    value: function drawPoint(point) {
+      var cx = this.xScale(point[this.props.fields.x]);
+      var cy = this.yScale(point[this.props.fields.y]);
+      var r = this.props.fields.z ? this.radiusScale(point[this.props.fields.z]) : 3;
+      this.context.beginPath();
+      this.context.arc(cx, cy, r, 0, 2 * Math.PI);
+      this.context.closePath();
+      this.context.fill();
+      this.context.stroke();
+    }
+  }, {
+    key: "draw",
+    value: function draw() {
+      var _this3 = this;
+      this.context = this.canvas.node().getContext('2d');
+      this.context.clearRect(0, 0, this.rect.width, this.rect.height);
+      this.context.fillStyle = '#87CEEB';
+      this.context.strokeWidth = 1;
+      this.context.strokeStyle = '#4682B4';
+      this.context.globalAlpha = 1;
+      if (this.props.filters.length === 0) {
+        this.state.data.forEach(function (point) {
+          _this3.drawPoint(point);
+        });
+      } else {
+        this.state.data.forEach(function (point) {
+          if (_this3.props.filterData.includes(point)) {
+            _this3.context.fillStyle = '#87CEEB';
+            _this3.context.strokeWidth = 1;
+            _this3.context.strokeStyle = '#4682B4';
+            _this3.context.globalAlpha = 1;
+          } else {
+            _this3.context.fillStyle = '#c0c0c0c0';
+            _this3.context.strokeWidth = 1;
+            _this3.context.strokeStyle = '#000000';
+            _this3.context.globalAlpha = 0.2;
+          }
+          _this3.drawPoint(point);
+        });
+      }
+    }
+  }, {
+    key: "createScaleLiner",
+    value: function createScaleLiner(f, range) {
+      var paddingPercent = 0.1; // Adjust the percentage of padding as needed
+      var domainExtent = d3.extent(this.state.data, function (d) {
+        return d[f];
+      });
+      var domainPadding = (domainExtent[1] - domainExtent[0]) * paddingPercent;
+      var scaleLiner = d3.scaleLinear().domain([domainExtent[0] - domainPadding, domainExtent[1] + domainPadding]).range(range).nice();
+      return scaleLiner;
+    }
+  }, {
+    key: "end",
+    value: function end() {
+      if (!d3.event.selection) return;
+      var _ref = [Math.min(this.startPosition[0], this.endPosition[0]), Math.min(this.startPosition[1], this.endPosition[1])],
+        x0 = _ref[0],
+        y0 = _ref[1];
+      var _ref2 = [Math.max(this.startPosition[0], this.endPosition[0]), Math.max(this.startPosition[1], this.endPosition[1])],
+        x1 = _ref2[0],
+        y1 = _ref2[1];
+      var filters = [{
+        id: "".concat(this.props.id, "_x"),
+        title: this.props.title,
+        field: this.props.fields.x,
+        operation: 'range',
+        values: [(0, _utils.numFixed)(this.xScale.invert(x0)), (0, _utils.numFixed)(this.xScale.invert(x1))]
+      }, {
+        id: "".concat(this.props.id, "_y"),
+        title: this.props.title,
+        field: this.props.fields.y,
+        operation: 'range',
+        values: [(0, _utils.numFixed)(this.yScale.invert(y1)), (0, _utils.numFixed)(this.yScale.invert(y0))]
+      }];
+      this.props.filterAdded(filters);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        id: this.props.id,
+        ref: this.self,
+        style: {
+          width: '100%',
+          height: '100%'
+        }
+      });
+    }
+  }]);
+  return ScatterChart;
+}(_react.PureComponent);
+ScatterChart.propTypes = {
+  data: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
+  filterData: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
+  fields: _propTypes.default.shape({
+    x: _propTypes.default.string.isRequired,
+    y: _propTypes.default.string.isRequired,
+    z: _propTypes.default.string
+  }).isRequired,
+  id: _propTypes.default.string.isRequired,
+  title: _propTypes.default.string.isRequired,
+  filters: _propTypes.default.arrayOf(_propTypes.default.shape({})).isRequired,
+  filterAdded: _propTypes.default.func.isRequired
+};
+},{"react":"n8MK","d3":"UzF0","prop-types":"D9Od","../../../common/utils":"by1F"}]},{},[], null)
+//# sourceMappingURL=ScatterChart.eb314237.js.map
