@@ -11,6 +11,7 @@
   "HAS_SETTINGS" : 0,
   "DATA_RESOURCE_URL": "./config/wines.csv",
   "DATA_FORMAT": "csv",
+  "LAYOUT": "left",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
       "id": "type",
@@ -19,7 +20,8 @@
       "chartType": "PIE_CHART",
       "fields": { "x": "wine_type" },
       "size": [1, 1],
-      "priority": 50
+      "priority": 50,
+      "designation":"left"
     },
     {
       "id": "type2",
@@ -29,7 +31,8 @@
       "fields": { "y": "wine_type" },
       "logScale": true,
       "size": [1, 1],
-      "priority": 50
+      "priority": 50,
+      "designation":"left"
     },
     {
       "id":"TextTest",
@@ -37,7 +40,8 @@
       "description": "Did you know that text exists?",
       "chartType": "TEXT_CONTAINER",
       "size": [1, 1],
-      "priority": 50
+      "priority": 50,
+      "designation":"left"
     },
     {
       "id": "quality",
