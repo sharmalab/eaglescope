@@ -25,8 +25,8 @@ const transform = (data, field, isList = false) => {
     return transformList(data, field);
   }
   const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
-  function collSort(a,b){
-    return collator.compare(a,b);
+  function collSort(a, b) {
+    return collator.compare(a, b);
   }
   return d3.nest().key((d) => d[field])
     .sortKeys(collSort)
