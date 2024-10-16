@@ -24,8 +24,12 @@ const transform = (data, field, isList = false) => {
   if (isList) {
     return transformList(data, field);
   }
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
+  function collSort(a, b) {
+    return collator.compare(a, b);
+  }
   return d3.nest().key((d) => d[field])
-    .sortKeys(d3.ascending)
+    .sortKeys(collSort)
     .rollup((v) => v.length)
     .entries(data);
 };
