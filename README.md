@@ -9,6 +9,10 @@ Eaglescope is a configurable code-free interactive visualization and cohort defi
 
 ## Development
 
+Reporting Issues: If you find a bug or have a feature request, please open an issue on [Eaglescope's GitHub Issues page](https://github.com/sharmalab/eaglescope/issues). Be sure to provide a clear description of the problem, steps to reproduce, and any relevant screenshots.
+
+Pull Requests: If you’d like to propose additions, changes, or improvements, please submit a [pull request](https://github.com/sharmalab/eaglescope/pulls) against the main branch. Make sure to provide a clear description of your changes and any relevant context. Screenshots for visual changes are appreicated (before and after), as well as any tests performed.
+
 Please see our [code of conduct](code_of_conduct.md) for the expectations for all open source community members.
 
 Install dependencies by running `npm install`
