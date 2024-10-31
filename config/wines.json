@@ -8,7 +8,7 @@
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
   "DATA_RESOURCE_URL": "./config/wines.csv",
   "DATA_FORMAT": "csv",
-  "LAYOUT": "left",
+  "LAYOUT": "",
   "VISUALIZATION_VIEW_CONFIGURATION": [
     {
       "id": "type",
