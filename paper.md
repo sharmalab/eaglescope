@@ -17,6 +17,7 @@ authors:
     orcid: 0000-0002-3975-4809
   - name: Tony Pan
     affiliation: 1
+    orcid: 0000-0001-7945-6534
   - name: Yahia Zakaria
     corresponding: true
     orcid: 0009-0001-0705-4082
