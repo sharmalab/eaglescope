@@ -9,6 +9,7 @@ tags:
 authors:
   - name: Ryan Birmingham
     orcid: 0000-0002-7943-6346
+    corresponding: true
     equal-contrib: true
     affiliation: 1
   - name: Nan Li
@@ -19,7 +20,6 @@ authors:
     affiliation: 1
     orcid: 0000-0001-7945-6534
   - name: Yahia Zakaria
-    corresponding: true
     orcid: 0009-0001-0705-4082
     affiliation: 2
 affiliations:
