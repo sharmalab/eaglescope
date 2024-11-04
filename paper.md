@@ -22,7 +22,7 @@ authors:
     orcid: 0009-0001-0705-4082
     affiliation: 2
 affiliations:
- - name: Emory Univeristy, USA
+ - name: Emory University, United States of America
    index: 1
  - name: Independent Researcher, Egypt
    index: 2
