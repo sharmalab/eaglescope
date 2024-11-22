@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import VisGridView from './VisGridView';
 import { ConfigContext } from '../../../contexts/ConfigContext';
 import './VisGridSplitter.css';
+import SideView from './SideView/SideView';
 
 const VisGridSplitter = ({ layout, size, fullVisScreenHandler, fullScreened }) => {
   const { config } = useContext(ConfigContext);
@@ -16,7 +17,7 @@ const VisGridSplitter = ({ layout, size, fullVisScreenHandler, fullScreened }) =
   const renderLeftRightSplit = () => (
     <div className="vis-grid-splitter split-horizontal">
       <div className="left-column" style={{ width: size }}>
-        <VisGridView fullVisScreenHandler={fullVisScreenHandler} designation="left" fullScreened={fullScreened} />
+        <SideView fullVisScreenHandler={fullVisScreenHandler} designation="left" fullScreened={fullScreened} />
       </div>
       <div className="right-column">
         <VisGridView fullVisScreenHandler={fullVisScreenHandler} designation="default" fullScreened={fullScreened} />
