@@ -1,0 +1,27 @@
+.side-view{
+  padding:5px;
+  margin: 10px;
+  background-color: #EEEEEE6E;
+}
+
+.vis-grid-view {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
+    bottom: 0;
+    right: 0;
+    cursor: se-resize;
+    opacity: 0;
+  }
+  .react-grid-item:hover > .react-resizable-handle.react-resizable-handle-se {
+    opacity: 1;
+  }
+  
+  /* .react-grid-item {
+      
+  } */
+  
