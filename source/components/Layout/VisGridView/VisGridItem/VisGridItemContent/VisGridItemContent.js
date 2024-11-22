@@ -8,6 +8,7 @@ import VisTypeComponents from '../../../../VisualTools/VisTypeComponents';
 
 const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
+const EnumList = React.lazy(() => import('../../../../VisualTools/Chart/EnumList'));
 const KMCurve = React.lazy(() => import('../../../../VisualTools/Chart/KMCurve'));
 const HorizontalBarChart = React.lazy(() => import('../../../../VisualTools/Chart/HorizontalBarChart'));
 const ScatterChart = React.lazy(() => import('../../../../VisualTools/Chart/ScatterChart'));
@@ -30,6 +31,9 @@ function VisGridItemContent(props) {
       break;
     case 'BarChart':
       component = <BarChart {...props} />;
+      break;
+    case 'EnumList':
+      component = <EnumList {...props} />;
       break;
     case 'KMCurve':
       component = <KMCurve {...props} />;
