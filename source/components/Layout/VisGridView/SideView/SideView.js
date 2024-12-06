@@ -86,6 +86,7 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
               operation={item}
               toggleFullScreen={fullVisScreenHandler}
               fullScreened={fullScreened}
+              isCollapsed={index!=0} // only first is expanded at first
             />
           </div>
         ))}

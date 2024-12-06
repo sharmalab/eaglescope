@@ -27,6 +27,10 @@ function VisItem(props) {
   } = useContext(DataContext);
 
   useEffect(() => {
+    if (props.isCollapsed) setIsCollapsed(true);
+  }, [props.isCollapsed]);
+
+  useEffect(() => {
     if (props.fullScreened) setHover(true);
   }, [props.fullScreened]);
 
@@ -109,6 +113,7 @@ VisItem.propTypes = {
   toggleFullScreen: PropTypes.func.isRequired,
   isResizing: PropTypes.bool,  // Ensuring isResizing is also considered
   logScale: PropTypes.bool,
+  isCollapsed: PropTypes.bool,
 };
 
 VisItem.defaultProps = {
