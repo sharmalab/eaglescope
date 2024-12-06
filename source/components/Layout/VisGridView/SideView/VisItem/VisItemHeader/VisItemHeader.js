@@ -9,11 +9,6 @@ function VisItemHeader(props) {
   const { config } = useContext(ConfigContext);
   const { THEME_COLOR: color } = config;
 
-  let dragHeader = 'name-header';
-  if (config.DRAGGABLE) {
-    dragHeader = 'name-header draggable';
-  }
-
   return (
     <div
       className="vis-grid-item-header text-light"
@@ -23,7 +18,7 @@ function VisItemHeader(props) {
         borderRadius: config?.BORDER_RADIUS ? `${config.BORDER_RADIUS}px` : '0px',
       }}
     >
-      <div className={dragHeader}>
+      <div className='name-header'>
         <div className="chartTitle">{props.title}</div>
       </div>
 

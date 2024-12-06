@@ -19,7 +19,3 @@
   text-align: left !important;
   font-weight: bold;
 }
-
-.name-header.draggable {
-  cursor: move;
-}

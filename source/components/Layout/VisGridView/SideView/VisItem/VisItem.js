@@ -30,6 +30,11 @@ function VisItem(props) {
     if (props.fullScreened) setHover(true);
   }, [props.fullScreened]);
 
+  useEffect(() => {
+    if (props.isCollapsed) setIsCollapsed(true);
+  }, [props.isCollapsed]);
+
+  console.log([props.index, props.isCollapsed, props.operation.title])
   return (
     <div
       className="vis-grid-item"
@@ -109,6 +114,7 @@ VisItem.propTypes = {
   toggleFullScreen: PropTypes.func.isRequired,
   isResizing: PropTypes.bool, // Ensuring isResizing is also considered
   logScale: PropTypes.bool,
+  isCollapsed: PropTypes.bool,
 };
 
 VisItem.defaultProps = {

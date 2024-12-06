@@ -29,7 +29,7 @@ function VisItemControl(props) {
   }
   return (
     <div>
-      {(props.hover || show) && (
+      {(props.hover || show || true) && (
         <div className="vis-grid-item-control">
           {btnFilterRemove}
           <Button
@@ -41,16 +41,6 @@ function VisItemControl(props) {
             onClick={props.toggleCollapse}
           >
             <FontAwesomeIcon icon={props.isCollapsed ? faUpRightAndDownLeftFromCenter : faSquareMinus} />
-          </Button>
-          <Button
-            style={{
-              background: 'none',
-              border: 'none',
-            }}
-            onClick={() => props.toggleFullScreen(props.id, !props.fullScreened)}
-          >
-
-            <FontAwesomeIcon icon={props.fullScreened ? faCompressArrowsAlt : faExpandArrowsAlt} />
           </Button>
         </div>
       )}

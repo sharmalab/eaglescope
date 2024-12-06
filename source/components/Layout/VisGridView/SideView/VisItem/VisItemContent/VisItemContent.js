@@ -9,15 +9,14 @@ import VisTypeComponents from '../../../../../VisualTools/VisTypeComponents';
 const PieChart = React.lazy(() => import('../../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../../VisualTools/Chart/BarChart'));
 const KMCurve = React.lazy(() => import('../../../../../VisualTools/Chart/KMCurve'));
-const EnumList = React.lazy(() => import('../../../../../VisualTools/Chart/EnumList'));
 const HorizontalBarChart = React.lazy(() => import('../../../../../VisualTools/Chart/HorizontalBarChart'));
 const ScatterChart = React.lazy(() => import('../../../../../VisualTools/Chart/ScatterChart'));
 const VisDataTable = React.lazy(() => import('../../../../../VisualTools/VisDataTable/VisDataTable'));
-const VisCard = React.lazy(() => import('../../../../../VisualTools/VisGridCard/VisGridCard'));
 const Histogram = React.lazy(() => import('../../../../../VisualTools/Chart/Histogram'));
 const DensityChart = React.lazy(() => import('../../../../../VisualTools/Chart/DensityChart'));
 const ParallelCoordinates = React.lazy(() => import('../../../../../VisualTools/Chart/ParallelCoordinates'));
 const Heatmap = React.lazy(() => import('../../../../../VisualTools/Chart/Heatmap'));
+const VisGridCard = React.lazy(() => import('../../../../../VisualTools/VisGridCard/VisGridCard'));
 
 function VisItemContent(props) {
   const TagName = VisTypeComponents[props.chartType];
@@ -32,9 +31,6 @@ function VisItemContent(props) {
     case 'BarChart':
       component = <BarChart {...props} />;
       break;
-    case 'EnumList':
-      component = <EnumList {...props} />;
-      break;
     case 'KMCurve':
       component = <KMCurve {...props} />;
       break;
@@ -44,8 +40,8 @@ function VisItemContent(props) {
     case 'VisDataTable':
       component = <VisDataTable {...props} />;
       break;
-    case 'VisCard':
-      component = <VisCard {...props} />;
+    case 'VisGridCard':
+      component = <VisGridCard {...props} />;
       break;
     case 'Histogram':
       component = <Histogram {...props} />;
