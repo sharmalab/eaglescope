@@ -1,9 +1,9 @@
 import React, { useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import VisItemContent from './VisItemContent/VisItemContent';
 import VisItemHeader from './VisItemHeader/VisItemHeader';
 import { DataContext } from '../../../../../contexts/DataContext';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // css class
 import './VisItem.css';
 
@@ -19,7 +19,7 @@ function VisItem(props) {
   };
 
   const toggleCollapse = () => {
-    setIsCollapsed(prevState => !prevState); // Toggle collapse state
+    setIsCollapsed((prevState) => !prevState); // Toggle collapse state
   };
 
   const {
@@ -37,7 +37,7 @@ function VisItem(props) {
       onMouseLeave={onMouseLeaveHandle}
       style={{
         height: isCollapsed ? '25px' : '300px', // Adjust height based on collapsed state
-        //transition: 'height 0.3s ease', // Smooth transition for height change
+        // transition: 'height 0.3s ease', // Smooth transition for height change
       }}
     >
       <VisItemHeader
@@ -57,7 +57,7 @@ function VisItem(props) {
       {/* Render content based on isCollapsed */}
       {isCollapsed ? (
         <div className="collapsed-state">
-          <p></p>
+          <p />
         </div>
       ) : (
         props.isResizing ? (
@@ -107,7 +107,7 @@ VisItem.propTypes = {
   }),
   fullScreened: PropTypes.bool.isRequired,
   toggleFullScreen: PropTypes.func.isRequired,
-  isResizing: PropTypes.bool,  // Ensuring isResizing is also considered
+  isResizing: PropTypes.bool, // Ensuring isResizing is also considered
   logScale: PropTypes.bool,
 };
 

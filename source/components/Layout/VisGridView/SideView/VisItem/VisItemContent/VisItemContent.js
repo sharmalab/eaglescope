@@ -44,9 +44,6 @@ function VisItemContent(props) {
     case 'VisDataTable':
       component = <VisDataTable {...props} />;
       break;
-    case 'SelectDataTable':
-      component = <SelectDataTable {...props} />;
-      break;
     case 'VisCard':
       component = <VisCard {...props} />;
       break;
@@ -68,7 +65,7 @@ function VisItemContent(props) {
     default:
       component = (
         <div>
-          I&apos;m Sorry. There Is No 
+          I&apos;m Sorry. There Is No
           {TagName}
           {' '}
           Component...

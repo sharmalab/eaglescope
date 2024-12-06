@@ -57,6 +57,6 @@ VisItemHeader.propTypes = {
   fullScreened: PropTypes.bool.isRequired,
   toggleFullScreen: PropTypes.func.isRequired,
   setHover: PropTypes.func.isRequired,
-  toggleCollapse: PropTypes.func.isRequired, 
+  toggleCollapse: PropTypes.func.isRequired,
   isCollapsed: PropTypes.bool.isRequired,
 };

@@ -1,4 +1,6 @@
-import React, { useState, useRef, useEffect, useContext, useMemo } from 'react';
+import React, {
+  useState, useRef, useEffect, useContext, useMemo,
+} from 'react';
 import { debounce } from 'lodash';
 import PropTypes from 'prop-types';
 import VisItem from './VisItem/VisItem';
@@ -24,13 +26,12 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
   const self = useRef();
 
   const visConfig = useMemo(() => {
-    if (designation === "*") {
+    if (designation === '*') {
       return AllVisConfig; // For '*' don't filter, just show all
-    } else {
-      return AllVisConfig.filter(
-        (x) => x.designation === designation || (!x.designation && designation === "default")
-      );
     }
+    return AllVisConfig.filter(
+      (x) => x.designation === designation || (!x.designation && designation === 'default'),
+    );
   }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
@@ -103,5 +104,5 @@ SideView.propTypes = {
 };
 
 SideView.defaultProps = {
-  designation: "*",
+  designation: '*',
 };

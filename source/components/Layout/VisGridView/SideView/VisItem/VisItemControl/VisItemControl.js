@@ -37,10 +37,10 @@ function VisItemControl(props) {
               background: 'none',
               border: 'none',
             }}
-            aria-label={props.isCollapsed ? "Expand" : "Collapse"}
+            aria-label={props.isCollapsed ? 'Expand' : 'Collapse'}
             onClick={props.toggleCollapse}
           >
-             <FontAwesomeIcon icon={props.isCollapsed ? faUpRightAndDownLeftFromCenter : faSquareMinus} />
+            <FontAwesomeIcon icon={props.isCollapsed ? faUpRightAndDownLeftFromCenter : faSquareMinus} />
           </Button>
           <Button
             style={{
