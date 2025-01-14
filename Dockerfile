@@ -1,7 +1,7 @@
-from node:12-alpine
-RUN npm config set unsafe-perm true
+from node:18-alpine
+#RUN npm config set unsafe-perm true
 RUN npm install -g http-server
-RUN npm install -g parcel-bundler
+RUN npm install -g parcel
 
 RUN mkdir -p /source/
 COPY ./ /source/
