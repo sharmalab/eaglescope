@@ -45,7 +45,7 @@ const useFetch = (url, type = 'json') => {
           const cachedResponse = await cache.match(url);
           const cachedLastModified = await cache.match(`${url}-last-modified`);
 
-          // If cached data exists, check if it's up to date using ETag or Last-Modified
+          // If cached data exists, check if it's up to date using Last-Modified
           if (cachedResponse && cachedLastModified) {
             const lastModified = cachedLastModified.headers.get('Last-Modified');
 
@@ -53,8 +53,8 @@ const useFetch = (url, type = 'json') => {
             const headResponse = await fetch(url, { ...config, method: 'HEAD' });
             const newLastModified = headResponse.headers.get('Last-Modified');
 
-            // Compare if the ETag or Last-Modified is different
-            console.log("cache" ,lastModified, newLastModified)
+            // Compare if the Last-Modified is different
+            console.log('cache', lastModified, newLastModified);
             if (lastModified === newLastModified) {
               const cachedData = await cachedResponse.json();
               setData(cachedData);
@@ -63,7 +63,7 @@ const useFetch = (url, type = 'json') => {
               return;
             }
           }
-          console.log("cache fail", cachedLastModified)
+          console.log('cache fail', cachedLastModified);
 
           // Fetch fresh data if it's not cached or is outdated
           const csvData = await d3.csv(url, covertRaw);
@@ -71,25 +71,17 @@ const useFetch = (url, type = 'json') => {
           setIsPending(false);
           setError(null);
 
-          // Cache the fresh data along with ETag and Last-Modified headers
+          // Cache the fresh data along with the Last-Modified header
           const responseToCache = new Response(JSON.stringify(csvData));
           await cache.put(url, responseToCache);
 
           // Now use HEAD request to get only the headers
           const headResponse = await fetch(url, { ...config, method: 'HEAD' });
-          const etag = headResponse.headers.get('ETag');
           const lastModified = headResponse.headers.get('Last-Modified');
-
-          // Only cache headers if they exist
-          if (etag) {
-            const etagResponse = new Response(null, { headers: { ETag: etag } });
-            await cache.put(`${url}-etag`, etagResponse);
-          }
           if (lastModified) {
             const lastModifiedResponse = new Response(null, { headers: { 'Last-Modified': lastModified } });
             await cache.put(`${url}-last-modified`, lastModifiedResponse);
           }
-
         } catch (err) {
           if (err.name !== 'AbortError') {
             setIsPending(false);
@@ -98,30 +90,29 @@ const useFetch = (url, type = 'json') => {
         }
 
         return () => abortCont.abort();
-      } else {
+      }
 
-        // For non-CSV data (JSON or other types)
-        fetch(url, config)
-          .then((x) => x.json())
-          .then((res) => {
-            if (!res.error) {
-              setData(res);
-              setIsPending(false);
-              setError(null);
-            } else {
-              throw Error(res.error);
-            }
-          })
-          .catch((err) => {
-            if (err.name !== 'AbortError') {
-              setIsPending(false);
-              setError(err);
-            }
-          });
+      // For non-CSV data (JSON or other types)
+      fetch(url, config)
+        .then((x) => x.json())
+        .then((res) => {
+          if (!res.error) {
+            setData(res);
+            setIsPending(false);
+            setError(null);
+          } else {
+            throw Error(res.error);
+          }
+        })
+        .catch((err) => {
+          if (err.name !== 'AbortError') {
+            setIsPending(false);
+            setError(err);
+          }
+        });
 
-        return () => abortCont.abort();
-      };
-    }
+      return () => abortCont.abort();
+    };
 
     fetchData();
 
