@@ -4,7 +4,7 @@ import * as d3 from 'd3';
 function isNumeric(str) {
   if (typeof str !== 'string') return false; // we only process strings!
   return (
-    !isNaN(str)
+    !Number.isNaN(str)
     // use type coercion to parse the _entirety_ of the string
     // (`parseFloat` alone does not do this)...
     && !Number.isNaN(parseFloat(str))
@@ -43,22 +43,53 @@ const useFetch = (url, type = 'json') => {
         try {
           const cache = await caches.open('csv-cache');
           const cachedResponse = await cache.match(url);
+          const cachedLastModified = await cache.match(`${url}-last-modified`);
 
-          if (cachedResponse) {
-            const cachedData = await cachedResponse.json();
-            setData(cachedData);
-            setIsPending(false);
-            setError(null);
-            return;
+          // If cached data exists, check if it's up to date using ETag or Last-Modified
+          if (cachedResponse && cachedLastModified) {
+            const lastModified = cachedLastModified.headers.get('Last-Modified');
+
+            // Fetch headers only using the HEAD request
+            const headResponse = await fetch(url, { ...config, method: 'HEAD' });
+            const newLastModified = headResponse.headers.get('Last-Modified');
+
+            // Compare if the ETag or Last-Modified is different
+            console.log("cache" ,lastModified, newLastModified)
+            if (lastModified === newLastModified) {
+              const cachedData = await cachedResponse.json();
+              setData(cachedData);
+              setIsPending(false);
+              setError(null);
+              return;
+            }
           }
+          console.log("cache fail", cachedLastModified)
 
+          // Fetch fresh data if it's not cached or is outdated
           const csvData = await d3.csv(url, covertRaw);
           setData(csvData);
           setIsPending(false);
           setError(null);
 
+          // Cache the fresh data along with ETag and Last-Modified headers
           const responseToCache = new Response(JSON.stringify(csvData));
           await cache.put(url, responseToCache);
+
+          // Now use HEAD request to get only the headers
+          const headResponse = await fetch(url, { ...config, method: 'HEAD' });
+          const etag = headResponse.headers.get('ETag');
+          const lastModified = headResponse.headers.get('Last-Modified');
+
+          // Only cache headers if they exist
+          if (etag) {
+            const etagResponse = new Response(null, { headers: { ETag: etag } });
+            await cache.put(`${url}-etag`, etagResponse);
+          }
+          if (lastModified) {
+            const lastModifiedResponse = new Response(null, { headers: { 'Last-Modified': lastModified } });
+            await cache.put(`${url}-last-modified`, lastModifiedResponse);
+          }
+
         } catch (err) {
           if (err.name !== 'AbortError') {
             setIsPending(false);
@@ -67,28 +98,30 @@ const useFetch = (url, type = 'json') => {
         }
 
         return () => abortCont.abort();
-      }
+      } else {
 
-      fetch(url, config)
-        .then((x) => x.json())
-        .then((res) => {
-          if (!res.error) {
-            setData(res);
-            setIsPending(false);
-            setError(null);
-          } else {
-            throw Error(res.error);
-          }
-        })
-        .catch((err) => {
-          if (err.name !== 'AbortError') {
-            setIsPending(false);
-            setError(err);
-          }
-        });
+        // For non-CSV data (JSON or other types)
+        fetch(url, config)
+          .then((x) => x.json())
+          .then((res) => {
+            if (!res.error) {
+              setData(res);
+              setIsPending(false);
+              setError(null);
+            } else {
+              throw Error(res.error);
+            }
+          })
+          .catch((err) => {
+            if (err.name !== 'AbortError') {
+              setIsPending(false);
+              setError(err);
+            }
+          });
 
-      return () => abortCont.abort();
-    };
+        return () => abortCont.abort();
+      };
+    }
 
     fetchData();
 
