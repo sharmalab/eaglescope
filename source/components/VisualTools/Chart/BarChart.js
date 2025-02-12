@@ -28,11 +28,15 @@ const transform = (data, field, isList = false) => {
   function collSort(a, b) {
     return collator.compare(a, b);
   }
-  return d3.nest().key((d) => d[field])
-    .sortKeys(collSort)
-    .rollup((v) => v.length)
-    .entries(data);
+  const grouped = d3.group(data, (d) => d[field]);
+  const sortedGrouped = new Map([...grouped].sort(([keyA], [keyB]) => collSort(keyA, keyB)));
+  const result = Array.from(sortedGrouped, ([key, values]) => ({
+    key,
+    value: values.length
+  }));
+  return result;
 };
+
 
 const wrap = (text, width) => {
   text.each(function updateBars() {
