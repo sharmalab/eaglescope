@@ -81,6 +81,7 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
             }}
           >
             <VisItem
+              height={item.size[1] * config.UNIT_OF_GRID_VIEW[1]}
               isResizing={item.id === resizingItemId && isResizing}
               layout={appLayout}
               operation={item}

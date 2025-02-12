@@ -40,7 +40,6 @@ function VisGridItem(props) {
         filters={filters}
         filterRemove={removeFiltersHandler}
       />
-      
       {props.isResizing?<div className="place-holder">
         <FontAwesomeIcon icon="chart-area" className="chart-area"/>
       </div>:

@@ -40,7 +40,7 @@ function VisItem(props) {
       onMouseEnter={onMouseEnterHandle}
       onMouseLeave={onMouseLeaveHandle}
       style={{
-        height: isCollapsed ? '25px' : '300px', // Adjust height based on collapsed state
+        height: isCollapsed ? '25px' : props.height, // Adjust height based on collapsed state
         //transition: 'height 0.3s ease', // Smooth transition for height change
       }}
     >
@@ -57,7 +57,6 @@ function VisItem(props) {
         toggleCollapse={toggleCollapse} // Pass toggleCollapse to header
         isCollapsed={isCollapsed} // Pass isCollapsed state to header
       />
-
       {/* Render content based on isCollapsed */}
       {isCollapsed ? (
         <div className="collapsed-state">

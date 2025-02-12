@@ -208,7 +208,6 @@ function BarChart(props) {
       // add the y Axis
       const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth).tickFormat(formatTick).tickValues(yScale.ticks(yTickCount));
       viewerRef.current.append('g').call(yAxis);
-
       drawBar(viewerRef.current, fullData, 'og');
     }, 100);
   }, [props.layout]);
