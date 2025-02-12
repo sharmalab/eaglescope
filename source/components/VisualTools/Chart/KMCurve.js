@@ -129,23 +129,19 @@ export default class KMCurve extends PureComponent {
         && !isUndefined(d[group]),
     );
     this.maxTime = Math.max(...filteredData.map((d) => d[time]));
-    const groups = d3
-      .nest()
-      .key((d) => d[group])
-      .entries(filteredData);
+    const groups = d3.group(filteredData, (d) => d[group]);
     const rs = [];
     groups.forEach((g) => {
       const { key } = g;
       let risk = g.values.length;
-      const values = d3
-        .nest()
-        .key((d) => +d[time])
-        .sortKeys((a, b) => +a - +b)
-        .rollup((v) => ({
+      const values = Array.from(
+        d3.group(g.values, (d) => +d[time]),
+        ([k, v]) => ({
+          k,
           event: v.filter((d) => d[event] === eventValue).length,
           censor: v.filter((d) => d[event] === censoredValue).length,
-        }))
-        .entries(g.values);
+        }),
+      ).sort((a, b) => a.key - b.key);
       let p = 1;
       const points = [];
       values.forEach((d) => {

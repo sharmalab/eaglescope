@@ -73,9 +73,9 @@ function Histogram({
           [0, 0],
           [innerWidth, innerHeight],
         ])
-        .on('end', () => {
-          if (d3.event.selection) {
-            const [x0, x1] = [d3.event.selection[0], d3.event.selection[1]];
+        .on('end', (event) => {
+          if (event.selection) {
+            const [x0, x1] = [event.selection[0], event.selection[1]];
             filterAdded([
               {
                 id,

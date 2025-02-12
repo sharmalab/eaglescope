@@ -31,10 +31,12 @@ function ParallelCoordinates(props) {
     ctx.stroke();
   }
 
-  function brush() {
-    if (!d3.event.selection) return;
-    const field = dimensions.filter((d) => scales.current.y[d].brush === d3.event.target)[0];
-    const [x1, x0] = [d3.event.selection[0], d3.event.selection[1]];
+  function brush(event) {
+    if (!event.selection) return;
+
+    const field = dimensions.filter((d) => scales.current.y[d].brush === event.target)[0];
+    const [x1, x0] = [event.selection[0], event.selection[1]];
+
     props.filterAdded([
       {
         id: props.id,

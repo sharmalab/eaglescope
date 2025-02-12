@@ -2,39 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
-
-const transformList = (data, f) => {
-  const map = new Map();
-  data.forEach((d) => {
-    const items = d[f];
-    if (Array.isArray(items)) {
-      items.forEach((i) => {
-        if (!map.has(i)) { map.set(i, 0); }
-        map.set(i, map.get(i) + 1);
-      });
-    } else {
-      if (!map.has(items)) { map.set(items, 0); }
-      map.set(items, map.get(items) + 1);
-    }
-  });
-  return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
-};
-
-const transform = (data, field, isList = false) => {
-  if (isList) {
-    return transformList(data, field);
-  }
-  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
-  function collSort(a, b) {
-    return collator.compare(a, b);
-  }
-  return d3
-    .nest()
-    .key((d) => d[field])
-    .sortKeys(collSort)
-    .rollup((v) => v.length)
-    .entries(data);
-};
+import { transform } from '../common';
 
 function HorizontalBarChart(props) {
   const margin = {

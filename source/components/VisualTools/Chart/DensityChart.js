@@ -19,12 +19,14 @@ function DensityChart(props) {
     left: 40,
   };
 
-  const end = () => {
-    if (!d3.event.selection) return;
+  const end = (event) => {
+    if (!event.selection) return; // Use event.selection instead of d3.event.selection
+
     const [x0, y0] = [Math.min(startPosition[0], endPosition[0]),
       Math.min(startPosition[1], endPosition[1])];
     const [x1, y1] = [Math.max(startPosition[0], endPosition[0]),
       Math.max(startPosition[1], endPosition[1])];
+
     const filters = [
       {
         id: `${props.id}_x`,
@@ -41,6 +43,7 @@ function DensityChart(props) {
         values: [numFixed(scales.current.y.invert(y1)), numFixed(scales.current.y.invert(y0))],
       },
     ];
+
     props.filterAdded(filters);
   };
 
@@ -79,10 +82,10 @@ function DensityChart(props) {
         .call(d3.axisBottom(scales.current.x));
       svg.current.append('g').call(d3.axisLeft(scales.current.y));
 
-      const getCurrentMouseClickPosition = () => {
+      const getCurrentMouseClickPosition = (event) => {
         const rec = svg.current.select('.overlay').node();
-        const mouseX = d3.event.sourceEvent.clientX - rec.getBoundingClientRect().x;
-        const mouseY = d3.event.sourceEvent.clientY - rec.getBoundingClientRect().y;
+        const mouseX = event.sourceEvent.clientX - rec.getBoundingClientRect().x;
+        const mouseY = event.sourceEvent.clientY - rec.getBoundingClientRect().y;
         return [mouseX, mouseY];
       };
 
@@ -91,11 +94,11 @@ function DensityChart(props) {
         .extent([
           [0, 0],
           [innerWidth, innerHeight],
-        ]).on('start', () => {
-          startPosition = getCurrentMouseClickPosition();
+        ]).on('start', (event) => {
+          startPosition = getCurrentMouseClickPosition(event);
           svg.current.selectAll('.selection').remove('rect');
-        }).on('brush', () => {
-          endPosition = getCurrentMouseClickPosition();
+        }).on('brush', (event) => {
+          endPosition = getCurrentMouseClickPosition(event);
           svg.current.selectAll('.selected-area').remove('.selected-area');
           svg.current.selectAll('.selection').remove('rect');
           const startX = Math.min(startPosition[0], endPosition[0]);
@@ -109,8 +112,8 @@ function DensityChart(props) {
             .attr('height', Math.abs(endPosition[1] - startPosition[1]))
             .attr('fill', 'rgba(130, 130, 130, 0.5)');
         })
-        .on('end', () => {
-          endPosition = getCurrentMouseClickPosition();
+        .on('end', (event) => {
+          endPosition = getCurrentMouseClickPosition(event);
           svg.current.selectAll('.selected-area').remove('.selected-area');
           svg.current.selectAll('.selection').remove('rect');
           const startX = Math.min(startPosition[0], endPosition[0]);
@@ -167,6 +170,7 @@ function DensityChart(props) {
         .attr('fill', (d) => color(d.value));
     }, 100);
   }, [props.layout, props.filters, props.filterData]);
+
   return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 

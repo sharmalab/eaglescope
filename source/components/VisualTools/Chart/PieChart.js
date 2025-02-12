@@ -11,12 +11,13 @@ function PieChart(props) {
     bottom: 5,
     left: 5,
   };
-  const data = d3
-    .nest()
-    .key((d) => d[props.fields.x])
-
-    .rollup((v) => v.length)
-    .entries(props.data);
+  const data = Array.from(
+    d3.group(props.data, (d) => d[props.fields.x]),
+    ([key, value]) => ({
+      key,
+      value: value.length,
+    }),
+  );
 
   const sum = d3.sum(data, (d) => d.value);
   const pie = d3

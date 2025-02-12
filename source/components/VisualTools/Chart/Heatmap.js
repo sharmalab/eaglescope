@@ -19,8 +19,8 @@ function Heatmap(props) {
     left: 60,
   };
 
-  const myGroups = d3.map(props.data, (d) => d[props.fields.x]).keys();
-  const myVars = d3.map(props.data, (d) => d[props.fields.y]).keys();
+  const myGroups = Array.from(new Set(props.data.map((d) => d[props.fields.x])));
+  const myVars = Array.from(new Set(props.data.map((d) => d[props.fields.y])));
 
   useEffect(() => {
     setTimeout(() => {
@@ -80,16 +80,20 @@ function Heatmap(props) {
       // then aggregate to one value using mean
       // @TODO add option to choose different function such as: count, max, ..
       const visData = [];
-      myGroups.forEach((g) => myVars.forEach((v) => {
-        const currentData = data.filter(
-          (d) => d[props.fields.x] === g && d[props.fields.y] === v,
-        );
-        visData.push({
-          g,
-          v,
-          z: d3.mean(currentData, (d) => d[props.fields.z]),
+      myGroups.forEach((g) => {
+        myVars.forEach((v) => {
+          // Filter the data for the current group (g) and variable (v)
+          const currentData = props.data.filter(
+            (d) => d[props.fields.x] === g && d[props.fields.y] === v,
+          );
+          // Push the result into visData
+          visData.push({
+            g,
+            v,
+            z: d3.mean(currentData, (d) => d[props.fields.z]),
+          });
         });
-      }));
+      });
 
       // Draw each cell
       svg
