@@ -66,8 +66,12 @@ function VisGridItemContent(props) {
       );
   }
 
+  const handleMouseDown = (e) => {
+    e.stopPropagation(); // Prevent drag event from bubbling up to the parent grid item
+  };
+
   return (
-    <div className="vis-grid-item-content">
+    <div className="vis-grid-item-content" onMouseDown={handleMouseDown}>
       <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
     </div>
   );
