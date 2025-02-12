@@ -94,6 +94,7 @@ function BarChart(props) {
       .on('mouseleave', tooltipHandlers.mouseleave)
       .on('click', (currentData) => {
         const selected = enterBars.filter((d) => d === currentData);
+        console.log(selected)
         const value = selected.data()[0].key;
         const filter = props?.fields?.isList ? {
           id: props.id,

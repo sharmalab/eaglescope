@@ -126,7 +126,7 @@ function DensityChart(props) {
             .attr('width', Math.abs(endPosition[0] - startPosition[0]))
             .attr('height', Math.abs(endPosition[1] - startPosition[1]))
             .attr('fill', 'rgba(140, 140, 140, 0.5)');
-          end();
+          end(event);
           setTimeout(
             () => {
               selectedArea.remove();
