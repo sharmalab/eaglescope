@@ -33,6 +33,27 @@ const useFetch = (url, type = 'json') => {
     const fetchData = async () => {
       if (!url) return;
 
+
+      // Handle "local://" URLs
+      if (url.startsWith('local://')) {
+        const localKey = url.slice(7); // Remove the "local://" prefix
+        try {
+          const storedData = localStorage.getItem("es-" + localKey);
+          if (storedData) {
+            const parsedData = JSON.parse(storedData); // Assuming stored data is JSON
+            setData(parsedData);
+            setIsPending(false);
+            setError(null);
+          } else {
+            throw new Error(`No data found for key: ${localKey}`);
+          }
+        } catch (err) {
+          setIsPending(false);
+          setError(err);
+        }
+        return () => abortCont.abort();
+      }
+
       if (type === 'csv' && url.endsWith('.csv')) {
         try {
           const cache = await caches.open('csv-cache');
