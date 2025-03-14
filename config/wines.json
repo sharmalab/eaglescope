@@ -169,7 +169,8 @@
         }
       ],
       "size": [4, 2],
-      "priority": 100
+      "priority": 100,
+      "expandWidth": true
     }
   ]
 }

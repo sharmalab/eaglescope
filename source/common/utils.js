@@ -81,7 +81,8 @@ export function getLayoutConfig(chartsConfig, cols, resizable = false) {
 
   chartsConfigSorted.forEach((chart) => {
     // Get the size of a chart; default size is [1,1] (w,h)
-    const size = chart.size || [1, 1];
+    // if expandWidth, then width is = num cols
+    const size = chart.expandWidth ? [cols, chart.size?.[1] || 1] : chart.size || [1, 1];
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);
 
     // Grow matrix if the position is out of bounds

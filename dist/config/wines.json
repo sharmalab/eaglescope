@@ -19,7 +19,7 @@
       "description": "Wine Type",
       "chartType": "PIE_CHART",
       "fields": { "x": "wine_type" },
-      "size": [0, 2],
+      "size": [1, 1],
       "priority": 50,
       "designation":"left"
     },
@@ -169,7 +169,8 @@
         }
       ],
       "size": [4, 2],
-      "priority": 100
+      "priority": 100,
+      "expandWidth": true
     }
   ]
 }
