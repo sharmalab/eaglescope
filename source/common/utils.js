@@ -119,8 +119,8 @@ export function getLayoutConfig(chartsConfig, cols, resizable = false) {
   );
 
   chartsConfigSorted.forEach((chart) => {
-    // Check if autoExpand is enabled, and set width to full grid width
-    const size = chart.autoExpand ? [cols, chart.size?.[1] || 1] : chart.size || [1, 1];
+    // if expandWidth, then width is = num cols
+    const size = chart.expandWidth ? [cols, chart.size?.[1] || 1] : chart.size || [1, 1];
 
     // Get position in the matrix
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);

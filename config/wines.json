@@ -95,7 +95,7 @@
       "title": "Collection Data Table",
       "description": "Showing Collection Data",
       "chartType": "VIS_DATA_TABLE",
-      "autoExpand": true,
+      "expandWidth": true,
       "fields": [
         {
           "dataKey": "wine_type",

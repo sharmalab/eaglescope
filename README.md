@@ -195,6 +195,14 @@ Additionally, the field “VISUALIZATION_VIEW_CONFIGURATION” contains a list o
    </td>
   </tr>
   <tr>
+   <td>expandWidth
+   </td>
+   <td>If truthy, override width of chart to num cols in the layout.
+   </td>
+   <td>42
+   </td>
+  </tr>
+  <tr>
    <td>priority
    </td>
    <td>When rendering, how to order. Higher priority floats up.
