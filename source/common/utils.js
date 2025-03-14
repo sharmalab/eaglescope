@@ -109,44 +109,40 @@ export function fillMatrix(matrix, val, pos = [0, 0], size = [matrix[0].length, 
 }
 
 // get layout for react-grid-layout
-export function getLayoutConfig(chartsConfig, cols, resiziable = false) {
+export function getLayoutConfig(chartsConfig, cols, resizable = false) {
   const layout = [];
   const matrix = createMatrix(cols);
-  // sort charts by priority
+
+  // Sort charts by priority
   const chartsConfigSorted = chartsConfig.sort(
-    (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName),
+    (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName)
   );
 
-  // TODO for some charts that requests a particular position in matrix
-  // 1. do we need to put charts in a particular position?
-  // 2. compute the new charts' layout config
-  // 3. add new charts' layout config into layout array.
-  // filter out the solid chart before compute the position of the rest of charts
-
-  // make an arrangement for the rest of charts
   chartsConfigSorted.forEach((chart) => {
-    // get the size of a chart; default size is [1,1] (w,h)
-    const size = chart.size || [1, 1];
+    // Check if autoExpand is enabled, and set width to full grid width
+    const size = chart.autoExpand ? [cols, chart.size?.[1] || 1] : chart.size || [1, 1];
+
+    // Get position in the matrix
     const pos = matrix.length === 0 ? [0, 0] : getPosition(matrix, size);
 
-    // grow up if the matrix is small than the expectation
+    // Grow matrix if necessary
     while (matrix.length <= pos[1] + size[1]) {
-      matrix.push(new Array(cols));
+      matrix.push(new Array(cols).fill(null));
     }
 
-    // fill Matrix
+    // Fill the matrix with the chart ID
     fillMatrix(matrix, chart.id, pos, size);
 
-    // create layout config
+    // Push layout config
     layout.push({
       i: chart.id,
       x: pos[0],
       y: pos[1],
       w: size[0],
       h: size[1],
-      isResizable: resiziable,
+      isResizable: resizable,
     });
   });
 
-  return { layout, rows: matrix[0].length };
+  return { layout, rows: matrix[0]?.length || 0 };
 }
