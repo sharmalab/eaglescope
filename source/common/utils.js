@@ -115,7 +115,7 @@ export function getLayoutConfig(chartsConfig, cols, resizable = false) {
 
   // Sort charts by priority
   const chartsConfigSorted = chartsConfig.sort(
-    (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName)
+    (a, b) => b.priority - a.priority || a.title.localeCompare(b.displayName),
   );
 
   chartsConfigSorted.forEach((chart) => {
