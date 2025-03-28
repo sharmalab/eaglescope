@@ -23,6 +23,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@babel/preset-env": "^7.26.0",
+    "@emotion/styled": "^11.14.0",
     "@fortawesome/fontawesome": "^1.1.8",
     "@fortawesome/fontawesome-free": "^6.5.2",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
@@ -30,6 +31,9 @@
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@mui/icons-material": "^7.0.1",
+    "@mui/material": "^7.0.1",
+    "@mui/x-tree-view": "^7.28.1",
     "@types/hoist-non-react-statics": "^3.3.5",
     "@types/node": "^20.12.13",
     "@types/react": "^18.3.3",

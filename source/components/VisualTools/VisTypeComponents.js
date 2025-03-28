@@ -75,12 +75,12 @@ const VisInputDescription = {
     isXArr: false,
     isYArr: false,
   },
-  // VIS_SPATIAL_MAP: {
-  //   hasX: false,
-  //   hasY: false,
-  //   isXArr: false,
-  //   isYArr: false,
-  // }
+ VIS_SPATIAL_MAP: {
+   hasX: false,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  }
 };
 
 export default VisTypeComponents;

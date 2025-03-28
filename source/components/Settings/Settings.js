@@ -152,8 +152,130 @@ function Settings() {
     setPending(false);
   };
 
-  const APIHandleSubmit = (e) => {
+
+  const APIHandleSubmit = async (e) => {
+    console.log(e, "eee")
     e.preventDefault();
+    setPending(true);
+    // get name
+    console.log("form", e.target)
+    const name = document.getElementById("dataSource").value
+    console.log("nameeee", name)
+
+    let pies = [] // later
+    let bars = []
+    // also need map
+    let varState = {
+      "RPL_THEME1": { "type": "feature_range", "cardinality": 10 },
+      "RPL_THEME2": { "type": "feature_range", "cardinality": 10 },
+      "RPL_THEME3": { "type": "feature_range", "cardinality": 10 },
+      "RPL_THEME4": { "type": "feature_range", "cardinality": 10 },
+      "SVI_SCORE": { "type": "feature_range", "cardinality": 10 },
+      "STCNTY": { "type": "geo_county", "cardinality": 162 },
+      "VISIT_COUNTS": { "type": "stat_count", "cardinality": -1 },
+      "concept_name": { "name": "feature_category", "cardinality": 1000}
+    };      
+    let new_url = "./config/sample_svi.json"
+    if (name == "adi"){
+      varState = {
+        "ADI_NATRANK": { "type": "feature_range", "cardinality": 10 },
+        "ADI_STATERNK": { "type": "feature_range", "cardinality": 10 },
+        "STCNTY": { "type": "geo_county", "cardinality": 162 },
+        "VISIT_COUNTS": { "type": "stat_count", "cardinality": -1 },
+        "concept_name": { "name": "feature_category", "cardinality": 1000}
+      }
+        
+      new_url = "./config/sample_adi.json"
+    }
+
+    let categoricals = [];
+    let count_key = "";
+
+    for (let [key, value] of Object.entries(varState)) {
+      if (value.type === "feature_range" || value.type === "feature_category") {
+        categoricals.push(key);
+      } else if (value.type === "stat_count"){
+        count_key = key
+      }
+    }
+
+    console.error(categoricals, count_key, "meow")
+    
+
+    let charts = categoricals.map((x) => {
+      return {
+        "id": `${count_key}-${x}`,
+        "title": `sum of ${count_key} in ${x}`,
+        "description": "",
+        "chartType": "BAR_CHART",
+        "fields": {
+          "x": x,
+          "y": count_key
+        },
+        "method": "sum",
+        "size": [2, 1],
+        "priority": 100
+      };
+    });
+
+    let mapChart = {
+      "id": "geo-maps-polygon",
+      "title": "Geo Map - polygon",
+      "description": "Open Street polygon",
+      "type": "geojson",
+      "format": "json",
+      "chartType": "VIS_SPATIAL_MAP",
+      "fields": {
+        "title": "COUNTY",
+        "color": count_key,
+        "label": [...categoricals, count_key]
+      },
+      "size": [2, 2],
+      "priority": 70
+    };
+    
+    let tableChart = {
+      "id": "collection_data_table",
+      "title": "Data Table",
+      "description": "Showing Collection Data",
+      "chartType": "VIS_DATA_TABLE",
+      "groupedField": "STCNTY",
+      "method":"sum",
+      "fields": [
+        ...categoricals.map(categorical => ({
+          "dataKey": categorical,
+          "label": `S${categorical}`
+        })),
+        {
+          "dataKey": count_key,
+          "label": `C${count_key}`
+        }
+      ],
+      "size": [4, 2],
+      "priority": 100
+    };
+    
+    
+
+
+    setConfig((prevConfig) => ({
+      ...prevConfig,
+      TITLE: title + "-new-modified",
+      HOME_URL: homeUrl,
+      HEIGHT_OF_VIS_HEADER: headerHight,
+      MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
+      UNIT_OF_GRID_VIEW: [Number(visSize.x), Number(visSize.y)],
+      THEME_COLOR: color,
+      HIDE_BORDER: hideBorder !== 'Show',
+      BORDER_RADIUS: borderRadius,
+      DATA_RESOURCE_URL: new_url,
+      DATA_FORMAT: format,
+      VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart]
+    }));
+
+    
+
+    setPending(false);
     handleClose();
   }
 
@@ -178,7 +300,7 @@ function Settings() {
 
   useEffect(() => {
 
-    const fetchData = async () => {
+    const fetchInfo = async () => {
       // Create the Basic Auth credentials
       const username = 'Nan'
       const password = 'MaternalHealth'
@@ -214,7 +336,7 @@ function Settings() {
       }
     };
     console.log('~~~~~~~~test~~~~~~~~~~~~')
-    fetchData();
+    fetchInfo();
   }, []);
 
   return (
@@ -452,6 +574,17 @@ function Settings() {
                   </Form.Select>
                 </Form.Group>
               </Col>
+              <Row>
+                <Col className="p-0">
+                  <Form.Group as={Col} className="mb-3">
+                    <Form.Label className="settings-label">Show data for:</Form.Label>
+                    <Form.Select id="dataSource" value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
+                      <option value="svi">SVI</option>
+                      <option value="adi">ADI</option>
+                    </Form.Select>
+                  </Form.Group>
+                </Col>
+              </Row>
               <Row>
                 <Col sm={5}>
                   <Button
