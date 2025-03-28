@@ -255,6 +255,6 @@ VisSettings.propTypes = {
   setHover: PropTypes.func,
 };
 
-VisSettings.defaultProps = {
-  setHover: null,
-};
+// VisSettings.defaultProps = {
+//   setHover: null,
+// };

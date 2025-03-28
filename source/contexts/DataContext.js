@@ -15,7 +15,7 @@ function filterData(data, filters) {
 
       let broken = false;
       if (!broken && operation === 'eq') {
-        broken = broken || val !== filter.values;
+        broken = broken || val != filter.values;
       }
       if (!broken && operation === 'gt') {
         broken = broken || val <= filter.values;
@@ -62,21 +62,14 @@ function filterData(data, filters) {
 
 export const DataContext = createContext();
 
-export default function DataContextProvider({ children, overrideData }) {
+export default function DataContextProvider({ children }) {
   const { config } = useContext(ConfigContext);
   const [loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const filtersRef = useRef();
   const [filters, setFilters] = useState([]);
-  let data;
-  let dataError;
-  if (overrideData) {
-    data = overrideData;
-  } else {
-    const { error, data: fetchedData } = useFetch(config?.DATA_RESOURCE_URL, config?.DATA_FORMAT);
-    dataError = error;
-    data = fetchedData;
-  }
+  const { error: dataError, data, tables, lookup, variables } = useFetch(config?.DATA_RESOURCE_URL, config?.DATA_FORMAT, config?.DATA_LOOKUP_URL);
+
   const addFiltersHandler = (toAddFilters) => {
     const oldFilters = [...filtersRef.current];
     // remove first
@@ -128,23 +121,27 @@ export default function DataContextProvider({ children, overrideData }) {
 
   useEffect(() => {
     if (!data) return;
+
     filtersRef.current = [];
     setFilteredData(data);
     initURL(addFiltersHandler, removeFiltersHandler);
     setLoading(false);
-  }, [data]);
+  }, [data, lookup, tables]);
 
   const memoData = useMemo(
     () => ({
       dataError,
       data,
+      lookup,
+      tables,
+      variables,
       loading,
       filteredData,
       filters,
       addFiltersHandler,
       removeFiltersHandler,
     }),
-    [filters, loading, dataError, data, filteredData],
+    [filters, loading, dataError, data, tables, lookup, variables, filteredData],
   );
 
   return <DataContext.Provider value={memoData}>{children}</DataContext.Provider>;
@@ -152,9 +149,4 @@ export default function DataContextProvider({ children, overrideData }) {
 
 DataContextProvider.propTypes = {
   children: PropTypes.shape().isRequired,
-  overrideData: PropTypes.object, // Optional parameter to override configuration data
-};
-
-DataContextProvider.defaultProps = {
-  overrideData: false,
 };

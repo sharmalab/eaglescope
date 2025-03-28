@@ -37,7 +37,6 @@ function ESNavbar(props) {
           label={progressLabel}
         />
       </Form>
-
       <Settings />
     </Navbar>
   );
@@ -55,6 +54,6 @@ ESNavbar.propTypes = {
   color: PropTypes.string,
 };
 
-ESNavbar.defaultProps = {
-  color: '#007bff',
-};
+// ESNavbar.defaultProps = {
+//   color: '#007bff',
+// };

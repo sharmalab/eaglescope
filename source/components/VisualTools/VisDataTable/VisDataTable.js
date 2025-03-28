@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import * as d3 from 'd3';
 import {
   AutoSizer, Column, Table, SortDirection,
 } from 'react-virtualized';
@@ -66,6 +67,7 @@ export default class VisDataTable extends PureComponent {
     this.onAllCheckHandler = this.onAllCheckHandler.bind(this);
     this.sortHandler = this.sortHandler.bind(this);
     this.getSortData = this.getSortData.bind(this);
+    
   }
 
   onResize({ width }) {
@@ -98,11 +100,35 @@ export default class VisDataTable extends PureComponent {
     }));
   }
 
+  // groupAndSum(arr, groupKey,lookup) {
+  //   return Object.values(
+  //     arr.reduce((acc, item) => {
+  //       const key = item[groupKey]; // Dynamic category key
+  //       const values = { ...item };
+  //       delete values[groupKey]; // Remove the grouping key from summation
+  //       if (!acc[key]) {
+  //         const ftre = lookup.find(feature => +feature.properties.GEOID10 === key);
+  //         acc[key] = { [groupKey]: key, 'COUNTY':ftre.properties.NAMELSAD10 , ...Object.fromEntries(Object.keys(values).map(k => [k, 0])) };
+        
+  //       }
+  //       Object.keys(values).forEach(k => {
+  //         acc[key][k] += values[k];
+  //       });
+  
+  //       return acc;
+  //     }, {})
+  //   );
+  // }
   getSortData() {
-    const { data, filterData, filters } = this.props;
+    const { data, filterData, filters, groupedField, lookup } = this.props;
     const { sortBy, sortDirection } = this.state;
     const currentData = filters.length > 0 ? filterData : data;
     // filter TODO
+    // console.log("datatable: ~~~~", groupedField)
+
+    // const currentData = this.groupAndSum(filters.length > 0 ? filterData : data, groupedField, lookup)
+    // console.log(test)
+
     return sortBy && sortDirection
       ? currentData.sort((a, b) => {
         const first = sortDirection === SortDirection.ASC ? a : b;

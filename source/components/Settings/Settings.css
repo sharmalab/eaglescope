@@ -8,10 +8,24 @@
   line-height: 44px;
   color: #152536;
 }
+
 .settings-label {
   font-family: "Rubik", sans-serif;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 29px;
+  font-size: 1rem;
+  font-weight: bold;
+  /* line-height: 29px; */
   color: #152536;
+}
+
+.hidden {
+  display: none;
+}
+
+.radio-label {
+  margin-left: 1rem;
+}
+
+.content-body {
+  width: 500px;
+  margin: 0 35%;
 }

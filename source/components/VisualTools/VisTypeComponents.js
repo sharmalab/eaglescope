@@ -9,6 +9,7 @@
 const VisTypeComponents = {};
 VisTypeComponents.PIE_CHART = 'PieChart';
 VisTypeComponents.BAR_CHART = 'BarChart';
+VisTypeComponents.MULTI_DIMENSINAL_BAR_CHART = 'MultiDimensionalBarChart';
 VisTypeComponents.HORIZONTAL_BAR_CHART = 'HorizontalBarChart';
 VisTypeComponents.SCATTER_CHART = 'ScatterChart';
 VisTypeComponents.KM_CURVE = 'KMCurve';
@@ -19,8 +20,10 @@ VisTypeComponents.HISTOGRAM = 'Histogram';
 VisTypeComponents.DENSITY_2D = 'DensityChart';
 VisTypeComponents.PARALLEL_COORDINATES = 'ParallelCoordinates';
 VisTypeComponents.HEATMAP = 'Heatmap';
+VisTypeComponents.VIS_SPATIAL_MAP = 'VisSpatialMap';
+VisTypeComponents.EG_TREE_VIEW = 'EGTreeView';
 
-const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE'];
+const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE', 'HEATMAP','VIS_SPATIAL_MAP', 'EGTreeView'];
 
 const VisInputDescription = {
   PIE_CHART: {
@@ -72,6 +75,12 @@ const VisInputDescription = {
     isXArr: false,
     isYArr: false,
   },
+  // VIS_SPATIAL_MAP: {
+  //   hasX: false,
+  //   hasY: false,
+  //   isXArr: false,
+  //   isYArr: false,
+  // }
 };
 
 export default VisTypeComponents;

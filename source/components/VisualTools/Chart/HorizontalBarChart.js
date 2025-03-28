@@ -24,14 +24,10 @@ const transform = (data, field, isList = false) => {
   if (isList) {
     return transformList(data, field);
   }
-  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
-  function collSort(a, b) {
-    return collator.compare(a, b);
-  }
   return d3
     .nest()
     .key((d) => d[field])
-    .sortKeys(collSort)
+    .sortKeys(d3.ascending)
     .rollup((v) => v.length)
     .entries(data);
 };
@@ -190,7 +186,7 @@ function HorizontalBarChart(props) {
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
-  return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
+  return <div id={props.id} ref={self} style={{ width: '100%', height: '100%' }} />;
 }
 
 export default HorizontalBarChart;

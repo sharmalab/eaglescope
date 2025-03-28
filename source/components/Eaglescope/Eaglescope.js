@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import VisGridSplitter from '../Layout/VisGridView/VisGridSplitter';
+import VisGridView from '../Layout/VisGridView/VisGridView';
 import VisFullScreenView from '../Layout/VisFullScreenView/VisFullScreenView';
 import ESNavbar from '../ESNavbar/ESNavbar';
 import FilterOperationPanel from '../FilterOperationPanel/FilterOperationPanel';
@@ -35,6 +35,7 @@ function Eaglescope() {
 
   // handle progress bar
   useEffect(() => {
+    console.log(data);
     if (!data) return;
     if (filters.length > 0) {
       setProgressAttrs({
@@ -84,12 +85,7 @@ function Eaglescope() {
           fullScreened={isFullScreen}
         />
       ) : (
-        <VisGridSplitter
-          layout={config.LAYOUT || 'default'}
-          size={config.LAYOUT_SIZE || '300px'}
-          fullVisScreenHandler={fullScreenHandler}
-          fullScreened={isFullScreen}
-        />
+        <VisGridView fullVisScreenHandler={fullScreenHandler} fullScreened={isFullScreen} />
       )}
     </div>
   );

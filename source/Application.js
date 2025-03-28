@@ -3,14 +3,20 @@ import Eaglescope from './components/Eaglescope/Eaglescope';
 import ConfigContextProvider from './contexts/ConfigContext';
 import DataContextProvider from './contexts/DataContext';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap';
+import 'bootstrap'; // <-- JS File
 
-function APP({ overrideConfig, overrideData }) {
+// style
+
+function APP() {
   const query = new URLSearchParams(window.location.search);
-  const configUrl = query.get('configurl') || './config/wines.json';
+  const configUrl = query.get('configurl') || './config/geomap.json';
+
+  
+
+  //
   return (
-    <ConfigContextProvider configName={configUrl} overrideConfig={overrideConfig}>
-      <DataContextProvider overrideData={overrideData}>
+    <ConfigContextProvider configName={configUrl}>
+      <DataContextProvider>
         <Eaglescope />
       </DataContextProvider>
     </ConfigContextProvider>

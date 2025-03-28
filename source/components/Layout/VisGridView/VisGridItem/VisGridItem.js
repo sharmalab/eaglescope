@@ -16,7 +16,7 @@ function VisGridItem(props) {
     setHover(false);
   };
   const {
-    data, filteredData, filters, addFiltersHandler, removeFiltersHandler,
+    data, lookup, filteredData, filters, addFiltersHandler, removeFiltersHandler,
   } = useContext(DataContext);
 
   useEffect(() => {
@@ -48,16 +48,19 @@ function VisGridItem(props) {
         </div>
       ) : (
         <VisGridItemContent
-          fields={props.operation.fields}
-          chartType={props.operation.chartType}
+          // fields={props.operation.fields}
+          // chartType={props.operation.chartType}
           data={data}
+          lookup={lookup}
           filterData={filteredData}
           filters={filters}
           filterAdded={addFiltersHandler}
           filterRemove={removeFiltersHandler}
-          id={props.operation.id}
-          title={props.operation.title}
+          // id={props.operation.id}
+          // title={props.operation.title}
           layout={props.layout}
+
+          {...props.operation}
         />
       )}
     </div>
@@ -90,6 +93,6 @@ VisGridItem.propTypes = {
   toggleFullScreen: PropTypes.func.isRequired,
 };
 
-VisGridItem.defaultProps = {
-  layout: null,
-};
+// VisGridItem.defaultProps = {
+//   layout: null,
+// };

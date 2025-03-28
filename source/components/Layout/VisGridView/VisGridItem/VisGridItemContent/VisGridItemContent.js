@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import './VisGridItemContent.css';
 
 import VisTypeComponents from '../../../../VisualTools/VisTypeComponents';
+// import VisSpatialMap from '../../../../VisualTools/VisSpatialMap/VisSpatialMap';
 
 const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
@@ -17,6 +18,9 @@ const Histogram = React.lazy(() => import('../../../../VisualTools/Chart/Histogr
 const DensityChart = React.lazy(() => import('../../../../VisualTools/Chart/DensityChart'));
 const ParallelCoordinates = React.lazy(() => import('../../../../VisualTools/Chart/ParallelCoordinates'));
 const Heatmap = React.lazy(() => import('../../../../VisualTools/Chart/Heatmap'));
+const VisSpatialMap = React.lazy(() => import('../../../../VisualTools/VisSpatialMap/VisSpatialMap'));
+const EGTreeView = React.lazy(() => import('../../../../VisualTools/EGTreeView/EGTreeView'));
+const MultiDimensionalBarChart = React.lazy(() => import('../../../../VisualTools/Chart/MultiDimensionalBarChart'));
 
 function VisGridItemContent(props) {
   const TagName = VisTypeComponents[props.chartType];
@@ -31,6 +35,9 @@ function VisGridItemContent(props) {
     case 'BarChart':
       component = <BarChart {...props} />;
       break;
+    case 'MultiDimensionalBarChart':
+      component = <MultiDimensionalBarChart {...props} />;
+      break;      
     case 'KMCurve':
       component = <KMCurve {...props} />;
       break;
@@ -55,10 +62,17 @@ function VisGridItemContent(props) {
     case 'Heatmap':
       component = <Heatmap {...props} />;
       break;
+    case 'VisSpatialMap':
+      component = <VisSpatialMap {...props} />;
+      break;
+    case 'EGTreeView':
+      component = <EGTreeView {...props} />;
+      break;      
     default:
       component = (
         <div>
           I&apos;m Sorry. There Is No
+          {' '}
           {TagName}
           {' '}
           Component...
@@ -66,14 +80,8 @@ function VisGridItemContent(props) {
       );
   }
 
-  const handleMouseDown = (e) => {
-    e.stopPropagation(); // Prevent drag event from bubbling up to the parent grid item
-  };
-
   return (
-    // override a11y check, as mousedown is explicitly NOT allowing special interaction here.
-    /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */
-    <div className="vis-grid-item-content" onMouseDown={handleMouseDown}>
+    <div className="vis-grid-item-content">
       <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
     </div>
   );

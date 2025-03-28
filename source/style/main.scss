@@ -87,3 +87,18 @@ h1{
 .btn, .btn:focus{
   box-shadow: none !important;
 }
+
+.bar-wrap {
+  overflow: auto;
+}
+.bar-content {
+  height: 500px;
+  width: 500px;
+}
+.map_tip {
+  display: flex;
+  flex-direction: column;
+}
+.map_tip  > label {
+  margin: 0;
+}

@@ -24,6 +24,6 @@ LoadingSpinner.propTypes = {
   text: PropTypes.string,
 };
 
-LoadingSpinner.defaultProps = {
-  text: 'Loading',
-};
+// LoadingSpinner.defaultProps = {
+//   text: 'Loading',
+// };

@@ -1,0 +1,166 @@
+{
+  "HOME_URL": "https://github.com/sharmalab/eaglescope/",
+  "HEIGHT_OF_VIS_HEADER": 20,
+  "TITLE": "Eaglescope Demo | Geo Spatial Map",
+  "MARGIN_OF_VIS": [10, 10],
+  "UNIT_OF_GRID_VIEW": [230, 210],
+  "MARGIN_OF_GRID_VIEW": [10, 10],
+  "RESIZABLE" : "TRUE",
+  "DRAGGABLE" : 1,
+  "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
+  "DATA_RESOURCE_URL": "./config/sample_svi.json",
+  "DATA_FORMAT": "json",
+  "DATA_LOOKUP_URL": "./config/Counties_Georgia.geojson",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id": "concept_code_pie",
+      "title": "Concept Code",
+      "description": "Showing Concept Code",
+      "chartType": "PIE_CHART",
+      "fields":{"x":"concept_code"},
+      "size": [1, 1],
+      "priority": 10
+    },
+    {
+      "id": "concept_name_hbar",
+      "title": "Concept Name",
+      "description": "Showing Concept Name",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"concept_name","y":"VISIT_COUNTS"},
+      "size": [2, 1],
+      "method":"sum",
+      "priority": 10
+    },
+    {
+      "id": "SVI_SCOR-VISIT_COUNTS",
+      "title": "sum of Visit Counts in SVI SCORE",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"SVI_SCORE","y":"VISIT_COUNTS"},
+      "method":"sum",
+      "size": [2, 1],
+      "priority": 100        
+    },
+    {
+      "id": "SVI_SCOR-RPL_THEME1",
+      "title": "sum of Visit Counts in RPL THEME1",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"RPL_THEME1","y":"VISIT_COUNTS"},
+      "method":"sum",
+      "size": [2, 1],
+      "priority": 100        
+    },
+    {
+      "id": "SVI_SCOR-RPL_THEME2",
+      "title": "sum of Visit Counts in RPL THEME2",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"RPL_THEME2","y":"VISIT_COUNTS"},
+      "method":"sum",
+      "size": [2, 1],
+      "priority": 100        
+    },
+    {
+      "id": "SVI_SCOR-RPL_THEME3",
+      "title": "sum of Visit Counts in RPL THEME3",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"RPL_THEME3","y":"VISIT_COUNTS"},
+      "method":"sum",
+      "size": [2, 1],
+      "priority": 100        
+    },
+    {
+      "id": "SVI_SCOR-RPL_THEME4",
+      "title": "sum of Visit Counts in RPL THEME4",
+      "description": "",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"RPL_THEME4","y":"VISIT_COUNTS"},
+      "method":"sum",
+      "size": [2, 1],
+      "priority": 100        
+    },
+    {
+      "id": "geo-maps-polygon",
+      "title": "Geo Map - polygon",
+      "description": "Open Street polygon",
+      "type":"geojson",
+      "format":"json",
+      "chartType": "VIS_SPATIAL_MAP",
+      "fields": {
+        "title":"COUNTY",
+        "color":"VISIT_COUNTS",
+        "label":["RPL_THEME1","RPL_THEME2","RPL_THEME3","RPL_THEME4","SVI_SCORE","VISIT_COUNTS"]},
+      "size": [2, 2],
+      "priority": 70
+    },
+    {
+      "id": "collection_data_table",
+      "title": "Collection Data Table",
+      "description": "Showing Collection Data",
+      "chartType": "VIS_DATA_TABLE",
+      "groupedField": "STCNTY",
+      "method":"sum",
+      "fields": [
+        
+        {
+          "dataKey": "OMOP Table",
+          "label": "OMOP Table"
+        },
+        {
+          "dataKey": "COUNTY",
+          "label": "COUNTY"
+        },
+        {
+          "dataKey": "STCNTY",
+          "label": "STCNTY"
+        },
+        {
+          "dataKey": "RPL_THEME1",
+          "label": "RPL THEME1"
+        },
+        {
+          "dataKey": "RPL_THEME2",
+          "label": "RPL THEME2"
+        },
+        {
+          "dataKey": "RPL_THEME3",
+          "label": "RPL THEME3"
+        },
+        {
+          "dataKey": "RPL_THEME4",
+          "label": "RPL THEME4"
+        },
+        {
+          "dataKey": "SVI_SCORE",
+          "label": "SVI SCORE"
+        },
+        {
+          "dataKey": "VISIT_COUNTS",
+          "label": "VISIT COUNTS"
+        },
+        {
+          "dataKey": "concept_name",
+          "label": "Concept Name"
+        },
+        {
+          "dataKey": "concept_code",
+          "label": "Concept Code"
+        },
+        {
+          "dataKey": "Input Value Range",
+          "label": "Input Value Range"
+        },
+        {
+          "dataKey": "vocabulary_id",
+          "label": "Vocabulary Id"
+        }
+
+        
+      ],
+      "size": [4, 2],
+      "priority": 10
+    }
+  ]
+}

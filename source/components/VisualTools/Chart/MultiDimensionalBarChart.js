@@ -79,7 +79,7 @@ const wrap = (text, width) => {
   });
 };
 
-function BarChart(props) {
+function MultiDimensionalBarChart(props) {
   const margin = {
     top: 10,
     right: 10,
@@ -87,12 +87,20 @@ function BarChart(props) {
     left: 35,
   };
 
+  const chartDimension = {
+    height: 200,
+    width: 200,
+  }
+  const maxChartsInRow = 12
+
+
   const fields = { x: 'key', y: 'value' };
   const fullData = transform(props.data, props.fields.x,props.fields.y, props.method, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
   const viewerRef = useRef();
+
 
   const createXScale = (f, width) => {
     // set the ranges
@@ -171,42 +179,11 @@ function BarChart(props) {
 
   useEffect(() => {
     setTimeout(() => {
-      d3.select(self.current).selectAll('svg').remove('svg');
-      const rect = self.current.getBoundingClientRect();
-      const innerWidth = rect.width - margin.left - margin.right;
-      const innerHeight = rect.height - margin.top - margin.bottom;
-      hightRef.current = innerHeight;
+      // calculate the size of content div
 
-      // create svg
-      const svg = d3
-        .select(self.current)
-        .append('svg')
-        .attr('width', rect.width)
-        .attr('height', rect.height)
-        .attr('role', 'img');
-      // create viewer
-      viewerRef.current = svg
-        .append('g')
-        .attr('transform', `translate(${margin.left},${margin.top})`);
-      const xScale = createXScale(fields.x, innerWidth);
-      const yScale = createYScale(fields.y, innerHeight);
-      scaleRef.current = { x: xScale, y: yScale };
+      // d3.select(self.current).
 
-      const xAxis = d3.axisBottom(xScale);
-      viewerRef.current
-        .append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0,${innerHeight})`)
-        .call(xAxis)
-        .selectAll('.tick text')
-        .call(wrap, xScale.bandwidth());
-        // .attr('transform', 'rotate(45)');
-
-      // add the y Axis
-      const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
-      viewerRef.current.append('g').call(yAxis);
-
-      drawBar(viewerRef.current, fullData, 'og');
+      // drawBar(viewerRef.current, fullData, 'og');
     }, 100);
   }, [props.layout]);
 
@@ -219,16 +196,18 @@ function BarChart(props) {
       } else {
         data = fullData;
       }
-      drawBar(viewerRef.current, data, 'ft');
+      // drawBar(viewerRef.current, data, 'ft');
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
-  return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
+  return <div id={`${props.id}`} className='bar-wrap' role="figure" style={{ width: '100%', height: '100%' }}>
+    <div ref={self} className='bar-content'></div>
+  </div>;
 }
 
-export default BarChart;
+export default MultiDimensionalBarChart;
 
-BarChart.propTypes = {
+MultiDimensionalBarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,
