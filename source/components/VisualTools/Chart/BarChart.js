@@ -202,8 +202,14 @@ function BarChart(props) {
       // .attr('transform', 'rotate(45)');
 
       // add the y Axis
-      const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
+      const yAxis = d3.axisLeft(yScale)
+        .ticks(Math.max(6, Math.floor(innerHeight / 50)))
+        .tickSize(-innerWidth);
       viewerRef.current.append('g').call(yAxis);
+      // less ink, top/side bar.
+      viewerRef.current
+      .selectAll('.domain')  // Select the domain (axis line)
+      .remove();  // Remove it entirely
 
       drawBar(viewerRef.current, fullData, 'og');
     }, 100);
