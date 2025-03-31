@@ -25,7 +25,56 @@
   margin-left: 1rem;
 }
 
-.content-body {
+/* .content-body {
   width: 500px;
   margin: 0 35%;
+} */
+
+
+/* nita css */
+  /* Some custom styles for the layout */
+.container-fluid {
+    padding-top: 20px;
+}
+.panel {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+.radio-group {
+    margin: 10px 0;
+}
+.input-group {
+    display: flex;
+    align-items: center;
+}
+.input-group input[type="text"] {
+    margin-left: 10px;
+}
+.table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.pagination-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pagination-btn {
+    padding: 8px 12px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+.pagination-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
 }
