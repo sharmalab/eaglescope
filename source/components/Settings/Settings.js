@@ -962,7 +962,24 @@ function Settings() {
     console.log('~~~~~~~~test~~~~~~~~~~~~');
     fetchInfo();
   }, []);
+  return (
+    <div className="container-fluid">
+    <div className="row justify-content-md-center">
+      <div className="col">
+        <div className="panel">
+          <h2>Select OMOP Table</h2>
+          <select id="Omop_TableName" name="Omop_TableName" className="form-select mb-4" onChange={omopTablesChangeHandle}>
+            <option value="">Select a table...</option>
+            {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
+          </select>
 
+          <div ref={formRef} id="form-container"></div>
+          {pending && <div>Loading ... </div>}
+        </div>
+      </div>
+    </div>
+  </div>
+  )
   return (
     <>
       {showNewVis && <VisSettings chartConfig={newVis} show={showNewVis} setShow={setShowNewVis} />}
@@ -1247,22 +1264,7 @@ function Settings() {
               </Row>
             </Row>
           </Form>
-          <div className="container-fluid">
-            <div className="row justify-content-md-center">
-              <div className="col-md-4">
-                <div className="panel">
-                  <h2>Select OMOP Table</h2>
-                  <select id="Omop_TableName" name="Omop_TableName" className="form-select mb-4" onChange={omopTablesChangeHandle}>
-                    <option value="">Select a table...</option>
-                    {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
-                  </select>
 
-                  <div ref={formRef} id="form-container"></div>
-                  {pending && <div>Loading ... </div>}
-                </div>
-              </div>
-            </div>
-          </div>
         </Offcanvas.Body>
       </Offcanvas>
     </>
