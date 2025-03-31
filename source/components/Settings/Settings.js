@@ -817,6 +817,9 @@ function Settings() {
         const {metadata, data, search_condition} = resp_data
         
         // TODO set new data into data context
+        saveToLocalStore('dashboardData', data);
+        console.log('set data!');
+        let new_url = "local://dashboardData";
 
         const categoricals = [];
         let count_key = '';
@@ -828,8 +831,6 @@ function Settings() {
             count_key = key;
           }
         }
-    
-        console.error(categoricals, count_key, 'meow');
     
         const charts = categoricals.map((x) => ({
           id: `${count_key}-${x}`,
@@ -876,6 +877,9 @@ function Settings() {
             {
               dataKey: count_key,
               label: `${count_key}`,
+            },{
+              dataKey: 'COUNTY',
+              label: `County Name`,
             },
           ],
           size: [4, 2],
