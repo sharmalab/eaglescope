@@ -35,7 +35,7 @@ const useFetch = (url, type = 'json') => {
 
       // Handle "local://" URLs
       if (url.startsWith('local://')) {
-        const localKey = url.slice(7); // Remove the "local://" prefix
+        const localKey = url.slice(8); // Remove the "local://" prefix
         try {
           const storedData = localStorage.getItem(`es-${localKey}`);
           if (storedData) {
