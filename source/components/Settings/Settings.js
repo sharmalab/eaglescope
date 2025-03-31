@@ -12,6 +12,7 @@ import ColumnInput from './containers/ColumnInput';
 import RawInput from './containers/RawInput';
 import VisSettings from '../VisSettings/VisSettings';
 import VisTypeComponents, { VisInputDescription } from '../VisualTools/VisTypeComponents';
+import { useSearchParams } from "react-router-dom";
 import SelectDropdown from '../selectDropdown';
 
 // Create the Basic Auth credentials
@@ -61,6 +62,14 @@ function Settings() {
   });
 
   const [show, setShow] = useState(true);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("skipModal") === "true") {
+      setShow(false);
+    }
+  }, []);
+
   const [pending, setPending] = useState(false);
 
   const [populations, setPopulations] = useState(null)
@@ -121,6 +130,16 @@ function Settings() {
   // test end
 
 
+  function saveToLocalStore(key, jsonData) {
+    try {
+      const localKey = "es-" + key;
+      const jsonString = JSON.stringify(jsonData);
+      localStorage.setItem(localKey, jsonString);
+      console.log(`Data saved under key: ${localKey}`);
+    } catch (err) {
+      console.error("Error saving data to localStorage:", err);
+    }
+  }
 
 
   const handleClose = () => setShow(false);
@@ -244,7 +263,7 @@ function Settings() {
       "fields": [
         ...categoricals.map(categorical => ({
           "dataKey": categorical,
-          "label": `S${categorical}`
+          "label": `${categorical}`
         })),
         {
           "dataKey": count_key,
@@ -256,11 +275,8 @@ function Settings() {
     };
     
     
-
-
-    setConfig((prevConfig) => ({
-      ...prevConfig,
-      TITLE: title + "-new-modified",
+    let newConfig = {
+      TITLE: name.toUpperCase() + " Auto Dashboard",
       HOME_URL: homeUrl,
       HEIGHT_OF_VIS_HEADER: headerHight,
       MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
@@ -270,8 +286,18 @@ function Settings() {
       BORDER_RADIUS: borderRadius,
       DATA_RESOURCE_URL: new_url,
       DATA_FORMAT: format,
+      HAS_SETTINGS : 1,
+      DATA_LOOKUP_URL: "./config/Counties_Georgia.geojson",
       VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart]
-    }));
+    }
+
+    saveToLocalStore("dashboardConfig", newConfig);
+    console.log("set config!")
+
+    window.location = '?configurl=local://dashboardConfig&skipModal=true';
+
+
+    setConfig((prevConfig) => (newConfig));
 
     
 

@@ -43,6 +43,27 @@ const useFetch = (url, type = 'json', context_url) => {
         mode: 'cors',
         credentials: 'same-origin',
       };
+
+      // Handle "local://" URLs
+      if (url && url.startsWith('local://')) {
+        const localKey = url.slice(8); // Remove the "local://" prefix
+        try {
+          const storedData = localStorage.getItem("es-" + localKey);
+          if (storedData) {
+            const parsedData = JSON.parse(storedData);
+            setData(parsedData);
+            setIsPending(false);
+            setError(null);
+          } else {
+            throw new Error(`No data found for key: ${localKey}`);
+          }
+        } catch (err) {
+          setIsPending(false);
+          setError(err);
+        }
+        console.info("ok")
+        return () => abortCont.abort();
+      }
   
       // if (!url) return () => abortCont.abort();
       // console.log(`useEffect: ${url} - ${type}`)
@@ -62,6 +83,7 @@ const useFetch = (url, type = 'json', context_url) => {
 
       
       // Create the Basic Auth credentials
+      console.info("should not get here")
       const username = 'Nan'
       const password = 'MaternalHealth'
       const credentials = btoa(`${username}:${password}`); // btoa encodes to Base64
