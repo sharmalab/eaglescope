@@ -78,7 +78,7 @@ function Settings() {
 
   const { config, setConfig } = useContext(ConfigContext);
   const {
-    tables, setTables, variables, setVariables,
+    setData, tables, setTables, variables, setVariables,
   } = useContext(DataContext);
   const [title, setTitle] = useState(config.TITLE);
   const [url, setUrl] = useState(config.DATA_RESOURCE_URL);
@@ -320,7 +320,7 @@ function Settings() {
       THEME_COLOR: color,
       HIDE_BORDER: hideBorder !== 'Show',
       BORDER_RADIUS: borderRadius,
-      DATA_RESOURCE_URL: new_url,
+      DATA_RESOURCE_URL: '',
       DATA_FORMAT: format,
       HAS_SETTINGS: 1,
       DRAGGABLE: 1,
@@ -818,6 +818,9 @@ function Settings() {
         
         // TODO set new data into data context
 
+        const categoricals = [];
+        let count_key = '';
+    
         for (const [key, value] of Object.entries(metadata)) {
           if (value.type === 'feature_range' || value.type === 'feature_category') {
             categoricals.push(key);
@@ -825,14 +828,84 @@ function Settings() {
             count_key = key;
           }
         }
-
+    
+        console.error(categoricals, count_key, 'meow');
+    
+        const charts = categoricals.map((x) => ({
+          id: `${count_key}-${x}`,
+          title: `${count_key} in ${x}`,
+          description: '',
+          chartType: 'BAR_CHART',
+          fields: {
+            x,
+            y: count_key,
+          },
+          method: 'sum',
+          size: [2, 1],
+          priority: 100,
+        }));
+    
+        const mapChart = {
+          id: 'geo-maps-polygon',
+          title: 'Geo Map - polygon',
+          description: 'Open Street polygon',
+          type: 'geojson',
+          format: 'json',
+          chartType: 'VIS_SPATIAL_MAP',
+          fields: {
+            title: 'COUNTY',
+            color: count_key,
+            label: [...categoricals, count_key],
+          },
+          size: [2, 2],
+          priority: 70,
+        };
+    
+        const tableChart = {
+          id: 'collection_data_table',
+          title: 'Data Table',
+          description: 'Showing Collection Data',
+          chartType: 'VIS_DATA_TABLE',
+          groupedField: 'STCNTY',
+          method: 'sum',
+          fields: [
+            ...categoricals.map((categorical) => ({
+              dataKey: categorical,
+              label: `${categorical}`,
+            })),
+            {
+              dataKey: count_key,
+              label: `${count_key}`,
+            },
+          ],
+          size: [4, 2],
+          priority: 100,
+        };
+    
+        const newConfig = {
+          TITLE: `${name.toUpperCase()} Auto Dashboard`,
+          HOME_URL: homeUrl,
+          HEIGHT_OF_VIS_HEADER: headerHight,
+          MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
+          UNIT_OF_GRID_VIEW: [Number(visSize.x), Number(visSize.y)],
+          THEME_COLOR: color,
+          HIDE_BORDER: hideBorder !== 'Show',
+          BORDER_RADIUS: borderRadius,
+          DATA_RESOURCE_URL: new_url,
+          DATA_FORMAT: format,
+          HAS_SETTINGS: 1,
+          DRAGGABLE: 1,
+          DATA_LOOKUP_URL: './config/Counties_Georgia.geojson',
+          VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart],
+        };
+    
         saveToLocalStore('dashboardConfig', newConfig);
         console.log('set config!');
     
         window.location = '?configurl=local://dashboardConfig&skipModal=true';
-    
+        setData(data);
         setConfig((prevConfig) => (newConfig));
-    
+        
         setPending(false);
         handleClose();
       })
