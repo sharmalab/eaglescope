@@ -37,7 +37,7 @@ function ESNavbar(props) {
           label={progressLabel}
         />
       </Form>
-      <Settings />
+      
     </Navbar>
   );
 }

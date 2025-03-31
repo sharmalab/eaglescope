@@ -34,6 +34,8 @@
 /* nita css */
   /* Some custom styles for the layout */
 .container-fluid {
+    float: left;
+    width: 20% !important;
     padding-top: 20px;
     max-height: 100%;
     overflow: auto;

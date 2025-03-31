@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import VisGridView from '../Layout/VisGridView/VisGridView';
 import VisFullScreenView from '../Layout/VisFullScreenView/VisFullScreenView';
 import ESNavbar from '../ESNavbar/ESNavbar';
+import Settings from '../Settings/Settings';
 import FilterOperationPanel from '../FilterOperationPanel/FilterOperationPanel';
 import { ConfigContext } from '../../contexts/ConfigContext';
 import { DataContext } from '../../contexts/DataContext';
@@ -76,6 +77,7 @@ function Eaglescope() {
       <SearchBar filterAdded={addFiltersHandler} filterRemove={removeFiltersHandler} />
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
 
+      <Settings />
       {isFullScreen ? (
         <VisFullScreenView
           operation={config.VISUALIZATION_VIEW_CONFIGURATION.find(
@@ -87,6 +89,8 @@ function Eaglescope() {
       ) : (
         <VisGridView fullVisScreenHandler={fullScreenHandler} fullScreened={isFullScreen} />
       )}
+      
+
     </div>
   );
 }

@@ -2,7 +2,9 @@
   display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
+  float: right;
+
 }
 
 .react-grid-item > .react-resizable-handle.react-resizable-handle-se {
