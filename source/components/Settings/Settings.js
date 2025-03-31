@@ -760,7 +760,7 @@ function Settings() {
 
   const APISubmit = () => {
 
-
+    setPending(true);
     // Get selected values
     const omopTable = document.getElementById('Omop_TableName').value;
     const selectedCountType = document.querySelector('input[name="Count_Type"]:checked').value;
@@ -770,7 +770,6 @@ function Settings() {
     var conceptCode = "";
     var conceptName = "";
     const selectedRadio = document.querySelector(`input[name='${omopTable}-radio-group']:checked`);
-    console.log(omopTable)
     if (selectedRadio) {
       if (selectedRadio.value === "Concept_Code") {
         conceptCode = document.querySelector(`input[name='${selectedRadio.value}']`).value;
@@ -1171,17 +1170,18 @@ function Settings() {
               </Row>
             </Row>
           </Form>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="panel">
+          <div className="container-fluid">
+            <div className="row justify-content-md-center">
+              <div className="col-md-4">
+                <div className="panel">
                   <h2>Select OMOP Table</h2>
-                  <select id="Omop_TableName" name="Omop_TableName" class="form-select mb-4" onChange={omopTablesChangeHandle}>
+                  <select id="Omop_TableName" name="Omop_TableName" className="form-select mb-4" onChange={omopTablesChangeHandle}>
                     <option value="">Select a table...</option>
                     {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
                   </select>
 
                   <div ref={formRef} id="form-container"></div>
+                  {pending && <div>Loading ... </div>}
                 </div>
               </div>
             </div>
