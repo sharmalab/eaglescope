@@ -5,6 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useSearchParams } from 'react-router-dom';
 import { ConfigContext } from '../../contexts/ConfigContext';
 import { DataContext } from '../../contexts/DataContext';
 import './Settings.css';
@@ -12,31 +13,30 @@ import ColumnInput from './containers/ColumnInput';
 import RawInput from './containers/RawInput';
 import VisSettings from '../VisSettings/VisSettings';
 import VisTypeComponents, { VisInputDescription } from '../VisualTools/VisTypeComponents';
-import { useSearchParams } from "react-router-dom";
 import SelectDropdown from '../selectDropdown';
 
 // Create the Basic Auth credentials
-const username = 'Nan'
-const password = 'MaternalHealth'
+const username = 'Nan';
+const password = 'MaternalHealth';
 const credentials = btoa(`${username}:${password}`); // btoa encodes to Base64
 
-const urlConstraintProp = `http://localhost:5000/ConstraintProp`
-const urlConstraintPropVals = `http://localhost:5000/ConstraintPropVals?ConstraintPropID=`
+const urlConstraintProp = 'http://localhost:5000/ConstraintProp';
+const urlConstraintPropVals = 'http://localhost:5000/ConstraintPropVals?ConstraintPropID=';
 
 const newConfig = {
-  method: "GET",
+  method: 'GET',
   // mode: 'no-cors',
   headers: {
-    'Authorization': `Basic ${credentials}`,
-    'Content-Type': 'application/json'
-  }
-}
-
-
+    Authorization: `Basic ${credentials}`,
+    'Content-Type': 'application/json',
+  },
+};
 
 function Settings() {
   const { config, setConfig } = useContext(ConfigContext);
-  const { tables, setTables, variables, setVariables } = useContext(DataContext);
+  const {
+    tables, setTables, variables, setVariables,
+  } = useContext(DataContext);
   const [title, setTitle] = useState(config.TITLE);
   const [url, setUrl] = useState(config.DATA_RESOURCE_URL);
   const [format, setFormat] = useState(config.DATA_FORMAT);
@@ -47,7 +47,6 @@ function Settings() {
   const [addChart, setAddChart] = useState('PIE_CHART');
   const [newVis, setNewVis] = useState({});
   const [showNewVis, setShowNewVis] = useState(false);
-
 
   const [borderRadius, setBorderRadius] = useState(
     config?.BORDER_RADIUS ? config.BORDER_RADIUS : 0,
@@ -65,22 +64,22 @@ function Settings() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get("skipModal") === "true") {
+    if (params.get('skipModal') === 'true') {
       setShow(false);
     }
   }, []);
 
   const [pending, setPending] = useState(false);
 
-  const [populations, setPopulations] = useState(null)
-  const [stats, setStats] = useState(null)
-  const [measured, setMeasured] = useState(null)
+  const [populations, setPopulations] = useState(null);
+  const [stats, setStats] = useState(null);
+  const [measured, setMeasured] = useState(null);
 
   // test start
   const [selectedConstraint, setSelectedConstraint] = useState({
 
-  })
-  const [selectedConstraintValues, setSelectedConstraintValues] = useState([])
+  });
+  const [selectedConstraintValues, setSelectedConstraintValues] = useState([]);
 
   // OMOP - SDOH Query START
   const [countType, setCountType] = useState('');
@@ -93,54 +92,49 @@ function Settings() {
 
   const countTypeHandleChange = (e) => {
     setCountType(e.target.value);
-  }
+  };
   const conceptTypeHandleChange = (e) => {
     setConceptType(e.target.value);
-  }
+  };
   const conceptSelectionHandleChange = (e) => {
     setConceptSelection(e.target.value);
-  }
+  };
   // END
 
   const handleConstraintValChange = (event) => {
-    console.log('handleConstraintValChange')
-    console.log(event.target)
-    const newSelectedOptions = Array.from(event.target.selectedOptions, option => option.value);
+    console.log('handleConstraintValChange');
+    console.log(event.target);
+    const newSelectedOptions = Array.from(event.target.selectedOptions, (option) => option.value);
     setSelectedConstraintValues(newSelectedOptions);
   };
 
-
   const handleConstraintChange = (event) => {
-    console.log('test')
+    console.log('test');
 
     const { id, value } = event.target;
-    console.log(event.target)
-    console.log(id, value)
-    setSelectedConstraint({ "ID": id, "CONSTRAINT_PROPERTIES": value })
-
+    console.log(event.target);
+    console.log(id, value);
+    setSelectedConstraint({ ID: id, CONSTRAINT_PROPERTIES: value });
 
     // Fetch data from API based on selectedOption1
 
     fetch(`${urlConstraintPropVals}${id}`, newConfig)
-      .then(response => response.json())
-      .then(data => setVariables(data));
+      .then((response) => response.json())
+      .then((data) => setVariables(data));
   };
-
 
   // test end
 
-
   function saveToLocalStore(key, jsonData) {
     try {
-      const localKey = "es-" + key;
+      const localKey = `es-${key}`;
       const jsonString = JSON.stringify(jsonData);
       localStorage.setItem(localKey, jsonString);
       console.log(`Data saved under key: ${localKey}`);
     } catch (err) {
-      console.error("Error saving data to localStorage:", err);
+      console.error('Error saving data to localStorage:', err);
     }
   }
-
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -171,112 +165,107 @@ function Settings() {
     setPending(false);
   };
 
-
   const APIHandleSubmit = async (e) => {
-    console.log(e, "eee")
+    console.log(e, 'eee');
     e.preventDefault();
     setPending(true);
     // get name
-    console.log("form", e.target)
-    const name = document.getElementById("dataSource").value
-    console.log("nameeee", name)
+    console.log('form', e.target);
+    const name = document.getElementById('dataSource').value;
+    console.log('nameeee', name);
 
-    let pies = [] // later
-    let bars = []
+    const pies = []; // later
+    const bars = [];
     // also need map
     let varState = {
-      "RPL_THEME1": { "type": "feature_range", "cardinality": 10 },
-      "RPL_THEME2": { "type": "feature_range", "cardinality": 10 },
-      "RPL_THEME3": { "type": "feature_range", "cardinality": 10 },
-      "RPL_THEME4": { "type": "feature_range", "cardinality": 10 },
-      "SVI_SCORE": { "type": "feature_range", "cardinality": 10 },
-      "STCNTY": { "type": "geo_county", "cardinality": 162 },
-      "VISIT_COUNTS": { "type": "stat_count", "cardinality": -1 },
-      "concept_name": { "name": "feature_category", "cardinality": 1000}
-    };      
-    let new_url = "./config/sample_svi.json"
-    if (name == "adi"){
-      varState = {
-        "ADI_NATRANK": { "type": "feature_range", "cardinality": 10 },
-        "ADI_STATERNK": { "type": "feature_range", "cardinality": 10 },
-        "STCNTY": { "type": "geo_county", "cardinality": 162 },
-        "VISIT_COUNTS": { "type": "stat_count", "cardinality": -1 },
-        "concept_name": { "name": "feature_category", "cardinality": 1000}
-      }
-        
-      new_url = "./config/sample_adi.json"
-    }
-
-    let categoricals = [];
-    let count_key = "";
-
-    for (let [key, value] of Object.entries(varState)) {
-      if (value.type === "feature_range" || value.type === "feature_category") {
-        categoricals.push(key);
-      } else if (value.type === "stat_count"){
-        count_key = key
-      }
-    }
-
-    console.error(categoricals, count_key, "meow")
-    
-
-    let charts = categoricals.map((x) => {
-      return {
-        "id": `${count_key}-${x}`,
-        "title": `sum of ${count_key} in ${x}`,
-        "description": "",
-        "chartType": "BAR_CHART",
-        "fields": {
-          "x": x,
-          "y": count_key
-        },
-        "method": "sum",
-        "size": [2, 1],
-        "priority": 100
-      };
-    });
-
-    let mapChart = {
-      "id": "geo-maps-polygon",
-      "title": "Geo Map - polygon",
-      "description": "Open Street polygon",
-      "type": "geojson",
-      "format": "json",
-      "chartType": "VIS_SPATIAL_MAP",
-      "fields": {
-        "title": "COUNTY",
-        "color": count_key,
-        "label": [...categoricals, count_key]
-      },
-      "size": [2, 2],
-      "priority": 70
+      RPL_THEME1: { type: 'feature_range', cardinality: 10 },
+      RPL_THEME2: { type: 'feature_range', cardinality: 10 },
+      RPL_THEME3: { type: 'feature_range', cardinality: 10 },
+      RPL_THEME4: { type: 'feature_range', cardinality: 10 },
+      SVI_SCORE: { type: 'feature_range', cardinality: 10 },
+      STCNTY: { type: 'geo_county', cardinality: 162 },
+      VISIT_COUNTS: { type: 'stat_count', cardinality: -1 },
+      concept_name: { name: 'feature_category', cardinality: 1000 },
     };
-    
-    let tableChart = {
-      "id": "collection_data_table",
-      "title": "Data Table",
-      "description": "Showing Collection Data",
-      "chartType": "VIS_DATA_TABLE",
-      "groupedField": "STCNTY",
-      "method":"sum",
-      "fields": [
-        ...categoricals.map(categorical => ({
-          "dataKey": categorical,
-          "label": `${categorical}`
+    let new_url = './config/sample_svi.json';
+    if (name == 'adi') {
+      varState = {
+        ADI_NATRANK: { type: 'feature_range', cardinality: 10 },
+        ADI_STATERNK: { type: 'feature_range', cardinality: 10 },
+        STCNTY: { type: 'geo_county', cardinality: 162 },
+        VISIT_COUNTS: { type: 'stat_count', cardinality: -1 },
+        concept_name: { name: 'feature_category', cardinality: 1000 },
+      };
+
+      new_url = './config/sample_adi.json';
+    }
+
+    const categoricals = [];
+    let count_key = '';
+
+    for (const [key, value] of Object.entries(varState)) {
+      if (value.type === 'feature_range' || value.type === 'feature_category') {
+        categoricals.push(key);
+      } else if (value.type === 'stat_count') {
+        count_key = key;
+      }
+    }
+
+    console.error(categoricals, count_key, 'meow');
+
+    const charts = categoricals.map((x) => ({
+      id: `${count_key}-${x}`,
+      title: `${count_key} in ${x}`,
+      description: '',
+      chartType: 'BAR_CHART',
+      fields: {
+        x,
+        y: count_key,
+      },
+      method: 'sum',
+      size: [2, 1],
+      priority: 100,
+    }));
+
+    const mapChart = {
+      id: 'geo-maps-polygon',
+      title: 'Geo Map - polygon',
+      description: 'Open Street polygon',
+      type: 'geojson',
+      format: 'json',
+      chartType: 'VIS_SPATIAL_MAP',
+      fields: {
+        title: 'COUNTY',
+        color: count_key,
+        label: [...categoricals, count_key],
+      },
+      size: [2, 2],
+      priority: 70,
+    };
+
+    const tableChart = {
+      id: 'collection_data_table',
+      title: 'Data Table',
+      description: 'Showing Collection Data',
+      chartType: 'VIS_DATA_TABLE',
+      groupedField: 'STCNTY',
+      method: 'sum',
+      fields: [
+        ...categoricals.map((categorical) => ({
+          dataKey: categorical,
+          label: `${categorical}`,
         })),
         {
-          "dataKey": count_key,
-          "label": `C${count_key}`
-        }
+          dataKey: count_key,
+          label: `${count_key}`,
+        },
       ],
-      "size": [4, 2],
-      "priority": 100
+      size: [4, 2],
+      priority: 100,
     };
-    
-    
-    let newConfig = {
-      TITLE: name.toUpperCase() + " Auto Dashboard",
+
+    const newConfig = {
+      TITLE: `${name.toUpperCase()} Auto Dashboard`,
       HOME_URL: homeUrl,
       HEIGHT_OF_VIS_HEADER: headerHight,
       MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
@@ -286,24 +275,22 @@ function Settings() {
       BORDER_RADIUS: borderRadius,
       DATA_RESOURCE_URL: new_url,
       DATA_FORMAT: format,
-      HAS_SETTINGS : 1,
-      DATA_LOOKUP_URL: "./config/Counties_Georgia.geojson",
-      VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart]
-    }
+      HAS_SETTINGS: 1,
+      DRAGGABLE: 1,
+      DATA_LOOKUP_URL: './config/Counties_Georgia.geojson',
+      VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart],
+    };
 
-    saveToLocalStore("dashboardConfig", newConfig);
-    console.log("set config!")
+    saveToLocalStore('dashboardConfig', newConfig);
+    console.log('set config!');
 
     window.location = '?configurl=local://dashboardConfig&skipModal=true';
 
-
     setConfig((prevConfig) => (newConfig));
-
-    
 
     setPending(false);
     handleClose();
-  }
+  };
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -325,43 +312,42 @@ function Settings() {
   };
 
   useEffect(() => {
-
     const fetchInfo = async () => {
       // Create the Basic Auth credentials
-      const username = 'Nan'
-      const password = 'MaternalHealth'
+      const username = 'Nan';
+      const password = 'MaternalHealth';
       const credentials = btoa(`${username}:${password}`); // btoa encodes to Base64
       const newConfig = {
-        method: "GET",
+        method: 'GET',
         // mode: 'no-cors',
         headers: {
-          'Authorization': `Basic ${credentials}`,
-          'Content-Type': 'application/json'
-        }
-      }
+          Authorization: `Basic ${credentials}`,
+          'Content-Type': 'application/json',
+        },
+      };
       try {
-        const OMOP_resp = await fetch("http://localhost:5000/get_OMOP_Tables", newConfig);
+        const OMOP_resp = await fetch('http://localhost:5000/get_OMOP_Tables', newConfig);
         if (!OMOP_resp.ok) {
-          throw new Error("OMOP_Tables was not ok");
+          throw new Error('OMOP_Tables was not ok');
         }
-        var OMOPTables = await OMOP_resp.json();
+        const OMOPTables = await OMOP_resp.json();
 
-        const SDOH_resp = await fetch("http://localhost:5000/get_SDOH_Tables", newConfig);
+        const SDOH_resp = await fetch('http://localhost:5000/get_SDOH_Tables', newConfig);
         if (!SDOH_resp.ok) {
-          throw new Error("SDOH_Tables was not ok");
+          throw new Error('SDOH_Tables was not ok');
         }
-        var SDOHTables = await SDOH_resp.json();
+        const SDOHTables = await SDOH_resp.json();
 
-        console.log('Tables', OMOPTables, SDOHTables)
-        setOmopTables(OMOPTables)
-        setSdohTables(SDOHTables)
+        console.log('Tables', OMOPTables, SDOHTables);
+        setOmopTables(OMOPTables);
+        setSdohTables(SDOHTables);
       } catch (err) {
         // setError(err);
       } finally {
         // setLoading(false);
       }
     };
-    console.log('~~~~~~~~test~~~~~~~~~~~~')
+    console.log('~~~~~~~~test~~~~~~~~~~~~');
     fetchInfo();
   }, []);
 
@@ -390,16 +376,16 @@ function Settings() {
         placement="end"
         style={{
           // width: '500px',
-          width: '100%'
-          
+          width: '100%',
+
         }}
       >
         <Offcanvas.Header>
-        {/* <Offcanvas.Header closeButton> */}
+          {/* <Offcanvas.Header closeButton> */}
           {/* <Offcanvas.Title id="title">Settings</Offcanvas.Title> */}
           <Offcanvas.Title id="title">OMOP - SDOH Query</Offcanvas.Title>
         </Offcanvas.Header>
-        <Offcanvas.Body className='content-body'>
+        <Offcanvas.Body className="content-body">
           <Form onSubmit={handleSubmit} className="hidden">
             <Row>
               <Col className="p-0">
@@ -500,13 +486,13 @@ function Settings() {
             </Row>
           </Form>
 
-          <Form onSubmit={APIHandleSubmit} >
+          <Form onSubmit={APIHandleSubmit}>
             <Row>
               <Col className="p-0">
                 <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label" >OMOP Tables</Form.Label>
+                  <Form.Label className="settings-label">OMOP Tables</Form.Label>
                   <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    {omopTables.length > 0 && omopTables.map((t)=><option value={t}>{t}</option>)}
+                    {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
                   </Form.Select>
                 </Form.Group>
               </Col>
@@ -516,17 +502,23 @@ function Settings() {
                 </Form.Label>
                 <Form.Group as={Col}>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="count_type"
+                    <Form.Check
+                      type="radio"
+                      name="count_type"
                       value="unique_person_counts"
                       checked={countType === 'unique_person_counts'}
-                      onChange={countTypeHandleChange} />
+                      onChange={countTypeHandleChange}
+                    />
                     Unique Person Counts
                   </Form.Label>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="count_type"
+                    <Form.Check
+                      type="radio"
+                      name="count_type"
                       value="unique_visit_counts"
                       checked={countType === 'unique_visit_counts'}
-                      onChange={countTypeHandleChange} />
+                      onChange={countTypeHandleChange}
+                    />
                     Unique Visit Counts
                   </Form.Label>
 
@@ -540,26 +532,33 @@ function Settings() {
 
                 <Col>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="concept_selection"
+                    <Form.Check
+                      type="radio"
+                      name="concept_selection"
                       value="Concept_Name"
                       checked={conceptSelection === 'Concept_Name'}
-                      onChange={conceptSelectionHandleChange} />
+                      onChange={conceptSelectionHandleChange}
+                    />
                     Concept Name
                   </Form.Label>
                 </Col>
-                <Col><Form.Control type="text" size="sm" disabled={conceptSelection!=='Concept_Name'}/></Col>
+                <Col><Form.Control type="text" size="sm" disabled={conceptSelection !== 'Concept_Name'} /></Col>
               </Row>
               <Row className="mb-3">
 
                 <Col>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="concept_selection"
+                    <Form.Check
+                      type="radio"
+                      name="concept_selection"
                       value="Concept_Code"
                       checked={conceptSelection === 'Concept_Code'}
-                      onChange={conceptSelectionHandleChange} />
-                    Concept Code</Form.Label>
+                      onChange={conceptSelectionHandleChange}
+                    />
+                    Concept Code
+                  </Form.Label>
                 </Col>
-                <Col><Form.Control type="text" size="sm" disabled={conceptSelection!=='Concept_Code'}/></Col>
+                <Col><Form.Control type="text" size="sm" disabled={conceptSelection !== 'Concept_Code'} /></Col>
               </Row>
               <Row>
                 <Form.Label className="settings-label">Concept Type Selection</Form.Label>
@@ -567,17 +566,25 @@ function Settings() {
               <Row className="mb-3">
                 <Col>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="concept_type" value="Yes"
+                    <Form.Check
+                      type="radio"
+                      name="concept_type"
+                      value="Yes"
                       checked={conceptType === 'Yes'}
-                      onChange={conceptTypeHandleChange} />
+                      onChange={conceptTypeHandleChange}
+                    />
                     Yes
                   </Form.Label>
                 </Col>
                 <Col>
                   <Form.Label as="label" className="radio-label">
-                    <Form.Check type="radio" name="concept_type" value="No"
+                    <Form.Check
+                      type="radio"
+                      name="concept_type"
+                      value="No"
                       checked={conceptType === 'No'}
-                      onChange={conceptTypeHandleChange} />
+                      onChange={conceptTypeHandleChange}
+                    />
                     No
                   </Form.Label>
                 </Col>
@@ -585,15 +592,15 @@ function Settings() {
               {/* <hr/> */}
               <Col className="p-0">
                 <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label" >SDOH Tables</Form.Label>
+                  <Form.Label className="settings-label">SDOH Tables</Form.Label>
                   <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    {sdohTables.length > 0 && sdohTables.map((t)=><option value={t}>{t}</option>)}
+                    {sdohTables.length > 0 && sdohTables.map((t) => <option value={t}>{t}</option>)}
                   </Form.Select>
                 </Form.Group>
               </Col>
               <Col className="p-0">
                 <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label" >SDOH SVI/ADI</Form.Label>
+                  <Form.Label className="settings-label">SDOH SVI/ADI</Form.Label>
                   <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
                     <option>table 1</option>
                     <option>table 2</option>
@@ -628,7 +635,6 @@ function Settings() {
               </Row>
             </Row>
           </Form>
-
 
         </Offcanvas.Body>
       </Offcanvas>

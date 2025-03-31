@@ -11,8 +11,6 @@ function APP() {
   const query = new URLSearchParams(window.location.search);
   const configUrl = query.get('configurl') || './config/geomap.json';
 
-  
-
   //
   return (
     <ConfigContextProvider configName={configUrl}>

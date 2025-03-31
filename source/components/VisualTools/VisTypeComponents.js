@@ -23,7 +23,7 @@ VisTypeComponents.HEATMAP = 'Heatmap';
 VisTypeComponents.VIS_SPATIAL_MAP = 'VisSpatialMap';
 VisTypeComponents.EG_TREE_VIEW = 'EGTreeView';
 
-const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE', 'HEATMAP','VIS_SPATIAL_MAP', 'EGTreeView'];
+const SpecialVis = ['VIS_DATA_TABLE', 'VIS_GRID_CARD', 'VEGA_LITE_PLOT', 'KM_CURVE', 'HEATMAP', 'VIS_SPATIAL_MAP', 'EGTreeView'];
 
 const VisInputDescription = {
   PIE_CHART: {
@@ -75,12 +75,12 @@ const VisInputDescription = {
     isXArr: false,
     isYArr: false,
   },
- VIS_SPATIAL_MAP: {
-   hasX: false,
+  VIS_SPATIAL_MAP: {
+    hasX: false,
     hasY: false,
     isXArr: false,
     isYArr: false,
-  }
+  },
 };
 
 export default VisTypeComponents;

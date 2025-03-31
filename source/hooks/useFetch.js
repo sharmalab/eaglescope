@@ -24,7 +24,7 @@ function covertRaw(elt) {
 }
 
 const useFetch = (url, type = 'json', context_url) => {
-  console.log(`useFetch: ${url} - ${type} - ${context_url}`)
+  console.log(`useFetch: ${url} - ${type} - ${context_url}`);
   const [data, setData] = useState(null);
   const [lookup, setLookup] = useState(null);
   const [tables, setTables] = useState(null);
@@ -35,8 +35,6 @@ const useFetch = (url, type = 'json', context_url) => {
   const abortCont = new AbortController();
 
   useEffect(() => {
-
-
     async function fetchData(url) {
       const config = {
         signal: abortCont.signals,
@@ -48,7 +46,7 @@ const useFetch = (url, type = 'json', context_url) => {
       if (url && url.startsWith('local://')) {
         const localKey = url.slice(8); // Remove the "local://" prefix
         try {
-          const storedData = localStorage.getItem("es-" + localKey);
+          const storedData = localStorage.getItem(`es-${localKey}`);
           if (storedData) {
             const parsedData = JSON.parse(storedData);
             setData(parsedData);
@@ -61,54 +59,46 @@ const useFetch = (url, type = 'json', context_url) => {
           setIsPending(false);
           setError(err);
         }
-        console.info("ok")
+        console.info('ok');
         return () => abortCont.abort();
       }
-  
+
       // if (!url) return () => abortCont.abort();
       // console.log(`useEffect: ${url} - ${type}`)
       // if (type === 'csv') {
       //   d3.csv(url, (d) => covertRaw(d)).then((res) => {
 
-
-
-
       //     setData(res);
       //     setIsPending(false);
       //     setError(null);
       //   });
-  
+
       //   return () => abortCont.abort();
       // }
 
-      
       // Create the Basic Auth credentials
-      console.info("should not get here")
-      const username = 'Nan'
-      const password = 'MaternalHealth'
+      console.info('should not get here');
+      const username = 'Nan';
+      const password = 'MaternalHealth';
       const credentials = btoa(`${username}:${password}`); // btoa encodes to Base64
 
-      const urlCounties = `http://localhost:5000/GAcounties`
-      const urlTables = `http://localhost:5000/Tables`
-      const urlPlaceTypes = `https://${username}:${password}@localhost:5000/PlaceTypes`
-      const urlExPlaceTypes = `https://${username}:${password}@localhost:5000/ExPlaceTypes`
-      const urlVariables = `http://localhost:5000/Variables`
+      const urlCounties = 'http://localhost:5000/GAcounties';
+      const urlTables = 'http://localhost:5000/Tables';
+      const urlPlaceTypes = `https://${username}:${password}@localhost:5000/PlaceTypes`;
+      const urlExPlaceTypes = `https://${username}:${password}@localhost:5000/ExPlaceTypes`;
+      const urlVariables = 'http://localhost:5000/Variables';
 
-      const urlConstraintProp = `http://localhost:5000/ConstraintProp`
-      const urlConstraintPropVals = `http://localhost:5000/ConstraintPropVals?ConstraintPropID=2`
+      const urlConstraintProp = 'http://localhost:5000/ConstraintProp';
+      const urlConstraintPropVals = 'http://localhost:5000/ConstraintPropVals?ConstraintPropID=2';
 
       const newConfig = {
-        method: "GET",
+        method: 'GET',
         // mode: 'no-cors',
         headers: {
-          'Authorization': `Basic ${credentials}`,
-          'Content-Type': 'application/json'
-        }
-      }      
-
-      
-     
-
+          Authorization: `Basic ${credentials}`,
+          'Content-Type': 'application/json',
+        },
+      };
 
       // var counties  = await fetch(urlCounties, newConfig)
       // console.log('counties')
@@ -116,13 +106,12 @@ const useFetch = (url, type = 'json', context_url) => {
       // // console.log(counties)
       // console.log(counties)
       // setTables
-      
+
       // get all table name
       // var tables  = await fetch(urlTables, newConfig)
       // tables = await tables.json();
       // console.log('tables')
       // console.log(tables)
-      
 
       // var places  = await fetch(urlPlaceTypes, newConfig)
       // places = await places.json();
@@ -150,27 +139,27 @@ const useFetch = (url, type = 'json', context_url) => {
       // console.log(constraintVals)
       // setVariables(variables)
 
-      const response  = await fetch(url, config)
+      const response = await fetch(url, config);
       let res = await response.json();
-      
+
       // if (Array.isArray(res)) res = res.map((d) => covertRaw(d))
-      let lookup_data = null
-      if(context_url) {
-        const lookup_response  = await fetch(context_url, config)
+      let lookup_data = null;
+      if (context_url) {
+        const lookup_response = await fetch(context_url, config);
         lookup_data = await lookup_response.json();
         // merge data
-        res = res.map(item => {
-          const feature = lookup_data.find(f => +f.properties.GEOID10 === item.STCNTY);
+        res = res.map((item) => {
+          const feature = lookup_data.find((f) => +f.properties.GEOID10 === item.STCNTY);
 
-          return {...item,...feature,'COUNTY':feature.properties.NAMELSAD10}
-        })
+          return { ...item, ...feature, COUNTY: feature.properties.NAMELSAD10 };
+        });
       }
-      
-      console.log(res)
+
+      console.log(res);
 
       if (!res.error) {
-        console.log('res ~~~~~~~~~~~~~~~~~~~~~~~~~~~~`` :')
-        console.log(res)
+        console.log('res ~~~~~~~~~~~~~~~~~~~~~~~~~~~~`` :');
+        console.log(res);
         setData(res);
         // setLookup(lookup_data)
         // setTables(constraints)
@@ -180,7 +169,7 @@ const useFetch = (url, type = 'json', context_url) => {
       } else {
         throw Error(res.error);
       }
-      
+
       setIsPending(false);
 
       // if (!url) return () => abortCont.abort();
@@ -188,22 +177,13 @@ const useFetch = (url, type = 'json', context_url) => {
       // if (type === 'csv') {
       //   d3.csv(url, (d) => covertRaw(d)).then((res) => {
 
-
-
-
       //     setData(res);
       //     setIsPending(false);
       //     setError(null);
       //   });
-  
+
       //   return () => abortCont.abort();
       // }
-
-
-
-
-
-
 
       // You can await here
       // const response = await MyAPI.getData(someId);
@@ -212,32 +192,27 @@ const useFetch = (url, type = 'json', context_url) => {
 
     fetchData(url);
 
+    // const rs = await Promise.all([
 
-
-
-
-    //const rs = await Promise.all([
-  
-      // fetch(urlCounties, newConfig),
-      // fetch(urlTables, newConfig),
-      // fetch(urlPlaceTypes, newConfig),
-      // fetch(urlExPlaceTypes, newConfig),
-      // fetch(urlVariables, newConfig),
-    //])//.then(x=>x.json())
-    //.then(resp => {
+    // fetch(urlCounties, newConfig),
+    // fetch(urlTables, newConfig),
+    // fetch(urlPlaceTypes, newConfig),
+    // fetch(urlExPlaceTypes, newConfig),
+    // fetch(urlVariables, newConfig),
+    // ])//.then(x=>x.json())
+    // .then(resp => {
     //    const d = resp[0];
-        // const counties = resp[1];
-        // const tables = resp[2];
-        // const places = resp[3];
-        // const exPlaces = resp[4];
-        // const variables = resp[5]
-      
-    //    console.log(d)
-        
+    // const counties = resp[1];
+    // const tables = resp[2];
+    // const places = resp[3];
+    // const exPlaces = resp[4];
+    // const variables = resp[5]
 
-        // setResp1(response1);
-        // setResp2(response2);
-    //})
+    //    console.log(d)
+
+    // setResp1(response1);
+    // setResp2(response2);
+    // })
 
     // fetch(url, config)
     //   .then(
@@ -268,7 +243,7 @@ const useFetch = (url, type = 'json', context_url) => {
     setData,
     setLookup,
     setTables,
-    setVariables
+    setVariables,
   };
 };
 

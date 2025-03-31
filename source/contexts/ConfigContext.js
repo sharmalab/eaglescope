@@ -19,7 +19,7 @@ export default function ConfigContextProvider({ children, configName }) {
       config,
       configLoading,
       setConfig,
-      fetchData
+      fetchData,
     }),
     [config, configLoading, configError],
   );

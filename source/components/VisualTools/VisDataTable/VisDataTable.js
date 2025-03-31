@@ -67,7 +67,6 @@ export default class VisDataTable extends PureComponent {
     this.onAllCheckHandler = this.onAllCheckHandler.bind(this);
     this.sortHandler = this.sortHandler.bind(this);
     this.getSortData = this.getSortData.bind(this);
-    
   }
 
   onResize({ width }) {
@@ -109,18 +108,20 @@ export default class VisDataTable extends PureComponent {
   //       if (!acc[key]) {
   //         const ftre = lookup.find(feature => +feature.properties.GEOID10 === key);
   //         acc[key] = { [groupKey]: key, 'COUNTY':ftre.properties.NAMELSAD10 , ...Object.fromEntries(Object.keys(values).map(k => [k, 0])) };
-        
+
   //       }
   //       Object.keys(values).forEach(k => {
   //         acc[key][k] += values[k];
   //       });
-  
+
   //       return acc;
   //     }, {})
   //   );
   // }
   getSortData() {
-    const { data, filterData, filters, groupedField, lookup } = this.props;
+    const {
+      data, filterData, filters, groupedField, lookup,
+    } = this.props;
     const { sortBy, sortDirection } = this.state;
     const currentData = filters.length > 0 ? filterData : data;
     // filter TODO

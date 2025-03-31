@@ -23,8 +23,8 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
   const margins = config.MARGIN_OF_GRID_VIEW;
   const visConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
-  const isDraggable = true; //config.DRAGGABLE || false;
-  const isResizable = true; //config.RESIZABLE || false;
+  const isDraggable = true; // config.DRAGGABLE || false;
+  const isResizable = true; // config.RESIZABLE || false;
   // const isDraggable = config.DRAGGABLE || false;
   // const isResizable = config.RESIZABLE || false;
 
@@ -109,7 +109,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened }) {
           layout={appLayout.layout}
           isDraggable={isDraggable}
           isResizable={isResizable}
-          draggableHandle='.draggable'
+          draggableHandle=".draggable"
           onResizeStart={onResizeStartHandle}
           onResizeStop={onResizeStopHandle}
         >

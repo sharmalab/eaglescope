@@ -37,7 +37,7 @@ function VisGridItemContent(props) {
       break;
     case 'MultiDimensionalBarChart':
       component = <MultiDimensionalBarChart {...props} />;
-      break;      
+      break;
     case 'KMCurve':
       component = <KMCurve {...props} />;
       break;
@@ -67,7 +67,7 @@ function VisGridItemContent(props) {
       break;
     case 'EGTreeView':
       component = <EGTreeView {...props} />;
-      break;      
+      break;
     default:
       component = (
         <div>

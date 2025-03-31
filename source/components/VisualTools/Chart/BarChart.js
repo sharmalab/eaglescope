@@ -20,7 +20,7 @@ const transformList = (data, f) => {
   return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
 };
 
-const transform = (data, field, value, method='mean', isList = false) => {
+const transform = (data, field, value, method = 'mean', isList = false) => {
   if (isList) {
     return transformList(data, field);
   }
@@ -31,16 +31,15 @@ const transform = (data, field, value, method='mean', isList = false) => {
   }
 
   // calculate mean, sd, TODO
-  return value?
-  d3.nest().key((d) => d[field])
-    .sortKeys(collSort)  
-    .rollup((d)=>d3[method](d,v=>v[value]))
-    .entries(data)
-  :
-  d3.nest().key((d) => d[field])
-    .sortKeys(collSort)
-    .rollup((d) => d.length)
-    .entries(data);
+  return value
+    ? d3.nest().key((d) => d[field])
+      .sortKeys(collSort)
+      .rollup((d) => d3[method](d, (v) => v[value]))
+      .entries(data)
+    : d3.nest().key((d) => d[field])
+      .sortKeys(collSort)
+      .rollup((d) => d.length)
+      .entries(data);
 };
 
 const wrap = (text, width) => {
@@ -88,7 +87,7 @@ function BarChart(props) {
   };
 
   const fields = { x: 'key', y: 'value' };
-  const fullData = transform(props.data, props.fields.x,props.fields.y, props.method, props.fields.isList);
+  const fullData = transform(props.data, props.fields.x, props.fields.y, props.method, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
@@ -200,7 +199,7 @@ function BarChart(props) {
         .call(xAxis)
         .selectAll('.tick text')
         .call(wrap, xScale.bandwidth());
-        // .attr('transform', 'rotate(45)');
+      // .attr('transform', 'rotate(45)');
 
       // add the y Axis
       const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
@@ -215,7 +214,7 @@ function BarChart(props) {
       let data = [];
 
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x,props.fields.y,props.method, props.fields.isList);
+        data = transform(props.filterData, props.fields.x, props.fields.y, props.method, props.fields.isList);
       } else {
         data = fullData;
       }

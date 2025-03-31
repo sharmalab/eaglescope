@@ -40,4 +40,3 @@ function VisSortableItem(props) {
 }
 
 export default VisSortableItem;
-

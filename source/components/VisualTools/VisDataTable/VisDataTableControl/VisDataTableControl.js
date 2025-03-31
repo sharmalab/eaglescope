@@ -85,4 +85,3 @@ VisDataTableControl.propTypes = {
   onCheckChanged: PropTypes.func.isRequired,
   list: PropTypes.arrayOf(PropTypes.shape({ dataKey: PropTypes.string.isRequired })).isRequired,
 };
-
