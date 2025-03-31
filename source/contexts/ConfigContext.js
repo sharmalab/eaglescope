@@ -1,4 +1,4 @@
-import React, { createContext, useMemo } from 'react';
+import React, { createContext, useMemo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import useFetch from '../hooks/useFetch';
 
@@ -13,16 +13,30 @@ export default function ConfigContextProvider({ children, configName }) {
     fetchData,
   } = useFetch(`${configName}`);
 
+  const [loading, setLoading] = useState(true);
+
+  // If config is set and not in the loading state, mark as complete
+  useEffect(() => {
+    if (config !== null && !configLoading) {
+      setLoading(false);
+    }
+  }, [config, configLoading]);
+
   const memoConfig = useMemo(
     () => ({
       configError,
       config,
-      configLoading,
+      loading, // Use loading state based on the logic above
       setConfig,
       fetchData,
     }),
-    [config, configLoading, configError],
+    [config, loading, configError],
   );
+
+  // Render nothing or a loading spinner while loading
+  if (loading) {
+    return <div>Loading...</div>; // You can replace this with a spinner or placeholder
+  }
 
   return <ConfigContext.Provider value={memoConfig}>{children}</ConfigContext.Provider>;
 }
