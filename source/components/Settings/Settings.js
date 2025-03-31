@@ -881,6 +881,9 @@ function Settings() {
             },{
               dataKey: 'COUNTY',
               label: `County Name`,
+            },{
+              dataKey: 'concept_name',
+              label: `concept_name`,
             },
           ],
           size: [4, 2],
