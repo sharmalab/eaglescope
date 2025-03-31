@@ -815,8 +815,9 @@ function Settings() {
         // Handle response from API
         console.log('Success:', resp_data);
         const {metadata, data, search_condition} = resp_data
-        
-        // TODO set new data into data context
+
+
+        // set new data into data context
         saveToLocalStore('dashboardData', data);
         console.log('set data!');
         let new_url = "local://dashboardData";
@@ -887,7 +888,7 @@ function Settings() {
         };
     
         const newConfig = {
-          TITLE: `${name.toUpperCase()} Auto Dashboard`,
+          TITLE: `${omopTable.toUpperCase()} Auto Dashboard`,
           HOME_URL: homeUrl,
           HEIGHT_OF_VIS_HEADER: headerHight,
           MARGIN_OF_GRID_VIEW: [Number(visMargin.x), Number(visMargin.y)],
