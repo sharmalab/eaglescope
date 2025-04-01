@@ -24,7 +24,7 @@ export default class VisSpatialMap extends PureComponent {
     };
     const color_values = props.data.map((d) => d[props.fields.color]);
     color_values.sort((a, b) => a - b);
-    this.colors = d3.scaleSequentialQuantile(d3.interpolateYlOrRd).domain(color_values);
+    this.colors = d3.scaleSequentialQuantile(d3.interpolatePuBu).domain(color_values);
     this.mapRef = createRef();
     this.drawpolygon = this.drawpolygon.bind(this);
     this.getColor = this.getColor.bind(this);
