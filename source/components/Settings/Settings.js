@@ -800,7 +800,7 @@ function Settings() {
     const rangeValue = value ? value.value : null;
 
     // Construct the API URL with query parameters
-    const apiUrl = `http://wolf.cci.emory.edu/es_demo/api/getBins?Sdoh_TableName=${sdohTable}&Omop_TableName=${omopTable}&Concept_Code=${conceptCode}&Concept_Name=${conceptName}&Concept_Type=${conceptTypeValue}&Count_Type=${selectedCountType}&drug-route=${routesQueryParam}&value_as_number=${rangeValue}`;
+    const apiUrl = `https://wolf.cci.emory.edu/es_demo/api/getBins?Sdoh_TableName=${sdohTable}&Omop_TableName=${omopTable}&Concept_Code=${conceptCode}&Concept_Name=${conceptName}&Concept_Type=${conceptTypeValue}&Count_Type=${selectedCountType}&drug-route=${routesQueryParam}&value_as_number=${rangeValue}`;
     // Prepare the request headers (including Authorization header)
     console.log('apiUrl', apiUrl)
     const headers = new Headers();
@@ -942,7 +942,7 @@ function Settings() {
         },
       };
       try {
-        const OMOP_resp = await fetch('http://wolf.cci.emory.edu/es_demo/api/get_OMOP_Tables', newConfig);
+        const OMOP_resp = await fetch('https://wolf.cci.emory.edu/es_demo/api/get_OMOP_Tables', newConfig);
         if (!OMOP_resp.ok) {
           throw new Error('OMOP_Tables was not ok');
         }
