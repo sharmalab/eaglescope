@@ -13,7 +13,7 @@ function ESNavbar(props) {
     url, title, max, now, progressLabel, data, color,
   } = props;
   document.title = title || 'Eaglescope';
-
+  console.log('ESNavbar',data)
   return (
     <Navbar
       style={{
@@ -27,7 +27,7 @@ function ESNavbar(props) {
       <Navbar.Brand href={url || '#'}>{title || 'Eaglescope'}</Navbar.Brand>
       <Nav className="mr-auto" />
       <Form inline="true">
-        <ProgressBar
+        {data[0]&&data[1]&&<ProgressBar
           style={{ width: '30rem' }}
           className="border border-light bg-light"
           min={0}
@@ -35,7 +35,7 @@ function ESNavbar(props) {
           max={max}
           now={now}
           label={progressLabel}
-        />
+        />}
       </Form>
       
     </Navbar>

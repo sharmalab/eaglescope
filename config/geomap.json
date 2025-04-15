@@ -27,7 +27,7 @@
       "description": "Showing Concept Name",
       "chartType": "BAR_CHART",
       "fields":{"x":"concept_name","y":"VISIT_COUNTS"},
-      "size": [2, 1],
+      "size": [1, 1],
       "method":"sum",
       "priority": 10
     },

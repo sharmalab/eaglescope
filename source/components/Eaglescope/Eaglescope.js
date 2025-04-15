@@ -13,6 +13,7 @@ import SearchBar from '../SearchBar';
 function Eaglescope() {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [fullScreenVis, setFullScreenVis] = useState(null);
+  const [isInitial, setIsInitial] = useState(true)
   const { config, configLoading, configError } = useContext(ConfigContext);
   const {
     data,
@@ -23,6 +24,8 @@ function Eaglescope() {
     addFiltersHandler,
     dataError,
   } = useContext(DataContext);
+
+  
 
   const fullScreenHandler = (id, fullScreened) => {
     setFullScreenVis(id);
@@ -62,13 +65,12 @@ function Eaglescope() {
   if (loading || configLoading) {
     return <LoadingSpinner text="Loading Data ..." />;
   }
-
   return (
     <div>
       <ESNavbar
         url={config.HOME_URL}
         title={config.TITLE}
-        max={data.length}
+        max={data?data.length:0}
         now={progressAttrs.now}
         progressLabel={progressAttrs.label}
         data={[filteredData, data]}
@@ -78,7 +80,8 @@ function Eaglescope() {
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
 
       <Settings />
-      {isFullScreen ? (
+      {data?
+      (isFullScreen ? (
         <VisFullScreenView
           operation={config.VISUALIZATION_VIEW_CONFIGURATION.find(
             (opt) => opt.id === fullScreenVis,
@@ -88,9 +91,7 @@ function Eaglescope() {
         />
       ) : (
         <VisGridView fullVisScreenHandler={fullScreenHandler} fullScreened={isFullScreen} />
-      )}
-      
-
+      )):(<div></div>)}
     </div>
   );
 }
