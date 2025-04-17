@@ -64,7 +64,6 @@ const urlConstraintPropVals = 'http://localhost:5000/ConstraintPropVals?Constrai
 
 const newConfig = {
   method: 'GET',
-  // mode: 'no-cors',
   headers: {
     Authorization: `Basic ${credentials}`,
     'Content-Type': 'application/json',
@@ -328,13 +327,13 @@ function Settings() {
       VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart],
     };
 
-    saveToLocalStore('dashboardConfig', newConfig);
+    // saveToLocalStore('dashboardConfig', newConfig);
     console.log('set config!');
 
-    window.location = '?configurl=local://dashboardConfig&skipModal=true';
+    // window.location = '?configurl=local://dashboardConfig&skipModal=true';
 
     setConfig((prevConfig) => (newConfig));
-
+    setData(data)
     setPending(false);
     handleClose();
   };
@@ -778,6 +777,17 @@ function Settings() {
         conceptName = document.querySelector(`input[name='${selectedRadio.value}']`).value;
       }
     }
+    // count type
+    // const countTypeRadio = document.querySelector(`input[name='Count_Type']:checked`);
+    // const selectedCountType = ""
+    // if (countTypeRadio) {
+    //   if (countTypeRadio.value === "Concept_Code") {
+    //     conceptCode = document.querySelector(`input[name='${selectedRadio.value}']`).value;
+    //   }
+    //   else {
+    //     conceptName = document.querySelector(`input[name='${selectedRadio.value}']`).value;
+    //   }
+    // }
 
     // Get selected Concept_Type (Yes/No)
     const conceptType = document.querySelector('input[name="Concept_Type"]:checked');
@@ -823,15 +833,20 @@ function Settings() {
         let new_url = "local://dashboardData";
 
         const categoricals = [];
-        let count_key = '';
+        let count_key = 'VISIT_COUNTS';
+        if (selectedCountType =='unique_person_counts') {
+          count_key = 'PERSON_COUNTS'
+        }
     
         for (const [key, value] of Object.entries(metadata)) {
           if (value.type === 'feature_range' || value.type === 'feature_category') {
             categoricals.push(key);
-          } else if (value.type === 'stat_count') {
-            count_key = key;
-          }
+          } 
+          // else if (value.type === 'stat_count') {
+          //   count_key = key;
+          // }
         }
+        
     
         const charts = categoricals.map((x) => ({
           id: `${count_key}-${x}`,
@@ -910,10 +925,9 @@ function Settings() {
         saveToLocalStore('dashboardConfig', newConfig);
         console.log('set config!');
     
-        window.location = '?configurl=local://dashboardConfig&skipModal=true';
+        window.location = '?configurl=local://dashboardConfig&skipModal=true&isInitial=false';
         setData(data);
         setConfig((prevConfig) => (newConfig));
-        
         setPending(false);
         handleClose();
       })
@@ -978,301 +992,12 @@ function Settings() {
           </select>
 
           <div ref={formRef} id="form-container"></div>
-          {pending && <div>Loading ... </div>}
+          {pending && <div className="overlay"><div className="loader"></div></div>}
         </div>
       </div>
     </div>
   </div>
   )
-  return (
-    <>
-      {showNewVis && <VisSettings chartConfig={newVis} show={showNewVis} setShow={setShowNewVis} />}
-
-      {config.HAS_SETTINGS && (
-        <Button
-          size="lg"
-          style={{
-            background: 'none',
-            border: 'none',
-          }}
-          onClick={handleShow}
-        >
-          <span>
-            <FontAwesomeIcon size="1x" icon="fa-solid fa-bars" />
-          </span>
-        </Button>
-      )}
-
-      <Offcanvas
-        show={show}
-        onHide={handleClose}
-        placement="end"
-        style={{
-          // width: '500px',
-          width: '100%',
-
-        }}
-      >
-        <Offcanvas.Header>
-          {/* <Offcanvas.Header closeButton> */}
-          {/* <Offcanvas.Title id="title">Settings</Offcanvas.Title> */}
-          <Offcanvas.Title id="title">OMOP - SDOH Query</Offcanvas.Title>
-        </Offcanvas.Header>
-        <Offcanvas.Body className="content-body">
-          <Form onSubmit={handleSubmit} className="hidden">
-            <Row>
-              <Col className="p-0">
-                <ColumnInput label="Title" value={title} setValue={setTitle} />
-                <ColumnInput label="Data URL" value={url} setValue={setUrl} />
-                <ColumnInput label="Data Format" value={format} setValue={setFormat} />
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label">Borders</Form.Label>
-                  <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    <option>Show</option>
-                    <option>Hide</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-
-              <Col className="p-0">
-                <ColumnInput label="Theme Color" value={color} setValue={setColor} type="color" />
-                <ColumnInput label="Home URL" value={homeUrl} setValue={setHomeUrl} />
-                <ColumnInput
-                  label="Hight of Chart Header"
-                  value={headerHight}
-                  setValue={setHeaderHight}
-                  type="number"
-                  disabled
-                />
-                <ColumnInput
-                  label="Border Radius"
-                  value={borderRadius}
-                  setValue={setBorderRadius}
-                  type="number"
-                />
-              </Col>
-
-              <Row>
-                <Form.Label as={Col} className="settings-label">
-                  Margin of Grid
-                </Form.Label>
-              </Row>
-
-              <Row className="mb-3">
-                <RawInput label="X" value={visMargin.x} setValue={setVisMargin} field="x" />
-                <RawInput label="Y" value={visMargin.y} setValue={setVisMargin} field="y" />
-              </Row>
-
-              <Row>
-                <Form.Label className="settings-label">Unit of Grid View</Form.Label>
-              </Row>
-
-              <Row className="mb-3">
-                <RawInput label="X" value={visSize.x} setValue={setVisSize} field="x" />
-                <RawInput label="Y" value={visSize.y} setValue={setVisSize} field="y" />
-              </Row>
-
-              <Form.Group className="mb-3">
-                <Form.Label className="settings-label">Add New Chart</Form.Label>
-                <div style={{ display: 'flex' }}>
-                  <Form.Select
-                    value={addChart}
-                    onChange={(e) => setAddChart(e.target.value)}
-                    style={{
-                      width: '70%',
-                      marginRight: '10px',
-                    }}
-                  >
-                    {Object.keys(VisTypeComponents).map((key) => (
-                      <option key={key} value={key}>
-                        {VisTypeComponents[key]}
-                      </option>
-                    ))}
-                  </Form.Select>
-                  <Button
-                    style={{
-                      backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
-                      border: 'none',
-                    }}
-                    onClick={handleAdd}
-                  >
-                    Add Chart
-                  </Button>
-                </div>
-              </Form.Group>
-
-              <Row>
-                <Col sm={5}>
-                  <Button
-                    style={{
-                      width: '100%',
-                      backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
-                      border: 'none',
-                    }}
-                    type="submit"
-                    disabled={pending}
-                  >
-                    Save
-                  </Button>
-                </Col>
-              </Row>
-            </Row>
-          </Form>
-
-          <Form onSubmit={APIHandleSubmit} className='hidden'>
-            <Row>
-              <Col className="p-0">
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label">OMOP Tables</Form.Label>
-                  <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col className="p-0">
-                <Form.Label as={Col} className="settings-label">
-                  Count Type Selection
-                </Form.Label>
-                <Form.Group as={Col}>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="count_type"
-                      value="unique_person_counts"
-                      checked={countType === 'unique_person_counts'}
-                      onChange={countTypeHandleChange}
-                    />
-                    Unique Person Counts
-                  </Form.Label>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="count_type"
-                      value="unique_visit_counts"
-                      checked={countType === 'unique_visit_counts'}
-                      onChange={countTypeHandleChange}
-                    />
-                    Unique Visit Counts
-                  </Form.Label>
-
-                </Form.Group>
-              </Col>
-              <Row>
-                <Form.Label className="settings-label">Concept Code/Name Search</Form.Label>
-              </Row>
-
-              <Row className="mb-3">
-
-                <Col>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="concept_selection"
-                      value="Concept_Name"
-                      checked={conceptSelection === 'Concept_Name'}
-                      onChange={conceptSelectionHandleChange}
-                    />
-                    Concept Name
-                  </Form.Label>
-                </Col>
-                <Col><Form.Control type="text" size="sm" disabled={conceptSelection !== 'Concept_Name'} /></Col>
-              </Row>
-              <Row className="mb-3">
-
-                <Col>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="concept_selection"
-                      value="Concept_Code"
-                      checked={conceptSelection === 'Concept_Code'}
-                      onChange={conceptSelectionHandleChange}
-                    />
-                    Concept Code
-                  </Form.Label>
-                </Col>
-                <Col><Form.Control type="text" size="sm" disabled={conceptSelection !== 'Concept_Code'} /></Col>
-              </Row>
-              <Row>
-                <Form.Label className="settings-label">Concept Type Selection</Form.Label>
-              </Row>
-              <Row className="mb-3">
-                <Col>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="concept_type"
-                      value="Yes"
-                      checked={conceptType === 'Yes'}
-                      onChange={conceptTypeHandleChange}
-                    />
-                    Yes
-                  </Form.Label>
-                </Col>
-                <Col>
-                  <Form.Label as="label" className="radio-label">
-                    <Form.Check
-                      type="radio"
-                      name="concept_type"
-                      value="No"
-                      checked={conceptType === 'No'}
-                      onChange={conceptTypeHandleChange}
-                    />
-                    No
-                  </Form.Label>
-                </Col>
-              </Row>
-              {/* <hr/> */}
-              <Col className="p-0">
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label">SDOH Tables</Form.Label>
-                  <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    {sdohTables.length > 0 && sdohTables.map((t) => <option value={t}>{t}</option>)}
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Col className="p-0">
-                <Form.Group as={Col} className="mb-3">
-                  <Form.Label className="settings-label">SDOH SVI/ADI</Form.Label>
-                  <Form.Select value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                    <option>table 1</option>
-                    <option>table 2</option>
-                  </Form.Select>
-                </Form.Group>
-              </Col>
-              <Row>
-                <Col className="p-0">
-                  <Form.Group as={Col} className="mb-3">
-                    <Form.Label className="settings-label">Show data for:</Form.Label>
-                    <Form.Select id="dataSource" value={hideBorder} onChange={(e) => setHideBorder(e.target.value)}>
-                      <option value="svi">SVI</option>
-                      <option value="adi">ADI</option>
-                    </Form.Select>
-                  </Form.Group>
-                </Col>
-              </Row>
-              <Row>
-                <Col sm={5}>
-                  <Button
-                    style={{
-                      width: '100%',
-                      backgroundColor: config.THEME_COLOR ? config.THEME_COLOR : 'rgb(0, 123, 255)',
-                      border: 'none',
-                    }}
-                    type="submit"
-                    disabled={pending}
-                  >
-                    Submit
-                  </Button>
-                </Col>
-              </Row>
-            </Row>
-          </Form>
-
-        </Offcanvas.Body>
-      </Offcanvas>
-    </>
-  );
 }
 
 export default Settings;

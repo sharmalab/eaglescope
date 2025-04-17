@@ -10,10 +10,9 @@ import Settings from '../Settings/Settings';
 
 function ESNavbar(props) {
   const {
-    url, title, max, now, progressLabel, data, color,
+    url, title, max, now, progressLabel, data, color, isInitial
   } = props;
   document.title = title || 'Eaglescope';
-  console.log('ESNavbar',data)
   return (
     <Navbar
       style={{
@@ -27,7 +26,7 @@ function ESNavbar(props) {
       <Navbar.Brand href={url || '#'}>{title || 'Eaglescope'}</Navbar.Brand>
       <Nav className="mr-auto" />
       <Form inline="true">
-        {data[0]&&data[1]&&<ProgressBar
+        {!isInitial&&<ProgressBar
           style={{ width: '30rem' }}
           className="border border-light bg-light"
           min={0}

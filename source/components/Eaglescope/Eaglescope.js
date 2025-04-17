@@ -11,6 +11,16 @@ import ErrorMsg from '../partials/ErrorMsg';
 import SearchBar from '../SearchBar';
 
 function Eaglescope() {
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('isInitial') === 'false') {
+      setIsInitial(false);
+    }
+  }, []);
+
+
+
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [fullScreenVis, setFullScreenVis] = useState(null);
   const [isInitial, setIsInitial] = useState(true)
@@ -68,9 +78,10 @@ function Eaglescope() {
   return (
     <div>
       <ESNavbar
+        isInitial={isInitial}
         url={config.HOME_URL}
         title={config.TITLE}
-        max={data?data.length:0}
+        max={data.length}
         now={progressAttrs.now}
         progressLabel={progressAttrs.label}
         data={[filteredData, data]}
@@ -79,8 +90,8 @@ function Eaglescope() {
       <SearchBar filterAdded={addFiltersHandler} filterRemove={removeFiltersHandler} />
       <FilterOperationPanel filters={filters} filterRemove={removeFiltersHandler} />
 
-      <Settings />
-      {data?
+      <Settings setIsInitial={setIsInitial}/>
+      {!isInitial?
       (isFullScreen ? (
         <VisFullScreenView
           operation={config.VISUALIZATION_VIEW_CONFIGURATION.find(

@@ -162,14 +162,14 @@ export default function DataContextProvider({ children }) {
   const memoData = useMemo(
     () => ({
       dataError,
-      // data: finalData,
-      data: null,
+      data: finalData,
+      // data: null,
       lookup,
       tables,
       variables,
       loading,
-      // filteredData,
-      filteredData: null,
+      filteredData,
+      //filteredData: null,
       filters,
       addFiltersHandler,
       removeFiltersHandler,
