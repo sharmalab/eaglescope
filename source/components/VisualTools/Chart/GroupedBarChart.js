@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
@@ -20,7 +20,8 @@ const transformList = (data, f) => {
   return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
 };
 
-const transform = (data, field, value, method='mean', isList = false) => {
+const transform = (data, field, values, method='mean', isList = false) => {
+
   if (isList) {
     return transformList(data, field);
   }
@@ -30,17 +31,10 @@ const transform = (data, field, value, method='mean', isList = false) => {
     return collator.compare(a, b);
   }
 
-  // calculate mean, sd, TODO
-  return value?
-  d3.nest().key((d) => d[field])
+  return d3.nest().key((d) => d[field])
     .sortKeys(collSort)  
-    .rollup((d)=>d3[method](d,v=>v[value]))
+    .rollup((d)=>values.map(val=>d3[method](d,v=>v[val])))
     .entries(data)
-  :
-  d3.nest().key((d) => d[field])
-    .sortKeys(collSort)
-    .rollup((d) => d.length)
-    .entries(data);
 };
 
 const wrap = (text, width) => {
@@ -79,7 +73,10 @@ const wrap = (text, width) => {
   });
 };
 
-function BarChart(props) {
+function GroupedBarChart(props) {
+
+  const [selectedFieldIdx, setSelectedFieldIdx] = useState(0);
+  
   const margin = {
     top: 10,
     right: 10,
@@ -88,11 +85,30 @@ function BarChart(props) {
   };
 
   const fields = { x: 'key', y: 'value' };
-  const fullData = transform(props.data, props.fields.x,props.fields.y, props.method, props.fields.isList);
+
+  const fullData = transform(props.data, props.fields.x[selectedFieldIdx],props.fields.y, props.method, props.fields.isList);
+
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
   const viewerRef = useRef();
+
+
+  const dropdownchangeHandler = (e) => {
+    console.log(e.target.value)
+    setSelectedFieldIdx(+e.target.value)
+  }
+  const dropdown = document.createElement('select');
+  dropdown.classList.add('grouped');
+  props.fields.x.forEach((opt, idx)=>{
+    const option = document.createElement("option");
+    option.value = idx;
+    option.text = opt;
+    if(idx==selectedFieldIdx)
+      option.selected = true
+    dropdown.add(option);
+  })
+  dropdown.addEventListener('change', dropdownchangeHandler)
 
   const createXScale = (f, width) => {
     // set the ranges
@@ -105,29 +121,44 @@ function BarChart(props) {
   };
 
   const createYScale = (f, height) => {
+    const data = fullData.map(d=> d[f]).flat()
     const yScale = d3
       .scaleLinear()
-      .domain([0, d3.max(fullData, (d) => d[f])])
+      .domain([0, d3.max(data)])
       .range([height, 0]);
     return yScale;
   };
+  // self.current.append(dropdown)
+  // const color = d3.scaleOrdinal().domain([...props.fields.y]).range(d3.schemePaired[props.fields.y.length]).unknown("#000");
+  const drawDropdown = () => {
 
-  const drawBar = (selection, data, className = 'og') => {
-    const addLabel = (d) => `${d.key}: ${d.value}`;
+  }
+
+  const drawBar = (fieldName, idx, selection, data, className = 'og') => {
+    const addLabel = (d) => `${d.key}(${fieldName}): ${d.value[idx]}`;
+    const barWidth = scaleRef.current.x.bandwidth()/props.fields.y.length
     const offset = {
-      x: 60,
+      x: 60 + barWidth * idx,
       y: 0,
     };
     const tooltipHandlers = createTooltip(self.current, addLabel, offset);
-    const updateBars = selection.selectAll(`rect.${className}`).data(data, (d) => d[fields.x]);
+    
+    const updateBars = selection.selectAll(`rect.${className}_${fieldName}`).data(data, (d) => d[fields.x]);
 
     const enterBars = updateBars.enter().append('rect');
+    
+   
+    
     enterBars
-      .attr('class', `${className}`)
+      .attr('class', `${className}_${fieldName}`)
+      .attr("transform", `translate(${barWidth*idx},0)`)
       .attr('x', (d) => scaleRef.current.x(d[fields.x]))
-      .attr('width', scaleRef.current.x.bandwidth())
+      .attr('width', barWidth-1)
       .attr('y', hightRef.current)
-      .attr('role', 'graphics-symbol');
+      .attr('role', 'graphics-symbol')
+      .attr("fill", d => d3.schemePaired[idx])
+      .attr("opacity", className=='og'?0.3:1);
+    
     enterBars
       .on('mousemove', tooltipHandlers.mousemove)
       .on('mouseleave', tooltipHandlers.mouseleave)
@@ -137,13 +168,13 @@ function BarChart(props) {
         const filter = props?.fields?.isList ? {
           id: props.id,
           title: props.title,
-          field: props.fields.x,
+          field: props.fields.x[selectedFieldIdx],
           operation: 'has',
           values: value,
         } : {
           id: props.id,
           title: props.title,
-          field: props.fields.x,
+          field: props.fields.x[selectedFieldIdx],
           operation: 'eq',
           values: value,
         };
@@ -154,8 +185,8 @@ function BarChart(props) {
       .merge(enterBars)
       .transition()
       .duration(1000)
-      .attr('y', (d) => scaleRef.current.y(d[fields.y]))
-      .attr('height', (d) => hightRef.current - scaleRef.current.y(d[fields.y]));
+      .attr('y', (d) => scaleRef.current.y(d[fields.y][idx]))
+      .attr('height', (d) => hightRef.current - scaleRef.current.y(d[fields.y][idx]));
 
     // update_bars
     updateBars
@@ -168,6 +199,11 @@ function BarChart(props) {
 
     return updateBars;
   };
+  
+  useEffect(() => {
+    console.log('init')
+    self.current.append(dropdown)
+  },[])
 
   useEffect(() => {
     setTimeout(() => {
@@ -201,34 +237,53 @@ function BarChart(props) {
         .selectAll('.tick text')
         .call(wrap, xScale.bandwidth());
 
+
+      // console.log(xScale.bandwidth())
+
       // add the y Axis
       const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
       viewerRef.current.append('g').call(yAxis);
 
-      drawBar(viewerRef.current, fullData, 'og');
+      // Another scale for subgroup position?
+      // const xSubgroup = d3.scaleBand()
+      //   .domain(subgroups)
+      //   .range([0, x.bandwidth()])
+      //   .padding([0.05])
+
+      // draw drop down
+      drawDropdown()
+      props.fields.y.forEach((fieldName, idx)=>{
+        drawBar(fieldName, idx, viewerRef.current, fullData, 'og');
+      })
+
+      // drawBar(viewerRef.current, fullData, 'og');
     }, 100);
-  }, [props.layout]);
+  }, [props.layout, selectedFieldIdx]);
 
   useEffect(() => {
     setTimeout(() => {
       let data = [];
 
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x,props.fields.y,props.method, props.fields.isList);
-        console.log('data ~~~~~~~', data)
+        data = transform(props.filterData, props.fields.x[selectedFieldIdx],props.fields.y,props.method, props.fields.isList);
       } else {
         data = fullData;
       }
-      drawBar(viewerRef.current, data, 'ft');
+      // draw drop down
+      drawDropdown()
+      // drawBar(viewerRef.current, data, 'ft');
+      props.fields.y.forEach((fieldName, idx)=>{
+        drawBar(fieldName, idx, viewerRef.current, data, 'ft');
+      })
     }, 100);
-  }, [props.filters, props.filterData, props.layout]);
+  }, [props.filters, props.filterData, props.layout, selectedFieldIdx]);
 
   return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
-export default BarChart;
+export default GroupedBarChart;
 
-BarChart.propTypes = {
+GroupedBarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,

@@ -9,14 +9,14 @@ import { getLayoutConfig } from '../../../common/utils';
 import { ConfigContext } from '../../../contexts/ConfigContext';
 import './VisGridView.css';
 
-function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
+function VisGridView({ fullVisScreenHandler, fullScreened, designation = '*' }) {
   const { config } = useContext(ConfigContext);
   const grid = config.UNIT_OF_GRID_VIEW;
   const margins = config.MARGIN_OF_GRID_VIEW;
   const AllVisConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
   const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
-  const isDraggable = config.DRAGGABLE || false;
-  const isResizable = config.RESIZABLE || false;
+  const isDraggable = true; //config.DRAGGABLE || false;
+  const isResizable = true; //config.RESIZABLE || false;
 
   const [isResizing, SetIsResizing] = useState(false);
   const [resizingItemId, SetResizingItemId] = useState(null);
@@ -30,7 +30,6 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const self = useRef();
 
   const visConfig = useMemo(() => {
-    console.log('designation', designation);
     if (designation == '*') {
       return AllVisConfig; // for * don't filter, just show all
     }
@@ -104,7 +103,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
           layout={appLayout.layout}
           isDraggable={isDraggable}
           isResizable={isResizable}
-          draggableHandle={draggableHandle}
+          draggableHandle='.draggable'
           onResizeStart={onResizeStartHandle}
           onResizeStop={onResizeStopHandle}
         >
@@ -141,8 +140,4 @@ VisGridView.propTypes = {
   fullVisScreenHandler: PropTypes.func.isRequired,
   fullScreened: PropTypes.bool.isRequired,
   designation: PropTypes.string,
-};
-
-VisGridView.defaultProps = {
-  designation: '*',
 };

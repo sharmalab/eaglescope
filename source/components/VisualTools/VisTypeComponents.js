@@ -8,7 +8,9 @@
 
 const VisTypeComponents = {};
 VisTypeComponents.PIE_CHART = 'PieChart';
+VisTypeComponents.BUBBLE_CHART = 'BubbleChart';
 VisTypeComponents.BAR_CHART = 'BarChart';
+VisTypeComponents.GROUPED_BAR_CHART = 'GroupedBarChart';
 VisTypeComponents.HORIZONTAL_BAR_CHART = 'HorizontalBarChart';
 VisTypeComponents.SCATTER_CHART = 'ScatterChart';
 VisTypeComponents.KM_CURVE = 'KMCurve';
@@ -30,6 +32,12 @@ const VisInputDescription = {
     isYArr: false,
   },
   BAR_CHART: {
+    hasX: true,
+    hasY: false,
+    isXArr: false,
+    isYArr: false,
+  },
+  BUBBLE_CHART: {
     hasX: true,
     hasY: false,
     isXArr: false,

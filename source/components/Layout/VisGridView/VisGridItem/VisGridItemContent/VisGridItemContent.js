@@ -8,6 +8,8 @@ import VisTypeComponents from '../../../../VisualTools/VisTypeComponents';
 
 const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
+const GroupedBarChart = React.lazy(() => import('../../../../VisualTools/Chart/GroupedBarChart'));
+const BubbleChart = React.lazy(() => import('../../../../VisualTools/Chart/BubbleChart'));
 const KMCurve = React.lazy(() => import('../../../../VisualTools/Chart/KMCurve'));
 const HorizontalBarChart = React.lazy(() => import('../../../../VisualTools/Chart/HorizontalBarChart'));
 const ScatterChart = React.lazy(() => import('../../../../VisualTools/Chart/ScatterChart'));
@@ -28,8 +30,14 @@ function VisGridItemContent(props) {
     case 'ScatterChart':
       component = <ScatterChart {...props} />;
       break;
+    case 'GroupedBarChart':
+      component = <GroupedBarChart {...props} />;
+      break;
     case 'BarChart':
       component = <BarChart {...props} />;
+      break;
+    case 'BubbleChart':
+      component = <BubbleChart {...props} />;
       break;
     case 'KMCurve':
       component = <KMCurve {...props} />;
@@ -66,14 +74,8 @@ function VisGridItemContent(props) {
       );
   }
 
-  const handleMouseDown = (e) => {
-    e.stopPropagation(); // Prevent drag event from bubbling up to the parent grid item
-  };
-
   return (
-    // override a11y check, as mousedown is explicitly NOT allowing special interaction here.
-    /* eslint-disable-next-line jsx-a11y/no-static-element-interactions */
-    <div className="vis-grid-item-content" onMouseDown={handleMouseDown}>
+    <div className="vis-grid-item-content">
       <Suspense fallback={<div>Loading...</div>}>{component}</Suspense>
     </div>
   );

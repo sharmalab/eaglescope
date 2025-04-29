@@ -1,4 +1,6 @@
 import * as d3 from 'd3';
+import { off } from 'process';
+import { None } from 'vega';
 
 /**
  * @function createTooltip
@@ -10,7 +12,7 @@ import * as d3 from 'd3';
  * @returns {Object} contains to function mousemove and mouseleave handlers
  */
 
-function createTooltip(mount, addLabel, offset) {
+function createTooltip(mount, addLabel, offset = None, transform = false) {
   const tooltip = d3
     .select(mount)
     .append('div')
@@ -27,8 +29,17 @@ function createTooltip(mount, addLabel, offset) {
     tooltip
       .html(addLabel(d))
       .style('display', '')
-      .style('left', `${offset.x + d3.mouse(this)[0]}px`)
-      .style('top', `${offset.y + d3.mouse(this)[1]}px`);
+
+    if (offset) {
+      tooltip
+        .style('left', `${offset.x + d3.mouse(this)[0]}px`)
+        .style('top', `${offset.y + d3.mouse(this)[1]}px`);
+    }
+    if (transform) {
+      tooltip
+        .style('left', `${d.x + d3.mouse(this)[0]}px`)
+        .style('top', `${d.y + 50 + d3.mouse(this)[1]}px`);
+    }
   };
 
   const mouseleave = function leave() {

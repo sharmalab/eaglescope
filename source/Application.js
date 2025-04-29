@@ -7,7 +7,7 @@ import 'bootstrap';
 
 function APP({ overrideConfig, overrideData }) {
   const query = new URLSearchParams(window.location.search);
-  const configUrl = query.get('configurl') || './config/wines.json';
+  const configUrl = query.get('configurl') || './config/mr.json';
   return (
     <ConfigContextProvider configName={configUrl} overrideConfig={overrideConfig}>
       <DataContextProvider overrideData={overrideData}>

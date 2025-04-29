@@ -20,26 +20,17 @@ const transformList = (data, f) => {
   return Array.from(map).map((d) => ({ key: d[0], value: d[1] }));
 };
 
-const transform = (data, field, value, method='mean', isList = false) => {
+const transform = (data, field, isList = false) => {
   if (isList) {
     return transformList(data, field);
   }
-
   const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
   function collSort(a, b) {
     return collator.compare(a, b);
   }
-
-  // calculate mean, sd, TODO
-  return value?
-  d3.nest().key((d) => d[field])
-    .sortKeys(collSort)  
-    .rollup((d)=>d3[method](d,v=>v[value]))
-    .entries(data)
-  :
-  d3.nest().key((d) => d[field])
+  return d3.nest().key((d) => d[field])
     .sortKeys(collSort)
-    .rollup((d) => d.length)
+    .rollup((v) => v.length)
     .entries(data);
 };
 
@@ -79,7 +70,10 @@ const wrap = (text, width) => {
   });
 };
 
-function BarChart(props) {
+
+const format = d3.format(",d");
+const names = d => d.split(/(?=[A-Z][a-z])|\s+/g);
+function BubbleChart(props) {
   const margin = {
     top: 10,
     right: 10,
@@ -88,10 +82,11 @@ function BarChart(props) {
   };
 
   const fields = { x: 'key', y: 'value' };
-  const fullData = transform(props.data, props.fields.x,props.fields.y, props.method, props.fields.isList);
+  const fullData = transform(props.data, props.fields.x, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
-  const hightRef = useRef();
+  const heightRef = useRef();
+  const widthRef = useRef();
   const viewerRef = useRef();
 
   const createXScale = (f, width) => {
@@ -169,14 +164,99 @@ function BarChart(props) {
     return updateBars;
   };
 
+  const drawBubble = (selection, data, className = 'og') => {
+
+
+    var bubble = d3.pack().size([widthRef.current, heightRef.current]).padding(0);
+    
+    var nodes = d3.hierarchy({ children: data }).sum(d => d.value)
+      .sort((a, b) => b.value - a.value);
+
+    // var  = d3.min([widthRef.current, heightRef.current])
+    var bubble_data = bubble(nodes).descendants();
+    var no_root_bubble = bubble_data.filter(d => d.parent);
+    var max_val = d3.max(no_root_bubble, function (d) { return d.r; });
+    var min_val = d3.min(no_root_bubble, function (d) { return d.r; });
+
+    var color_scale = d3.scaleLinear().domain([min_val, max_val]).range(d3.schemeCategory10);
+    // Create a categorical color scale.
+    const color = d3.scaleOrdinal(d3.schemeTableau10);
+    var color_scale_num = d3.scaleLinear().domain([min_val, max_val]).range([0, 9]);
+    var font_scale = d3.scaleLinear().domain([min_val, max_val]).range([8, 20]);
+    
+    
+        // create a tooltip
+        const addLabel = (d) => `<div>${d.data.key}</div><div>${d.data.value}</div>` 
+        // Percentage: ${d3.format('.0%')(d.data.value / sum)}`;
+        const tooltipHandlers = createTooltip(self.current, addLabel, null, true);
+    
+    
+    
+    var bubbles = selection.selectAll(".bubble").data(no_root_bubble)
+      .enter()
+      .append("g")
+      .attr("class", "bubble")
+      .attr("transform", d => "translate(" + d.x + "," + d.y + ")");
+
+
+    // Add a title.
+    // bubbles.append("title")
+    // .text(d => `${d.data.key}\n${format(d.data.value)}`);
+
+    bubbles.append("circle")
+      .attr("r", d => d.r)
+      .style("fill", d => d3.schemeTableau10[Math.round(color_scale_num(d.r))])
+      .attr("fill-opacity", 0.8)
+      .on('mousemove', tooltipHandlers.mousemove)
+      .on('mouseleave', tooltipHandlers.mouseleave);
+    function trimText(text, threshold) {
+        if (text.length <= threshold) return text;
+        return text.substr(0, threshold).concat("...");
+    }
+    // cate name
+    bubbles.append("text")
+      .attr("dy", ".2em")
+      .style("text-anchor", "middle")
+      .text(function (d) {
+        if (d.r < 30) return ''
+        return trimText(d.data.key, 6);
+        return d.data.key;
+      })
+      .attr("font-size", function (d) {
+        const sf = font_scale(d.r)
+        return sf > 5 ? sf : 5;
+      })
+      .style('fill', '#323232');
+    // count num
+    bubbles.append("text")
+      .attr("dy", "1.3em")
+      .style("text-anchor", "middle")
+      // ,style(text-overflow: ellipsis)
+      .text(function (d) {
+        if (d.r < 30) return ''
+        return d.data.value;
+      })
+      .attr("font-size", function (d) {
+        const sf = font_scale(d.r * 0.6)
+        return sf > 5 ? sf : 5;
+      })
+      .style('fill', '#666666');
+  }
+
+
   useEffect(() => {
     setTimeout(() => {
+      // Remove old svg if any
+      d3.select(self.current).select('.tooltip').remove('.tooltip');
       d3.select(self.current).selectAll('svg').remove('svg');
+
+      // calculate chart dimensions
       const rect = self.current.getBoundingClientRect();
       const innerWidth = rect.width - margin.left - margin.right;
       const innerHeight = rect.height - margin.top - margin.bottom;
-      hightRef.current = innerHeight;
 
+      heightRef.current = innerHeight;
+      widthRef.current = innerWidth;
       // create svg
       const svg = d3
         .select(self.current)
@@ -188,56 +268,38 @@ function BarChart(props) {
       viewerRef.current = svg
         .append('g')
         .attr('transform', `translate(${margin.left},${margin.top})`);
-      const xScale = createXScale(fields.x, innerWidth);
-      const yScale = createYScale(fields.y, innerHeight);
-      scaleRef.current = { x: xScale, y: yScale };
 
-      const xAxis = d3.axisBottom(xScale);
-      viewerRef.current
-        .append('g')
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0,${innerHeight})`)
-        .call(xAxis)
-        .selectAll('.tick text')
-        .call(wrap, xScale.bandwidth());
-
-      // add the y Axis
-      const yAxis = d3.axisLeft(yScale).tickSize(-innerWidth);
-      viewerRef.current.append('g').call(yAxis);
-
-      drawBar(viewerRef.current, fullData, 'og');
+      drawBubble(viewerRef.current, fullData, 'og')
     }, 100);
   }, [props.layout]);
 
   useEffect(() => {
     setTimeout(() => {
       let data = [];
-
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x,props.fields.y,props.method, props.fields.isList);
-        console.log('data ~~~~~~~', data)
+        data = transform(props.filterData, props.fields.x, props.fields.isList);
       } else {
         data = fullData;
       }
-      drawBar(viewerRef.current, data, 'ft');
+      drawBubble(viewerRef.current, data, 'og');
     }, 100);
   }, [props.filters, props.filterData, props.layout]);
 
   return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
-export default BarChart;
+export default BubbleChart;
 
-BarChart.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
-  id: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  filterAdded: PropTypes.func.isRequired,
-  layout: PropTypes.shape({
-    width: PropTypes.number.isRequired,
-    currentCols: PropTypes.number.isRequired,
-  }).isRequired,
-};
+// BubbleChart.propTypes = {
+//   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+//   fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
+//   id: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   filterData: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+//   filters: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+//   filterAdded: PropTypes.func.isRequired,
+//   layout: PropTypes.shape({
+//     width: PropTypes.number.isRequired,
+//     currentCols: PropTypes.number.isRequired,
+//   }).isRequired,
+// };

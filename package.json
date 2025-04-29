@@ -66,6 +66,7 @@
     "@parcel/transformer-sass": "^2.13.3",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
+    "buffer": "^6.0.3",
     "cross-fetch": "^4.0.0",
     "eslint": "^8.52.0",
     "eslint-config-airbnb": "^19.0.4",

@@ -23,3 +23,7 @@
 .name-header.draggable {
   cursor: move;
 }
+
+.draggable {
+  overflow: hidden;
+}
