@@ -87,3 +87,15 @@ h1{
 .btn, .btn:focus{
   box-shadow: none !important;
 }
+
+.box-plot-wrapper {
+  overflow: auto;
+}
+
+.solid{
+  stroke:solid;
+}
+
+.dashed{
+  stroke-dasharray: (5,5); 
+}
