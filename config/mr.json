@@ -6,47 +6,97 @@
   "RESIZABLE" : "TRUE",
   "DRAGGABLE" : 1,
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
-  "DATA_RESOURCE_URL": "./config/puneet_new_label_1.csv",
+  "DATA_RESOURCE_URL": "./config/puneet_new_label_2.csv",
   "DATA_FORMAT": "csv",
   "LAYOUT": "",
 
   "VISUALIZATION_VIEW_CONFIGURATION": [
+
     {
-      "id": "SeriesDescription",
-      "title": "SeriesDescription",
-      "description": "SeriesDescription",
+      "id": "boxplots",
+      "title": "SNR_mean",
+      "description": "SNR_mean",
+      "chartType": "BOX_PLOT",
+      "fields": ["SNR1_mean","SNR2_mean","SNR3_mean"],
+      "size": [2, 2],
+      "priority": 70
+    },
+    {
+      "id": "Dimension",
+      "title": "Dimension",
+      "description": "Dimension",
       "chartType": "PIE_CHART",
-      "fields": { "x": "SeriesDescription" },
+      "fields": { "x": "Dimension" },
       "size": [1, 1],
       "priority": 70,
       "designation":"left"
     },
     {
-      "id": "LABEL",
-      "title": "LABEL",
-      "description": "LABEL",
+      "id": "ClosestOrientation",
+      "title": "ClosestOrientation",
+      "description": "ClosestOrientation",
       "chartType": "PIE_CHART",
-      "fields": { "x": "LABEL" },
+      "fields": { "x": "ClosestOrientation" },
       "size": [1, 1],
       "priority": 70,
       "designation":"left"
     },
     {
-      "id": "AccessionNumber",
-      "title": "AccessionNumber",
-      "description": "AccessionNumber",
+      "id": "ContrastWeighting",
+      "title": "ContrastWeighting",
+      "description": "ContrastWeighting",
       "chartType": "PIE_CHART",
-      "fields": { "x": "AccessionNumber" },
+      "fields": { "x": "ContrastWeighting" },
       "size": [1, 1],
       "priority": 70,
       "designation":"left"
     },
     {
-      "id": "SeriesDescr",
-      "title": "SeriesDescr",
-      "description": "SeriesDescr",
+      "id": "SequenceType",
+      "title": "SequenceType",
+      "description": "SequenceType",
       "chartType": "PIE_CHART",
-      "fields": { "x": "SeriesDescr" },
+      "fields": { "x": "SequenceType" },
+      "size": [1, 1],
+      "priority": 70,
+      "designation":"left"
+    },
+    {
+      "id": "SpecialtySequence",
+      "title": "SpecialtySequence",
+      "description": "SpecialtySequence",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "SpecialtySequence" },
+      "size": [1, 1],
+      "priority": 70,
+      "designation":"left"
+    },
+    {
+      "id": "FatSat",
+      "title": "FatSat",
+      "description": "FatSat",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "FatSat" },
+      "size": [1, 1],
+      "priority": 70,
+      "designation":"left"
+    },
+    {
+      "id": "Contrast",
+      "title": "Contrast",
+      "description": "Contrast",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "Contrast" },
+      "size": [1, 1],
+      "priority": 70,
+      "designation":"left"
+    },
+    {
+      "id": "BodyPart",
+      "title": "BodyPart",
+      "description": "BodyPart",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "BodyPart" },
       "size": [1, 1],
       "priority": 70,
       "designation":"left"
@@ -168,6 +218,9 @@
           "dataKey": "DUR (sec)",
           "label": "DUR (sec)"
           
+        },{
+          "dataKey": "DeviceSerialNumber",
+          "label": "DeviceSerialNumber"
         }
       ],
       "size": [6, 2],

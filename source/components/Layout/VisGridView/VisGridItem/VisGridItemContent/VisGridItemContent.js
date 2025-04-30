@@ -8,6 +8,7 @@ import VisTypeComponents from '../../../../VisualTools/VisTypeComponents';
 
 const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart'));
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
+const BoxPlot = React.lazy(() => import('../../../../VisualTools/Chart/BoxPlot'));
 const GroupedBarChart = React.lazy(() => import('../../../../VisualTools/Chart/GroupedBarChart'));
 const BubbleChart = React.lazy(() => import('../../../../VisualTools/Chart/BubbleChart'));
 const KMCurve = React.lazy(() => import('../../../../VisualTools/Chart/KMCurve'));
@@ -35,6 +36,9 @@ function VisGridItemContent(props) {
       break;
     case 'BarChart':
       component = <BarChart {...props} />;
+      break;
+    case 'BoxPlot':
+        component = <BoxPlot {...props} />;
       break;
     case 'BubbleChart':
       component = <BubbleChart {...props} />;

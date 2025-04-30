@@ -8,6 +8,7 @@
 
 const VisTypeComponents = {};
 VisTypeComponents.PIE_CHART = 'PieChart';
+VisTypeComponents.BOX_PLOT = 'BoxPlot';
 VisTypeComponents.BUBBLE_CHART = 'BubbleChart';
 VisTypeComponents.BAR_CHART = 'BarChart';
 VisTypeComponents.GROUPED_BAR_CHART = 'GroupedBarChart';
