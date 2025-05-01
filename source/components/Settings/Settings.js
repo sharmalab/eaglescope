@@ -90,8 +90,10 @@ function Settings() {
   const [newVis, setNewVis] = useState({});
   const [showNewVis, setShowNewVis] = useState(false);
 
+  const [showAlert, setShowAlert] = useState(false)
 
-  
+
+
 
   const [borderRadius, setBorderRadius] = useState(
     config?.BORDER_RADIUS ? config.BORDER_RADIUS : 0,
@@ -364,7 +366,7 @@ function Settings() {
     if (selectedTable) {
       generateFormForTable(selectedTable);
     }
-    console.log('selectedTable',selectedTable)
+    console.log('selectedTable', selectedTable)
     // setSelectedOMOPTable(selectedTable)
   }
 
@@ -758,7 +760,7 @@ function Settings() {
   }
 
   const APISubmit = () => {
-
+    setShowAlert(false)
     setPending(true);
     // Get selected values
     const omopTable = document.getElementById('Omop_TableName').value;
@@ -822,9 +824,16 @@ function Settings() {
     })
       .then(response => response.json())
       .then(resp_data => {
+
+        if (Array.isArray(resp_data) && resp_data.length == 0) {
+          // show message
+          setShowAlert(true)
+          setPending(false);
+          return;
+        }
         // Handle response from API
         console.log('Success:', resp_data);
-        const {metadata, data, search_condition} = resp_data
+        const { metadata, data, search_condition } = resp_data
 
 
         // set new data into data context
@@ -834,20 +843,20 @@ function Settings() {
 
         const categoricals = [];
         let count_key = 'VISIT_COUNTS';
-        if (selectedCountType =='unique_person_counts') {
+        if (selectedCountType == 'unique_person_counts') {
           count_key = 'PERSON_COUNTS'
         }
-    
+
         for (const [key, value] of Object.entries(metadata)) {
           if (value.type === 'feature_range' || value.type === 'feature_category') {
             categoricals.push(key);
-          } 
+          }
           // else if (value.type === 'stat_count') {
           //   count_key = key;
           // }
         }
-        
-    
+
+
         const charts = categoricals.map((x) => ({
           id: `${count_key}-${x}`,
           title: `${count_key} in ${x}`,
@@ -861,7 +870,7 @@ function Settings() {
           size: [2, 1],
           priority: 100,
         }));
-    
+
         const mapChart = {
           id: 'geo-maps-polygon',
           title: 'Geo Map - polygon',
@@ -877,7 +886,7 @@ function Settings() {
           size: [2, 2],
           priority: 70,
         };
-    
+
         const tableChart = {
           id: 'collection_data_table',
           title: 'Data Table',
@@ -893,10 +902,10 @@ function Settings() {
             {
               dataKey: count_key,
               label: `${count_key}`,
-            },{
+            }, {
               dataKey: 'COUNTY',
               label: `County Name`,
-            },{
+            }, {
               dataKey: 'concept_name',
               label: `concept_name`,
             },
@@ -904,7 +913,7 @@ function Settings() {
           size: [4, 2],
           priority: 100,
         };
-    
+
         const newConfig = {
           TITLE: `${omopTable.toUpperCase()} Auto Dashboard`,
           HOME_URL: homeUrl,
@@ -921,10 +930,10 @@ function Settings() {
           DATA_LOOKUP_URL: './config/Counties_Georgia.geojson',
           VISUALIZATION_VIEW_CONFIGURATION: [...charts, mapChart, tableChart],
         };
-    
+
         saveToLocalStore('dashboardConfig', newConfig);
         console.log('set config!');
-    
+
         window.location = '?configurl=local://dashboardConfig&skipModal=true&isInitial=false';
         setData(data);
         setConfig((prevConfig) => (newConfig));
@@ -977,26 +986,34 @@ function Settings() {
         // setLoading(false);
       }
     };
-    console.log('~~~~~~~~test~~~~~~~~~~~~');
     fetchInfo();
   }, []);
   return (
-    <div className="container-fluid">
-    <div className="row justify-content-md-center">
-      <div className="col">
-        <div className="panel">
-          <h2>Select OMOP Table</h2>
-          <select id="Omop_TableName" name="Omop_TableName" className="form-select mb-4" onChange={omopTablesChangeHandle}>
-            <option value="">Select a table...</option>
-            {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
-          </select>
+    <div className="container-fluid" >
+      <div className={`alert alert-danger alert-dismissible fade ${showAlert?'show':'hidden'}`} role="alert">
+        <strong>Empty Data</strong> Please try to quary data again!
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close" onClick={()=>{
+          setShowAlert(false)
+        }}>
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div className="row justify-content-md-center">
+        <div className="col">
+          <div className="panel">
+            <h2>Select OMOP Table</h2>
+            <select id="Omop_TableName" name="Omop_TableName" className="form-select mb-4" onChange={omopTablesChangeHandle}>
+              <option value="">Select a table...</option>
+              {omopTables.length > 0 && omopTables.map((t) => <option value={t}>{t}</option>)}
+            </select>
 
-          <div ref={formRef} id="form-container"></div>
-          {pending && <div className="overlay"><div className="loader"></div></div>}
+            <div ref={formRef} id="form-container"></div>
+            {pending && <div className="overlay"><div className="loader"></div></div>}
+          </div>
         </div>
       </div>
+
     </div>
-  </div>
   )
 }
 
