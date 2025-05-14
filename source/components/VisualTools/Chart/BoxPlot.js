@@ -95,84 +95,10 @@ function BoxPlot(props) {
   const hightRef = useRef();
   const viewerRef = useRef();
 
-  const createXScale = (f, width) => {
-    // set the ranges
-    const xScale = d3
-      .scaleBand()
-      .domain(fullData.map((d) => d[f]).flat())
-      .range([0, width])
-      .padding(0.1);
-    return xScale;
-  };
-
-  const createYScale = (f, height) => {
-    const yScale = d3
-      .scaleLinear()
-      .domain([0, d3.max(fullData, (d) => d[f])])
-      .range([height, 0]);
-    return yScale;
-  };
-
-  const drawBar = (selection, data, className = 'og') => {
-    const addLabel = (d) => `${d.key}: ${d.value}`;
-    const offset = {
-      x: 60,
-      y: 0,
-    };
-    const tooltipHandlers = createTooltip(self.current, addLabel, offset);
-    const updateBars = selection.selectAll(`rect.${className}`).data(data, (d) => d[fields.x]);
-
-    const enterBars = updateBars.enter().append('rect');
-    enterBars
-      .attr('class', `${className}`)
-      .attr('x', (d) => scaleRef.current.x(d[fields.x]))
-      .attr('width', scaleRef.current.x.bandwidth())
-      .attr('y', hightRef.current)
-      .attr('role', 'graphics-symbol');
-    enterBars
-      .on('mousemove', tooltipHandlers.mousemove)
-      .on('mouseleave', tooltipHandlers.mouseleave)
-      .on('click', (currentData) => {
-        const selected = enterBars.filter((d) => d === currentData);
-        const value = selected.data()[0].key;
-        const filter = props?.fields?.isList ? {
-          id: props.id,
-          title: props.title,
-          field: props.fields.x,
-          operation: 'has',
-          values: value,
-        } : {
-          id: props.id,
-          title: props.title,
-          field: props.fields.x,
-          operation: 'eq',
-          values: value,
-        };
-        props.filterAdded([filter]);
-      });
-
-    updateBars
-      .merge(enterBars)
-      .transition()
-      .duration(1000)
-      .attr('y', (d) => scaleRef.current.y(d[fields.y]))
-      .attr('height', (d) => hightRef.current - scaleRef.current.y(d[fields.y]));
-
-    // update_bars
-    updateBars
-      .exit()
-      .transition()
-      .duration(1000)
-      .attr('y', hightRef.current)
-      .attr('height', 0)
-      .remove();
-
-    return updateBars;
-  };
+  
 
 
   const drawBoxPlot = (data, width, height, parent, field) => {
-    console.log('drawBoxPlot', data)
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
     const svg = parent.append('svg')
@@ -185,6 +111,8 @@ function BoxPlot(props) {
     .attr('transform', `translate(${margin.left},${margin.top})`);
     // Compute summary statistics used for the box:
     var data_sorted = data.sort(d3.ascending)
+    var min_point = data_sorted[0]
+    var max_point = data_sorted[data_sorted.length - 1]
     var q1 = d3.quantile(data_sorted, .25)
     var median = d3.quantile(data_sorted, .5)
     var mean = d3.mean(data)
@@ -192,12 +120,13 @@ function BoxPlot(props) {
     var interQuantileRange = q3 - q1
     var min = q1 - 1.5 * interQuantileRange
     var max = q3 + 1.5 * interQuantileRange
-    console.log(q1, median, q3, min, max)
-
+    var value_range = [d3.min([min, min_point]),d3.max([max, max_point])]
+    
+    // console.log(min, max, min_point, max_point)
     // Show the Y scale
 
     // add the y Axis
-    const yScale = d3.scaleLinear().domain([d3.min([min,...data]), d3.max(data)]).range([innerHeight, 0]);
+    const yScale = d3.scaleLinear().domain(value_range).range([innerHeight, 0]);
     const yAxis = d3.axisLeft(yScale);
     viewer.append('g').call(yAxis);
 
@@ -236,6 +165,18 @@ function BoxPlot(props) {
       .attr("stroke", "black")
       .attr('class', (d, idx)=> idx==2?"dashed":"solid")
       
+    //
+    console.log([min_point, max_point])
+    viewer
+  .selectAll("point")
+  .data([min_point, max_point])
+  .enter()
+  .append("circle")
+    .attr("cx", center)
+    .attr("cy", d=>yScale(d))
+    .attr("r", 4)
+    .style("fill", "white")
+    .attr("stroke", "black")
 
     // text label
     const textWrapper = viewer.append("g")

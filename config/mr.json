@@ -13,11 +13,29 @@
   "VISUALIZATION_VIEW_CONFIGURATION": [
 
     {
-      "id": "boxplots",
+      "id": "SNR_mean_box",
       "title": "SNR_mean",
       "description": "SNR_mean",
       "chartType": "BOX_PLOT",
-      "fields": ["SNR1_mean","SNR2_mean","SNR3_mean"],
+      "fields": ["SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean"],
+      "size": [2, 2],
+      "priority": 70
+    },
+    {
+      "id": "SNR_median_box",
+      "title": "SNR_median",
+      "description": "SNR_median",
+      "chartType": "BOX_PLOT",
+      "fields": ["SNR1_median","SNR2_median","SNR3_median","SNR4_median"],
+      "size": [2, 2],
+      "priority": 70
+    },
+    {
+      "id": "SNR_std_box",
+      "title": "SNR_std",
+      "description": "SNR_std",
+      "chartType": "BOX_PLOT",
+      "fields": ["SNR1_std","SNR2_std","SNR3_std","SNR4_std"],
       "size": [2, 2],
       "priority": 70
     },
@@ -177,24 +195,32 @@
       "chartType": "VIS_DATA_TABLE",
       "fields": [
         {
-          "dataKey": "LABEL",
-          "label": "LABEL"
+          "dataKey": "DeviceSerialNumber",
+          "label": "Device Serial Number"
         },
         {
-          "dataKey": "SNR1_mean",
-          "label": "SNR1_mean"
+          "dataKey": "VRX",
+          "label": "VRX"
         },
         {
-          "dataKey": "SNR2_mean",
-          "label": "SNR2_mean"
+          "dataKey": "VRY",
+          "label": "VRY"
         },
         {
-          "dataKey": "SNR3_mean",
-          "label": "SNR3_mean"
+          "dataKey": "VRZ",
+          "label": "VRZ"
         },
         {
-          "dataKey": "SNR4_mean",
-          "label": "SNR4_mean"
+          "dataKey": "MFS",
+          "label": "MFS"
+        },
+        {
+          "dataKey": "TR",
+          "label": "TR"
+        },
+        {
+          "dataKey": "TE",
+          "label": "TE"
         },
         {
           "dataKey": "TR",
@@ -204,23 +230,16 @@
           "dataKey": "TE",
           "label": "TE"
         },{
-          "dataKey": "PSNR_mean",
-          "label": "PSNR_mean"
-        },
-        {
-          "dataKey": "PSNR_std",
-          "label": "PSNR_std"
-        },
-        {
-          "dataKey": "PSNR_median",
-          "label": "PSNR_median"
-        },{
           "dataKey": "DUR (sec)",
           "label": "DUR (sec)"
           
         },{
-          "dataKey": "DeviceSerialNumber",
-          "label": "DeviceSerialNumber"
+          "dataKey": "DUR (min)",
+          "label": "DUR (min)"
+          
+        },{
+          "dataKey": "PSNR_mean",
+          "label": "PSNR mean"
         }
       ],
       "size": [6, 2],
