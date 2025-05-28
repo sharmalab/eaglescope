@@ -6,12 +6,50 @@
   "RESIZABLE" : "TRUE",
   "DRAGGABLE" : 1,
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
-  "DATA_RESOURCE_URL": "./config/puneet_new_label_2.csv",
+  "DATA_RESOURCE_URL": "./config/puneet_new_label_3.csv",
   "DATA_FORMAT": "csv",
   "LAYOUT": "",
 
   "VISUALIZATION_VIEW_CONFIGURATION": [
-
+    {      
+      "id": "Category",
+      "title": "Category",
+      "description": "Category",
+      "chartType": "PIE_CHART",
+      "fields": { "x": "Category" },
+      "size": [1, 1],
+      "priority": 70,
+      "designation":"left"
+    },
+    {
+      "id": "mean_matrix",
+      "title": "Means",
+      "description": "Means",
+      "chartType": "PARALLEL_COORDINATES",
+      "fields": {
+        "y": ["TR","TE","SNR1_mean", "SNR2_mean", "SNR3_mean","SNR4_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]
+      },
+      "size": [4, 2],
+      "priority": 50
+    },
+    {
+      "id": "Category_bar",
+      "title": "Category",
+      "description": "Category",
+      "chartType": "BAR_CHART",
+      "fields":{"x":"Category"},
+      "size": [4, 1],
+      "priority": 0        
+    },
+    {
+      "id": "PSNR_median_DUR",
+      "title": "PSNR_median_DUR",
+      "description": "PSNR_median_DUR",
+      "chartType": "SCATTER_CHART",
+      "fields": { "y": "PSNR_median", "x": "DUR (min)" },
+      "size": [2, 2],
+      "priority": 50
+    },
     {
       "id": "SNR_mean_box",
       "title": "SNR_mean",
@@ -38,86 +76,6 @@
       "fields": ["SNR1_std","SNR2_std","SNR3_std","SNR4_std"],
       "size": [2, 2],
       "priority": 70
-    },
-    {
-      "id": "Dimension",
-      "title": "Dimension",
-      "description": "Dimension",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "Dimension" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "ClosestOrientation",
-      "title": "ClosestOrientation",
-      "description": "ClosestOrientation",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "ClosestOrientation" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "ContrastWeighting",
-      "title": "ContrastWeighting",
-      "description": "ContrastWeighting",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "ContrastWeighting" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "SequenceType",
-      "title": "SequenceType",
-      "description": "SequenceType",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "SequenceType" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "SpecialtySequence",
-      "title": "SpecialtySequence",
-      "description": "SpecialtySequence",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "SpecialtySequence" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "FatSat",
-      "title": "FatSat",
-      "description": "FatSat",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "FatSat" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "Contrast",
-      "title": "Contrast",
-      "description": "Contrast",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "Contrast" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
-    {
-      "id": "BodyPart",
-      "title": "BodyPart",
-      "description": "BodyPart",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "BodyPart" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
     },
     {
       "id": "DeviceSerialNumber",
@@ -193,7 +151,10 @@
       "title": "Collection Data Table",
       "description": "Showing Collection Data",
       "chartType": "VIS_DATA_TABLE",
-      "fields": [
+      "fields": [{
+          "dataKey": "SeriesDescription",
+          "label": "Series Description"
+        },
         {
           "dataKey": "DeviceSerialNumber",
           "label": "Device Serial Number"
@@ -223,17 +184,6 @@
           "label": "TE"
         },
         {
-          "dataKey": "TR",
-          "label": "TR"
-        },
-        {
-          "dataKey": "TE",
-          "label": "TE"
-        },{
-          "dataKey": "DUR (sec)",
-          "label": "DUR (sec)"
-          
-        },{
           "dataKey": "DUR (min)",
           "label": "DUR (min)"
           
