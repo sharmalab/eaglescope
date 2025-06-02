@@ -29,6 +29,13 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   });
   const self = useRef();
 
+  const resolveGridSize = (gridValue, containerSize) => {
+    console.log("resolveGridSize", gridValue, containerSize, (parseFloat(gridValue) / 100) * containerSize)
+    return typeof gridValue === 'string' && gridValue.endsWith('%')
+      ? (parseFloat(gridValue) / 100) * containerSize
+      : gridValue;
+  };
+  
   const visConfig = useMemo(() => {
     console.log("designation", designation)
     if (designation == "*"){
@@ -38,27 +45,42 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
     }
   }, [AllVisConfig, designation]);
 
+  console.log("grid", grid)
   const updateViewSize = () => {
     const rect = self.current.getBoundingClientRect();
-    const cols = parseInt((rect.width - margins[0]) / (grid[0] + margins[0]), 10);
-    if (
-      cols === appLayout.currentCols
-      && grid[0] === appLayout.grid[0]
-      && grid[1] === appLayout.grid[1]
-      && margins[0] === appLayout.margins[0]
-      && margins[1] === appLayout.margins[1]
-    ) return;
-    const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
-    const updatedLayout = getLayoutConfig(visConfig, cols, isResizable);
 
+    const containerWidth = rect.width;
+
+    const containerHeight = typeof grid[1] === 'string' && grid[1].endsWith('%')
+    ? window.innerHeight
+    : rect.height;
+  
+    const gridWidth = resolveGridSize(grid[0], containerWidth);
+    const gridHeight = resolveGridSize(grid[1], containerHeight);
+
+    console.log(gridWidth, gridHeight)
+    const cols = parseInt((rect.width - margins[0]) / (gridWidth + margins[0]), 10);
+  
+    if (
+      cols === appLayout.currentCols &&
+      gridWidth === appLayout.grid[0] &&
+      gridHeight === appLayout.grid[1] &&
+      margins[0] === appLayout.margins[0] &&
+      margins[1] === appLayout.margins[1]
+    ) return;
+  
+    const gridLayoutWidth = cols * gridWidth + (cols + 1) * margins[0];
+    const updatedLayout = getLayoutConfig(visConfig, cols, isResizable);
+  
     setAppLayout({
       width: gridLayoutWidth,
       currentCols: cols,
       layout: updatedLayout.layout,
       margins,
-      grid,
+      grid: [gridWidth, gridHeight],
     });
   };
+  
 
   const debouncedUpdateViewSize = debounce(updateViewSize, 100);
 
@@ -81,25 +103,30 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
 
   useEffect(() => {
     const rect = self.current.getBoundingClientRect();
-    const cols = parseInt((rect.width - margins[0]) / (grid[0] + margins[0]), 10);
-    const gridLayoutWidth = cols * grid[0] + (cols + 1) * margins[0];
+  
+    const gridWidth = resolveGridSize(grid[0], rect.width);
+    const gridHeight = resolveGridSize(grid[1], rect.height);
+  
+    const cols = parseInt((rect.width - margins[0]) / (gridWidth + margins[0]), 10);
+    const gridLayoutWidth = cols * gridWidth + (cols + 1) * margins[0];
     const updatedLayout = getLayoutConfig(visConfig, cols, isResizable);
-
+  
     setAppLayout({
       width: gridLayoutWidth,
       currentCols: cols,
       layout: updatedLayout.layout,
       margins,
-      grid,
+      grid: [gridWidth, gridHeight],
     });
   }, [visConfig]);
+  
   useEffect(() => {}, [isResizing, resizingItemId]);
   return (
     <div className="vis-grid-view" ref={self}>
       {appLayout.layout.length > 0 && (
         <GridLayout
           cols={appLayout.currentCols}
-          rowHeight={grid[1]}
+          rowHeight={appLayout.grid[1]}
           width={appLayout.width}
           margin={margins}
           layout={appLayout.layout}
