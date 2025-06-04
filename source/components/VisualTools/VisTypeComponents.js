@@ -12,6 +12,7 @@ VisTypeComponents.BOX_PLOT = 'BoxPlot';
 VisTypeComponents.BUBBLE_CHART = 'BubbleChart';
 VisTypeComponents.BAR_CHART = 'BarChart';
 VisTypeComponents.GROUPED_BAR_CHART = 'GroupedBarChart';
+VisTypeComponents.DROPDOWN_BAR_CHART = 'DropdownBarChart';
 VisTypeComponents.HORIZONTAL_BAR_CHART = 'HorizontalBarChart';
 VisTypeComponents.SCATTER_CHART = 'ScatterChart';
 VisTypeComponents.KM_CURVE = 'KMCurve';

@@ -82,10 +82,9 @@ function BoxPlot(props) {
   const margin = {
     top: 10,
     right: 10,
-    bottom: 35,
-    left: 35,
+    bottom: 25,
+    left: 40,
   };
-  console.log('Box Plot', props)
   const { fields } = props;
 
 
@@ -95,7 +94,7 @@ function BoxPlot(props) {
   const hightRef = useRef();
   const viewerRef = useRef();
 
-  
+
 
 
   const drawBoxPlot = (data, width, height, parent, field) => {
@@ -108,11 +107,11 @@ function BoxPlot(props) {
 
     // create viewer
     const viewer = svg.append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);
+      .attr('transform', `translate(${margin.left},${margin.top})`);
     // Compute summary statistics used for the box:
     var data_sorted = data.sort(d3.ascending)
-    var min_point = data_sorted[0]
-    var max_point = data_sorted[data_sorted.length - 1]
+    // var min_point = data_sorted[0]
+    // var max_point = data_sorted[data_sorted.length - 1]
     var q1 = d3.quantile(data_sorted, .25)
     var median = d3.quantile(data_sorted, .5)
     var mean = d3.mean(data)
@@ -120,8 +119,9 @@ function BoxPlot(props) {
     var interQuantileRange = q3 - q1
     var min = q1 - 1.5 * interQuantileRange
     var max = q3 + 1.5 * interQuantileRange
-    var value_range = [d3.min([min, min_point]),d3.max([max, max_point])]
-    
+    // var value_range = [d3.min([min, min_point]),d3.max([max, max_point])]
+    var value_range = [d3.min([min, ...data]), d3.max([max, ...data])]
+
     // console.log(min, max, min_point, max_point)
     // Show the Y scale
 
@@ -131,7 +131,8 @@ function BoxPlot(props) {
     viewer.append('g').call(yAxis);
 
     // // a few features for the box
-    var center =  (innerWidth)/2
+    const margin_left = 10
+    var center = innerWidth / 2 + margin_left
 
     // Show the main vertical line
     viewer.append("line")
@@ -141,14 +142,15 @@ function BoxPlot(props) {
       .attr("y2", yScale(max))
       .attr("stroke", "black")
 
-    
+
     // Show the box
+
     viewer
       .append("rect")
-      .attr("x", margin.left)
+      .attr("x", margin_left)
       .attr("y", yScale(q3))
       .attr("height", (yScale(q1) - yScale(q3)))
-      .attr("width", innerWidth-margin.left*2)
+      .attr("width", innerWidth)
       .attr("stroke", "black")
       .style("fill", "#4682b4")
 
@@ -158,53 +160,50 @@ function BoxPlot(props) {
       .data([min, mean, median, max])
       .enter()
       .append("line")
-      .attr("x1", margin.left)
-      .attr("x2", margin.left + innerWidth-margin.left*2)
-      .attr("y1", d =>yScale(d))
-      .attr("y2", d =>yScale(d))
+      .attr("x1", margin_left)
+      .attr("x2", innerWidth + margin_left)
+      .attr("y1", d => yScale(d))
+      .attr("y2", d => yScale(d))
       .attr("stroke", "black")
-      .attr('class', (d, idx)=> idx==2?"dashed":"solid")
-      
-    //
-    console.log([min_point, max_point])
-    viewer
-  .selectAll("point")
-  .data([min_point, max_point])
-  .enter()
-  .append("circle")
-    .attr("cx", center)
-    .attr("cy", d=>yScale(d))
-    .attr("r", 4)
-    .style("fill", "white")
-    .attr("stroke", "black")
+      .attr('class', (d, idx) => idx == 2 ? "dashed" : "solid")
+
+    // max and min point - outliers
+    // viewer
+    //   .selectAll("point")
+    //   .data([min_point, max_point])
+    //   .enter()
+    //   .append("circle")
+    //   .attr("cx", center)
+    //   .attr("cy", d => yScale(d))
+    //   .attr("r", 4)
+    //   .style("fill", "white")
+    //   .attr("stroke", "black")
 
     // text label
     const textWrapper = viewer.append("g")
-    .attr("transform", `translate(${innerWidth / 2}, ${innerHeight + margin.top})`);
+      .attr("transform", `translate(${innerWidth / 2}, ${innerHeight + margin.top})`);
     textWrapper.append("text")
-    .attr("text-anchor", "middle") // Center the text horizontally
-    .text(field) // Replace with your desired text
-    .attr("dy", "0.35em"); // Adjust vertical position (baseline)
+      .attr("text-anchor", "middle") // Center the text horizontally
+      .text(field) // Replace with your desired text
+      .attr("dy", "0.35em"); // Adjust vertical position (baseline)
 
   }
+  const svgContainerWidth = 80;
   useEffect(() => {
     setTimeout(() => {
       d3.select(self.current).selectAll('svg').remove('svg');
       d3.select(self.current).selectAll('div').remove('div');
       const rect = self.current.getBoundingClientRect();
-
-      const svgContainerWidth = 200; //innerHeight * .8;
-
       const divWidth = svgContainerWidth * fields.length
       const container = d3.select(self.current)
         .append('div')
         .style('width', `${divWidth}px`)
         .style('height', `${rect.height}px`)
-        
+
 
       // drawBoxPlot(data, svgContainerWidth, rect.height, container)
-      fields.forEach((field)=>{
-        const data = props.filterData.map(d => d[field]).filter((d)=> !isNaN(d) && typeof d === 'number')
+      fields.forEach((field) => {
+        const data = props.filterData.map(d => d[field]).filter((d) => !isNaN(d) && typeof d === 'number')
         drawBoxPlot(data, svgContainerWidth, rect.height, container, field)
       })
     }, 100);
@@ -215,9 +214,6 @@ function BoxPlot(props) {
       d3.select(self.current).selectAll('svg').remove('svg');
       d3.select(self.current).selectAll('div').remove('div');
       const rect = self.current.getBoundingClientRect();
-
-      const svgContainerWidth = 200;
-
       const divWidth = svgContainerWidth * fields.length
       const container = d3.select(self.current)
         .append('div')
@@ -228,8 +224,8 @@ function BoxPlot(props) {
       if (props.filters.length > 0) {
         currentData = props.filterData;
       }
-      fields.forEach((field)=>{
-        const data = currentData.map(d => d[field]).filter((d)=> !isNaN(d) && typeof d === 'number')
+      fields.forEach((field) => {
+        const data = currentData.map(d => d[field]).filter((d) => !isNaN(d) && typeof d === 'number')
         drawBoxPlot(data, svgContainerWidth, rect.height, container, field)
       })
     }, 100);

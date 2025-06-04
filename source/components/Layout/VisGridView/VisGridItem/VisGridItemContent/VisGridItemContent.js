@@ -10,6 +10,7 @@ const PieChart = React.lazy(() => import('../../../../VisualTools/Chart/PieChart
 const BarChart = React.lazy(() => import('../../../../VisualTools/Chart/BarChart'));
 const BoxPlot = React.lazy(() => import('../../../../VisualTools/Chart/BoxPlot'));
 const GroupedBarChart = React.lazy(() => import('../../../../VisualTools/Chart/GroupedBarChart'));
+const DropdownBarChart = React.lazy(() => import('../../../../VisualTools/Chart/DropdownBarChart'));
 const BubbleChart = React.lazy(() => import('../../../../VisualTools/Chart/BubbleChart'));
 const KMCurve = React.lazy(() => import('../../../../VisualTools/Chart/KMCurve'));
 const HorizontalBarChart = React.lazy(() => import('../../../../VisualTools/Chart/HorizontalBarChart'));
@@ -30,6 +31,9 @@ function VisGridItemContent(props) {
       break;
     case 'ScatterChart':
       component = <ScatterChart {...props} />;
+      break;
+    case 'DropdownBarChart':
+      component = <DropdownBarChart {...props} />;
       break;
     case 'GroupedBarChart':
       component = <GroupedBarChart {...props} />;

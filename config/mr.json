@@ -11,26 +11,37 @@
   "LAYOUT": "",
 
   "VISUALIZATION_VIEW_CONFIGURATION": [
-    {      
-      "id": "Category",
-      "title": "Category",
-      "description": "Category",
-      "chartType": "PIE_CHART",
-      "fields": { "x": "Category" },
-      "size": [1, 1],
-      "priority": 70,
-      "designation":"left"
-    },
     {
       "id": "mean_matrix",
       "title": "Means",
       "description": "Means",
       "chartType": "PARALLEL_COORDINATES",
       "fields": {
-        "y": ["TR","TE","SNR1_mean", "SNR2_mean", "SNR3_mean","SNR4_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]
+        "y": ["PSNR_mean","SNR1_mean", "SNR2_mean", "SNR3_mean","SNR4_mean", "CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]
       },
       "size": [4, 2],
       "priority": 50
+    },
+    
+    {
+      "id": "mean_DeviceSerialNumber_Bar",
+      "title": "mean vs Deviceserial#",
+      "description": "",
+      "chartType": "DROPDOWN_BAR_CHART",
+      "fields":{"x":"DeviceSerialNumber","y":["PSNR_mean","SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean","CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]},
+      "method":"mean",
+      "size": [4, 1],
+      "priority": 60       
+    },
+    {
+      "id": "mean_Category_Bar",
+      "title": "mean vs Category",
+      "description": "",
+      "chartType": "DROPDOWN_BAR_CHART",
+      "fields":{"x":"Category","y":["PSNR_mean","SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean","CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]},
+      "method":"mean",
+      "size": [4, 1],
+      "priority": 60       
     },
     {
       "id": "Category_bar",
@@ -39,7 +50,7 @@
       "chartType": "BAR_CHART",
       "fields":{"x":"Category"},
       "size": [4, 1],
-      "priority": 0        
+      "priority": 70        
     },
     {
       "id": "PSNR_median_DUR",
@@ -51,30 +62,21 @@
       "priority": 50
     },
     {
-      "id": "SNR_mean_box",
-      "title": "SNR_mean",
-      "description": "SNR_mean",
+      "id": "mean_box",
+      "title": "mean_box",
+      "description": "mean_box",
       "chartType": "BOX_PLOT",
-      "fields": ["SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean"],
-      "size": [2, 2],
+      "fields": ["PSNR_mean","SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean","CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"],
+      "size": [4, 2],
       "priority": 70
     },
     {
-      "id": "SNR_median_box",
-      "title": "SNR_median",
-      "description": "SNR_median",
+      "id": "median_box",
+      "title": "median_box",
+      "description": "median_box",
       "chartType": "BOX_PLOT",
-      "fields": ["SNR1_median","SNR2_median","SNR3_median","SNR4_median"],
-      "size": [2, 2],
-      "priority": 70
-    },
-    {
-      "id": "SNR_std_box",
-      "title": "SNR_std",
-      "description": "SNR_std",
-      "chartType": "BOX_PLOT",
-      "fields": ["SNR1_std","SNR2_std","SNR3_std","SNR4_std"],
-      "size": [2, 2],
+      "fields": ["PSNR_median","SNR1_median","SNR2_median","SNR3_median","SNR4_median","CNR_median", "CV_median", "CPP_median", "CVP_median", "CJV_median", "EFC_median", "FBER_median"],
+      "size": [4, 2],
       "priority": 70
     },
     {
@@ -117,31 +119,11 @@
       "priority": 0        
     },
     {
-      "id": "DeviceSerialNumber-vs-PSNR-avg",
-      "title": "avg PSNR",
+      "id": "mean_PSNR_Bar",
+      "title": "mean PSNR",
       "description": "",
       "chartType": "BAR_CHART",
       "fields":{"x":"DeviceSerialNumber","y":"PSNR_mean"},
-      "method":"mean",
-      "size": [4, 1],
-      "priority": 0        
-    },
-    {
-      "id": "DeviceSerialNumber-vs-PSNR-std",
-      "title": "std PSNR",
-      "description": "",
-      "chartType": "BAR_CHART",
-      "fields":{"x":"DeviceSerialNumber","y":"PSNR_std"},
-      "method":"mean",
-      "size": [4, 1],
-      "priority": 0        
-    },
-    {
-      "id": "DeviceSerialNumber-vs-PSNR-median",
-      "title": "median PSNR",
-      "description": "",
-      "chartType": "BAR_CHART",
-      "fields":{"x":"DeviceSerialNumber","y":"PSNR_median"},
       "method":"mean",
       "size": [4, 1],
       "priority": 0        
@@ -158,14 +140,60 @@
         {
           "dataKey": "DeviceSerialNumber",
           "label": "Device Serial Number"
+        },{
+          "dataKey":"AccessionNumber",
+          "label":"Accession Number"
+        },{
+          "dataKey":"PSNR_mean",
+          "label":"PSNR mean"
+        },
+        {
+          "dataKey":"SNR1_mean",
+          "label":"SNR1 mean"
+        },
+        {
+          "dataKey":"SNR2_mean",
+          "label":"SNR2 mean"
+        },
+        {
+          "dataKey":"SNR3_mean",
+          "label":"SNR3 mean"
+        },
+        {
+          "dataKey":"SNR4_mean",
+          "label":"SNR4 mean"
+        },
+        {
+          "dataKey":"CNR_mean",
+          "label":"CNR mean"
+        },
+        {
+          "dataKey":"CV_mean",
+          "label":"CV mean"
+        },
+        {
+          "dataKey":"CPP_mean",
+          "label":"CPP mean"
+        },
+        {
+          "dataKey":"CVP_mean",
+          "label":"CVP mean"
+        },
+        {
+          "dataKey":"CJV_mean",
+          "label":"CJV mean"
+        },
+        {
+          "dataKey":"EFC_mean",
+          "label":"EFC mean"
+        },
+        {
+          "dataKey":"FBER_mean",
+          "label":"FBER mean"
         },
         {
           "dataKey": "VRX",
           "label": "VRX"
-        },
-        {
-          "dataKey": "VRY",
-          "label": "VRY"
         },
         {
           "dataKey": "VRZ",
@@ -183,6 +211,7 @@
           "dataKey": "TE",
           "label": "TE"
         },
+
         {
           "dataKey": "DUR (min)",
           "label": "DUR (min)"

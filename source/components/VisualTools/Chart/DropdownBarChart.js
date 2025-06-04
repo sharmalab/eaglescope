@@ -1,8 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
-import { Collapse } from 'bootstrap';
 
 const transformList = (data, f) => {
   const map = new Map();
@@ -110,7 +109,10 @@ const wrap = (text, width) => {
   });
 };
 
-function BarChart(props) {
+function DropdownBarChart(props) {
+
+  const [selectedFieldIdx, setSelectedFieldIdx] = useState(0);
+
   const margin = {
     top: 10,
     right: 10,
@@ -119,11 +121,28 @@ function BarChart(props) {
   };
 
   const fields = { x: 'key', y: 'value' };
-  const fullData = transform(props.data, props.fields.x,props.fields.y, props.method, props.fields.isList);
+  const fullData = transform(props.data, props.fields.x, props.fields.y[selectedFieldIdx], props.method, props.fields.isList);
   const self = useRef();
   const scaleRef = useRef();
   const hightRef = useRef();
   const viewerRef = useRef();
+
+  const dropdownchangeHandler = (e) => {
+    console.log(e.target.value)
+    setSelectedFieldIdx(+e.target.value)
+  }
+  const dropdown = document.createElement('select');
+  dropdown.classList.add('grouped');
+  props.fields.y.forEach((opt, idx)=>{
+    const option = document.createElement("option");
+    option.value = idx;
+    option.text = opt;
+    if(idx==selectedFieldIdx)
+      option.selected = true
+    dropdown.add(option);
+  })
+  dropdown.addEventListener('change', dropdownchangeHandler)
+
 
   const createXScale = (f, width) => {
     // set the ranges
@@ -201,6 +220,11 @@ function BarChart(props) {
   };
 
   useEffect(() => {
+    console.log('init')
+    self.current.append(dropdown)
+  },[])
+  
+  useEffect(() => {
     setTimeout(() => {
       d3.select(self.current).selectAll('svg').remove('svg');
       const rect = self.current.getBoundingClientRect();
@@ -238,27 +262,27 @@ function BarChart(props) {
 
       drawBar(viewerRef.current, fullData, 'og');
     }, 100);
-  }, [props.layout]);
+  }, [props.layout, selectedFieldIdx]);
 
   useEffect(() => {
     setTimeout(() => {
       let data = [];
 
       if (props.filters.length > 0) {
-        data = transform(props.filterData, props.fields.x,props.fields.y,props.method, props.fields.isList);
+        data = transform(props.filterData, props.fields.x,props.fields.y[selectedFieldIdx],props.method, props.fields.isList);
       } else {
         data = fullData;
       }
       drawBar(viewerRef.current, data, 'ft');
     }, 100);
-  }, [props.filters, props.filterData, props.layout]);
+  }, [props.filters, props.filterData, props.layout, selectedFieldIdx]);
 
   return <div id={props.id} ref={self} role="figure" style={{ width: '100%', height: '100%' }} />;
 }
 
-export default BarChart;
+export default DropdownBarChart;
 
-BarChart.propTypes = {
+DropdownBarChart.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fields: PropTypes.shape({ x: PropTypes.string.isRequired, isList: PropTypes.bool }).isRequired,
   id: PropTypes.string.isRequired,

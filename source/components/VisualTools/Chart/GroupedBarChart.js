@@ -37,6 +37,14 @@ const transform = (data, field, values, method='mean', isList = false) => {
     .entries(data)
 };
 
+function sliceString(str, length) {
+  let result = [];
+  for (let i = 0; i < str.length; i += length) {
+    result.push(str.slice(i, i + length));
+  }
+  return result;
+}
+
 const wrap = (text, width) => {
   text.each(function updateBars() {
     const currentText = d3.select(this);
@@ -55,8 +63,23 @@ const wrap = (text, width) => {
       .attr('dy', `${dy}em`);
     word = words.pop();
     while (word) {
-      line.push(word);
-      tspan.text(line.join(' '));
+      const maxLength = Math.ceil(width)/6
+      if(word.length > maxLength) {
+        // text slice if lenth > 6
+        const strChunks = sliceString( word, maxLength)
+        for(let i = 0; i < strChunks.length; i++) {
+          tspan = currentText
+          .append('tspan')
+          .attr('x', 0)
+          .attr('y', y)
+          .attr('dy', `${lineNumber++ * lineHeight + dy}em`)
+          .text(strChunks[i]);
+        }
+      } else {
+        line.push(word);
+        tspan.text(line.join(' '));
+      }
+
       if (tspan.node().getComputedTextLength() > width) {
         line.pop();
         tspan.text(line.join(' '));
