@@ -20,7 +20,7 @@
         "y": ["PSNR_mean","SNR1_mean", "SNR2_mean", "SNR3_mean","SNR4_mean", "CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]
       },
       "size": [4, 2],
-      "priority": 50
+      "priority": 60
     },
     
     {
@@ -68,7 +68,7 @@
       "chartType": "BOX_PLOT",
       "fields": ["PSNR_mean","SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean","CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"],
       "size": [4, 2],
-      "priority": 70
+      "priority": 60
     },
     {
       "id": "median_box",
@@ -77,7 +77,7 @@
       "chartType": "BOX_PLOT",
       "fields": ["PSNR_median","SNR1_median","SNR2_median","SNR3_median","SNR4_median","CNR_median", "CV_median", "CPP_median", "CVP_median", "CJV_median", "EFC_median", "FBER_median"],
       "size": [4, 2],
-      "priority": 70
+      "priority": 60
     },
     {
       "id": "DeviceSerialNumber",
@@ -86,7 +86,7 @@
       "chartType": "BAR_CHART",
       "fields":{"x":"DeviceSerialNumber"},
       "size": [4, 1],
-      "priority": 0        
+      "priority": 70       
     },
     {
       "id": "PLANE-vs-SNR_mean",
@@ -222,7 +222,7 @@
         }
       ],
       "size": [6, 2],
-      "priority": 10
+      "priority": 60
     }
   ]
 }
