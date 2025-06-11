@@ -6,7 +6,7 @@
   "RESIZABLE" : "TRUE",
   "DRAGGABLE" : 1,
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
-  "DATA_RESOURCE_URL": "./config/puneet_new_label_3.csv",
+  "DATA_RESOURCE_URL": "./config/puneet_new_label_4.csv",
   "DATA_FORMAT": "csv",
   "LAYOUT": "",
 
@@ -20,9 +20,8 @@
         "y": ["PSNR_mean","SNR1_mean", "SNR2_mean", "SNR3_mean","SNR4_mean", "CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"]
       },
       "size": [4, 2],
-      "priority": 60
-    },
-    
+      "priority": 64
+    },  
     {
       "id": "mean_DeviceSerialNumber_Bar",
       "title": "mean vs Deviceserial#",
@@ -53,31 +52,31 @@
       "priority": 70        
     },
     {
-      "id": "PSNR_median_DUR",
-      "title": "PSNR_median_DUR",
-      "description": "PSNR_median_DUR",
+      "id": "PSNR_median_TIME",
+      "title": "PSNR Median VS TIME",
+      "description": "PSNR_median_TIME",
       "chartType": "SCATTER_CHART",
-      "fields": { "y": "PSNR_median", "x": "DUR (min)" },
+      "fields": { "y": "PSNR_median", "x": "TIME" },
       "size": [2, 2],
       "priority": 50
     },
     {
       "id": "mean_box",
-      "title": "mean_box",
+      "title": "Mean Boxplot",
       "description": "mean_box",
       "chartType": "BOX_PLOT",
       "fields": ["PSNR_mean","SNR1_mean","SNR2_mean","SNR3_mean","SNR4_mean","CNR_mean", "CV_mean", "CPP_mean", "CVP_mean", "CJV_mean", "EFC_mean", "FBER_mean"],
       "size": [4, 2],
-      "priority": 60
+      "priority": 65
     },
     {
       "id": "median_box",
-      "title": "median_box",
+      "title": "Median Boxplot",
       "description": "median_box",
       "chartType": "BOX_PLOT",
       "fields": ["PSNR_median","SNR1_median","SNR2_median","SNR3_median","SNR4_median","CNR_median", "CV_median", "CPP_median", "CVP_median", "CJV_median", "EFC_median", "FBER_median"],
       "size": [4, 2],
-      "priority": 60
+      "priority": 65
     },
     {
       "id": "DeviceSerialNumber",
@@ -93,17 +92,7 @@
       "title": "grouped SNR_mean",
       "description": "",
       "chartType": "GROUPED_BAR_CHART",
-      "fields":{"x":["PLANE","DeviceSerialNumber","LABEL"],"y":["SNR1_mean","SNR2_mean","SNR3_mean", "SNR4_mean"]},
-      "method":"mean",
-      "size": [8, 1],
-      "priority": 0        
-    },
-    {
-      "id": "DeviceSerialNumber-vs-SNR_std",
-      "title": "grouped SNR_std",
-      "description": "",
-      "chartType": "GROUPED_BAR_CHART",
-      "fields":{"x":["DeviceSerialNumber","LABEL","PLANE"],"y":["SNR1_std","SNR2_std","SNR3_std", "SNR4_std"]},
+      "fields":{"x":["PLANE","DeviceSerialNumber","Category"],"y":["SNR1_mean","SNR2_mean","SNR3_mean", "SNR4_mean"]},
       "method":"mean",
       "size": [8, 1],
       "priority": 0        
@@ -113,19 +102,9 @@
       "title": "grouped SNR_median",
       "description": "",
       "chartType": "GROUPED_BAR_CHART",
-      "fields":{"x":["DeviceSerialNumber","LABEL","PLANE"],"y":["SNR1_median","SNR2_median","SNR3_median", "SNR4_median"]},
+      "fields":{"x":["DeviceSerialNumber","Category","PLANE"],"y":["SNR1_median","SNR2_median","SNR3_median", "SNR4_median"]},
       "method":"mean",
       "size": [8, 1],
-      "priority": 0        
-    },
-    {
-      "id": "mean_PSNR_Bar",
-      "title": "mean PSNR",
-      "description": "",
-      "chartType": "BAR_CHART",
-      "fields":{"x":"DeviceSerialNumber","y":"PSNR_mean"},
-      "method":"mean",
-      "size": [4, 1],
       "priority": 0        
     },
     {
@@ -213,8 +192,8 @@
         },
 
         {
-          "dataKey": "DUR (min)",
-          "label": "DUR (min)"
+          "dataKey": "TIME",
+          "label": "TIME"
           
         },{
           "dataKey": "PSNR_mean",

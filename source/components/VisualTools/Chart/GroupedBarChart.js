@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import PropTypes from 'prop-types';
 import createTooltip from '../../partials/tooltip';
-
+import { isNumberString } from '../../../common/utils';
 const transformList = (data, f) => {
   const map = new Map();
   data.forEach((d) => {
@@ -103,7 +103,7 @@ function GroupedBarChart(props) {
   const margin = {
     top: 10,
     right: 10,
-    bottom: 35,
+    bottom: 40,
     left: 35,
   };
 
@@ -187,7 +187,8 @@ function GroupedBarChart(props) {
       .on('mouseleave', tooltipHandlers.mouseleave)
       .on('click', (currentData) => {
         const selected = enterBars.filter((d) => d === currentData);
-        const value = selected.data()[0].key;
+        var value = selected.data()[0].key;
+        value = isNumberString(value)?+value:value;
         const filter = props?.fields?.isList ? {
           id: props.id,
           title: props.title,
@@ -224,8 +225,10 @@ function GroupedBarChart(props) {
   };
   
   useEffect(() => {
-    console.log('init')
-    self.current.append(dropdown)
+    const _div = document.createElement('div');
+    _div.classList.add('div-wrap')
+    _div.append(dropdown)
+    self.current.append(_div)
   },[])
 
   useEffect(() => {

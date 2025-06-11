@@ -80,6 +80,9 @@ export function isEquivalent(a, b) {
   // are considered equivalent
   return true;
 }
+export function isNumberString(str) {
+  return !isNaN(parseFloat(str)) && isFinite(str);
+}
 // get the chart position
 function getPosition(matrix, size) {
   let position;
