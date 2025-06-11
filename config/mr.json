@@ -6,7 +6,7 @@
   "RESIZABLE" : "TRUE",
   "DRAGGABLE" : 1,
   "HAS_SETTINGS" : "Anything trurthy is true for these boolean fields, including FALSE.",
-  "DATA_RESOURCE_URL": "./config/puneet_new_label_4.csv",
+  "DATA_RESOURCE_URL": "./config/puneet_new_label_5.csv",
   "DATA_FORMAT": "csv",
   "LAYOUT": "",
 
