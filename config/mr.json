@@ -120,6 +120,14 @@
           "dataKey": "DeviceSerialNumber",
           "label": "Device Serial Number"
         },{
+          "dataKey":"LABEL",
+          "label":"LABEL"
+        },{
+          "dataKey":"Category",
+          "label":"Category"
+        },
+        
+        {
           "dataKey":"AccessionNumber",
           "label":"Accession Number"
         },{
@@ -192,8 +200,8 @@
         },
 
         {
-          "dataKey": "Dur (sec)",
-          "label": "Dur_new"
+          "dataKey": "Dur_new",
+          "label": "Dur (sec)"
           
         },{
           "dataKey": "PSNR_mean",
