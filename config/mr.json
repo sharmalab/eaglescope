@@ -1,6 +1,6 @@
 {
   "HOME_URL": "https://github.com/sharmalab/eaglescope/",
-  "TITLE": "Eaglescope Demo | MRQy Test",
+  "TITLE": "Eaglescope Demo | MRQy",
   "UNIT_OF_GRID_VIEW": [230, 210],
   "MARGIN_OF_GRID_VIEW": [10, 10],
   "RESIZABLE" : "TRUE",
@@ -52,11 +52,11 @@
       "priority": 70        
     },
     {
-      "id": "PSNR_median_TIME",
-      "title": "PSNR Median VS TIME",
-      "description": "PSNR_median_TIME",
+      "id": "PSNR_median_DUR_new",
+      "title": "PSNR Median VS DUR",
+      "description": "PSNR_median_DUR",
       "chartType": "SCATTER_CHART",
-      "fields": { "y": "PSNR_median", "x": "TIME" },
+      "fields": { "y": "PSNR_median", "x": "Dur_new" },
       "size": [2, 2],
       "priority": 50
     },
@@ -192,8 +192,8 @@
         },
 
         {
-          "dataKey": "TIME",
-          "label": "TIME"
+          "dataKey": "Dur (sec)",
+          "label": "Dur_new"
           
         },{
           "dataKey": "PSNR_mean",
