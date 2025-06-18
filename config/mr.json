@@ -52,11 +52,11 @@
       "priority": 70        
     },
     {
-      "id": "PSNR_median_DUR_new",
+      "id": "PSNR_median_DUR",
       "title": "PSNR Median VS DUR",
       "description": "PSNR_median_DUR",
       "chartType": "SCATTER_CHART",
-      "fields": { "y": "PSNR_median", "x": "Dur_new" },
+      "fields": { "y": "PSNR_median", "x": "DUR (sec)" },
       "size": [2, 2],
       "priority": 50
     },
@@ -200,8 +200,8 @@
         },
 
         {
-          "dataKey": "Dur_new",
-          "label": "Dur (sec)"
+          "dataKey": "DUR (sec)",
+          "label": "DUR (sec)"
           
         },{
           "dataKey": "PSNR_mean",
