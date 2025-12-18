@@ -78,7 +78,7 @@ class DownloadButton extends PureComponent {
   render() {
     return (
       <Button
-        title="Download Currently Selected Data as JSON"
+        title="Download Currently Selected Data"
         size="lg"
         style={{
           background: 'none',
