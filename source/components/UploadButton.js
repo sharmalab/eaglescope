@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpload, faChartBar } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
+import ListGroup from 'react-bootstrap/ListGroup';
 import Modal from 'react-bootstrap/Modal';
 import * as d3 from 'd3';
 import { ConfigContext } from '../contexts/ConfigContext';
@@ -11,6 +12,13 @@ import {
   recommendVisualizations,
   RECOMMEND_THRESHOLD,
 } from '../common/dataAnalysis';
+import {
+  getRegistry,
+  updateRegistry,
+  saveVisConfigs,
+  loadVisConfigs,
+  setLocalDataParam,
+} from '../common/localDataRegistry';
 import VisRecommendations from './VisRecommendations/VisRecommendations';
 
 class UploadButton extends PureComponent {
@@ -26,6 +34,8 @@ class UploadButton extends PureComponent {
       step: 1,
       recommendations: [],
       selectedRecs: new Set(),
+      storageKey: null,
+      registry: getRegistry(),
     };
 
     this.handleFileChange = this.handleFileChange.bind(this);
@@ -36,6 +46,7 @@ class UploadButton extends PureComponent {
     this.handleSkipRecommendations = this.handleSkipRecommendations.bind(this);
     this.handleToggleRec = this.handleToggleRec.bind(this);
     this.handleToggleAllRecs = this.handleToggleAllRecs.bind(this);
+    this.handleLoadPrevious = this.handleLoadPrevious.bind(this);
   }
 
   handleFileChange(event) {
@@ -66,6 +77,14 @@ class UploadButton extends PureComponent {
       .then((data) => {
         localStorage.setItem(`es-${storageKey}`, JSON.stringify(data));
 
+        updateRegistry({
+          name: name.trim() || storageKey,
+          storageKey,
+          rowCount: data.length,
+          uploadedAt: new Date().toISOString(),
+        });
+        setLocalDataParam(storageKey);
+
         const dataInfo = analyzeDataset(data);
         const recommendations = recommendVisualizations(dataInfo);
         const selectedRecs = new Set(
@@ -80,6 +99,7 @@ class UploadButton extends PureComponent {
           step: 2,
           recommendations,
           selectedRecs,
+          storageKey,
         });
       })
       .catch((error) => {
@@ -88,6 +108,24 @@ class UploadButton extends PureComponent {
         console.error(error);
         this.setState({ isLoading: false });
       });
+  }
+
+  handleLoadPrevious(entry) {
+    const { storageKey } = entry;
+    const visConfigs = loadVisConfigs(storageKey);
+
+    setLocalDataParam(storageKey);
+    this.context.setConfig((prev) => {
+      const next = { ...prev, DATA_RESOURCE_URL: `local://${storageKey}` };
+      if (visConfigs?.length > 0) {
+        next.VISUALIZATION_VIEW_CONFIGURATION = [
+          ...(prev.VISUALIZATION_VIEW_CONFIGURATION || []).filter((v) => !v.id.startsWith('rec-')),
+          ...visConfigs,
+        ];
+      }
+      return next;
+    });
+    this.toggleModal();
   }
 
   handleToggleRec(id) {
@@ -109,10 +147,14 @@ class UploadButton extends PureComponent {
   }
 
   handleApplyRecommendations() {
-    const { recommendations, selectedRecs } = this.state;
+    const { recommendations, selectedRecs, storageKey } = this.state;
     const toAdd = recommendations
       .filter((r) => selectedRecs.has(r.config.id))
       .map((r) => r.config);
+
+    if (storageKey) {
+      saveVisConfigs(storageKey, toAdd);
+    }
 
     const { setConfig } = this.context;
     if (setConfig && toAdd.length > 0) {
@@ -144,12 +186,14 @@ class UploadButton extends PureComponent {
       name: '',
       url: '',
       fileContent: null,
+      storageKey: null,
+      registry: !prevState.showModal ? getRegistry() : prevState.registry,
     }));
   }
 
   render() {
     const {
-      showModal, file, isLoading, name, url, step, recommendations, selectedRecs,
+      showModal, file, isLoading, name, url, step, recommendations, selectedRecs, registry,
     } = this.state;
 
     const selectedCount = selectedRecs.size;
@@ -197,6 +241,33 @@ class UploadButton extends PureComponent {
                 <p>Processing your file...</p>
               ) : (
                 <div>
+                  {registry.length > 0 && (
+                    <div className="mb-3">
+                      <p className="mb-1 fw-semibold">Previously uploaded</p>
+                      <ListGroup>
+                        {registry.map((entry) => (
+                          <ListGroup.Item
+                            key={entry.storageKey}
+                            action
+                            onClick={() => this.handleLoadPrevious(entry)}
+                            className="d-flex justify-content-between align-items-center"
+                          >
+                            <span>{entry.name}</span>
+                            <small className="text-muted">
+                              {entry.rowCount.toLocaleString()}
+                              {' '}
+                              rows
+                              {' · '}
+                              {new Date(entry.uploadedAt).toLocaleDateString()}
+                            </small>
+                          </ListGroup.Item>
+                        ))}
+                      </ListGroup>
+                      <hr />
+                    </div>
+                  )}
+
+                  <p className="mb-1 fw-semibold">Upload new</p>
                   <input
                     type="file"
                     accept=".csv"

@@ -21,6 +21,11 @@ const useFetch = (url, type = 'json') => {
       // Handle "local://" URLs
       if (url.startsWith('local://')) {
         const localKey = url.slice(8); // Remove the "local://" prefix
+        if (!/^[\w-]+$/.test(localKey)) {
+          setIsPending(false);
+          setError(new Error(`Invalid local storage key: ${localKey}`));
+          return () => abortCont.abort();
+        }
         try {
           const storedData = localStorage.getItem(`es-${localKey}`);
           if (storedData) {

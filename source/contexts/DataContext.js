@@ -5,9 +5,14 @@ import PropTypes from 'prop-types';
 import useFetch from '../hooks/useFetch';
 import { ConfigContext } from './ConfigContext';
 import { updateURL, clearURL, initURL } from '../services/URLServices';
+import { loadVisConfigs } from '../common/localDataRegistry';
 
-function filterData(data, filters) {
-  return data.filter((record) => {
+function buildSearchIndex(data) {
+  return data.map((r) => Object.values(r).join('|').toLowerCase());
+}
+
+function filterData(data, filters, searchIndex) {
+  return data.filter((record, rowIdx) => {
     for (let i = 0; i < filters.length; i++) {
       const filter = filters[i];
       const { operation } = filter;
@@ -41,15 +46,18 @@ function filterData(data, filters) {
       if (!broken && operation === 'has') {
         broken = broken || !(val && val.some((v) => filter.values === v));
       }
-      if (!broken && operation === 'nhas') { // TODO test
-        broken = broken || !(val && val.find((v) => filter.values === v));
+      if (!broken && operation === 'nhas') {
+        broken = broken
+          || !(val && Array.isArray(val) && val.some((v) => filter.values.includes(v)));
       }
       if (!broken && operation === 'range') {
         broken = broken || filter.values[0] > val || filter.values[1] < val;
       }
       // search operates on the whole record instead of val
       if (!broken && operation === 'search') {
-        broken = Object.values(record).join('|').indexOf(filter.values[0]) === -1;
+        const needle = String(filter.values[0]).toLowerCase();
+        const haystack = searchIndex ? searchIndex[rowIdx] : Object.values(record).join('|').toLowerCase();
+        broken = !haystack.includes(needle);
       }
       if (broken) {
         return false;
@@ -63,7 +71,27 @@ function filterData(data, filters) {
 export const DataContext = createContext();
 
 export default function DataContextProvider({ children, overrideData }) {
-  const { config } = useContext(ConfigContext);
+  const { config, setConfig } = useContext(ConfigContext);
+
+  // On first config load, apply ?localdata= URL param to DATA_RESOURCE_URL + restore vis configs
+  const localDataPatched = useRef(false);
+  useEffect(() => {
+    if (localDataPatched.current || !config) return;
+    const localDataKey = new URLSearchParams(window.location.search).get('localdata');
+    if (!localDataKey) return;
+    localDataPatched.current = true;
+    const visConfigs = loadVisConfigs(localDataKey);
+    setConfig((prev) => {
+      const next = { ...prev, DATA_RESOURCE_URL: `local://${localDataKey}` };
+      if (visConfigs?.length > 0) {
+        next.VISUALIZATION_VIEW_CONFIGURATION = [
+          ...(prev.VISUALIZATION_VIEW_CONFIGURATION || []).filter((v) => !v.id.startsWith('rec-')),
+          ...visConfigs,
+        ];
+      }
+      return next;
+    });
+  }, [config, setConfig]);
   const [loading, setLoading] = useState(true);
   const [filteredData, setFilteredData] = useState([]);
   const filtersRef = useRef();
@@ -77,19 +105,21 @@ export default function DataContextProvider({ children, overrideData }) {
     dataError = error;
     data = fetchedData;
   }
+
+  const searchIndex = useMemo(() => (data ? buildSearchIndex(data) : []), [data]);
+
   const addFiltersHandler = (toAddFilters) => {
-    const oldFilters = [...filtersRef.current];
-    // remove first
-    let newFilters = oldFilters.filter((of) => toAddFilters.every((nf) => !(of.id === nf.id)));
-    // add
-    newFilters = [...newFilters, ...toAddFilters];
-    // do filter
-    const datasetAfterFilter = filterData(data, newFilters);
+    const oldFilters = filtersRef.current || [];
+    const idsToRemove = new Set(toAddFilters.map((nf) => nf.id));
+    const newFilters = [
+      ...oldFilters.filter((of) => !idsToRemove.has(of.id)),
+      ...toAddFilters,
+    ];
+    const datasetAfterFilter = filterData(data, newFilters, searchIndex);
     setFilteredData(datasetAfterFilter);
     setFilters(newFilters);
     filtersRef.current = newFilters;
 
-    // handle url
     updateURL(newFilters);
   };
 
@@ -117,7 +147,7 @@ export default function DataContextProvider({ children, overrideData }) {
       return;
     }
 
-    const datasetAfterFilter = filterData(data, newFilters);
+    const datasetAfterFilter = filterData(data, newFilters, searchIndex);
     setFilteredData(datasetAfterFilter);
     setFilters(newFilters);
     filtersRef.current = newFilters;

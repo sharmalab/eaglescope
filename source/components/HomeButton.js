@@ -13,7 +13,16 @@ class HomeButton extends PureComponent {
   goHome() {
     const query = new URLSearchParams(window.location.search);
     const homeUrl = this.props.url || query.get('homeurl') || '../';
-    window.location.href = homeUrl;
+    // Only allow relative paths or same-origin URLs
+    const isSafeRedirect = (u) => {
+      if (!u || /^(javascript|data):/i.test(u)) return false;
+      try {
+        return new URL(u, window.location.origin).origin === window.location.origin;
+      } catch {
+        return u.startsWith('/') || u.startsWith('./') || u.startsWith('../');
+      }
+    };
+    window.location.href = isSafeRedirect(homeUrl) ? homeUrl : '../';
   }
 
   render() {

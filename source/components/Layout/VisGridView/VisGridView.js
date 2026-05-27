@@ -14,7 +14,7 @@ function VisGridView({ fullVisScreenHandler, fullScreened, designation }) {
   const grid = config.UNIT_OF_GRID_VIEW;
   const margins = config.MARGIN_OF_GRID_VIEW;
   const AllVisConfig = config.VISUALIZATION_VIEW_CONFIGURATION;
-  const draggableHandle = config.GRAGGABLE ? '.draggable' : '';
+  const draggableHandle = config.DRAGGABLE ? '.draggable' : '';
   const isDraggable = config.DRAGGABLE || false;
   const isResizable = config.RESIZABLE || false;
 

@@ -14,13 +14,32 @@ const clearURL = () => {
   window.history.replaceState({}, document.title, newUrl);
 };
 
+const VALID_OPERATIONS = new Set([
+  'eq', 'gt', 'gte', 'lt', 'lte', 'ne', 'in', 'nin', 'has', 'nhas', 'range', 'search',
+]);
+
+const isValidFilter = (f) => (
+  f !== null
+  && typeof f === 'object'
+  && typeof f.field === 'string'
+  && !f.field.startsWith('__')
+  && typeof f.operation === 'string'
+  && VALID_OPERATIONS.has(f.operation)
+  && f.values !== undefined
+);
+
 const initURL = (addFiltersHandler, removeFiltersHandler) => {
   const thisUrl = new URL(window.location);
   const thisParams = new URLSearchParams(thisUrl.search);
   const thisFilterState = thisParams.get('filterState');
   if (thisFilterState) {
-    removeFiltersHandler('ALL');
-    addFiltersHandler(JSON.parse(thisFilterState));
+    try {
+      const parsed = JSON.parse(thisFilterState);
+      if (Array.isArray(parsed) && parsed.every(isValidFilter)) {
+        removeFiltersHandler('ALL');
+        addFiltersHandler(parsed);
+      }
+    } catch { /* ignore malformed filterState in URL */ }
   }
 };
 
