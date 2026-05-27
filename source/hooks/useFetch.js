@@ -1,21 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as d3 from 'd3';
-
-function isNumeric(str) {
-  return typeof str === 'string' && /^[+-]?(?:\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/.test(str);
-}
-
-function covertRaw(elt) {
-  Object.keys(elt).forEach((key) => {
-    const raw = elt[key];
-    if (isNumeric(raw)) {
-      elt[key] = +raw;
-    } else if (raw === 'true' || raw === 'false') {
-      elt[key] = raw === 'true';
-    }
-  });
-  return elt;
-}
+import { covertRaw } from '../common/dataAnalysis';
 
 const useFetch = (url, type = 'json') => {
   const [data, setData] = useState(null);
