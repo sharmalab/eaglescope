@@ -6,6 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import PropTypes from 'prop-types';
 import DownloadButton from '../DownloadButton';
 import HomeButton from '../HomeButton';
+import UploadButton from '../UploadButton';
 import Settings from '../Settings/Settings';
 
 function ESNavbar(props) {
@@ -24,6 +25,7 @@ function ESNavbar(props) {
     >
       {url ? <HomeButton url={url} /> : null}
       <DownloadButton data={data} title={title} />
+      <UploadButton />
       <Navbar.Brand href={url || '#'}>{title || 'Eaglescope'}</Navbar.Brand>
       <Nav className="mr-auto" />
       <Form inline="true">

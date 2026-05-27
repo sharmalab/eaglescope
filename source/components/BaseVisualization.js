@@ -34,6 +34,11 @@ class BaseVisualization extends React.Component {
     window.addEventListener('initData', this.initData, false);
   }
 
+  componentWillUnmount() {
+    window.removeEventListener('filterOut', this.filterOut);
+    window.removeEventListener('initData', this.initData);
+  }
+
   filterReset() {
     this.setState((prevState, props) => {
       console.log(prevState);
@@ -63,25 +68,13 @@ class BaseVisualization extends React.Component {
 
   // to be fired when data
   filterOut(e) {
-    const d = e.detail.data;
-    this.setState((prevState, props) => {
-      prevState.filteredData = d;
-      prevState.globalFilter = e.detail.filter;
-      if (e.detail.filter == {}) {
-        prevState.filter = {};
-      }
-    });
-    this.forceUpdate();
+    const nextState = { filteredData: e.detail.data, globalFilter: e.detail.filter };
+    if (Object.keys(e.detail.filter).length === 0) nextState.filter = {};
+    this.setState(nextState);
   }
 
   initData(e) {
-    const d = e.detail.data;
-    this.setState((prevState, props) => {
-      prevState.baseData = d;
-      prevState.filteredData = d;
-      prevState.ready = true;
-    });
-    this.forceUpdate();
+    this.setState({ baseData: e.detail.data, filteredData: e.detail.data, ready: true });
   }
 
   // TODO include other react lifecycle methods

@@ -10,16 +10,19 @@ import PropTypes from 'prop-types';
 import VisDataTableControl from './VisDataTableControl/VisDataTableControl';
 import './VisDataTable.css';
 
+const isSafeBase = (u) => /^https?:\/\//i.test(u);
+
 const cellRenderer = (d, f) => {
   let urlElt;
-  if (f.link && f.link.url && f.link.field) {
-    const urlbase = f.link.url || '';
+  if (f.link && f.link.url && isSafeBase(f.link.url) && f.link.field) {
+    const urlbase = f.link.url;
+    const fieldVal = encodeURIComponent(String(d.rowData[f.link.field] ?? ''));
     urlElt = (
-      <a target="_parent" href={urlbase + d.rowData[f.link.field]}>
+      <a target="_parent" href={`${urlbase}${fieldVal}`}>
         {d.cellData}
       </a>
     );
-  } else if (f.link && f.link.url) {
+  } else if (f.link && f.link.url && isSafeBase(f.link.url)) {
     urlElt = (
       <a target="_parent" href={f.link.url}>
         {d.cellData}

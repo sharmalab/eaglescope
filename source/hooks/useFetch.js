@@ -1,21 +1,6 @@
 import { useEffect, useState } from 'react';
 import * as d3 from 'd3';
-
-function isNumeric(str) {
-  return typeof str === 'string' && /^[+-]?(?:\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/.test(str);
-}
-
-function covertRaw(elt) {
-  Object.keys(elt).forEach((key) => {
-    const raw = elt[key];
-    if (isNumeric(raw)) {
-      elt[key] = +raw;
-    } else if (raw === 'true' || raw === 'false') {
-      elt[key] = raw === 'true';
-    }
-  });
-  return elt;
-}
+import { covertRaw } from '../common/dataAnalysis';
 
 const useFetch = (url, type = 'json') => {
   const [data, setData] = useState(null);
@@ -35,7 +20,12 @@ const useFetch = (url, type = 'json') => {
 
       // Handle "local://" URLs
       if (url.startsWith('local://')) {
-        const localKey = url.slice(7); // Remove the "local://" prefix
+        const localKey = url.slice(8); // Remove the "local://" prefix
+        if (!/^[\w-]+$/.test(localKey)) {
+          setIsPending(false);
+          setError(new Error(`Invalid local storage key: ${localKey}`));
+          return () => abortCont.abort();
+        }
         try {
           const storedData = localStorage.getItem(`es-${localKey}`);
           if (storedData) {
