@@ -101,7 +101,7 @@ VisItem.propTypes = {
         z: PropTypes.string,
       }),
       PropTypes.array,
-    ]).isRequired,
+    ]),
   }).isRequired,
 
   layout: PropTypes.shape({

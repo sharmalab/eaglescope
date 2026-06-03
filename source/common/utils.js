@@ -1,3 +1,7 @@
+export function numFixed(num, decimals = 4) {
+  return parseFloat(Number(num).toFixed(decimals));
+}
+
 // Create a matrix
 export function createMatrix(rows, cols = rows) {
   const matrix = [];

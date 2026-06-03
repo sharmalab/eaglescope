@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { sortableContainer } from 'react-sortable-hoc';
+import { ReactSortable } from 'react-sortablejs';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,6 @@ import VisSortableItem from './VisSortableItem/VisSortableItem';
 
 import './VisDataTableControl.css';
 
-const SortableContainer = sortableContainer(({ children }) => <div>{children}</div>);
 
 export default class VisDataTableControl extends PureComponent {
   constructor(props) {
@@ -45,15 +44,17 @@ export default class VisDataTableControl extends PureComponent {
           </Button>
         </Popover.Header>
         <Popover.Body>
-          <SortableContainer
-            onSortEnd={({ oldIndex, newIndex }) => {
+          <ReactSortable
+            list={this.props.list.map((item) => ({ ...item, id: item.dataKey }))}
+            setList={() => {}}
+            onEnd={({ oldIndex, newIndex }) => {
               document.body.style.cursor = 'default';
               this.props.onSortEnd({ oldIndex, newIndex });
             }}
-            onSortStart={() => {
+            onStart={() => {
               document.body.style.cursor = 'grabbing';
             }}
-            useDragHandle
+            handle=".drag-handle"
           >
             {this.props.list.map((item, index) => (
               <VisSortableItem
@@ -63,7 +64,7 @@ export default class VisDataTableControl extends PureComponent {
                 onCheckChanged={this.props.onCheckChanged}
               />
             ))}
-          </SortableContainer>
+          </ReactSortable>
         </Popover.Body>
       </Popover>
     );

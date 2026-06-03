@@ -1,0 +1,201 @@
+{
+    "HOME_URL":"https://pathdb.cancerimagingarchive.net/",
+    "TITLE": "PRISM Clinical Explorer",
+    "HEIGHT_OF_VIS_HEADER": 30,
+    "MARGIN_OF_VIS": [10, 10],
+    "UNIT_OF_GRID_VIEW": [224,200],
+    "MARGIN_OF_GRID_VIEW": [10, 10],
+    "DATA_RESOURCE_URL":"https://pathdb.cancerimagingarchive.net/pathdb/sparql?format=csv&query=prefix+%3A+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%2Fns%2F%3E%0ASELECT+*+WHERE+{graph+%3Chttps%3A%2F%2Fbmi.stonybrookmedicine.edu%2Ftil%3E+{%0A++++%3Fsss+%3APathDBID+%3FPathDBID%3B+%3Aclinicaltrialsubjectid+%3FslideID+.+%3Fss+%3Asubmitter_id+%3Fsubmitter_id%3B+%3Apercent_pos+%3Fpercent_pos%3B+%3ATIL_classhalf+%3FTIL_classhalf%3B+%3Acollapsed_stage+%3Fcollapsed_stage%3B+%3AsurvivalB+%3FsurvivalB+.+%3Fs%0A++++++%3Asubmitter_id+%3Fsubmitter_id%3B%0A++++++%3Aajcc_pathologic_stage+%3Fajcc_pathologic_stage%3B%0A++++++%3Aprimary_diagnosis+%3Fprimary_diagnosis%3B%0A++++++%3Aprior_malignancy+%3Fprior_malignancy%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3Avital_status+%3Fvital_status%3B%0A++++++%3ABreast_Tumor_Type+%3FBreast_Tumor_Type%3B%0A++++++%3AsurvivalA+%3FsurvivalA%3B%0A++++++%3AslideID+%3FslideID%3B%0A++++++%3APercent_TILs_in_tumor_region+%3FPercent_TILs_in_tumor_region%3B%0A++++++%3AImmune_Subtype+%3FImmune_Subtype%3B%0A++++++%3AMolwxular_Cybersort_Lymphocytes+%3FMolwxular_Cybersort_Lymphocytes%3B%0A++++++%3AGlobal_Pattern+%3FGlobal_Pattern}}",
+    "DATA_FORMAT":"csv",
+    "VISUALIZATION_VIEW_CONFIGURATION": [
+        {
+          "id": "vital_status",
+          "title": "Vital Status",
+          "description": "Showing the number of patients in Vital Status",
+          "chartType": "PIE_CHART",
+          "fields":{"x":"vital_status"},
+          "size": [1, 1],
+          "priority": 60
+        },
+        {
+          "id": "breast_tumor_type",
+          "title": "Breast Tumor Type",
+          "description": "Showing the number of patients in Vital Status",
+          "chartType": "PIE_CHART",
+          "fields":{"x":"Breast_Tumor_Type"},
+          "size": [1, 1],
+          "priority": 60
+        }, 
+        {
+          "id": "ajcc_pathologic_stage",
+          "title": "Pathologic Stage Count",
+          "description": "Showing the number of patients in Pathologic Stage",
+          "chartType": "BAR_CHART",
+          "fields":{"x":"ajcc_pathologic_stage"},
+          "size": [2, 1],
+          "priority": 50        
+        },
+        {
+          "id": "km_curve",
+          "title": "TIL Infiltration",
+          "description": "KM_CURVE",
+          "chartType": "KM_CURVE",
+          "fields":{
+            "event":{"field":"vital_status","title":"Vital Status"},
+            "time":{"field":"survivalB","title":"Survival","unit":"month"},
+            "group":{"field":"TIL_classhalf","title":"TIL Infiltration"},
+            "eventValue":"Dead",
+            "censoredValue":"Alive"
+
+          },
+          "size": [2, 2],
+          "priority": 5        
+        },
+        {
+          "id": "basal_km_curve",
+          "title": "Basal KM Curve",
+          "description": "Basal KM Curve",
+          "chartType": "KM_CURVE",
+          "fields":{
+            "event":{"field":"vital_status","title":"Vital Status"},
+            "time":{"field":"survivalB","title":"Survival","unit":"month"},
+            "group":{"field":"TIL_classhalf","title":"TIL Infiltration"},
+            "eventValue":"Dead",
+            "censoredValue":"Alive"
+          },
+          "filter":{"field":"Breast_Tumor_Type","value":"Basal"},
+          "size": [2, 2],
+          "priority": 5        
+        },{
+          "id": "her2_km_curve",
+          "title": "Her2 KM Curve",
+          "description": "Her2 KM Curve",
+          "chartType": "KM_CURVE",
+          "fields":{
+            "event":{"field":"vital_status","title":"Vital Status"},
+            "time":{"field":"survivalB","title":"Survival","unit":"month"},
+            "group":{"field":"TIL_classhalf","title":"TIL Infiltration"},
+            "eventValue":"Dead",
+            "censoredValue":"Alive"
+          },
+          "filter":{"field":"Breast_Tumor_Type","value":"Her2"},
+          "size": [2, 2],
+          "priority": 5        
+        },{
+          "id": "luma_km_curve",
+          "title": "LumaA KM Curve",
+          "description": "LumaA KM Curve",
+          "chartType": "KM_CURVE",
+          "fields":{
+            "event":{"field":"vital_status","title":"Vital Status"},
+            "time":{"field":"survivalB","title":"Survival","unit":"month"},
+            "group":{"field":"TIL_classhalf","title":"TIL Infiltration"},
+            "eventValue":"Dead",
+            "censoredValue":"Alive"
+          },
+          "filter":{"field":"Breast_Tumor_Type","value":"LumA"},
+          "size": [2, 2],
+          "priority": 5        
+        },{
+          "id": "lumb_km_curve",
+          "title": "LumB KM Curve",
+          "description": "LumB KM Curve",
+          "chartType": "KM_CURVE",
+          "fields":{
+            "event":{"field":"vital_status","title":"Vital Status"},
+            "time":{"field":"survivalB","title":"Survival","unit":"month"},
+            "group":{"field":"TIL_classhalf","title":"TIL Infiltration"},
+            "eventValue":"Dead",
+            "censoredValue":"Alive"
+          },
+          "filter":{"field":"Breast_Tumor_Type","value":"LumB"},
+          "size": [2, 2],
+          "priority": 5        
+        },  
+        {
+          "id": "immune_subtype",
+          "title": "Immune Subtype",
+          "description": "Showing the number of patients in gender",
+          "chartType": "BAR_CHART",
+          "fields":{"x":"Immune_Subtype"},
+          "size": [1, 1],
+          "priority": 50
+        },
+        {
+          "id": "global_pattern",
+          "title": "Global Pattern",
+          "description": "Showing the number of patients in gender",
+          "chartType": "HORIZONTAL_BAR_CHART",
+          "fields":{"y":"Global_Pattern"},
+          "size": [1, 1],
+          "priority": 10
+        },
+        {
+          "id": "primary_diagnosis",
+          "title": "Primary Diagnosis",
+          "description": "Showing the number of patients in primary diagnosis",
+          "chartType": "HORIZONTAL_BAR_CHART",
+          "fields":{"y":"primary_diagnosis"},
+          "size": [2, 2],
+          "priority": 20        
+        },       
+        {
+          "id": "TILPercent_survivalA_lymph_scatter",
+          "title": "TILs vs survivalA vs Lymph",
+          "description": "Showing the age and Age in scatter plot",
+          "chartType": "SCATTER_CHART",
+          "fields":{"x":"Percent_TILs_in_tumor_region","y":"survivalA","z":"Molwxular_Cybersort_Lymphocytes"},
+          "size": [2, 2],
+          "priority": 30
+        },
+        { 
+          "id":"clinical_data_table",
+          "title": "Clinical Data Table",
+          "description": "Showing Clinical Data",
+          "chartType": "VIS_DATA_TABLE",
+          "fields":[
+            {
+              "dataKey":"submitter_id",
+              "label":"ID"
+            },
+            {
+              "dataKey":"slideID",
+              "label":"Slide ID",
+              "link":{
+                "url":"https://pathdb.cancerimagingarchive.net/caMicroscope/apps/viewer/viewer.html?mode=pathdb&slideId=",
+                "field":"PathDBID"
+              }
+            },
+            {
+              "dataKey":"ajcc_pathologic_stage",
+              "label":"Pathologic Stage"
+            },
+            {
+              "dataKey":"vital_status",
+              "label":"Vital Status"
+            },
+            {
+              "dataKey":"Breast_Tumor_Type",
+              "label":"Breast Tumor Type"
+            },
+            {
+              "dataKey":"survivalA",
+              "label":"Survival A"
+            },{
+              "dataKey":"Percent_TILs_in_tumor_region",
+              "label":"TILs Percent"
+            },{
+              "dataKey":"Immune_Subtype",
+              "label":"Immune Subtype"
+            },{
+              "dataKey":"Molwxular_Cybersort_Lymphocytes",
+              "label":"Lymphocytes"
+            },{
+              "dataKey":"Global_Pattern",
+              "label":"Global Pattern"
+            }],
+          "size": [4, 2],
+          "priority": 70
+        }
+      ]
+}

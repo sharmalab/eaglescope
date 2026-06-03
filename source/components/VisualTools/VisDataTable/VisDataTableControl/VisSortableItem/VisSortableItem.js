@@ -1,18 +1,13 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGripLines } from '@fortawesome/free-solid-svg-icons';
-import { sortableElement, sortableHandle } from 'react-sortable-hoc';
 import './VisSortableItem.css';
 
-const DragHandle = sortableHandle(() => (
-  <div className="drag-handle">
-    <FontAwesomeIcon icon={faGripLines} />
-  </div>
-));
-
-const VisSortableItem = sortableElement((props) => (
+const VisSortableItem = (props) => (
   <div className="vis-sortable-item ">
-    <DragHandle />
+    <div className="drag-handle">
+      <FontAwesomeIcon icon={faGripLines} />
+    </div>
     <div className="truncated-text" title={props.label}>
       {props.label}
     </div>
@@ -26,6 +21,6 @@ const VisSortableItem = sortableElement((props) => (
       />
     </div>
   </div>
-));
+);
 
 export default VisSortableItem;
