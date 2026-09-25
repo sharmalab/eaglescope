@@ -5,19 +5,38 @@ function isNumeric(str) {
   return typeof str === 'string' && /^[+-]?(?:\d+(\.\d*)?|\.\d+)([eE][+-]?\d+)?$/.test(str);
 }
 
-function covertRaw(elt) {
-  Object.keys(elt).forEach((key) => {
-    const raw = elt[key];
-    if (isNumeric(raw)) {
-      elt[key] = +raw;
-    } else if (raw === 'true' || raw === 'false') {
-      elt[key] = raw === 'true';
-    }
-  });
-  return elt;
+function isBoolean(str) {
+  return str === 'true' || str === 'false';
 }
 
-const useFetch = (url, type = 'json') => {
+// Infer types per column rather than per cell, so an id column holding values
+// like "6E45" or "4E11" alongside "A1B2" stays text instead of turning those
+// cells into 6e45 / 400000000000. A column is only converted when every
+// non-empty value in it qualifies. Columns listed in stringFields are never
+// converted (for id columns where every value happens to look numeric).
+function convertColumns(rows, stringFields = []) {
+  if (!rows.length) return rows;
+  const skip = new Set(stringFields);
+  const columns = rows.columns || Object.keys(rows[0]);
+  columns.forEach((key) => {
+    if (skip.has(key)) return;
+    const values = rows.map((r) => r[key]).filter((v) => v !== '' && v != null);
+    if (!values.length) return;
+    if (values.every(isNumeric)) {
+      rows.forEach((r) => {
+        if (isNumeric(r[key])) r[key] = +r[key];
+      });
+    } else if (values.every(isBoolean)) {
+      rows.forEach((r) => {
+        if (isBoolean(r[key])) r[key] = r[key] === 'true';
+      });
+    }
+  });
+  return rows;
+}
+
+const useFetch = (url, type = 'json', stringFields = []) => {
+  const stringFieldsKey = stringFields.join('\u0000');
   const [data, setData] = useState(null);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState(null);
@@ -43,7 +62,8 @@ const useFetch = (url, type = 'json') => {
           let cache = null;
 
           if (cacheAvailable) {
-            cache = await caches.open('csv-cache');
+            // v2: typing moved to per-column; ignore entries parsed the old way.
+            cache = await caches.open('csv-cache-v2');
             const cachedResponse = await cache.match(url);
             const cachedLastModified = await cache.match(`${url}-last-modified`);
 
@@ -66,7 +86,7 @@ const useFetch = (url, type = 'json') => {
           }
 
           // Fetch fresh data if it's not cached, outdated, or caching is unavailable
-          const csvData = await d3.csv(url, covertRaw);
+          const csvData = convertColumns(await d3.csv(url), stringFields);
           setData(csvData);
           setIsPending(false);
           setError(null);
@@ -130,7 +150,10 @@ const useFetch = (url, type = 'json') => {
     fetchData();
 
     return () => abortCont.abort();
-  }, [url, type]);
+    // stringFieldsKey stands in for stringFields so a new array with the same
+    // contents doesn't refetch.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [url, type, stringFieldsKey]);
 
   return {
     error,

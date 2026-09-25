@@ -1,0 +1,208 @@
+{
+  "TITLE": "TCIA Histopathology Custom Dataset Builder",
+  "HEIGHT_OF_VIS_HEADER": 30,
+  "MARGIN_OF_VIS": [10, 10],
+  "UNIT_OF_GRID_VIEW": [224,200],
+  "MARGIN_OF_GRID_VIEW": [10, 10],
+  "DATA_RESOURCE_URL":"./config/cohort_builder_v1_01-16-2024.csv",
+  "DOWNLOAD_FIELD":"camic_id",
+  "DATA_FORMAT":"csv",
+  "VISUALIZATION_VIEW_CONFIGURATION": [
+    {
+      "id":"cohort_builder_table",
+      "title": "Cohort Builder Table",
+      "description": "Showing common data across all TCIA histopathology collections",
+      "downloadField": "camic_id",
+      "chartType": "SEL_DATA_TABLE",
+      "fields":[
+        {
+          "dataKey":"collection",
+          "label":"Collection",
+          "link":{
+            "url":"https://doi.org/",
+            "field":"collection_doi"
+          }
+        },{
+          "dataKey":"patient_id",
+          "label":"Patient ID"
+        },{
+          "dataKey":"slide_id",
+          "label":"Slide ID"
+        },{
+          "dataKey":"view",
+          "label":"View Image",
+          "link":{
+            "url":"https://pathdb.cancerimagingarchive.net/caMicroscope/apps/mini/viewer.html?mode=pathdb&slideId=",
+            "field":"camic_id"
+          }
+        },{
+          "dataKey":"has_radiology",
+          "label":"Has Radiology"
+        },{
+          "dataKey":"view_rad",
+          "label":"Explore Radiology",
+          "link":{
+            "url":"",
+            "field":"nbia_id"
+          }
+        },{
+          "dataKey":"has_genomics",
+          "label":"Has Genomics"
+        },{
+          "dataKey":"has_proteomics",
+          "label":"Has Proteomics"
+        },{
+          "dataKey":"species",
+          "label":"Species"
+        },{
+          "dataKey":"cancer_type",
+          "label":"Cancer Type"
+        },{
+          "dataKey":"cancer_location",
+          "label":"Cancer Location"
+        },{
+          "dataKey":"data_format",
+          "label":"Data Format"
+        },{
+          "dataKey":"supporting_data_type",
+          "label":"Supporting Data"
+        },{
+          "dataKey":"modality",
+          "label":"Image Type or Modality"
+        },{
+          "dataKey":"protocol",
+          "label":"Staining Protocol"
+        },{
+          "dataKey":"par",
+          "label":"Pixel Aspect Ratio"
+        },{
+          "dataKey":"magnification",
+          "label":"Magnification"
+        },{
+          "dataKey":"access",
+          "label":"Access"
+      },{
+          "dataKey":"update",
+          "label":"Updated"
+        }],
+      "size": [9, 2],
+      "priority": 100
+    },
+    {
+      "id": "text",
+      "title": "File downloads on this site",
+      "description": "Downloads are currently limited to 10 concurrent files. Aspera Faspex is recommended for bulk file downloads. Please see collection specific page, by clicking on the collection name in the Cohort Builder Table, for more information.",
+      "chartType": "TEXT_CONTAINER",
+      "size": [9, 1],
+      "priority": 50
+    },
+    {
+      "id": "collection",
+      "title": "TCIA Collection",
+      "description": "List of TCIA Collections",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"collection"},
+      "size": [3, 4],
+      "priority": 50
+    },
+    {
+      "id": "has_radiology",
+      "title": "Has Radiology",
+      "description": "Showing if case contains radiology data",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"has_radiology"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "has_genomics",
+      "title": "Has Genomics",
+      "description": "Showing if case contains genomic data",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"has_genomics"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "has_proteomics",
+      "title": "Has Proteomics",
+      "description": "Showing if case contains proteomic data",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"has_proteomics"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "cancer_type",
+      "title": "Cancer Type",
+      "description": "Showing the cancer type",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"cancer_type"},
+      "size": [2, 3],
+      "priority": 50
+    },
+    {
+      "id": "cancer_location",
+      "title": "Cancer Location",
+      "description": "Showing the location of cancer type",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y": "cancer_location"},
+      "size": [3, 3],
+      "priority": 50
+    },
+    {
+      "id": "species",
+      "title": "Species",
+      "description": "Showing the number of collection in Species",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"species"},
+      "size": [2, 2],
+      "priority": 10
+    },
+    {
+      "id": "data_format",
+      "title": "Data Format",
+      "description": "Showing the number of collection in Data Format",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"data_format"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "supporting_data_type",
+      "title": "Supporting Data",
+      "description": "Showing any supporting data types if available",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"supporting_data_type"},
+      "size": [2, 2],
+      "priority": 60
+    },
+    {
+      "id": "protocol",
+      "title": "Staining Protocol",
+      "description": "",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"protocol"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "modality",
+      "title": "Image Type or Modality",
+      "description": "Showing the modality of data",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"modality"},
+      "size": [2, 2],
+      "priority": 50
+    },
+    {
+      "id": "magnification",
+      "title": "Magnification",
+      "description": "Showing the magnification lvl of slide if available",
+      "chartType": "HORIZONTAL_BAR_CHART",
+      "fields":{"y":"magnification"},
+      "size": [2, 2],
+      "priority": 10
+    }
+  ]
+}

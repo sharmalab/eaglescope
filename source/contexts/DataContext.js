@@ -68,7 +68,11 @@ export default function DataContextProvider({ children }) {
   const [filteredData, setFilteredData] = useState([]);
   const filtersRef = useRef();
   const [filters, setFilters] = useState([]);
-  const { error: dataError, data } = useFetch(config?.DATA_RESOURCE_URL, config?.DATA_FORMAT);
+  const { error: dataError, data } = useFetch(
+    config?.DATA_RESOURCE_URL,
+    config?.DATA_FORMAT,
+    config?.STRING_FIELDS,
+  );
 
   const addFiltersHandler = (toAddFilters) => {
     const oldFilters = [...filtersRef.current];
