@@ -18,7 +18,9 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
   const [resizingItemId, setResizingItemId] = useState(null);
   const [appLayout, setAppLayout] = useState({
     width: 0,
+    currentCols: 0,
     layout: [],
+    margins,
     grid,
   });
   const self = useRef();
@@ -41,6 +43,7 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
   }, [AllVisConfig, designation]);
 
   const updateViewSize = () => {
+    if (!self.current) return;
     const rect = self.current.getBoundingClientRect();
 
     const containerWidth = rect.width;
@@ -92,6 +95,7 @@ function SideView({ fullVisScreenHandler, fullScreened, designation }) {
     window.addEventListener('resize', debouncedUpdateViewSize);
     return () => {
       window.removeEventListener('resize', debouncedUpdateViewSize);
+      debouncedUpdateViewSize.cancel();
     };
   }, [config.UNIT_OF_GRID_VIEW, visConfig]);
 
